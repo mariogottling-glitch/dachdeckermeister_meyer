@@ -16,13 +16,13 @@ body{font-size:16px;font-weight:400}.eyebrow,.section-kicker{font-size:12px;line
 
 /* Konstruktiv unterscheidbare Dachschichten im technischen Blueprint. */
 .roof-layer{fill:none;stroke:#fff;stroke-width:4;stroke-linecap:round;stroke-linejoin:round;opacity:0;transform-origin:center;transition:opacity .6s var(--ease),stroke .6s var(--ease),filter .6s var(--ease)}
-.roof-layer.complete{opacity:.24;stroke:#fff}
+.roof-layer.complete{opacity:.18;stroke:#fff}
 .roof-layer.active{opacity:1;stroke:var(--accent);filter:drop-shadow(0 0 10px #00b0bb45)}
 .structural-main,.structural-inner,.insulation-edge,.membrane-seam,.membrane-dash,.covering-outline,.tile-rows,.battens{fill:none}
-.structural-main{stroke-width:7}.structural-inner{stroke-width:3}.joint{fill:var(--dark);stroke-width:3}
-.insulation-body{fill:url(#insulation-hatch);stroke-width:2}.insulation-edge{stroke-width:5}#insulation-hatch line{stroke:var(--accent);stroke-width:5;stroke-opacity:.46}
-.membrane{fill:#ffffff08;stroke-width:3}.membrane-seam{stroke-width:4}.membrane-dash{stroke-width:1.5;stroke-dasharray:8 10}
-.covering-outline{stroke-width:7}.ridge-cap{fill:var(--dark);stroke-width:4}.tile-rows{stroke-width:3}.battens{stroke-width:2;stroke-opacity:.58}
+.structural-main{stroke-width:6}.structural-inner{stroke-width:2.5}.joint{fill:var(--dark);stroke-width:3}
+.insulation-body{fill:url(#insulation-hatch);stroke-width:2}.insulation-edge{stroke-width:4}#insulation-hatch line{stroke:var(--accent);stroke-width:3;stroke-opacity:.3}
+.membrane{fill:#ffffff06;stroke-width:2.5}.membrane-seam{stroke-width:2.5}.membrane-dash{stroke-width:1.25;stroke-dasharray:10 13}
+.covering-outline{stroke-width:6}.ridge-cap{fill:var(--dark);stroke-width:3}.tile-rows{stroke-width:2.5}.battens{stroke-width:1.5;stroke-opacity:.38}
 @media(max-width:640px){body{font-size:16px}.eyebrow,.section-kicker{font-size:11px}.hero-stats span{font-size:9px}.service-tabs button{font-size:14px}.service-tabs span{font-size:10px}.accordion summary{font-size:17px}.choice-grid span{font-size:11px}}
 
 /* Concept additions: personal trust, guided diagnosis and qualified inquiry. */
