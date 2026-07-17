@@ -17,10 +17,10 @@ function initHeroBridge() {
   const cover = document.querySelector('.hero-cover');
   const transitionImage = cover?.querySelector('.hero-cover-transition');
   const coverStage = cover?.querySelector('.hero-cover-stage');
-  const baseImage = cover?.querySelector('.hero-cover-background');
+  const baseImage = cover?.querySelector('img:not(.hero-cover-transition)');
   const shade = cover?.querySelector('.hero-shade');
   const coverVeil = cover?.querySelector('.hero-cover-veil');
-  const coverContent = cover?.querySelectorAll('.hero-grid, .hero-house-foreground, .cover-scroll');
+  const coverContent = cover?.querySelectorAll('.hero-grid, .cover-scroll');
   const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (!cover || !coverStage || !transitionImage || !coverVeil || reducedMotion || !window.gsap || !window.ScrollTrigger) return;
 
