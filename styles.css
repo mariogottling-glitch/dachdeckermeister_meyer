@@ -13,6 +13,16 @@
 
 /* Readability pass: retain the fine architectural feel at accessible sizes. */
 body{font-size:16px;font-weight:400}.eyebrow,.section-kicker{font-size:12px;line-height:1.45}.site-header nav,.header-cta{font-size:12px;font-weight:500}.button{font-size:12px;font-weight:600}.hero-stats strong{font-size:26px}.hero-stats span{font-size:11px;line-height:1.35}.scroll-cue{font-size:10px}.intro-copy>div p,.section-head>p{font-size:18px;line-height:1.65}.principles span,.mini-label{font-size:11px}.principles p,.service-content p,.timeline p,.faq>div>p,.accordion details p,.contact-intro>p{font-size:16px;line-height:1.65}.layer b{font-size:11px}.layer span{font-size:16px}.layer small{font-size:11px;line-height:1.4}.layer-readout span{font-size:10px}.layer-readout p{font-size:14px;line-height:1.5}.service-tabs button{font-size:16px;font-weight:500}.service-tabs span{font-size:11px}.service-content a{font-size:12px;font-weight:600}.project-overlay>div>span{font-size:12px}.project p{font-size:17px;line-height:1.6}.project-facts small{font-size:10px}.project-facts strong{font-size:22px}.timeline b{font-size:12px}.timeline>li>span{font-size:11px}.accordion summary{font-size:19px;line-height:1.45}.contact-person strong{font-size:15px}.contact-person small{font-size:11px}.choice-grid span,legend{font-size:12px}.form-grid label{font-size:11px}.form-grid input,.form-grid textarea{font-size:17px}.form-foot small{font-size:10px;line-height:1.5}footer>div{font-size:11px}footer>small{font-size:10px}
+
+/* Konstruktiv unterscheidbare Dachschichten im technischen Blueprint. */
+.roof-layer{fill:none;stroke:#fff;stroke-width:4;stroke-linecap:round;stroke-linejoin:round;opacity:0;transform-origin:center;transition:opacity .6s var(--ease),stroke .6s var(--ease),filter .6s var(--ease)}
+.roof-layer.complete{opacity:.24;stroke:#fff}
+.roof-layer.active{opacity:1;stroke:var(--accent);filter:drop-shadow(0 0 10px #00b0bb45)}
+.structural-main,.structural-inner,.insulation-edge,.membrane-seam,.membrane-dash,.covering-outline,.tile-rows,.battens{fill:none}
+.structural-main{stroke-width:7}.structural-inner{stroke-width:3}.joint{fill:var(--dark);stroke-width:3}
+.insulation-body{fill:url(#insulation-hatch);stroke-width:2}.insulation-edge{stroke-width:5}#insulation-hatch line{stroke:var(--accent);stroke-width:5;stroke-opacity:.46}
+.membrane{fill:#ffffff08;stroke-width:3}.membrane-seam{stroke-width:4}.membrane-dash{stroke-width:1.5;stroke-dasharray:8 10}
+.covering-outline{stroke-width:7}.ridge-cap{fill:var(--dark);stroke-width:4}.tile-rows{stroke-width:3}.battens{stroke-width:2;stroke-opacity:.58}
 @media(max-width:640px){body{font-size:16px}.eyebrow,.section-kicker{font-size:11px}.hero-stats span{font-size:9px}.service-tabs button{font-size:14px}.service-tabs span{font-size:10px}.accordion summary{font-size:17px}.choice-grid span{font-size:11px}}
 
 /* Concept additions: personal trust, guided diagnosis and qualified inquiry. */

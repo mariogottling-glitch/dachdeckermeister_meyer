@@ -23,7 +23,10 @@ const layerButtons = [...document.querySelectorAll('.layer')];
 const roofLayers = [...document.querySelectorAll('.roof-layer')];
 function setLayer(index) {
   layerButtons.forEach((button, i) => button.classList.toggle('active', i === index));
-  roofLayers.forEach((layer, i) => layer.classList.toggle('active', i === index));
+  roofLayers.forEach((layer, i) => {
+    layer.classList.toggle('active', i === index);
+    layer.classList.toggle('complete', i < index);
+  });
   document.querySelector('#layer-name').textContent = layerData[index][0];
   document.querySelector('#layer-detail').textContent = layerData[index][1];
 }

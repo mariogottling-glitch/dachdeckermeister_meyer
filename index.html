@@ -82,11 +82,32 @@
         <div class="roof-stage" aria-label="Interaktive Darstellung eines Dachaufbaus">
           <div class="blueprint-grid"></div>
           <svg viewBox="0 0 700 560" role="img" aria-label="Technischer Dachquerschnitt mit vier Ebenen">
+            <defs>
+              <pattern id="insulation-hatch" width="18" height="18" patternUnits="userSpaceOnUse" patternTransform="rotate(34)">
+                <line x1="0" y1="0" x2="0" y2="18" />
+              </pattern>
+            </defs>
             <g class="roof-lines"><path d="M90 420 L350 120 L610 420"/><path d="M150 420 L350 190 L550 420"/><path d="M350 120 L350 465"/><path d="M90 420 H610"/></g>
-            <g class="roof-layer active" data-layer="0"><path d="M135 415 L350 165 L565 415"/><path d="M176 415 L350 215 L524 415"/><line x1="220" y1="365" x2="350" y2="215"/><line x1="480" y1="365" x2="350" y2="215"/></g>
-            <g class="roof-layer" data-layer="1"><path d="M120 390 L350 125 L580 390 L555 412 L350 175 L145 412 Z"/></g>
-            <g class="roof-layer" data-layer="2"><path d="M104 373 L350 90 L596 373 L579 388 L350 125 L121 388 Z"/></g>
-            <g class="roof-layer" data-layer="3"><path d="M87 355 L350 52 L613 355"/><path d="M112 374 L350 100 L588 374"/><path d="M165 286 L350 72 L535 286"/><path d="M218 225 L350 73 L482 225"/></g>
+            <g class="roof-layer active" data-layer="0">
+              <path class="structural-main" d="M135 415 L350 165 L565 415 M135 415 H565 M350 165 V415"/>
+              <path class="structural-inner" d="M176 415 L350 215 L524 415 M176 415 H524 M220 365 L350 215 L480 365 M265 315 L350 415 L435 315"/>
+              <circle class="joint" cx="350" cy="215" r="7"/><circle class="joint" cx="220" cy="365" r="5"/><circle class="joint" cx="480" cy="365" r="5"/>
+            </g>
+            <g class="roof-layer" data-layer="1">
+              <path class="insulation-body" d="M120 390 L350 125 L580 390 L555 412 L350 175 L145 412 Z"/>
+              <path class="insulation-edge" d="M120 390 L350 125 L580 390 M145 412 L350 175 L555 412"/>
+            </g>
+            <g class="roof-layer" data-layer="2">
+              <path class="membrane" d="M104 373 L350 90 L596 373 L579 388 L350 125 L121 388 Z"/>
+              <path class="membrane-seam" d="M179 302 l18 16 M247 224 l18 16 M315 146 l18 16 M367 145 l-18 16 M435 223 l-18 16 M503 301 l-18 16"/>
+              <path class="membrane-dash" d="M118 371 L350 105 L582 371"/>
+            </g>
+            <g class="roof-layer" data-layer="3">
+              <path class="covering-outline" d="M87 355 L350 52 L613 355 M112 374 L350 100 L588 374"/>
+              <path class="ridge-cap" d="M326 80 Q350 42 374 80 L350 108 Z"/>
+              <path class="tile-rows" d="M112 326 l39 34 M145 288 l39 34 M178 250 l39 34 M211 212 l39 34 M244 174 l39 34 M277 136 l39 34 M588 326 l-39 34 M555 288 l-39 34 M522 250 l-39 34 M489 212 l-39 34 M456 174 l-39 34 M423 136 l-39 34"/>
+              <path class="battens" d="M165 286 L350 72 L535 286 M218 225 L350 73 L482 225"/>
+            </g>
             <g class="dimension"><line x1="82" y1="455" x2="618" y2="455"/><text x="350" y="486" text-anchor="middle">DACHBREITE / 11.640 MM</text><line x1="640" y1="405" x2="640" y2="114"/><text x="659" y="265" transform="rotate(90 659 265)">FIRSTHÖHE / 4.280 MM</text></g>
           </svg>
           <div class="layer-readout"><span>AKTIVE EBENE</span><strong id="layer-name">Tragwerk</strong><p id="layer-detail">Lasten sicher aufnehmen und präzise in das Gebäude ableiten.</p></div>
