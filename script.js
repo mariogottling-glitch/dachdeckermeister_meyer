@@ -30,6 +30,8 @@ function initCinematicHero() {
   const markers = hero.querySelector('.overview-markers');
   const flatLayers = [...hero.querySelectorAll('.flat-exploded i')];
   const facadeLayers = [...hero.querySelectorAll('.facade-layers i')];
+  const flatBuildOrder = [...flatLayers].reverse();
+  const facadeBuildOrder = [...facadeLayers].reverse();
   const connectionPaths = [...hero.querySelectorAll('.connection-map path')];
   let activeScene = -1;
 
@@ -48,7 +50,8 @@ function initCinematicHero() {
   gsap.set(frames, { autoAlpha: 0, scale: 1.025 });
   gsap.set(frames[1], { autoAlpha: 1, scale: 1 });
   gsap.set(markers, { autoAlpha: 0 });
-  gsap.set([...flatLayers, ...facadeLayers], { autoAlpha: 0, x: 28 });
+  gsap.set(flatLayers, { autoAlpha: 0, y: 14 });
+  gsap.set(facadeLayers, { autoAlpha: 0, x: -18 });
   connectionPaths.forEach(path => {
     const length = path.getTotalLength();
     gsap.set(path, { strokeDasharray: length, strokeDashoffset: length });
@@ -83,14 +86,14 @@ function initCinematicHero() {
   timeline.to(scenes[1], { autoAlpha: 0, y: -20, duration: .22 }, 1.48);
   transitionFrame(2, 3, 1.59);
   timeline.fromTo(scenes[2], { autoAlpha: 0, y: 24 }, { autoAlpha: 1, y: 0, duration: .26 }, 2.04);
-  timeline.to(flatLayers, { autoAlpha: 1, x: 0, stagger: .06, duration: .28 }, 2.16);
-  timeline.to(flatLayers, { autoAlpha: 0, x: 18, stagger: .03, duration: .2 }, 2.43);
+  timeline.to(flatBuildOrder, { autoAlpha: 1, y: 0, stagger: .045, duration: .18 }, 2.10);
+  timeline.to(flatLayers, { autoAlpha: 0, y: -8, stagger: .015, duration: .16 }, 2.43);
 
   timeline.to(scenes[2], { autoAlpha: 0, y: -20, duration: .22 }, 2.48);
   transitionFrame(3, 4, 2.59);
   timeline.fromTo(scenes[3], { autoAlpha: 0, y: 24 }, { autoAlpha: 1, y: 0, duration: .26 }, 3.04);
-  timeline.to(facadeLayers, { autoAlpha: 1, x: 0, stagger: .06, duration: .28 }, 3.16);
-  timeline.to(facadeLayers, { autoAlpha: 0, x: -18, stagger: .03, duration: .2 }, 3.43);
+  timeline.to(facadeBuildOrder, { autoAlpha: 1, x: 0, stagger: .045, duration: .18 }, 3.10);
+  timeline.to(facadeLayers, { autoAlpha: 0, x: 10, stagger: .015, duration: .16 }, 3.43);
 
   timeline.to(scenes[3], { autoAlpha: 0, y: -20, duration: .22 }, 3.48);
   transitionFrame(4, 5, 3.59);
