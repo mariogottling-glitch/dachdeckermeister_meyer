@@ -191,13 +191,13 @@ function updateAssembly() {
 addEventListener('scroll', updateAssembly, { passive: true });
 
 const services = {
-  steildach: ['01', 'Konstruktion & Eindeckung', 'Steildächer mit klarer Linie.', 'Von der energetischen Sanierung bis zum Neubau: technisch sauber geplant, handwerklich präzise ausgeführt und passend zur Architektur Ihres Hauses.', 'assets/service-steildach.webp', 'Präzise ausgeführtes anthrazitfarbenes Steildach an einem modernen Wohnhaus'],
-  flachdach: ['02', 'Abdichtung & Entwässerung', 'Flachdächer ohne Kompromisse.', 'Sichere Abdichtung, durchdachte Entwässerung und kontrollierte Details – für langlebige Flächen auf Wohnhaus, Anbau oder Gewerbegebäude.', 'assets/service-flachdach.webp', 'Modernes Flachdach mit präziser Attika, Entwässerung und dezentem Gründachstreifen'],
-  fenster: ['03', 'Licht & Raumkomfort', 'Mehr Himmel. Mehr Zuhause.', 'Wir integrieren Dachfenster so, dass Tageslicht, Wärmeschutz, Verschattung und Anschlüsse als ein funktionierendes System zusammenspielen.', 'assets/service-dachfenster.webp', 'Großes Dachfenster bringt weiches Tageslicht in einen modernen Dachraum'],
-  pv: ['04', 'Energie & Dachintegration', 'Photovoltaik. Präzise integriert.', 'Wir betrachten Modulflächen, Befestigung, Leitungswege und Dachanschlüsse gemeinsam – für eine leistungsfähige Anlage ohne Kompromisse beim Wetterschutz.', 'assets/hero-scenes/roof-pv.webp', 'In das anthrazitfarbene Steildach integrierte Photovoltaikanlage'],
-  fassade: ['05', 'Wärmeschutz & Gebäudehaut', 'Fassaden, die dauerhaft schützen.', 'Dämmung, Putz, Anschlüsse und Fensterdetails werden als zusammenhängende Gebäudehaut geplant – energetisch wirksam und architektonisch ruhig.', 'assets/hero-scenes/facade.webp', 'Moderne helle Fassade mit präzisen Fenster- und Dachanschlüssen'],
-  klempnerei: ['06', 'Metall & Entwässerung', 'Bauklempnerei bis ins Detail.', 'Dachrinnen, Fallrohre, Attiken und Zinkanschlüsse führen Wasser kontrolliert ab und schützen besonders sensible Übergänge dauerhaft.', 'assets/service-wartung.webp', 'Präzise ausgeführter Metallanschluss und Dachrinne'],
-  service: ['07', 'Substanz & Werterhalt', 'Kleine Ursache. Sauber gelöst.', 'Wir finden Schäden früh, reparieren nachvollziehbar und dokumentieren den Zustand – damit aus einem Detail kein großes Problem wird.', 'assets/service-wartung.webp', 'Fachgerechte Kontrolle eines Metallanschlusses und der Dachrinne mit einem Messwerkzeug']
+  steildach: ['01', 'Konstruktion & Eindeckung', 'Steildächer mit klarer Linie.', 'Von der energetischen Sanierung bis zum Neubau: technisch sauber geplant, handwerklich präzise ausgeführt und passend zur Architektur Ihres Hauses.', 'assets/service-steildach.webp', 'Präzise ausgeführtes anthrazitfarbenes Steildach an einem modernen Wohnhaus', 'leistungen/steildach.html'],
+  flachdach: ['02', 'Abdichtung & Entwässerung', 'Flachdächer ohne Kompromisse.', 'Sichere Abdichtung, durchdachte Entwässerung und kontrollierte Details – für langlebige Flächen auf Wohnhaus, Anbau oder Gewerbegebäude.', 'assets/service-flachdach.webp', 'Modernes Flachdach mit präziser Attika, Entwässerung und dezentem Gründachstreifen', 'leistungen/flachdach.html'],
+  fenster: ['03', 'Licht & Raumkomfort', 'Mehr Himmel. Mehr Zuhause.', 'Wir integrieren Dachfenster so, dass Tageslicht, Wärmeschutz, Verschattung und Anschlüsse als ein funktionierendes System zusammenspielen.', 'assets/service-dachfenster.webp', 'Großes Dachfenster bringt weiches Tageslicht in einen modernen Dachraum', 'leistungen/dachfenster.html'],
+  pv: ['04', 'Energie & Dachintegration', 'Photovoltaik. Präzise integriert.', 'Wir betrachten Modulflächen, Befestigung, Leitungswege und Dachanschlüsse gemeinsam – für eine leistungsfähige Anlage ohne Kompromisse beim Wetterschutz.', 'assets/hero-scenes/roof-pv.webp', 'In das anthrazitfarbene Steildach integrierte Photovoltaikanlage', 'leistungen/steildach.html#photovoltaik'],
+  fassade: ['05', 'Wärmeschutz & Gebäudehaut', 'Fassaden, die dauerhaft schützen.', 'Dämmung, Putz, Anschlüsse und Fensterdetails werden als zusammenhängende Gebäudehaut geplant – energetisch wirksam und architektonisch ruhig.', 'assets/hero-scenes/facade.webp', 'Moderne helle Fassade mit präzisen Fenster- und Dachanschlüssen', 'leistungen/fassaden.html'],
+  klempnerei: ['06', 'Metall & Entwässerung', 'Bauklempnerei bis ins Detail.', 'Dachrinnen, Fallrohre, Attiken und Zinkanschlüsse führen Wasser kontrolliert ab und schützen besonders sensible Übergänge dauerhaft.', 'assets/service-wartung.webp', 'Präzise ausgeführter Metallanschluss und Dachrinne', 'leistungen/fassaden.html#bauklempnerei'],
+  service: ['07', 'Substanz & Werterhalt', 'Kleine Ursache. Sauber gelöst.', 'Wir finden Schäden früh, reparieren nachvollziehbar und dokumentieren den Zustand – damit aus einem Detail kein großes Problem wird.', 'assets/service-wartung.webp', 'Fachgerechte Kontrolle eines Metallanschlusses und der Dachrinne mit einem Messwerkzeug', 'leistungen/service-wartung.html']
 };
 const serviceTabs = [...document.querySelectorAll('[data-service]')];
 function activateService(serviceKey) {
@@ -217,6 +217,8 @@ function activateService(serviceKey) {
   serviceImage.addEventListener('load', revealServiceImage, { once: true });
   serviceImage.src = data[4];
   serviceImage.alt = data[5];
+  const serviceLink = document.querySelector('#service-link');
+  if (serviceLink) serviceLink.href = data[6];
   if (serviceImage.complete) revealServiceImage();
 }
 serviceTabs.forEach(tab => tab.addEventListener('click', () => activateService(tab.dataset.service)));
@@ -254,7 +256,17 @@ const projectFields = {
   service: `
     <label>Art des Schadens<select name="damage_type" required><option value="">Bitte wählen</option><option>Undichtigkeit</option><option>Sturmschaden</option><option>Lose oder gebrochene Bauteile</option><option>Wartung / Inspektion</option><option>Anderes Anliegen</option></select></label>
     <label>Dringlichkeit<select name="urgency" required><option value="">Bitte wählen</option><option>Akut – Wasser tritt ein</option><option>Zeitnah prüfen</option><option>Planbare Wartung</option></select></label>
-    <label>Versicherungsschaden?<select name="insurance"><option>Unklar</option><option>Ja</option><option>Nein</option></select></label>`
+    <label>Versicherungsschaden?<select name="insurance"><option>Unklar</option><option>Ja</option><option>Nein</option></select></label>`,
+  fassade: `
+    <label>Vorhaben<select name="facade_project" required><option value="">Bitte wählen</option><option>Neue Bekleidung</option><option>Energetische Sanierung</option><option>Reparatur</option><option>Beratung</option></select></label>
+    <label>Gewünschtes Material<input name="facade_material" placeholder="z. B. Zink, Schiefer oder noch offen" /></label>
+    <label>Geschätzte Fläche<input name="area" placeholder="z. B. 120 m²" /></label>
+    <label>Sichtbare Schäden?<select name="damage"><option>Nein</option><option>Ja</option><option>Unklar</option></select></label>`,
+  terrasse: `
+    <label>Fläche<select name="terrace_type" required><option value="">Bitte wählen</option><option>Balkon</option><option>Terrasse</option><option>Carport / genutzte Dachfläche</option></select></label>
+    <label>Aktueller Belag<input name="surface" placeholder="z. B. Stein, Holz oder unbekannt" /></label>
+    <label>Geschätzte Fläche<input name="area" placeholder="z. B. 25 m²" /></label>
+    <label>Feuchtigkeit sichtbar?<select name="leak"><option>Nein</option><option>Ja</option><option>Unklar</option></select></label>`
 };
 
 function selectedProjectKey() {
@@ -277,6 +289,9 @@ function stepIsValid(step) {
 }
 
 inquiryForm?.querySelectorAll('input[name="type"]').forEach(input => input.addEventListener('change', renderProjectFields));
+const requestedService = new URLSearchParams(location.search).get('leistung');
+const requestedInput = inquiryForm?.querySelector(`input[data-key="${requestedService}"]`);
+if (requestedInput) requestedInput.checked = true;
 document.querySelectorAll('[data-preset]').forEach(link => link.addEventListener('click', () => {
   const input = inquiryForm?.querySelector(`input[data-key="${link.dataset.preset}"]`);
   if (input) { input.checked = true; renderProjectFields(); showFormStep(1); }

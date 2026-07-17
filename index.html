@@ -28,7 +28,7 @@
     </a>
     <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav"><span></span><span></span><span class="sr-only">Menü öffnen</span></button>
     <nav id="main-nav" aria-label="Hauptnavigation">
-      <a href="#leistungen">Leistungen</a><a href="#system">Unser System</a><a href="#projekte">Projekte</a><a href="#beratung">Beratung</a>
+      <a href="leistungen/index.html">Leistungen</a><a href="#system">Unser System</a><a href="#projekte">Projekte</a><a href="#beratung">Beratung</a>
     </nav>
     <a class="header-cta" href="#anfrage">Projekt anfragen <span>↗</span></a>
   </header>
@@ -70,12 +70,12 @@
         <a class="tour-skip" href="#beratung">Tour überspringen <span>↓</span></a>
 
         <div class="service-markers overview-markers" aria-label="Leistungen am Gebäude">
-          <a class="service-marker" href="#leistungen" data-service-target="steildach" style="--x:70%;--y:39%" aria-label="Mehr über Steildächer erfahren">Steildach</a>
-          <a class="service-marker" href="#leistungen" data-service-target="pv" style="--x:43%;--y:29%" aria-label="Mehr über Photovoltaik erfahren">Photovoltaik</a>
-          <a class="service-marker" href="#leistungen" data-service-target="fenster" style="--x:59%;--y:45%" aria-label="Mehr über Dachfenster erfahren">Dachfenster</a>
-          <a class="service-marker marker-left" href="#leistungen" data-service-target="flachdach" style="--x:82%;--y:59%" aria-label="Mehr über Flachdächer erfahren">Flachdach</a>
-          <a class="service-marker" href="#leistungen" data-service-target="fassade" style="--x:60%;--y:70%" aria-label="Mehr über Fassadenarbeiten erfahren">Fassade</a>
-          <a class="service-marker marker-left" href="#leistungen" data-service-target="klempnerei" style="--x:91%;--y:67%" aria-label="Mehr über Bauklempnerei erfahren">Bauklempnerei</a>
+          <a class="service-marker" href="leistungen/steildach.html" style="--x:70%;--y:39%" aria-label="Mehr über Steildächer erfahren">Steildach</a>
+          <a class="service-marker" href="leistungen/steildach.html#photovoltaik" style="--x:43%;--y:29%" aria-label="Mehr über Photovoltaik erfahren">Photovoltaik</a>
+          <a class="service-marker" href="leistungen/dachfenster.html" style="--x:59%;--y:45%" aria-label="Mehr über Dachfenster erfahren">Dachfenster</a>
+          <a class="service-marker marker-left" href="leistungen/flachdach.html" style="--x:82%;--y:59%" aria-label="Mehr über Flachdächer erfahren">Flachdach</a>
+          <a class="service-marker" href="leistungen/fassaden.html" style="--x:60%;--y:70%" aria-label="Mehr über Fassadenarbeiten erfahren">Fassade</a>
+          <a class="service-marker marker-left" href="leistungen/fassaden.html#bauklempnerei" style="--x:91%;--y:67%" aria-label="Mehr über Bauklempnerei erfahren">Bauklempnerei</a>
         </div>
 
         <div class="hero-scene scene-roof is-visible" data-scene="0">
@@ -226,7 +226,7 @@
       </div>
       <article class="service-panel">
         <div class="service-visual"><img id="service-image" src="assets/service-steildach.webp" alt="Präzise ausgeführtes anthrazitfarbenes Steildach an einem modernen Wohnhaus" width="1672" height="941" loading="lazy" /><span id="service-index" aria-hidden="true">01</span></div>
-        <div class="service-content"><span class="mini-label" id="service-label">Konstruktion & Eindeckung</span><h3 id="service-title">Steildächer mit klarer Linie.</h3><p id="service-copy">Von der energetischen Sanierung bis zum Neubau: technisch sauber geplant, handwerklich präzise ausgeführt und passend zur Architektur Ihres Hauses.</p><a href="#anfrage">Leistung entdecken <span>↗</span></a></div>
+        <div class="service-content"><span class="mini-label" id="service-label">Konstruktion & Eindeckung</span><h3 id="service-title">Steildächer mit klarer Linie.</h3><p id="service-copy">Von der energetischen Sanierung bis zum Neubau: technisch sauber geplant, handwerklich präzise ausgeführt und passend zur Architektur Ihres Hauses.</p><a id="service-link" href="leistungen/steildach.html">Leistung entdecken <span>↗</span></a></div>
       </article>
     </section>
 
@@ -308,7 +308,7 @@
       <div class="contact-intro"><div class="section-kicker light">09 / Projektstart</div><h2>Was können wir<br />für Sie lösen?</h2><p>In drei kurzen Schritten erfassen wir die wichtigsten Projektdaten. So kann Pierre Meyer direkt mit einer fundierten ersten Einschätzung reagieren.</p><div class="contact-person"><span>PM</span><div><strong>Pierre Meyer</strong><small>Dachdeckermeister & Ansprechpartner</small></div></div></div>
       <form id="inquiry-form">
         <div class="wizard-progress" aria-label="Formularfortschritt"><span class="active"><b>1</b>Anliegen</span><span><b>2</b>Projektdaten</span><span><b>3</b>Kontakt</span></div>
-        <fieldset class="form-step active" data-step="1"><legend>Worum geht es?</legend><div class="choice-grid"><label><input type="radio" name="type" value="Steildach" data-key="steildach" checked /><span>Steildach</span></label><label><input type="radio" name="type" value="Flachdach" data-key="flachdach" /><span>Flachdach</span></label><label><input type="radio" name="type" value="Dachfenster" data-key="fenster" /><span>Dachfenster</span></label><label><input type="radio" name="type" value="Reparatur" data-key="service" /><span>Reparatur</span></label></div><div class="wizard-actions"><span></span><button class="button button-accent next-step" type="button">Weiter <span>→</span></button></div></fieldset>
+        <fieldset class="form-step active" data-step="1"><legend>Worum geht es?</legend><div class="choice-grid"><label><input type="radio" name="type" value="Steildach" data-key="steildach" checked /><span>Steildach</span></label><label><input type="radio" name="type" value="Flachdach" data-key="flachdach" /><span>Flachdach</span></label><label><input type="radio" name="type" value="Dachfenster" data-key="fenster" /><span>Dachfenster</span></label><label><input type="radio" name="type" value="Fassade" data-key="fassade" /><span>Fassade</span></label><label><input type="radio" name="type" value="Terrasse oder Balkon" data-key="terrasse" /><span>Terrasse / Balkon</span></label><label><input type="radio" name="type" value="Reparatur oder Wartung" data-key="service" /><span>Reparatur / Wartung</span></label></div><div class="wizard-actions"><span></span><button class="button button-accent next-step" type="button">Weiter <span>→</span></button></div></fieldset>
         <fieldset class="form-step" data-step="2"><legend>Details zu Ihrem Projekt</legend><div class="form-grid dynamic-fields" aria-live="polite"></div><label class="upload-field"><input type="file" name="photos" accept="image/*" multiple /><span><b>Fotos hinzufügen</b><small>JPG, PNG oder WebP · mehrere Bilder möglich</small></span></label><div class="wizard-actions"><button class="text-button prev-step" type="button">← Zurück</button><button class="button button-accent next-step" type="button">Weiter <span>→</span></button></div></fieldset>
         <fieldset class="form-step" data-step="3"><legend>Wie erreichen wir Sie?</legend><div class="form-grid"><label>Ihr Name<input name="name" autocomplete="name" required placeholder="Vor- und Nachname" /></label><label>Telefon<input type="tel" name="phone" autocomplete="tel" required placeholder="Für eine persönliche Rückmeldung" /></label><label>E-Mail<input type="email" name="email" autocomplete="email" required placeholder="name@beispiel.de" /></label><label>Projektadresse<input name="address" autocomplete="street-address" required placeholder="Straße, PLZ und Ort" /></label><label>Gewünschter Zeitraum<input name="timing" placeholder="z. B. innerhalb der nächsten 3 Monate" /></label><label class="wide">Zusätzliche Hinweise<textarea name="message" rows="3" placeholder="Was sollten wir noch wissen?"></textarea></label></div><div class="form-foot"><button class="text-button prev-step" type="button">← Zurück</button><small>Mit dem Absenden stimmen Sie unserer Datenschutzerklärung zu.</small><button class="button button-accent" type="submit">Anfrage senden <span>↗</span></button></div></fieldset>
         <p class="form-status" role="status" aria-live="polite"></p>
@@ -316,7 +316,7 @@
     </section>
   </main>
 
-  <footer><a class="brand footer-brand" href="#top" aria-label="Dachdeckermeister Meyer Startseite"><img class="brand-logo-img" src="assets/meyer-logo-final.png" alt="Dachdeckermeister Meyer" width="1311" height="1104" /></a><p>Dächer, die bleiben.</p><div><a href="#leistungen">Leistungen</a><a href="#projekte">Projekte</a><a href="#anfrage">Kontakt</a><a href="#">Impressum</a><a href="#">Datenschutz</a></div><small>© 2026 Dachdeckermeister Meyer</small></footer>
+  <footer><a class="brand footer-brand" href="#top" aria-label="Dachdeckermeister Meyer Startseite"><img class="brand-logo-img" src="assets/meyer-logo-final.png" alt="Dachdeckermeister Meyer" width="1311" height="1104" /></a><p>Dächer, die bleiben.</p><div><a href="leistungen/index.html">Leistungen</a><a href="#projekte">Projekte</a><a href="#anfrage">Kontakt</a><a href="#">Impressum</a><a href="#">Datenschutz</a></div><small>© 2026 Dachdeckermeister Meyer</small></footer>
   <a class="sticky-cta" href="#anfrage"><span>Projekt anfragen</span><b>↗</b></a>
 </body>
 </html>

@@ -216,3 +216,7 @@ body{font-size:18px}.site-header nav,.header-cta{font-size:13px}.eyebrow,.sectio
 
 /* Editorial service photography */
 .service-visual{background:#ddd}.service-visual>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .35s var(--ease),transform .65s var(--ease)}.service-visual>img.changing{opacity:.35;transform:scale(1.015)}.service-visual:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 60%,#1115);pointer-events:none}.service-visual>span{z-index:2;left:28px;bottom:22px;width:54px;height:54px;display:grid;place-items:center;background:#ffffffeb;color:var(--text);font-size:13px;line-height:1;letter-spacing:.12em;font-weight:600}.service-line-art{display:none}
+
+/* Six project categories align as a balanced 3 × 2 selector. */
+.choice-grid{grid-template-columns:repeat(3,1fr)}
+@media(max-width:640px){.choice-grid{grid-template-columns:1fr 1fr}}
