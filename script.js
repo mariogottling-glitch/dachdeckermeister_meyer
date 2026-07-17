@@ -18,7 +18,7 @@ function initCinematicHero() {
   if (!hero) return;
 
   const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (reducedMotion || innerWidth <= 900 || !window.gsap || !window.ScrollTrigger) {
+  if (reducedMotion || !window.gsap || !window.ScrollTrigger) {
     hero.classList.add('is-static');
     return;
   }
