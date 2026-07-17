@@ -69,6 +69,10 @@ function initCinematicHero() {
   const facadeLayers = [...hero.querySelectorAll('.facade-layers i')];
   const flatBuildOrder = [...flatLayers].reverse();
   const facadeBuildOrder = [...facadeLayers].reverse();
+  const flatMeta = [...hero.querySelectorAll('.flat-exploded .build-meta')];
+  const facadeMeta = [...hero.querySelectorAll('.facade-layers .build-meta')];
+  const flatRail = hero.querySelector('.flat-exploded .build-rail');
+  const facadeRail = hero.querySelector('.facade-layers .build-rail');
   const systemSteps = [...hero.querySelectorAll('.system-chain span')];
   let activeScene = -1;
 
@@ -90,6 +94,8 @@ function initCinematicHero() {
   gsap.set(frameVeil, { autoAlpha: 0 });
   gsap.set(flatLayers, { autoAlpha: 0, y: 14 });
   gsap.set(facadeLayers, { autoAlpha: 0, x: -18 });
+  gsap.set([...flatMeta, ...facadeMeta], { autoAlpha: 0, y: 8 });
+  gsap.set([flatRail, facadeRail], { scaleY: 0, transformOrigin: 'bottom center' });
   gsap.set(systemSteps, { autoAlpha: 0, y: 10 });
   setActiveScene(0);
 
@@ -122,14 +128,22 @@ function initCinematicHero() {
   timeline.to(scenes[1], { autoAlpha: 0, y: -20, duration: .22 }, 1.48);
   transitionFrame(2, 3, 1.59);
   timeline.fromTo(scenes[2], { autoAlpha: 0, y: 24 }, { autoAlpha: 1, y: 0, duration: .26 }, 2.04);
-  timeline.to(flatBuildOrder, { autoAlpha: 1, y: 0, stagger: .045, duration: .18 }, 2.10);
+  timeline.to(flatMeta, { autoAlpha: 1, y: 0, stagger: .04, duration: .16 }, 2.06);
+  timeline.to(flatRail, { scaleY: 1, duration: .32, ease: 'power1.out' }, 2.06);
+  timeline.to(flatBuildOrder, { autoAlpha: 1, y: 0, stagger: .055, duration: .18 }, 2.08);
   timeline.to(flatLayers, { autoAlpha: 0, y: -8, stagger: .015, duration: .16 }, 2.43);
+  timeline.to(flatMeta, { autoAlpha: 0, y: -5, duration: .12 }, 2.43);
+  timeline.to(flatRail, { scaleY: 0, duration: .14, transformOrigin: 'top center' }, 2.43);
 
   timeline.to(scenes[2], { autoAlpha: 0, y: -20, duration: .22 }, 2.48);
   transitionFrame(3, 4, 2.59);
   timeline.fromTo(scenes[3], { autoAlpha: 0, y: 24 }, { autoAlpha: 1, y: 0, duration: .26 }, 3.04);
-  timeline.to(facadeBuildOrder, { autoAlpha: 1, x: 0, stagger: .045, duration: .18 }, 3.10);
+  timeline.to(facadeMeta, { autoAlpha: 1, y: 0, stagger: .04, duration: .16 }, 3.06);
+  timeline.to(facadeRail, { scaleY: 1, duration: .32, ease: 'power1.out' }, 3.06);
+  timeline.to(facadeBuildOrder, { autoAlpha: 1, x: 0, stagger: .055, duration: .18 }, 3.08);
   timeline.to(facadeLayers, { autoAlpha: 0, x: 10, stagger: .015, duration: .16 }, 3.43);
+  timeline.to(facadeMeta, { autoAlpha: 0, y: -5, duration: .12 }, 3.43);
+  timeline.to(facadeRail, { scaleY: 0, duration: .14, transformOrigin: 'top center' }, 3.43);
 
   timeline.to(scenes[3], { autoAlpha: 0, y: -20, duration: .22 }, 3.48);
   transitionFrame(4, 5, 3.59);
