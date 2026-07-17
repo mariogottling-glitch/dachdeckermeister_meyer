@@ -97,17 +97,17 @@ body{font-size:18px}.site-header nav,.header-cta{font-size:13px}.eyebrow,.sectio
 .hero-cover-stage{position:sticky;top:0;height:100svh;min-height:680px;overflow:hidden;background:#171b1d;color:#fff;will-change:opacity}
 .hero-cover-stage>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 52%;will-change:transform,opacity;transform-origin:center center}
 .hero-cover-stage>.hero-cover-transition{z-index:0;opacity:0;object-position:center}
-.hero-cover .hero-shade{z-index:1;will-change:opacity;background:linear-gradient(180deg,rgba(15,20,22,.62) 0%,rgba(15,20,22,.18) 52%,rgba(10,13,14,.62) 100%),linear-gradient(90deg,rgba(13,18,20,.5) 0%,rgba(13,18,20,.14) 52%,rgba(13,18,20,.08) 100%)}
+.hero-cover .hero-shade{z-index:1;will-change:opacity}
 .hero-cover .hero-grid{z-index:auto}
 .hero-cover .hero-grid,.hero-cover .cover-scroll,.hero-cover .hero-house-foreground{will-change:transform,opacity}
 .hero-cover .hero-grid>*{position:relative}
 .hero-cover .hero-grid .eyebrow,.hero-cover .hero-copy,.hero-cover .button,.hero-cover .hero-stats{z-index:4}
-.hero-cover h1{position:absolute;z-index:2;top:36vh;left:var(--pad);right:var(--pad);width:auto;font-size:clamp(74px,8.6vw,150px);font-weight:700;line-height:.82;letter-spacing:-.065em;margin:0;text-transform:uppercase;white-space:nowrap;text-align:center}
+.hero-cover h1{z-index:2;font-size:clamp(78px,11.6vw,184px);font-weight:700;line-height:.75;letter-spacing:-.075em;margin-bottom:38px;text-transform:uppercase}
 .hero-cover h1 em{font-weight:700}
 .hero-cover-stage>.hero-house-foreground{z-index:3;pointer-events:none;object-position:center 52%}
 .cinematic-hero{z-index:1;margin-top:min(-100svh,-680px)}
-@media(max-width:900px){.hero-cover h1{top:35vh;font-size:clamp(64px,11.5vw,104px);line-height:.82;white-space:normal}.hero-cover .hero-copy,.hero-cover .button{z-index:4}}
-@media(max-width:640px){.hero-cover{height:calc(max(100svh,680px) + 55svh)}.hero-cover-stage{min-height:680px}.hero-cover-stage>img,.hero-cover-stage>.hero-cover-transition,.hero-cover-stage>.hero-house-foreground{object-position:52% center}.hero-cover h1{top:33vh;left:20px;right:20px;font-size:15.8vw;line-height:.82;letter-spacing:-.055em}.hero-cover h1 em{display:block}.hero-cover-stage>.hero-house-foreground{opacity:1}.cinematic-hero{margin-top:min(-100svh,-680px)}}
+@media(max-width:900px){.hero-cover h1{font-size:clamp(72px,17vw,128px);line-height:.78}.hero-cover .hero-copy,.hero-cover .button{z-index:4}}
+@media(max-width:640px){.hero-cover{height:calc(max(100svh,680px) + 55svh)}.hero-cover-stage{min-height:680px}.hero-cover-stage>img,.hero-cover-stage>.hero-cover-transition,.hero-cover-stage>.hero-house-foreground{object-position:58% center}.hero-cover h1{font-size:17.5vw;line-height:.79;letter-spacing:-.065em;margin-bottom:26px}.hero-cover-stage>.hero-house-foreground{opacity:.96}.cinematic-hero{margin-top:min(-100svh,-680px)}}
 @media(prefers-reduced-motion:reduce){.hero-cover{height:100svh}.hero-cover-stage{position:relative}.cinematic-hero{margin-top:0}}
 
 /* Building-envelope system chain: every animated step names a real component. */
