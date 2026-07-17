@@ -23,6 +23,12 @@ body{font-size:16px;font-weight:400}.eyebrow,.section-kicker{font-size:12px;line
 .insulation-body{fill:#00b0bb0d;stroke-width:2}.insulation-edge{stroke-width:4}.insulation-hatching{stroke-width:2;stroke-opacity:.32}
 .membrane{fill:#ffffff06;stroke-width:2.5}.membrane-seam{stroke-width:2.5}.membrane-dash{stroke-width:1.25;stroke-dasharray:10 13}
 .covering-outline{stroke-width:6}.ridge-cap{fill:var(--dark);stroke-width:3}.tile-rows{stroke-width:2.5}.battens{stroke-width:1.5;stroke-opacity:.38}
+
+/* Größere Fließtexte bei unverändert filigranem Schriftbild. */
+.hero-copy{font-size:clamp(19px,1.45vw,23px);line-height:1.58;max-width:430px}
+.intro-copy>div p,.section-head>p,.principles p,.assembly-copy>p,.service-content p,.check-grid p,.project p,.timeline p,.faq>div>p,.accordion details p,.contact-intro>p,.trust-panel p{font-size:clamp(17px,1.12vw,19px);line-height:1.72;font-weight:400}
+.assembly-copy>p{max-width:520px}.service-content p{max-width:510px}.contact-intro>p{max-width:470px}.layer-readout p{font-size:15px;line-height:1.55}
+@media(max-width:640px){.hero-copy{font-size:18px;line-height:1.6;max-width:340px}.intro-copy>div p,.section-head>p,.principles p,.assembly-copy>p,.service-content p,.check-grid p,.project p,.timeline p,.faq>div>p,.accordion details p,.contact-intro>p,.trust-panel p{font-size:17px;line-height:1.7}}
 @media(max-width:640px){body{font-size:16px}.eyebrow,.section-kicker{font-size:11px}.hero-stats span{font-size:9px}.service-tabs button{font-size:14px}.service-tabs span{font-size:10px}.accordion summary{font-size:17px}.choice-grid span{font-size:11px}}
 
 /* Concept additions: personal trust, guided diagnosis and qualified inquiry. */
