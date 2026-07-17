@@ -29,6 +29,10 @@ body{font-size:16px;font-weight:400}.eyebrow,.section-kicker{font-size:12px;line
 .intro-copy>div p,.section-head>p,.principles p,.assembly-copy>p,.service-content p,.check-grid p,.project p,.timeline p,.faq>div>p,.accordion details p,.contact-intro>p,.trust-panel p{font-size:clamp(17px,1.12vw,19px);line-height:1.72;font-weight:400}
 .assembly-copy>p{max-width:520px}.service-content p{max-width:510px}.contact-intro>p{max-width:470px}.layer-readout p{font-size:15px;line-height:1.55}
 @media(max-width:640px){.hero-copy{font-size:18px;line-height:1.6;max-width:340px}.intro-copy>div p,.section-head>p,.principles p,.assembly-copy>p,.service-content p,.check-grid p,.project p,.timeline p,.faq>div>p,.accordion details p,.contact-intro>p,.trust-panel p{font-size:17px;line-height:1.7}}
+
+/* Lesbare technische Mikrotypografie im Dachsystem. */
+.assembly-copy .section-kicker{font-size:13px}.layer{opacity:.62;padding:19px 0}.layer.active,.layer:hover,.layer:focus{opacity:1}.layer b{font-size:13px;min-width:24px}.layer span{font-size:18px;line-height:1.35}.layer small{font-size:13px;line-height:1.45;margin-top:4px;color:#aaa}.dimension{font-size:11px;fill:#ffffff9c}.layer-readout span{font-size:12px;color:#aaa}.layer-readout strong{font-size:27px;margin:4px 0}.layer-readout p{font-size:17px;line-height:1.6;max-width:440px;color:#aaa}
+@media(max-width:640px){.layer{padding:17px 0}.layer b{font-size:12px}.layer span{font-size:17px}.layer small{font-size:12px}.layer-readout span{font-size:11px}.layer-readout strong{font-size:25px}.layer-readout p{font-size:16px}}
 @media(max-width:640px){body{font-size:16px}.eyebrow,.section-kicker{font-size:11px}.hero-stats span{font-size:9px}.service-tabs button{font-size:14px}.service-tabs span{font-size:10px}.accordion summary{font-size:17px}.choice-grid span{font-size:11px}}
 
 /* Concept additions: personal trust, guided diagnosis and qualified inquiry. */
