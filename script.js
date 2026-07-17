@@ -24,7 +24,7 @@ function initCinematicHero() {
   }
 
   gsap.registerPlugin(ScrollTrigger);
-  const media = hero.querySelector('.cinematic-media');
+  const frames = [...hero.querySelectorAll('.hero-frame')];
   const scenes = [...hero.querySelectorAll('.hero-scene')];
   const progressItems = [...hero.querySelectorAll('.cinematic-progress span')];
   const markers = hero.querySelector('.overview-markers');
@@ -36,6 +36,9 @@ function initCinematicHero() {
   function setActiveScene(index) {
     if (index === activeScene) return;
     activeScene = index;
+    hero.dataset.activeScene = String(index);
+    const frameIndex = index === 6 ? 0 : index;
+    frames.forEach((frame, i) => frame.classList.toggle('is-active', i === frameIndex));
     scenes.forEach((scene, i) => {
       scene.classList.toggle('is-visible', i === index);
       scene.setAttribute('aria-hidden', String(i !== index));
@@ -44,6 +47,8 @@ function initCinematicHero() {
   }
 
   gsap.set(scenes.slice(1), { autoAlpha: 0, y: 28 });
+  gsap.set(frames.slice(1), { autoAlpha: 0, scale: 1.025 });
+  gsap.set(frames[0], { autoAlpha: 1, scale: 1 });
   gsap.set(markers, { autoAlpha: 1 });
   gsap.set([...flatLayers, ...facadeLayers], { autoAlpha: 0, x: 28 });
   connectionPaths.forEach(path => {
@@ -62,36 +67,47 @@ function initCinematicHero() {
       scrub: 1.15,
       anticipatePin: 1,
       invalidateOnRefresh: true,
-      onUpdate: self => setActiveScene(Math.min(6, Math.round(self.progress * 6)))
+      onUpdate: self => setActiveScene(Math.min(6, Math.floor(self.progress * 6.5)))
     }
   });
 
-  timeline
-    .to(scenes[0], { autoAlpha: 0, y: -24, duration: .28 }, .58)
-    .to(markers, { autoAlpha: 0, duration: .28 }, .55)
-    .to(media, { scale: 1.5, xPercent: -7, yPercent: 14, force3D: true, duration: 1 }, .65)
-    .fromTo(scenes[1], { autoAlpha: 0, y: 28 }, { autoAlpha: 1, y: 0, duration: .32 }, .88)
-    .to(scenes[1], { autoAlpha: 0, y: -22, duration: .28 }, 1.65)
-    .to(media, { scale: 1.82, xPercent: -10, yPercent: 21, force3D: true, duration: 1 }, 1.65)
-    .fromTo(scenes[2], { autoAlpha: 0, y: 28 }, { autoAlpha: 1, y: 0, duration: .32 }, 1.9)
-    .to(scenes[2], { autoAlpha: 0, y: -22, duration: .28 }, 2.65)
-    .to(media, { scale: 1.58, xPercent: -20, yPercent: 4, force3D: true, duration: 1 }, 2.65)
-    .fromTo(scenes[3], { autoAlpha: 0, y: 28 }, { autoAlpha: 1, y: 0, duration: .32 }, 2.9)
-    .to(flatLayers, { autoAlpha: 1, x: 0, stagger: .07, duration: .34 }, 3.05)
-    .to(flatLayers, { autoAlpha: 0, x: 20, stagger: .04, duration: .24 }, 3.58)
-    .to(scenes[3], { autoAlpha: 0, y: -22, duration: .28 }, 3.65)
-    .to(media, { scale: 1.47, xPercent: 7, yPercent: -15, force3D: true, duration: 1 }, 3.65)
-    .fromTo(scenes[4], { autoAlpha: 0, y: 28 }, { autoAlpha: 1, y: 0, duration: .32 }, 3.9)
-    .to(facadeLayers, { autoAlpha: 1, x: 0, stagger: .07, duration: .34 }, 4.03)
-    .to(facadeLayers, { autoAlpha: 0, x: -18, stagger: .04, duration: .24 }, 4.58)
-    .to(scenes[4], { autoAlpha: 0, y: -22, duration: .28 }, 4.65)
-    .to(media, { scale: 1.24, xPercent: -3, yPercent: -4, force3D: true, duration: 1 }, 4.65)
-    .fromTo(scenes[5], { autoAlpha: 0, y: 28 }, { autoAlpha: 1, y: 0, duration: .32 }, 4.9)
-    .to(connectionPaths, { strokeDashoffset: 0, stagger: .08, duration: .6 }, 5.02)
-    .to(scenes[5], { autoAlpha: 0, y: -22, duration: .28 }, 5.65)
-    .to(media, { scale: 1.04, xPercent: 0, yPercent: 0, force3D: true, duration: 1 }, 5.65)
-    .fromTo(scenes[6], { autoAlpha: 0, y: 30 }, { autoAlpha: 1, y: 0, duration: .4 }, 5.92)
-    .to(markers, { autoAlpha: .82, duration: .45 }, 5.95);
+  function transitionFrame(from, to, at) {
+    timeline
+      .to(frames[from], { scale: 1.04, duration: .32, ease: 'power1.in' }, at)
+      .to(frames[from], { autoAlpha: 0, duration: .3 }, at + .18)
+      .fromTo(frames[to], { autoAlpha: 0, scale: 1.025 }, { autoAlpha: 1, scale: 1, duration: .42 }, at + .16);
+  }
+
+  timeline.to(scenes[0], { autoAlpha: 0, y: -20, duration: .22 }, .46);
+  timeline.to(markers, { autoAlpha: 0, duration: .22 }, .46);
+  transitionFrame(0, 1, .57);
+  timeline.fromTo(scenes[1], { autoAlpha: 0, y: 24 }, { autoAlpha: 1, y: 0, duration: .26 }, 1.02);
+
+  timeline.to(scenes[1], { autoAlpha: 0, y: -20, duration: .22 }, 1.48);
+  transitionFrame(1, 2, 1.59);
+  timeline.fromTo(scenes[2], { autoAlpha: 0, y: 24 }, { autoAlpha: 1, y: 0, duration: .26 }, 2.04);
+
+  timeline.to(scenes[2], { autoAlpha: 0, y: -20, duration: .22 }, 2.48);
+  transitionFrame(2, 3, 2.59);
+  timeline.fromTo(scenes[3], { autoAlpha: 0, y: 24 }, { autoAlpha: 1, y: 0, duration: .26 }, 3.04);
+  timeline.to(flatLayers, { autoAlpha: 1, x: 0, stagger: .06, duration: .28 }, 3.16);
+  timeline.to(flatLayers, { autoAlpha: 0, x: 18, stagger: .03, duration: .2 }, 3.43);
+
+  timeline.to(scenes[3], { autoAlpha: 0, y: -20, duration: .22 }, 3.48);
+  transitionFrame(3, 4, 3.59);
+  timeline.fromTo(scenes[4], { autoAlpha: 0, y: 24 }, { autoAlpha: 1, y: 0, duration: .26 }, 4.04);
+  timeline.to(facadeLayers, { autoAlpha: 1, x: 0, stagger: .06, duration: .28 }, 4.16);
+  timeline.to(facadeLayers, { autoAlpha: 0, x: -18, stagger: .03, duration: .2 }, 4.43);
+
+  timeline.to(scenes[4], { autoAlpha: 0, y: -20, duration: .22 }, 4.48);
+  transitionFrame(4, 5, 4.59);
+  timeline.fromTo(scenes[5], { autoAlpha: 0, y: 24 }, { autoAlpha: 1, y: 0, duration: .26 }, 5.04);
+  timeline.to(connectionPaths, { strokeDashoffset: 0, stagger: .07, duration: .46 }, 5.12);
+
+  timeline.to(scenes[5], { autoAlpha: 0, y: -20, duration: .22 }, 5.48);
+  transitionFrame(5, 0, 5.59);
+  timeline.fromTo(scenes[6], { autoAlpha: 0, y: 24 }, { autoAlpha: 1, y: 0, duration: .3 }, 6.04);
+  timeline.to(markers, { autoAlpha: .82, duration: .35 }, 6.08);
 }
 
 initCinematicHero();
