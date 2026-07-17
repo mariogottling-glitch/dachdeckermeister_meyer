@@ -19,12 +19,14 @@ function initHeroBridge() {
   const coverStage = cover?.querySelector('.hero-cover-stage');
   const baseImage = cover?.querySelector('img:not(.hero-cover-transition)');
   const shade = cover?.querySelector('.hero-shade');
+  const coverVeil = cover?.querySelector('.hero-cover-veil');
   const coverContent = cover?.querySelectorAll('.hero-grid, .cover-scroll');
   const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (!cover || !coverStage || !transitionImage || reducedMotion || !window.gsap || !window.ScrollTrigger) return;
+  if (!cover || !coverStage || !transitionImage || !coverVeil || reducedMotion || !window.gsap || !window.ScrollTrigger) return;
 
   gsap.registerPlugin(ScrollTrigger);
-  gsap.set(transitionImage, { autoAlpha: 0, scale: 1.025 });
+  gsap.set(transitionImage, { autoAlpha: 0, scale: 1 });
+  gsap.set(coverVeil, { autoAlpha: 0 });
 
   const bridge = gsap.timeline({
     defaults: { ease: 'none' },
@@ -38,11 +40,13 @@ function initHeroBridge() {
   });
 
   bridge
-    .to(coverContent, { autoAlpha: 0, y: -24, duration: .42 }, 0)
-    .to(baseImage, { scale: 1.035, duration: 1 }, 0)
-    .to(transitionImage, { autoAlpha: 1, scale: 1, duration: .72 }, .16)
-    .to(shade, { opacity: .78, duration: .72 }, .16)
-    .to(coverStage, { autoAlpha: 0, duration: .2 }, .8);
+    .to(coverContent, { autoAlpha: 0, y: -20, duration: .28 }, 0)
+    .to(coverVeil, { autoAlpha: 1, duration: .28, ease: 'power2.inOut' }, .08)
+    .set(baseImage, { autoAlpha: 0 }, .36)
+    .set(transitionImage, { autoAlpha: 1, scale: 1 }, .36)
+    .to(shade, { opacity: .78, duration: .3 }, .36)
+    .to(coverVeil, { autoAlpha: 0, duration: .36, ease: 'power2.out' }, .38)
+    .to(coverStage, { autoAlpha: 0, duration: .18 }, .82);
 }
 
 function initCinematicHero() {
@@ -60,6 +64,7 @@ function initCinematicHero() {
   const scenes = [...hero.querySelectorAll('.hero-scene')];
   const progressItems = [...hero.querySelectorAll('.cinematic-progress span')];
   const markers = hero.querySelector('.overview-markers');
+  const frameVeil = hero.querySelector('.frame-transition-veil');
   const flatLayers = [...hero.querySelectorAll('.flat-exploded i')];
   const facadeLayers = [...hero.querySelectorAll('.facade-layers i')];
   const flatBuildOrder = [...flatLayers].reverse();
@@ -82,6 +87,7 @@ function initCinematicHero() {
   gsap.set(frames, { autoAlpha: 0, scale: 1.025 });
   gsap.set(frames[1], { autoAlpha: 1, scale: 1 });
   gsap.set(markers, { autoAlpha: 0 });
+  gsap.set(frameVeil, { autoAlpha: 0 });
   gsap.set(flatLayers, { autoAlpha: 0, y: 14 });
   gsap.set(facadeLayers, { autoAlpha: 0, x: -18 });
   gsap.set(systemSteps, { autoAlpha: 0, y: 10 });
@@ -103,9 +109,10 @@ function initCinematicHero() {
 
   function transitionFrame(from, to, at) {
     timeline
-      .to(frames[from], { scale: 1.04, duration: .32, ease: 'power1.in' }, at)
-      .to(frames[from], { autoAlpha: 0, duration: .3 }, at + .18)
-      .fromTo(frames[to], { autoAlpha: 0, scale: 1.025 }, { autoAlpha: 1, scale: 1, duration: .42 }, at + .16);
+      .to(frameVeil, { autoAlpha: 1, duration: .18, ease: 'power2.inOut' }, at)
+      .set(frames[from], { autoAlpha: 0, scale: 1 }, at + .18)
+      .set(frames[to], { autoAlpha: 1, scale: 1 }, at + .18)
+      .to(frameVeil, { autoAlpha: 0, duration: .28, ease: 'power2.out' }, at + .19);
   }
 
   timeline.to(scenes[0], { autoAlpha: 0, y: -20, duration: .22 }, .48);
