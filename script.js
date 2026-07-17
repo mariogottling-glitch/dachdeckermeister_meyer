@@ -192,11 +192,22 @@ const services = {
   steildach: ['01', 'Konstruktion & Eindeckung', 'Steildächer mit klarer Linie.', 'Von der energetischen Sanierung bis zum Neubau: technisch sauber geplant, handwerklich präzise ausgeführt und passend zur Architektur Ihres Hauses.', 'assets/service-steildach.webp', 'Präzise ausgeführtes anthrazitfarbenes Steildach an einem modernen Wohnhaus'],
   flachdach: ['02', 'Abdichtung & Entwässerung', 'Flachdächer ohne Kompromisse.', 'Sichere Abdichtung, durchdachte Entwässerung und kontrollierte Details – für langlebige Flächen auf Wohnhaus, Anbau oder Gewerbegebäude.', 'assets/service-flachdach.webp', 'Modernes Flachdach mit präziser Attika, Entwässerung und dezentem Gründachstreifen'],
   fenster: ['03', 'Licht & Raumkomfort', 'Mehr Himmel. Mehr Zuhause.', 'Wir integrieren Dachfenster so, dass Tageslicht, Wärmeschutz, Verschattung und Anschlüsse als ein funktionierendes System zusammenspielen.', 'assets/service-dachfenster.webp', 'Großes Dachfenster bringt weiches Tageslicht in einen modernen Dachraum'],
-  service: ['04', 'Substanz & Werterhalt', 'Kleine Ursache. Sauber gelöst.', 'Wir finden Schäden früh, reparieren nachvollziehbar und dokumentieren den Zustand – damit aus einem Detail kein großes Problem wird.', 'assets/service-wartung.webp', 'Fachgerechte Kontrolle eines Metallanschlusses und der Dachrinne mit einem Messwerkzeug']
+  pv: ['04', 'Energie & Dachintegration', 'Photovoltaik. Präzise integriert.', 'Wir betrachten Modulflächen, Befestigung, Leitungswege und Dachanschlüsse gemeinsam – für eine leistungsfähige Anlage ohne Kompromisse beim Wetterschutz.', 'assets/hero-scenes/roof-pv.webp', 'In das anthrazitfarbene Steildach integrierte Photovoltaikanlage'],
+  fassade: ['05', 'Wärmeschutz & Gebäudehaut', 'Fassaden, die dauerhaft schützen.', 'Dämmung, Putz, Anschlüsse und Fensterdetails werden als zusammenhängende Gebäudehaut geplant – energetisch wirksam und architektonisch ruhig.', 'assets/hero-scenes/facade.webp', 'Moderne helle Fassade mit präzisen Fenster- und Dachanschlüssen'],
+  klempnerei: ['06', 'Metall & Entwässerung', 'Bauklempnerei bis ins Detail.', 'Dachrinnen, Fallrohre, Attiken und Zinkanschlüsse führen Wasser kontrolliert ab und schützen besonders sensible Übergänge dauerhaft.', 'assets/service-wartung.webp', 'Präzise ausgeführter Metallanschluss und Dachrinne'],
+  service: ['07', 'Substanz & Werterhalt', 'Kleine Ursache. Sauber gelöst.', 'Wir finden Schäden früh, reparieren nachvollziehbar und dokumentieren den Zustand – damit aus einem Detail kein großes Problem wird.', 'assets/service-wartung.webp', 'Fachgerechte Kontrolle eines Metallanschlusses und der Dachrinne mit einem Messwerkzeug']
 };
-document.querySelectorAll('[data-service]').forEach(tab => tab.addEventListener('click', () => {
-  document.querySelectorAll('[data-service]').forEach(item => item.setAttribute('aria-selected', String(item === tab)));
-  const data = services[tab.dataset.service];
+const serviceTabs = [...document.querySelectorAll('[data-service]')];
+function activateService(serviceKey) {
+  const data = services[serviceKey];
+  if (!data) return;
+  serviceTabs.forEach(item => item.setAttribute('aria-selected', String(item.dataset.service === serviceKey)));
+  const activeTab = serviceTabs.find(item => item.dataset.service === serviceKey);
+  const tabRail = activeTab?.closest('.service-tabs');
+  if (activeTab && tabRail) {
+    const left = activeTab.offsetLeft - (tabRail.clientWidth - activeTab.offsetWidth) / 2;
+    tabRail.scrollTo({ left: Math.max(0, left), behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+  }
   ['#service-index', '#service-label', '#service-title', '#service-copy'].forEach((selector, index) => document.querySelector(selector).textContent = data[index]);
   const serviceImage = document.querySelector('#service-image');
   serviceImage.classList.add('changing');
@@ -205,7 +216,9 @@ document.querySelectorAll('[data-service]').forEach(tab => tab.addEventListener(
   serviceImage.src = data[4];
   serviceImage.alt = data[5];
   if (serviceImage.complete) revealServiceImage();
-}));
+}
+serviceTabs.forEach(tab => tab.addEventListener('click', () => activateService(tab.dataset.service)));
+document.querySelectorAll('[data-service-target]').forEach(link => link.addEventListener('click', () => activateService(link.dataset.serviceTarget)));
 
 document.querySelectorAll('.intro-copy, .principles article, .trust-panel, .section-head, .service-panel, .check-grid a, .timeline li, .partners-heading, .partner-node, .partner-future, .faq > div, .accordion details').forEach(item => item.classList.add('reveal'));
 const observer = new IntersectionObserver(entries => entries.forEach(entry => {

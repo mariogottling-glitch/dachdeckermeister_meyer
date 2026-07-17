@@ -72,13 +72,13 @@
         </div>
         <div class="frame-transition-veil" aria-hidden="true"></div>
 
-        <div class="service-markers overview-markers" aria-hidden="true">
-          <span style="--x:70%;--y:39%">Steildach</span>
-          <span style="--x:43%;--y:29%">Photovoltaik</span>
-          <span style="--x:59%;--y:45%">Dachfenster</span>
-          <span class="marker-left" style="--x:82%;--y:59%">Flachdach</span>
-          <span style="--x:60%;--y:70%">Fassade</span>
-          <span class="marker-left" style="--x:91%;--y:67%">Bauklempnerei</span>
+        <div class="service-markers overview-markers" aria-label="Leistungen am Gebäude">
+          <a class="service-marker" href="#leistungen" data-service-target="steildach" style="--x:70%;--y:39%" aria-label="Mehr über Steildächer erfahren">Steildach</a>
+          <a class="service-marker" href="#leistungen" data-service-target="pv" style="--x:43%;--y:29%" aria-label="Mehr über Photovoltaik erfahren">Photovoltaik</a>
+          <a class="service-marker" href="#leistungen" data-service-target="fenster" style="--x:59%;--y:45%" aria-label="Mehr über Dachfenster erfahren">Dachfenster</a>
+          <a class="service-marker marker-left" href="#leistungen" data-service-target="flachdach" style="--x:82%;--y:59%" aria-label="Mehr über Flachdächer erfahren">Flachdach</a>
+          <a class="service-marker" href="#leistungen" data-service-target="fassade" style="--x:60%;--y:70%" aria-label="Mehr über Fassadenarbeiten erfahren">Fassade</a>
+          <a class="service-marker marker-left" href="#leistungen" data-service-target="klempnerei" style="--x:91%;--y:67%" aria-label="Mehr über Bauklempnerei erfahren">Bauklempnerei</a>
         </div>
 
         <div class="hero-scene scene-roof is-visible" data-scene="0">
@@ -205,12 +205,15 @@
     </section>
 
     <section class="services section-pad" id="leistungen">
-      <div class="section-head"><div><div class="section-kicker">03 / Leistungen</div><h2>Vier Bereiche.<br />Ein Qualitätsanspruch.</h2></div><p>Von der kompletten Dachlösung bis zur gezielten Instandhaltung: Wir denken jedes Projekt im Zusammenhang.</p></div>
+      <div class="section-head"><div><div class="section-kicker">03 / Leistungen</div><h2>Sieben Kompetenzen.<br />Ein Qualitätsanspruch.</h2></div><p>Von der kompletten Gebäudehülle bis zur gezielten Instandhaltung: Wir denken jedes Projekt im Zusammenhang.</p></div>
       <div class="service-tabs" role="tablist" aria-label="Leistungsbereiche">
         <button role="tab" aria-selected="true" data-service="steildach"><span>01</span>Steildach</button>
         <button role="tab" aria-selected="false" data-service="flachdach"><span>02</span>Flachdach</button>
         <button role="tab" aria-selected="false" data-service="fenster"><span>03</span>Dachfenster</button>
-        <button role="tab" aria-selected="false" data-service="service"><span>04</span>Reparatur & Wartung</button>
+        <button role="tab" aria-selected="false" data-service="pv"><span>04</span>Photovoltaik</button>
+        <button role="tab" aria-selected="false" data-service="fassade"><span>05</span>Fassade</button>
+        <button role="tab" aria-selected="false" data-service="klempnerei"><span>06</span>Bauklempnerei</button>
+        <button role="tab" aria-selected="false" data-service="service"><span>07</span>Reparatur & Wartung</button>
       </div>
       <article class="service-panel">
         <div class="service-visual"><img id="service-image" src="assets/service-steildach.webp" alt="Präzise ausgeführtes anthrazitfarbenes Steildach an einem modernen Wohnhaus" width="1672" height="941" loading="lazy" /><span id="service-index" aria-hidden="true">01</span></div>
