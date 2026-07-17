@@ -102,6 +102,15 @@ body{font-size:18px}.site-header nav,.header-cta{font-size:13px}.eyebrow,.sectio
 .cinematic-hero{z-index:1;margin-top:min(-100svh,-680px)}
 @media(max-width:640px){.hero-cover{height:calc(max(100svh,680px) + 55svh)}.hero-cover-stage{min-height:680px}.hero-cover-stage>img,.hero-cover-stage>.hero-cover-transition{object-position:58% center}.cinematic-hero{margin-top:min(-100svh,-680px)}}
 @media(prefers-reduced-motion:reduce){.hero-cover{height:100svh}.hero-cover-stage{position:relative}.cinematic-hero{margin-top:0}}
+
+/* Building-envelope system chain: every animated step names a real component. */
+.system-chain{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:0;margin-top:30px;border-top:1px solid rgba(255,255,255,.35);max-width:620px}
+.system-chain span{position:relative;display:flex;flex-direction:column;gap:5px;padding:17px 12px 0 0;color:#fff;font-size:13px;font-weight:600;letter-spacing:.055em;white-space:nowrap}
+.system-chain span b{color:var(--accent);font-size:11px;font-weight:600;letter-spacing:.12em}
+.system-chain span:not(:last-child):after{content:"";position:absolute;top:-1px;left:0;width:100%;height:2px;background:linear-gradient(90deg,var(--accent),rgba(255,255,255,.2));transform:scaleX(.78);transform-origin:left}
+.system-chain span:not(:last-child):before{content:"→";position:absolute;right:9px;top:18px;color:var(--accent);font-size:14px}
+@media(max-width:900px){.system-chain{grid-template-columns:repeat(3,minmax(0,1fr));gap:7px;border-top:0}.system-chain span{min-height:54px;padding:9px 10px;background:rgba(15,20,22,.78);border:1px solid rgba(255,255,255,.16);white-space:normal}.system-chain span:before,.system-chain span:after{display:none}}
+@media(max-width:640px){.system-chain{grid-template-columns:repeat(2,minmax(0,1fr));margin-top:18px;gap:5px}.system-chain span{min-height:44px;padding:6px 8px;font-size:11px}.system-chain span b{font-size:9px}}
 @media(max-width:640px){body{font-size:16px}.eyebrow,.section-kicker{font-size:11px}.hero-stats span{font-size:9px}.service-tabs button{font-size:14px}.service-tabs span{font-size:10px}.accordion summary{font-size:17px}.choice-grid span{font-size:11px}}
 
 /* Concept additions: personal trust, guided diagnosis and qualified inquiry. */

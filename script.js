@@ -64,7 +64,7 @@ function initCinematicHero() {
   const facadeLayers = [...hero.querySelectorAll('.facade-layers i')];
   const flatBuildOrder = [...flatLayers].reverse();
   const facadeBuildOrder = [...facadeLayers].reverse();
-  const connectionPaths = [...hero.querySelectorAll('.connection-map path')];
+  const systemSteps = [...hero.querySelectorAll('.system-chain span')];
   let activeScene = -1;
 
   function setActiveScene(index) {
@@ -84,10 +84,7 @@ function initCinematicHero() {
   gsap.set(markers, { autoAlpha: 0 });
   gsap.set(flatLayers, { autoAlpha: 0, y: 14 });
   gsap.set(facadeLayers, { autoAlpha: 0, x: -18 });
-  connectionPaths.forEach(path => {
-    const length = path.getTotalLength();
-    gsap.set(path, { strokeDasharray: length, strokeDashoffset: length });
-  });
+  gsap.set(systemSteps, { autoAlpha: 0, y: 10 });
   setActiveScene(0);
 
   const timeline = gsap.timeline({
@@ -130,7 +127,7 @@ function initCinematicHero() {
   timeline.to(scenes[3], { autoAlpha: 0, y: -20, duration: .22 }, 3.48);
   transitionFrame(4, 5, 3.59);
   timeline.fromTo(scenes[4], { autoAlpha: 0, y: 24 }, { autoAlpha: 1, y: 0, duration: .26 }, 4.04);
-  timeline.to(connectionPaths, { strokeDashoffset: 0, stagger: .07, duration: .46 }, 4.12);
+  timeline.to(systemSteps, { autoAlpha: 1, y: 0, stagger: .045, duration: .18 }, 4.10);
 
   timeline.to(scenes[4], { autoAlpha: 0, y: -20, duration: .22 }, 4.48);
   transitionFrame(5, 0, 4.59);
