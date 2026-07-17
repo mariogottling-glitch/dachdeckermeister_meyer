@@ -1,0 +1,11 @@
+# Betriebssystem- und Editor-Dateien
+.DS_Store
+Thumbs.db
+Desktop.ini
+*.swp
+*.tmp
+
+# Lokale Arbeits- und Konzeptdateien
+.concept-source/
+tmp/
+
