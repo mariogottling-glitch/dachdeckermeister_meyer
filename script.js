@@ -207,7 +207,7 @@ document.querySelectorAll('[data-service]').forEach(tab => tab.addEventListener(
   if (serviceImage.complete) revealServiceImage();
 }));
 
-document.querySelectorAll('.intro-copy, .principles article, .trust-panel, .section-head, .service-panel, .check-grid a, .timeline li, .faq > div, .accordion details').forEach(item => item.classList.add('reveal'));
+document.querySelectorAll('.intro-copy, .principles article, .trust-panel, .section-head, .service-panel, .check-grid a, .timeline li, .partners-heading, .partner-node, .partner-future, .faq > div, .accordion details').forEach(item => item.classList.add('reveal'));
 const observer = new IntersectionObserver(entries => entries.forEach(entry => {
   if (entry.isIntersecting) { entry.target.classList.add('in'); observer.unobserve(entry.target); }
 }), { threshold: .12, rootMargin: '0px 0px -40px' });
