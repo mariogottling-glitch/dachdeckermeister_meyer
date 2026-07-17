@@ -13,6 +13,36 @@ nav?.addEventListener('click', event => {
   }
 });
 
+function initHeroBridge() {
+  const cover = document.querySelector('.hero-cover');
+  const transitionImage = cover?.querySelector('.hero-cover-transition');
+  const baseImage = cover?.querySelector('img:not(.hero-cover-transition)');
+  const shade = cover?.querySelector('.hero-shade');
+  const coverContent = cover?.querySelectorAll('.hero-grid, .cover-scroll');
+  const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!cover || !transitionImage || reducedMotion || !window.gsap || !window.ScrollTrigger) return;
+
+  gsap.registerPlugin(ScrollTrigger);
+  gsap.set(transitionImage, { autoAlpha: 0, scale: 1.025 });
+
+  const bridge = gsap.timeline({
+    defaults: { ease: 'none' },
+    scrollTrigger: {
+      trigger: cover,
+      start: '55% top',
+      end: 'bottom top',
+      scrub: 1.05,
+      invalidateOnRefresh: true
+    }
+  });
+
+  bridge
+    .to(coverContent, { autoAlpha: 0, y: -24, duration: .42 }, 0)
+    .to(baseImage, { scale: 1.035, duration: 1 }, 0)
+    .to(transitionImage, { autoAlpha: 1, scale: 1, duration: .72 }, .16)
+    .to(shade, { opacity: .78, duration: .72 }, .16);
+}
+
 function initCinematicHero() {
   const hero = document.querySelector('.cinematic-hero');
   if (!hero) return;
@@ -106,6 +136,7 @@ function initCinematicHero() {
   timeline.to(markers, { autoAlpha: .82, duration: .35 }, 5.08);
 }
 
+initHeroBridge();
 initCinematicHero();
 
 const layerData = [

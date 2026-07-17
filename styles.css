@@ -91,6 +91,16 @@ body{font-size:18px}.site-header nav,.header-cta{font-size:13px}.eyebrow,.sectio
 @media(max-width:900px){.build-diagram{width:min(450px,46vw);padding-left:14px}.flat-exploded{right:3vw}.facade-layers{left:3vw}.flat-exploded i,.facade-layers i{grid-template-columns:40px 1fr;min-height:58px;padding:8px 12px}.build-diagram i strong{font-size:14px}.build-diagram i small{font-size:12px}}
 @media(max-width:640px){.flat-exploded,.facade-layers{display:block;left:18px;right:18px;top:72px;width:auto;padding-left:10px}.build-diagram:before{margin-bottom:7px;font-size:12px}.build-diagram:after{margin-top:7px;font-size:10px}.flat-exploded i,.facade-layers i{grid-template-columns:34px 1fr;min-height:43px;margin-top:4px;padding:6px 10px}.build-diagram i b{font-size:12px}.build-diagram i strong{font-size:13px}.build-diagram i small{display:none}.cinematic-hero .hero-scene>p{font-size:19px;line-height:1.55}}
 @media(min-width:641px) and (max-width:1100px){.scene-flat,.scene-facade{width:44vw}.flat-exploded,.facade-layers{top:17vh;width:42vw}.flat-exploded{right:3vw}.facade-layers{left:3vw}}
+
+/* Scroll bridge: the landing overview dissolves into the exact first tour frame. */
+.hero-cover{overflow:visible;z-index:1}
+.hero-cover:after{content:"";position:absolute;z-index:1;left:0;right:0;bottom:-10vh;height:20vh;pointer-events:none;background:linear-gradient(180deg,transparent 0%,rgba(12,16,18,.72) 47%,transparent 100%)}
+.hero-cover>img{will-change:transform,opacity;transform-origin:center center}
+.hero-cover>.hero-cover-transition{z-index:0;opacity:0;object-position:center}
+.hero-cover .hero-shade{z-index:1;will-change:opacity}
+.hero-cover .hero-grid,.hero-cover .cover-scroll{will-change:transform,opacity}
+.cinematic-hero{z-index:0}
+@media(max-width:640px){.hero-cover:after{bottom:-8vh;height:16vh}.hero-cover>.hero-cover-transition{object-position:58% center}}
 @media(max-width:640px){body{font-size:16px}.eyebrow,.section-kicker{font-size:11px}.hero-stats span{font-size:9px}.service-tabs button{font-size:14px}.service-tabs span{font-size:10px}.accordion summary{font-size:17px}.choice-grid span{font-size:11px}}
 
 /* Concept additions: personal trust, guided diagnosis and qualified inquiry. */
