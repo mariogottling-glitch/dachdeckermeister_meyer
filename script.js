@@ -16,11 +16,12 @@ nav?.addEventListener('click', event => {
 function initHeroBridge() {
   const cover = document.querySelector('.hero-cover');
   const transitionImage = cover?.querySelector('.hero-cover-transition');
+  const coverStage = cover?.querySelector('.hero-cover-stage');
   const baseImage = cover?.querySelector('img:not(.hero-cover-transition)');
   const shade = cover?.querySelector('.hero-shade');
   const coverContent = cover?.querySelectorAll('.hero-grid, .cover-scroll');
   const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (!cover || !transitionImage || reducedMotion || !window.gsap || !window.ScrollTrigger) return;
+  if (!cover || !coverStage || !transitionImage || reducedMotion || !window.gsap || !window.ScrollTrigger) return;
 
   gsap.registerPlugin(ScrollTrigger);
   gsap.set(transitionImage, { autoAlpha: 0, scale: 1.025 });
@@ -29,8 +30,8 @@ function initHeroBridge() {
     defaults: { ease: 'none' },
     scrollTrigger: {
       trigger: cover,
-      start: '55% top',
-      end: 'bottom top',
+      start: '20% top',
+      end: '40% top',
       scrub: 1.05,
       invalidateOnRefresh: true
     }
@@ -40,7 +41,8 @@ function initHeroBridge() {
     .to(coverContent, { autoAlpha: 0, y: -24, duration: .42 }, 0)
     .to(baseImage, { scale: 1.035, duration: 1 }, 0)
     .to(transitionImage, { autoAlpha: 1, scale: 1, duration: .72 }, .16)
-    .to(shade, { opacity: .78, duration: .72 }, .16);
+    .to(shade, { opacity: .78, duration: .72 }, .16)
+    .to(coverStage, { autoAlpha: 0, duration: .2 }, .8);
 }
 
 function initCinematicHero() {
