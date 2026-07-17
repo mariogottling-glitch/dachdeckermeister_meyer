@@ -73,23 +73,24 @@ body{font-size:18px}.site-header nav,.header-cta{font-size:13px}.eyebrow,.sectio
 @media(max-width:640px){.overview-markers{inset:74px 18px auto;width:calc(100% - 36px);gap:6px}.overview-markers span,.overview-markers .marker-left{min-height:34px;padding:7px 9px;font-size:9px;letter-spacing:.09em}.scene-final{left:20px;right:20px;bottom:62px}.scene-final .scene-number{margin-bottom:10px}.scene-final .eyebrow{margin-bottom:14px}.scene-final h2{font-size:clamp(38px,10vw,50px);line-height:.88}.scene-final>p{font-size:16px;line-height:1.45;margin:14px 0}.scene-final .button{padding:13px 16px}.cinematic-progress{display:none}}
 
 /* Construction diagrams: physical section plus a readable assembly sequence. */
-.build-diagram{display:block;width:clamp(360px,29vw,500px);transform:none;padding-left:18px;background:linear-gradient(90deg,var(--accent) 0 1px,transparent 1px);filter:drop-shadow(0 16px 28px rgba(0,0,0,.2));opacity:0;visibility:hidden;transition:opacity .2s ease,visibility .2s ease}
+.build-diagram{display:block;width:clamp(460px,32vw,590px);transform:none;padding-left:20px;background:linear-gradient(90deg,var(--accent) 0 2px,transparent 2px);filter:drop-shadow(0 16px 28px rgba(0,0,0,.2));opacity:0;visibility:hidden;transition:opacity .2s ease,visibility .2s ease}
 .cinematic-hero[data-active-scene="2"] .flat-exploded,.cinematic-hero[data-active-scene="3"] .facade-layers{opacity:1;visibility:visible}
-.build-diagram:before{content:attr(data-title);display:block;margin:0 0 9px;color:#fff;font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase}
-.build-diagram:after{content:attr(data-direction);display:block;margin-top:10px;color:#d9e0e1;font-size:10px;letter-spacing:.12em;text-transform:uppercase}
-.flat-exploded{right:7vw;top:22vh;width:clamp(380px,30vw,520px);transform:none}
-.facade-layers{left:7vw;top:22vh;width:clamp(380px,30vw,520px)}
-.flat-exploded i,.facade-layers i{position:relative;display:grid;grid-template-columns:42px 1fr;align-items:center;min-height:55px;height:auto;margin-top:5px;padding:8px 14px;border:1px solid rgba(255,255,255,.23);border-left:3px solid rgba(255,255,255,.55);background:rgba(19,25,27,.88);color:#fff;backdrop-filter:blur(9px);text-transform:none;letter-spacing:0}
-.flat-exploded i:nth-child(2),.facade-layers i:nth-child(2){border-color:rgba(255,255,255,.23);border-left-color:rgba(255,255,255,.55);background:rgba(19,25,27,.88)}
-.flat-exploded i:nth-of-type(2),.facade-layers i:nth-of-type(2){background:rgba(31,39,41,.9)}
-.flat-exploded i:nth-of-type(3),.facade-layers i:nth-of-type(3){border-left-color:var(--accent);background:rgba(19,52,56,.92)}
-.flat-exploded i:nth-of-type(4),.facade-layers i:nth-of-type(4){background:rgba(55,60,61,.92)}
-.build-diagram i b{color:var(--accent);font-size:12px;font-weight:600;letter-spacing:.12em}
+.build-diagram:before{content:attr(data-title);display:block;margin:0 0 11px;color:#fff;font-size:15px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;text-shadow:0 2px 10px rgba(0,0,0,.75)}
+.build-diagram:after{content:attr(data-direction);display:block;margin-top:12px;color:#fff;font-size:12px;font-weight:500;letter-spacing:.11em;text-transform:uppercase;text-shadow:0 2px 10px rgba(0,0,0,.8)}
+.flat-exploded{right:6vw;top:20vh;width:clamp(470px,33vw,610px);transform:none}
+.facade-layers{left:6vw;top:20vh;width:clamp(470px,33vw,610px)}
+.flat-exploded i,.facade-layers i{position:relative;display:grid;grid-template-columns:48px 1fr;align-items:center;min-height:66px;height:auto;margin-top:6px;padding:10px 16px;border:1px solid rgba(255,255,255,.27);border-left:3px solid rgba(255,255,255,.62);background:rgba(19,25,27,.9);color:#fff;backdrop-filter:blur(9px);text-transform:none;letter-spacing:0}
+.flat-exploded i:nth-child(2),.facade-layers i:nth-child(2){border-color:rgba(255,255,255,.27);border-left-color:rgba(255,255,255,.62);background:rgba(19,25,27,.9)}
+.build-diagram i b{color:var(--accent);font-size:15px;font-weight:600;letter-spacing:.12em}
 .build-diagram i span{display:block}
-.build-diagram i strong{display:block;font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase}
-.build-diagram i small{display:block;margin-top:3px;color:#bac2c3;font-size:11px;letter-spacing:.02em;text-transform:none}
-@media(max-width:900px){.build-diagram{width:min(400px,42vw);padding-left:12px}.flat-exploded{right:4vw}.facade-layers{left:4vw}.flat-exploded i,.facade-layers i{grid-template-columns:34px 1fr;min-height:50px;padding:7px 10px}.build-diagram i small{font-size:10px}}
-@media(max-width:640px){.flat-exploded,.facade-layers{display:block;left:18px;right:18px;top:72px;width:auto;padding-left:10px}.build-diagram:before{margin-bottom:6px;font-size:10px}.build-diagram:after{margin-top:6px;font-size:9px}.flat-exploded i,.facade-layers i{grid-template-columns:30px 1fr;min-height:38px;margin-top:3px;padding:5px 9px}.build-diagram i strong{font-size:11px}.build-diagram i small{display:none}}
+.build-diagram i strong{display:block;font-size:16px;font-weight:600;letter-spacing:.045em;text-transform:uppercase}
+.build-diagram i small{display:block;margin-top:4px;color:#e0e5e6;font-size:13px;line-height:1.35;letter-spacing:.01em;text-transform:none}
+.cinematic-hero .hero-scene>p{font-size:clamp(21px,1.48vw,27px);line-height:1.55;color:rgba(255,255,255,.9)}
+.cinematic-hero .scene-number{font-size:14px}
+.cinematic-hero .roof-callouts span,.cinematic-hero .detail-specs span{font-size:13px}
+@media(max-width:900px){.build-diagram{width:min(450px,46vw);padding-left:14px}.flat-exploded{right:3vw}.facade-layers{left:3vw}.flat-exploded i,.facade-layers i{grid-template-columns:40px 1fr;min-height:58px;padding:8px 12px}.build-diagram i strong{font-size:14px}.build-diagram i small{font-size:12px}}
+@media(max-width:640px){.flat-exploded,.facade-layers{display:block;left:18px;right:18px;top:72px;width:auto;padding-left:10px}.build-diagram:before{margin-bottom:7px;font-size:12px}.build-diagram:after{margin-top:7px;font-size:10px}.flat-exploded i,.facade-layers i{grid-template-columns:34px 1fr;min-height:43px;margin-top:4px;padding:6px 10px}.build-diagram i b{font-size:12px}.build-diagram i strong{font-size:13px}.build-diagram i small{display:none}.cinematic-hero .hero-scene>p{font-size:19px;line-height:1.55}}
+@media(min-width:641px) and (max-width:1100px){.scene-flat,.scene-facade{width:44vw}.flat-exploded,.facade-layers{top:17vh;width:42vw}.flat-exploded{right:3vw}.facade-layers{left:3vw}}
 @media(max-width:640px){body{font-size:16px}.eyebrow,.section-kicker{font-size:11px}.hero-stats span{font-size:9px}.service-tabs button{font-size:14px}.service-tabs span{font-size:10px}.accordion summary{font-size:17px}.choice-grid span{font-size:11px}}
 
 /* Concept additions: personal trust, guided diagnosis and qualified inquiry. */
