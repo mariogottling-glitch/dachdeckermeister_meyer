@@ -113,12 +113,14 @@ function initCinematicHero() {
     }
   });
 
-  function transitionFrame(from, to, at) {
+  function transitionFrame(from, to, at, direction = 1) {
     timeline
-      .to(frameVeil, { autoAlpha: 1, duration: .18, ease: 'power2.inOut' }, at)
-      .set(frames[from], { autoAlpha: 0, scale: 1 }, at + .18)
-      .set(frames[to], { autoAlpha: 1, scale: 1 }, at + .18)
-      .to(frameVeil, { autoAlpha: 0, duration: .28, ease: 'power2.out' }, at + .19);
+      .to(frames[from], { scale: 1.035, xPercent: -.45 * direction, duration: .34, ease: 'power1.inOut' }, at)
+      .to(frameVeil, { autoAlpha: 1, duration: .24, ease: 'power2.inOut' }, at + .08)
+      .set(frames[from], { autoAlpha: 0, scale: 1, xPercent: 0 }, at + .32)
+      .set(frames[to], { autoAlpha: 1, scale: 1.025, xPercent: .65 * direction }, at + .32)
+      .to(frameVeil, { autoAlpha: 0, duration: .36, ease: 'power2.out' }, at + .33)
+      .to(frames[to], { scale: 1, xPercent: 0, duration: .42, ease: 'power2.out' }, at + .33);
   }
 
   timeline.to(scenes[0], { autoAlpha: 0, y: -20, duration: .22 }, .48);
@@ -151,7 +153,7 @@ function initCinematicHero() {
   timeline.to(systemSteps, { autoAlpha: 1, y: 0, stagger: .045, duration: .18 }, 4.10);
 
   timeline.to(scenes[4], { autoAlpha: 0, y: -20, duration: .22 }, 4.48);
-  transitionFrame(5, 0, 4.59);
+  transitionFrame(5, 0, 4.59, 0);
   timeline.fromTo(scenes[5], { autoAlpha: 0, y: 24 }, { autoAlpha: 1, y: 0, duration: .3 }, 5.04);
   timeline.to(markers, { autoAlpha: .82, duration: .35 }, 5.08);
 }
