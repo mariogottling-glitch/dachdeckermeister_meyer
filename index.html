@@ -82,11 +82,6 @@
         <div class="roof-stage" aria-label="Interaktive Darstellung eines Dachaufbaus">
           <div class="blueprint-grid"></div>
           <svg viewBox="0 0 700 560" role="img" aria-label="Technischer Dachquerschnitt mit vier Ebenen">
-            <defs>
-              <pattern id="insulation-hatch" width="30" height="30" patternUnits="userSpaceOnUse" patternTransform="rotate(34)">
-                <line x1="0" y1="0" x2="0" y2="30" />
-              </pattern>
-            </defs>
             <g class="roof-lines"><path d="M90 420 L350 120 L610 420"/><path d="M150 420 L350 190 L550 420"/><path d="M350 120 L350 465"/><path d="M90 420 H610"/></g>
             <g class="roof-layer active" data-layer="0">
               <path class="structural-main" d="M135 415 L350 165 L565 415 M135 415 H565 M350 165 V415"/>
@@ -95,6 +90,7 @@
             <g class="roof-layer" data-layer="1">
               <path class="insulation-body" d="M120 390 L350 125 L580 390 L555 412 L350 175 L145 412 Z"/>
               <path class="insulation-edge" d="M120 390 L350 125 L580 390 M145 412 L350 175 L555 412"/>
+              <path class="insulation-hatching" d="M155 350 L176 376 M189 311 L207 341 M224 271 L237 305 M258 231 L268 270 M293 191 L299 234 M327 152 L330 199 M545 350 L524 376 M511 311 L493 341 M476 271 L463 305 M442 231 L432 270 M407 191 L401 234 M373 152 L370 199"/>
             </g>
             <g class="roof-layer" data-layer="2">
               <path class="membrane" d="M104 373 L350 90 L596 373 L579 388 L350 125 L121 388 Z"/>
