@@ -98,9 +98,16 @@ body{font-size:18px}.site-header nav,.header-cta{font-size:13px}.eyebrow,.sectio
 .hero-cover-stage>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 52%;will-change:transform,opacity;transform-origin:center center}
 .hero-cover-stage>.hero-cover-transition{z-index:0;opacity:0;object-position:center}
 .hero-cover .hero-shade{z-index:1;will-change:opacity}
-.hero-cover .hero-grid,.hero-cover .cover-scroll{will-change:transform,opacity}
+.hero-cover .hero-grid{z-index:auto}
+.hero-cover .hero-grid,.hero-cover .cover-scroll,.hero-cover .hero-house-foreground{will-change:transform,opacity}
+.hero-cover .hero-grid>*{position:relative}
+.hero-cover .hero-grid .eyebrow,.hero-cover .hero-copy,.hero-cover .button,.hero-cover .hero-stats{z-index:4}
+.hero-cover h1{z-index:2;font-size:clamp(78px,11.6vw,184px);font-weight:700;line-height:.75;letter-spacing:-.075em;margin-bottom:38px;text-transform:uppercase}
+.hero-cover h1 em{font-weight:700}
+.hero-cover-stage>.hero-house-foreground{z-index:3;pointer-events:none;object-position:center 52%}
 .cinematic-hero{z-index:1;margin-top:min(-100svh,-680px)}
-@media(max-width:640px){.hero-cover{height:calc(max(100svh,680px) + 55svh)}.hero-cover-stage{min-height:680px}.hero-cover-stage>img,.hero-cover-stage>.hero-cover-transition{object-position:58% center}.cinematic-hero{margin-top:min(-100svh,-680px)}}
+@media(max-width:900px){.hero-cover h1{font-size:clamp(72px,17vw,128px);line-height:.78}.hero-cover .hero-copy,.hero-cover .button{z-index:4}}
+@media(max-width:640px){.hero-cover{height:calc(max(100svh,680px) + 55svh)}.hero-cover-stage{min-height:680px}.hero-cover-stage>img,.hero-cover-stage>.hero-cover-transition,.hero-cover-stage>.hero-house-foreground{object-position:58% center}.hero-cover h1{font-size:17.5vw;line-height:.79;letter-spacing:-.065em;margin-bottom:26px}.hero-cover-stage>.hero-house-foreground{opacity:.96}.cinematic-hero{margin-top:min(-100svh,-680px)}}
 @media(prefers-reduced-motion:reduce){.hero-cover{height:100svh}.hero-cover-stage{position:relative}.cinematic-hero{margin-top:0}}
 
 /* Building-envelope system chain: every animated step names a real component. */
