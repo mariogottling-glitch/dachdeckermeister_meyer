@@ -12,8 +12,10 @@
   <meta property="og:description" content="Persönliche Beratung und präzise Dachlösungen für Köln und Umgebung." />
   <meta name="theme-color" content="#2a2a2a" />
   <title>Dachdeckermeister Meyer — Dächer mit System</title>
-  <link rel="preload" href="assets/hero-house.webp" as="image" fetchpriority="high" />
+  <link rel="preload" href="assets/hero-cinematic.webp" as="image" fetchpriority="high" />
   <link rel="stylesheet" href="styles.css" />
+  <script src="vendor/gsap.min.js" defer></script>
+  <script src="vendor/ScrollTrigger.min.js" defer></script>
   <script src="script.js" defer></script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"RoofingContractor","name":"Dachdeckermeister Meyer","description":"Meisterbetrieb für Dachsanierung, Steildach, Flachdach, Dachfenster, Reparatur und Wartung.","areaServed":{"@type":"City","name":"Köln"},"founder":{"@type":"Person","name":"Pierre Meyer"}}</script>
 </head>
@@ -31,21 +33,64 @@
   </header>
 
   <main id="main">
-    <section class="hero" aria-labelledby="hero-title">
-      <img src="assets/hero-house.webp" alt="Modernes Wohnhaus mit präzise ausgeführtem anthrazitfarbenem Steildach bei Dämmerung" width="1680" height="945" />
-      <div class="hero-shade"></div>
-      <div class="hero-grid">
-        <div class="eyebrow light"><span></span>Dachhandwerk. Neu gedacht.</div>
-        <h1 id="hero-title">DÄCHER<br />MIT <em>SYSTEM.</em></h1>
-        <p class="hero-copy">Wir planen, bauen und erhalten Dächer, die heute überzeugen — und morgen noch Bestand haben.</p>
-        <a class="button button-light" href="#beratung">Erstberatung starten <span>↗</span></a>
-        <div class="hero-stats" aria-label="Unser Qualitätsversprechen">
-          <div><strong>MEISTER</strong><span>Qualität mit Verantwortung</span></div>
-          <div><strong>DIREKT</strong><span>Pierre Meyer berät persönlich</span></div>
-          <div><strong>REGIONAL</strong><span>Köln und Umgebung</span></div>
+    <section class="cinematic-hero" aria-labelledby="hero-title">
+      <div class="cinematic-stage">
+        <div class="cinematic-media" aria-hidden="true">
+          <img src="assets/hero-cinematic.webp" alt="" width="1672" height="941" fetchpriority="high" />
+          <div class="cinematic-grade"></div>
+          <div class="moving-shadow"></div>
+          <div class="cloud cloud-a"></div><div class="cloud cloud-b"></div>
+          <div class="smoke"><i></i><i></i><i></i></div>
+          <div class="distant-birds"><i></i><i></i><i></i></div>
         </div>
+
+        <div class="service-markers overview-markers" aria-hidden="true">
+          <span style="--x:28%;--y:31%">Steildach</span><span style="--x:49%;--y:28%">Photovoltaik</span><span style="--x:59%;--y:43%">Dachfenster</span><span style="--x:73%;--y:59%">Flachdach</span><span style="--x:42%;--y:67%">Fassade</span><span style="--x:68%;--y:73%">Bauklempnerei</span>
+        </div>
+
+        <div class="hero-scene scene-overview is-visible" data-scene="0">
+          <div class="eyebrow light"><span></span>Gebäudehülle. Neu gedacht.</div>
+          <h1 id="hero-title">DÄCHER<br />MIT <em>SYSTEM.</em></h1>
+          <p>Ein Gebäude funktioniert nur dann dauerhaft, wenn Dach, Fassade, Fenster und Entwässerung als ein System geplant werden.</p>
+          <a class="button button-light" href="#anfrage">Projekt besprechen <span>↗</span></a>
+        </div>
+
+        <div class="hero-scene scene-roof" data-scene="1" aria-hidden="true">
+          <div class="scene-number">02 / 07</div><h2>Das Dach.<br /><em>Präzise geschützt.</em></h2><p>Eindeckung, Dachfenster, Photovoltaik, Kamin und Rinne werden bis ins Detail aufeinander abgestimmt.</p>
+          <div class="roof-callouts"><span>Dachziegel</span><span>Photovoltaik</span><span>Dachfenster</span><span>Kamin</span><span>Zinkrinne</span></div>
+        </div>
+
+        <div class="hero-scene scene-detail" data-scene="2" aria-hidden="true">
+          <div class="scene-number">03 / 07</div><h2>Details entscheiden<br />über Jahrzehnte.</h2><p>Saubere Anschlüsse, exakte Überdeckungen und materialgerechte Ausführung machen Qualität dauerhaft sichtbar.</p>
+          <div class="detail-specs"><span><b>01</b>Regensicher</span><span><b>02</b>Windfest</span><span><b>03</b>Wartbar</span></div>
+        </div>
+
+        <div class="hero-scene scene-flat" data-scene="3" aria-hidden="true">
+          <div class="scene-number">04 / 07</div><h2>Flachdach.<br /><em>Schicht für Schicht.</em></h2><p>Gefälle, Abdichtung, Attika und Entwässerung bilden einen kontrollierten, langlebigen Aufbau.</p>
+        </div>
+
+        <div class="hero-scene scene-facade" data-scene="4" aria-hidden="true">
+          <div class="scene-number">05 / 07</div><h2>Die Fassade.<br /><em>Mehr als Oberfläche.</em></h2><p>Witterungsschutz und Energieeffizienz werden zu einer ruhigen, technisch durchdachten Gebäudehaut.</p>
+        </div>
+
+        <div class="flat-exploded" aria-hidden="true"><i>Schutzlage</i><i>Abdichtung</i><i>Dämmung</i><i>Tragfläche</i></div>
+        <div class="facade-layers" aria-hidden="true"><i>Außenputz</i><i>Dämmung</i><i>Kleber</i><i>Mauerwerk</i></div>
+
+        <div class="hero-scene scene-envelope" data-scene="5" aria-hidden="true">
+          <div class="scene-number">06 / 07</div><h2>Ein Gebäude.<br /><em>Ein System.</em></h2><p>Dach, Fassade, Fenster, Entwässerung und Metallarbeiten greifen präzise ineinander.</p>
+          <svg class="connection-map" viewBox="0 0 520 260" aria-hidden="true"><path d="M35 45 C145 45 115 130 255 130 S370 45 485 45"/><path d="M35 215 C140 215 140 130 255 130 S380 215 485 215"/><circle cx="255" cy="130" r="6"/></svg>
+        </div>
+
+        <div class="hero-scene scene-final" data-scene="6" aria-hidden="true">
+          <div class="eyebrow light"><span></span>Alles aus einer Hand</div>
+          <h2>IHR GEBÄUDE.<br /><em>PERFEKT GESCHÜTZT.</em></h2>
+          <p>Vom Dach bis zur Fassade. Ein Ansprechpartner. Ein Qualitätsstandard.</p>
+          <a class="button button-light" href="#anfrage">Projekt anfragen <span>↗</span></a>
+        </div>
+
+        <div class="cinematic-progress" aria-hidden="true"><span class="active">01</span><span>02</span><span>03</span><span>04</span><span>05</span><span>06</span><span>07</span></div>
+        <div class="cinematic-scroll" aria-hidden="true"><span>Scrollen, um das Gebäude zu erkunden</span><i></i></div>
       </div>
-      <div class="scroll-cue"><span>Scrollen, um das Dach zu verstehen</span><i></i></div>
     </section>
 
     <section class="intro section-pad" id="beratung">

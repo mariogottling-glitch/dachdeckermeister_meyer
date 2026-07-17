@@ -13,6 +13,89 @@ nav?.addEventListener('click', event => {
   }
 });
 
+function initCinematicHero() {
+  const hero = document.querySelector('.cinematic-hero');
+  if (!hero) return;
+
+  const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reducedMotion || innerWidth <= 900 || !window.gsap || !window.ScrollTrigger) {
+    hero.classList.add('is-static');
+    return;
+  }
+
+  gsap.registerPlugin(ScrollTrigger);
+  const media = hero.querySelector('.cinematic-media');
+  const scenes = [...hero.querySelectorAll('.hero-scene')];
+  const progressItems = [...hero.querySelectorAll('.cinematic-progress span')];
+  const markers = hero.querySelector('.overview-markers');
+  const flatLayers = [...hero.querySelectorAll('.flat-exploded i')];
+  const facadeLayers = [...hero.querySelectorAll('.facade-layers i')];
+  const connectionPaths = [...hero.querySelectorAll('.connection-map path')];
+  let activeScene = -1;
+
+  function setActiveScene(index) {
+    if (index === activeScene) return;
+    activeScene = index;
+    scenes.forEach((scene, i) => {
+      scene.classList.toggle('is-visible', i === index);
+      scene.setAttribute('aria-hidden', String(i !== index));
+    });
+    progressItems.forEach((item, i) => item.classList.toggle('active', i === index));
+  }
+
+  gsap.set(scenes.slice(1), { autoAlpha: 0, y: 28 });
+  gsap.set(markers, { autoAlpha: 1 });
+  gsap.set([...flatLayers, ...facadeLayers], { autoAlpha: 0, x: 28 });
+  connectionPaths.forEach(path => {
+    const length = path.getTotalLength();
+    gsap.set(path, { strokeDasharray: length, strokeDashoffset: length });
+  });
+  setActiveScene(0);
+
+  const timeline = gsap.timeline({
+    defaults: { ease: 'power2.inOut' },
+    scrollTrigger: {
+      trigger: hero,
+      start: 'top top',
+      end: () => `+=${innerHeight * 7}`,
+      pin: true,
+      scrub: 1.15,
+      anticipatePin: 1,
+      invalidateOnRefresh: true,
+      onUpdate: self => setActiveScene(Math.min(6, Math.round(self.progress * 6)))
+    }
+  });
+
+  timeline
+    .to(scenes[0], { autoAlpha: 0, y: -24, duration: .28 }, .58)
+    .to(markers, { autoAlpha: 0, duration: .28 }, .55)
+    .to(media, { scale: 1.5, xPercent: -7, yPercent: 14, force3D: true, duration: 1 }, .65)
+    .fromTo(scenes[1], { autoAlpha: 0, y: 28 }, { autoAlpha: 1, y: 0, duration: .32 }, .88)
+    .to(scenes[1], { autoAlpha: 0, y: -22, duration: .28 }, 1.65)
+    .to(media, { scale: 1.82, xPercent: -10, yPercent: 21, force3D: true, duration: 1 }, 1.65)
+    .fromTo(scenes[2], { autoAlpha: 0, y: 28 }, { autoAlpha: 1, y: 0, duration: .32 }, 1.9)
+    .to(scenes[2], { autoAlpha: 0, y: -22, duration: .28 }, 2.65)
+    .to(media, { scale: 1.58, xPercent: -20, yPercent: 4, force3D: true, duration: 1 }, 2.65)
+    .fromTo(scenes[3], { autoAlpha: 0, y: 28 }, { autoAlpha: 1, y: 0, duration: .32 }, 2.9)
+    .to(flatLayers, { autoAlpha: 1, x: 0, stagger: .07, duration: .34 }, 3.05)
+    .to(flatLayers, { autoAlpha: 0, x: 20, stagger: .04, duration: .24 }, 3.58)
+    .to(scenes[3], { autoAlpha: 0, y: -22, duration: .28 }, 3.65)
+    .to(media, { scale: 1.47, xPercent: 7, yPercent: -15, force3D: true, duration: 1 }, 3.65)
+    .fromTo(scenes[4], { autoAlpha: 0, y: 28 }, { autoAlpha: 1, y: 0, duration: .32 }, 3.9)
+    .to(facadeLayers, { autoAlpha: 1, x: 0, stagger: .07, duration: .34 }, 4.03)
+    .to(facadeLayers, { autoAlpha: 0, x: -18, stagger: .04, duration: .24 }, 4.58)
+    .to(scenes[4], { autoAlpha: 0, y: -22, duration: .28 }, 4.65)
+    .to(media, { scale: 1.24, xPercent: -3, yPercent: -4, force3D: true, duration: 1 }, 4.65)
+    .fromTo(scenes[5], { autoAlpha: 0, y: 28 }, { autoAlpha: 1, y: 0, duration: .32 }, 4.9)
+    .to(connectionPaths, { strokeDashoffset: 0, stagger: .08, duration: .6 }, 5.02)
+    .to(scenes[5], { autoAlpha: 0, y: -22, duration: .28 }, 5.65)
+    .to(media, { scale: 1.04, xPercent: 0, yPercent: 0, force3D: true, duration: 1 }, 5.65)
+    .fromTo(scenes[6], { autoAlpha: 0, y: 30 }, { autoAlpha: 1, y: 0, duration: .4 }, 5.92)
+    .to(markers, { autoAlpha: .82, duration: .45 }, 5.95);
+}
+
+initCinematicHero();
+
 const layerData = [
   ['Tragwerk', 'Lasten sicher aufnehmen und präzise in das Gebäude ableiten.'],
   ['Dämmung', 'Wärme im Haus halten, sommerliche Hitze und Schall draußen lassen.'],
