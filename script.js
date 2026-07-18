@@ -104,9 +104,16 @@ function initCinematicHero() {
     scrollTrigger: {
       trigger: hero,
       start: 'top top',
-      end: () => `+=${innerHeight * 6}`,
+      end: () => {
+        const viewportFactor = matchMedia('(max-width: 640px)').matches
+          ? 3.25
+          : matchMedia('(max-width: 900px)').matches
+            ? 4.5
+            : 6;
+        return `+=${innerHeight * viewportFactor}`;
+      },
       pin: true,
-      scrub: 1.15,
+      scrub: matchMedia('(max-width: 640px)').matches ? .82 : 1.15,
       anticipatePin: 1,
       invalidateOnRefresh: true,
       onUpdate: self => setActiveScene(Math.min(5, Math.floor(self.progress * 5.5)))

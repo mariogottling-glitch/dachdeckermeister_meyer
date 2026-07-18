@@ -186,6 +186,7 @@ body{font-size:18px}.site-header nav,.header-cta{font-size:13px}.eyebrow,.sectio
 .tour-skip{position:absolute;z-index:8;top:24px;left:var(--pad);display:flex;align-items:center;gap:10px;color:rgba(255,255,255,.68);font-size:10px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;transition:color .25s}
 .tour-skip span{color:var(--accent);font-size:14px}
 .tour-skip:hover,.tour-skip:focus-visible{color:#fff;outline:none}
+.tour-inquiry{display:none}
 .cinematic-progress{right:20px;gap:8px}
 .cinematic-progress span{width:132px;display:grid;grid-template-columns:30px 1fr;align-items:center;gap:10px;padding:7px 0;border-bottom:1px solid rgba(255,255,255,.22);transition:color .3s,border-color .3s,background .3s}
 .cinematic-progress span b{font-size:10px;font-weight:600;letter-spacing:.12em}
@@ -193,7 +194,7 @@ body{font-size:18px}.site-header nav,.header-cta{font-size:13px}.eyebrow,.sectio
 .cinematic-progress span.active{border-color:var(--accent);background:linear-gradient(90deg,transparent,rgba(12,22,24,.36))}
 .cinematic-progress span.active small{color:#fff;transform:translateX(-2px)}
 @media(max-width:1100px){.cinematic-progress span{width:32px;display:block;padding:5px 0}.cinematic-progress span small{display:none}}
-@media(max-width:640px){.scene-meta{gap:9px;margin-bottom:13px}.scene-meta b{font-size:10px;letter-spacing:.1em}.scene-meta:after{width:24px}.scene-final .scene-meta{margin-bottom:9px}.scene-final .eyebrow{margin-bottom:13px}.tour-skip{top:18px;left:20px;font-size:9px}}
+@media(max-width:640px){.scene-meta{gap:9px;margin-bottom:13px}.scene-meta b{font-size:10px;letter-spacing:.1em}.scene-meta:after{width:24px}.scene-final .scene-meta{margin-bottom:9px}.scene-final .eyebrow{margin-bottom:13px}.tour-skip,.tour-inquiry{top:16px;padding:9px 10px;background:rgba(15,20,22,.78);border:1px solid rgba(255,255,255,.16);backdrop-filter:blur(9px);font-size:9px;line-height:1;letter-spacing:.08em}.tour-skip{left:18px}.tour-inquiry{position:absolute;z-index:8;right:18px;display:flex;align-items:center;gap:8px;color:#fff;text-transform:uppercase}.tour-inquiry span{color:var(--accent);font-size:13px}.tour-skip:focus-visible,.tour-inquiry:focus-visible{border-color:var(--accent);outline:none}}
 
 /* Stable fallback when motion is reduced or the animation runtime is unavailable. */
 .cinematic-hero.is-static .hero-scene.scene-roof{display:block!important;opacity:1!important;visibility:visible!important;transform:none!important}
