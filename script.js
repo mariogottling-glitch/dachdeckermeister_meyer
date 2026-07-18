@@ -5,12 +5,22 @@ menuButton?.addEventListener('click', () => {
   const open = menuButton.getAttribute('aria-expanded') === 'true';
   menuButton.setAttribute('aria-expanded', String(!open));
   nav.classList.toggle('open', !open);
+  const menuLabel = menuButton.querySelector('.sr-only');
+  if (menuLabel) menuLabel.textContent = open ? 'Menü öffnen' : 'Menü schließen';
 });
 nav?.addEventListener('click', event => {
   if (event.target.matches('a')) {
     nav.classList.remove('open');
     menuButton.setAttribute('aria-expanded', 'false');
   }
+});
+document.addEventListener('keydown', event => {
+  if (event.key !== 'Escape' || menuButton?.getAttribute('aria-expanded') !== 'true') return;
+  nav?.classList.remove('open');
+  menuButton.setAttribute('aria-expanded', 'false');
+  const menuLabel = menuButton.querySelector('.sr-only');
+  if (menuLabel) menuLabel.textContent = 'Menü öffnen';
+  menuButton.focus();
 });
 
 function initHeroBridge() {
@@ -210,8 +220,14 @@ const serviceTabs = [...document.querySelectorAll('[data-service]')];
 function activateService(serviceKey) {
   const data = services[serviceKey];
   if (!data) return;
-  serviceTabs.forEach(item => item.setAttribute('aria-selected', String(item.dataset.service === serviceKey)));
+  serviceTabs.forEach(item => {
+    const selected = item.dataset.service === serviceKey;
+    item.setAttribute('aria-selected', String(selected));
+    item.tabIndex = selected ? 0 : -1;
+  });
   const activeTab = serviceTabs.find(item => item.dataset.service === serviceKey);
+  const servicePanel = document.querySelector('#service-panel');
+  if (activeTab && servicePanel) servicePanel.setAttribute('aria-labelledby', activeTab.id);
   const tabRail = activeTab?.closest('.service-tabs');
   if (activeTab && tabRail) {
     const left = activeTab.offsetLeft - (tabRail.clientWidth - activeTab.offsetWidth) / 2;
@@ -229,6 +245,18 @@ function activateService(serviceKey) {
   if (serviceImage.complete) revealServiceImage();
 }
 serviceTabs.forEach(tab => tab.addEventListener('click', () => activateService(tab.dataset.service)));
+serviceTabs.forEach((tab, index) => tab.addEventListener('keydown', event => {
+  let nextIndex;
+  if (event.key === 'ArrowRight' || event.key === 'ArrowDown') nextIndex = (index + 1) % serviceTabs.length;
+  if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') nextIndex = (index - 1 + serviceTabs.length) % serviceTabs.length;
+  if (event.key === 'Home') nextIndex = 0;
+  if (event.key === 'End') nextIndex = serviceTabs.length - 1;
+  if (nextIndex === undefined) return;
+  event.preventDefault();
+  const nextTab = serviceTabs[nextIndex];
+  activateService(nextTab.dataset.service);
+  nextTab.focus();
+}));
 document.querySelectorAll('[data-service-target]').forEach(link => link.addEventListener('click', () => activateService(link.dataset.serviceTarget)));
 
 document.querySelectorAll('.intro-copy, .principles article, .trust-panel, .section-head, .service-panel, .check-grid a, .timeline li, .partners-heading, .partner-node, .partner-future, .faq > div, .accordion details').forEach(item => item.classList.add('reveal'));
@@ -241,6 +269,7 @@ const inquiryForm = document.querySelector('#inquiry-form');
 const formSteps = [...document.querySelectorAll('.form-step')];
 const progressSteps = [...document.querySelectorAll('.wizard-progress span')];
 const dynamicFields = document.querySelector('.dynamic-fields');
+const formError = document.querySelector('#form-error');
 const projectFields = {
   steildach: `
     <label>Dachtyp<select name="roof_type" required><option value="">Bitte wählen</option><option>Satteldach</option><option>Walmdach</option><option>Anderer Dachtyp</option><option>Unbekannt</option></select></label>
@@ -282,18 +311,55 @@ function selectedProjectKey() {
 function renderProjectFields() {
   if (dynamicFields) dynamicFields.innerHTML = projectFields[selectedProjectKey()];
 }
-function showFormStep(step) {
-  formSteps.forEach(item => item.classList.toggle('active', Number(item.dataset.step) === step));
-  progressSteps.forEach((item, index) => item.classList.toggle('active', index < step));
+function showFormStep(step, moveFocus = false) {
+  let activeStep;
+  formSteps.forEach(item => {
+    const active = Number(item.dataset.step) === step;
+    item.classList.toggle('active', active);
+    item.setAttribute('aria-hidden', String(!active));
+    item.tabIndex = -1;
+    if (active) activeStep = item;
+  });
+  progressSteps.forEach((item, index) => {
+    const active = index < step;
+    item.classList.toggle('active', active);
+    if (index === step - 1) item.setAttribute('aria-current', 'step');
+    else item.removeAttribute('aria-current');
+  });
   inquiryForm?.setAttribute('data-current-step', String(step));
+  if (moveFocus) requestAnimationFrame(() => activeStep?.focus());
+}
+function clearFormError() {
+  if (formError) formError.textContent = '';
+}
+function markFieldValid(field) {
+  field.removeAttribute('aria-invalid');
+  if (field.getAttribute('aria-describedby') === 'form-error') field.removeAttribute('aria-describedby');
+  field.closest('label')?.classList.remove('has-error');
 }
 function stepIsValid(step) {
   const fields = formSteps[step - 1]?.querySelectorAll('input, select, textarea') || [];
+  fields.forEach(markFieldValid);
+  clearFormError();
   for (const field of fields) {
-    if (!field.checkValidity()) { field.reportValidity(); return false; }
+    if (!field.checkValidity()) {
+      const label = field.closest('label');
+      const labelText = [...(label?.childNodes || [])].find(node => node.nodeType === Node.TEXT_NODE)?.textContent.trim() || 'Pflichtfeld';
+      field.setAttribute('aria-invalid', 'true');
+      field.setAttribute('aria-describedby', 'form-error');
+      label?.classList.add('has-error');
+      if (formError) formError.textContent = `Bitte prüfen Sie das Feld „${labelText}“ und ergänzen Sie eine gültige Angabe.`;
+      field.focus();
+      return false;
+    }
   }
   return true;
 }
+
+inquiryForm?.addEventListener('input', event => {
+  if (event.target.matches('input, select, textarea')) markFieldValid(event.target);
+  if (!inquiryForm.querySelector('[aria-invalid="true"]')) clearFormError();
+});
 
 inquiryForm?.querySelectorAll('input[name="type"]').forEach(input => input.addEventListener('change', renderProjectFields));
 const requestedService = new URLSearchParams(location.search).get('leistung');
@@ -307,17 +373,18 @@ inquiryForm?.querySelectorAll('.next-step').forEach(button => button.addEventLis
   const current = Number(inquiryForm.dataset.currentStep || 1);
   if (!stepIsValid(current)) return;
   if (current === 1) renderProjectFields();
-  showFormStep(Math.min(3, current + 1));
+  showFormStep(Math.min(3, current + 1), true);
 }));
 inquiryForm?.querySelectorAll('.prev-step').forEach(button => button.addEventListener('click', () => {
   const current = Number(inquiryForm.dataset.currentStep || 1);
-  showFormStep(Math.max(1, current - 1));
+  showFormStep(Math.max(1, current - 1), true);
 }));
 renderProjectFields();
 showFormStep(1);
 
 inquiryForm?.addEventListener('submit', event => {
   event.preventDefault();
+  if (!stepIsValid(3)) return;
   const status = event.currentTarget.querySelector('.form-status');
   const rawName = String(new FormData(event.currentTarget).get('name') || '').trim();
   const name = rawName.split(' ')[0];

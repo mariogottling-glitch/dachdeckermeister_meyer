@@ -225,3 +225,21 @@ body{font-size:18px}.site-header nav,.header-cta{font-size:13px}.eyebrow,.sectio
 /* Relax the heavy Montserrat tour headlines so umlauts never touch adjacent lines. */
 .cinematic-hero .hero-scene h2,.cinematic-hero .scene-final h2{line-height:1;letter-spacing:-.01em}
 @media(max-width:640px){.cinematic-hero .hero-scene h2,.cinematic-hero .scene-final h2{line-height:1.04;letter-spacing:0}}
+
+/* Accessibility: visible keyboard focus, robust contrast and understandable form errors. */
+:where(a,button,input,select,textarea,summary,[tabindex]):focus-visible{outline:3px solid var(--accent);outline-offset:4px;box-shadow:0 0 0 6px rgba(17,22,24,.82)}
+.service-tabs button:focus-visible{z-index:2;background:#e9f8f9;color:#172126}
+.service-panel:focus-visible{outline-offset:-5px}
+.accordion summary:focus-visible{border-radius:2px}
+.form-step:focus-visible{outline:0;box-shadow:inset 3px 0 0 var(--accent)}
+.hero-stats span{color:rgba(255,255,255,.92);text-shadow:0 1px 8px rgba(0,0,0,.72)}
+.tour-skip{color:rgba(255,255,255,.88)}
+.wizard-progress span{color:#b9b9b9}
+.form-foot small,.upload-field small,footer>small{color:#b9b9b9}
+.form-grid input:focus-visible,.form-grid textarea:focus-visible,.form-grid select:focus-visible{outline:0;box-shadow:none;border-bottom:2px solid var(--accent)}
+.choice-grid input:focus-visible+span,.upload-field input:focus-visible+span{outline:3px solid var(--accent);outline-offset:3px;box-shadow:0 0 0 5px rgba(17,22,24,.82)}
+.form-grid label.has-error{color:#fff}
+.form-grid label.has-error input,.form-grid label.has-error select,.form-grid label.has-error textarea{border-bottom:2px solid #7fe8ee}
+.form-error{min-height:24px;margin:18px 0 0;color:#bff8fb;font-size:15px;font-weight:600;line-height:1.5}
+.form-error:empty{margin-top:0;min-height:0}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveal,.form-step{animation:none!important;transition:none!important}.moving-shadow,.cloud,.smoke i,.scroll-cue i,.cinematic-scroll i{animation:none!important}}

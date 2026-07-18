@@ -14,10 +14,10 @@
   <title>Dachdeckermeister Meyer — Dächer mit System</title>
   <link rel="preload" href="assets/hero-cinematic.webp" as="image" fetchpriority="high" />
   <link rel="preload" href="assets/hero-scenes/roof-pv.webp" as="image" />
-  <link rel="stylesheet" href="styles.css?v=20260719-1" />
+  <link rel="stylesheet" href="styles.css?v=20260719-3" />
   <script src="vendor/gsap.min.js" defer></script>
   <script src="vendor/ScrollTrigger.min.js" defer></script>
-  <script src="script.js?v=20260719-1" defer></script>
+  <script src="script.js?v=20260719-3" defer></script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"RoofingContractor","name":"Dachdeckermeister Meyer","description":"Meisterbetrieb für Dachsanierung, Steildach, Flachdach, Dachfenster, Reparatur und Wartung.","areaServed":{"@type":"City","name":"Köln"},"founder":{"@type":"Person","name":"Pierre Meyer"}}</script>
 </head>
 <body>
@@ -217,15 +217,15 @@
     <section class="services section-pad" id="leistungen">
       <div class="section-head"><div><div class="section-kicker">03 / Leistungen</div><h2>Sieben Kompetenzen.<br />Ein Qualitätsanspruch.</h2></div><p>Von der kompletten Gebäudehülle bis zur gezielten Instandhaltung: Wir denken jedes Projekt im Zusammenhang.</p></div>
       <div class="service-tabs" role="tablist" aria-label="Leistungsbereiche">
-        <button role="tab" aria-selected="true" data-service="steildach"><span>01</span>Steildach</button>
-        <button role="tab" aria-selected="false" data-service="flachdach"><span>02</span>Flachdach</button>
-        <button role="tab" aria-selected="false" data-service="fenster"><span>03</span>Dachfenster</button>
-        <button role="tab" aria-selected="false" data-service="pv"><span>04</span>Photovoltaik</button>
-        <button role="tab" aria-selected="false" data-service="fassade"><span>05</span>Fassade</button>
-        <button role="tab" aria-selected="false" data-service="klempnerei"><span>06</span>Bauklempnerei</button>
-        <button role="tab" aria-selected="false" data-service="service"><span>07</span>Reparatur & Wartung</button>
+        <button id="service-tab-steildach" role="tab" aria-selected="true" aria-controls="service-panel" tabindex="0" data-service="steildach"><span>01</span>Steildach</button>
+        <button id="service-tab-flachdach" role="tab" aria-selected="false" aria-controls="service-panel" tabindex="-1" data-service="flachdach"><span>02</span>Flachdach</button>
+        <button id="service-tab-fenster" role="tab" aria-selected="false" aria-controls="service-panel" tabindex="-1" data-service="fenster"><span>03</span>Dachfenster</button>
+        <button id="service-tab-pv" role="tab" aria-selected="false" aria-controls="service-panel" tabindex="-1" data-service="pv"><span>04</span>Photovoltaik</button>
+        <button id="service-tab-fassade" role="tab" aria-selected="false" aria-controls="service-panel" tabindex="-1" data-service="fassade"><span>05</span>Fassade</button>
+        <button id="service-tab-klempnerei" role="tab" aria-selected="false" aria-controls="service-panel" tabindex="-1" data-service="klempnerei"><span>06</span>Bauklempnerei</button>
+        <button id="service-tab-service" role="tab" aria-selected="false" aria-controls="service-panel" tabindex="-1" data-service="service"><span>07</span>Reparatur & Wartung</button>
       </div>
-      <article class="service-panel">
+      <article class="service-panel" id="service-panel" role="tabpanel" aria-labelledby="service-tab-steildach" tabindex="0">
         <div class="service-visual"><img id="service-image" src="assets/service-steildach.webp" alt="Präzise ausgeführtes anthrazitfarbenes Steildach an einem modernen Wohnhaus" width="1672" height="941" loading="lazy" /><span id="service-index" aria-hidden="true">01</span></div>
         <div class="service-content"><span class="mini-label" id="service-label">Konstruktion & Eindeckung</span><h3 id="service-title">Steildächer mit klarer Linie.</h3><p id="service-copy">Von der energetischen Sanierung bis zum Neubau: technisch sauber geplant, handwerklich präzise ausgeführt und passend zur Architektur Ihres Hauses.</p><a id="service-link" href="leistungen/steildach.html">Leistung entdecken <span>↗</span></a></div>
       </article>
@@ -307,11 +307,12 @@
 
     <section class="contact" id="anfrage">
       <div class="contact-intro"><div class="section-kicker light">09 / Projektstart</div><h2>Was können wir<br />für Sie lösen?</h2><p>In drei kurzen Schritten erfassen wir die wichtigsten Projektdaten. So kann Pierre Meyer direkt mit einer fundierten ersten Einschätzung reagieren.</p><div class="contact-person"><span>PM</span><div><strong>Pierre Meyer</strong><small>Dachdeckermeister & Ansprechpartner</small></div></div></div>
-      <form id="inquiry-form">
-        <div class="wizard-progress" aria-label="Formularfortschritt"><span class="active"><b>1</b>Anliegen</span><span><b>2</b>Projektdaten</span><span><b>3</b>Kontakt</span></div>
+      <form id="inquiry-form" novalidate>
+        <div class="wizard-progress" role="list" aria-label="Formularfortschritt"><span class="active" role="listitem" aria-current="step"><b>1</b>Anliegen</span><span role="listitem"><b>2</b>Projektdaten</span><span role="listitem"><b>3</b>Kontakt</span></div>
         <fieldset class="form-step active" data-step="1"><legend>Worum geht es?</legend><div class="choice-grid"><label><input type="radio" name="type" value="Steildach" data-key="steildach" checked /><span>Steildach</span></label><label><input type="radio" name="type" value="Flachdach" data-key="flachdach" /><span>Flachdach</span></label><label><input type="radio" name="type" value="Dachfenster" data-key="fenster" /><span>Dachfenster</span></label><label><input type="radio" name="type" value="Fassade" data-key="fassade" /><span>Fassade</span></label><label><input type="radio" name="type" value="Terrasse oder Balkon" data-key="terrasse" /><span>Terrasse / Balkon</span></label><label><input type="radio" name="type" value="Reparatur oder Wartung" data-key="service" /><span>Reparatur / Wartung</span></label></div><div class="wizard-actions"><span></span><button class="button button-accent next-step" type="button">Weiter <span>→</span></button></div></fieldset>
         <fieldset class="form-step" data-step="2"><legend>Details zu Ihrem Projekt</legend><div class="form-grid dynamic-fields" aria-live="polite"></div><label class="upload-field"><input type="file" name="photos" accept="image/*" multiple /><span><b>Fotos hinzufügen</b><small>JPG, PNG oder WebP · mehrere Bilder möglich</small></span></label><div class="wizard-actions"><button class="text-button prev-step" type="button">← Zurück</button><button class="button button-accent next-step" type="button">Weiter <span>→</span></button></div></fieldset>
         <fieldset class="form-step" data-step="3"><legend>Wie erreichen wir Sie?</legend><div class="form-grid"><label>Ihr Name<input name="name" autocomplete="name" required placeholder="Vor- und Nachname" /></label><label>Telefon<input type="tel" name="phone" autocomplete="tel" required placeholder="Für eine persönliche Rückmeldung" /></label><label>E-Mail<input type="email" name="email" autocomplete="email" required placeholder="name@beispiel.de" /></label><label>Projektadresse<input name="address" autocomplete="street-address" required placeholder="Straße, PLZ und Ort" /></label><label>Gewünschter Zeitraum<input name="timing" placeholder="z. B. innerhalb der nächsten 3 Monate" /></label><label class="wide">Zusätzliche Hinweise<textarea name="message" rows="3" placeholder="Was sollten wir noch wissen?"></textarea></label></div><div class="form-foot"><button class="text-button prev-step" type="button">← Zurück</button><small>Mit dem Absenden stimmen Sie unserer Datenschutzerklärung zu.</small><button class="button button-accent" type="submit">Anfrage senden <span>↗</span></button></div></fieldset>
+        <p class="form-error" id="form-error" role="alert" tabindex="-1"></p>
         <p class="form-status" role="status" aria-live="polite"></p>
       </form>
     </section>
