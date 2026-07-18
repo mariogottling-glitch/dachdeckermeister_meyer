@@ -8,3 +8,8 @@
 /* Keep the footer logo compact even though the shared image rule uses width:100%. */
 .footer-brand{display:block;width:76px;flex:0 0 76px}
 .footer-brand img{display:block;width:76px;max-width:76px;height:auto}
+
+/* Give heavy Montserrat headlines enough room for umlauts and open the tracking. */
+.service-hero h1,.overview-hero h1{line-height:1;letter-spacing:-.012em}
+.display,.image-caption h2,.cta h2,.service-card h2{line-height:1.04;letter-spacing:-.01em}
+@media(max-width:760px){.service-hero h1,.overview-hero h1,.display,.image-caption h2,.cta h2,.service-card h2{line-height:1.06;letter-spacing:0}}

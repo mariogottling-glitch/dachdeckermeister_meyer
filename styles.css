@@ -220,3 +220,7 @@ body{font-size:18px}.site-header nav,.header-cta{font-size:13px}.eyebrow,.sectio
 /* Six project categories align as a balanced 3 × 2 selector. */
 .choice-grid{grid-template-columns:repeat(3,1fr)}
 @media(max-width:640px){.choice-grid{grid-template-columns:1fr 1fr}}
+
+/* Relax the heavy Montserrat tour headlines so umlauts never touch adjacent lines. */
+.cinematic-hero .hero-scene h2,.cinematic-hero .scene-final h2{line-height:1;letter-spacing:-.01em}
+@media(max-width:640px){.cinematic-hero .hero-scene h2,.cinematic-hero .scene-final h2{line-height:1.04;letter-spacing:0}}
