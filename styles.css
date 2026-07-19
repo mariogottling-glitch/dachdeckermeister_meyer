@@ -408,3 +408,95 @@ body{font-size:18px}.site-header nav,.header-cta{font-size:13px}.eyebrow,.sectio
 @media(prefers-reduced-motion:reduce){
   body.sticky-cta-managed .sticky-cta{transition:none}
 }
+
+/* Direct-service assistants: repair intake and roof-window identification. */
+.nav-urgent{color:var(--accent);position:relative}
+.nav-urgent:before{content:"";position:absolute;left:0;right:0;bottom:-10px;height:1px;background:var(--accent)}
+.direct-service{background:#1d2022;color:#fff;padding:clamp(100px,10vw,160px) var(--pad)}
+.direct-service-head{display:grid;grid-template-columns:1fr 1.15fr;column-gap:8vw;align-items:end;margin-bottom:70px}
+.direct-service-head .section-kicker{grid-column:1/-1;margin-bottom:32px}
+.direct-service-head h2{font-family:"Montserrat Meyer",Montserrat,Arial,sans-serif;font-size:clamp(48px,5.6vw,86px);line-height:.98;letter-spacing:-.045em;text-transform:uppercase;margin:0}
+.direct-service-head p{color:#b6b6b6;font-size:clamp(18px,1.25vw,21px);line-height:1.7;max-width:560px;margin:0 0 7px}
+.assistant-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:#ffffff20;border:1px solid #ffffff20}
+.assistant-card{position:relative;min-height:730px;display:grid;grid-template-rows:auto 270px 1fr;background:#252729;overflow:hidden}
+.assistant-window{background:#f2f2f2;color:#353535}
+.assistant-card-top{height:70px;display:flex;align-items:center;justify-content:space-between;padding:0 38px;border-bottom:1px solid #ffffff22;text-transform:uppercase;letter-spacing:.13em;font-size:13px}
+.assistant-window .assistant-card-top{border-color:#d5d5d5}
+.assistant-card-top span{color:var(--accent)}
+.assistant-copy{padding:38px 42px 44px;align-self:end}
+.assistant-copy h3{font-family:"Montserrat Meyer",Montserrat,Arial,sans-serif;font-size:clamp(34px,3.2vw,52px);line-height:1.04;letter-spacing:-.035em;text-transform:uppercase;margin:15px 0 20px}
+.assistant-copy p{font-size:18px;line-height:1.68;max-width:560px;margin:0;color:#b9b9b9}
+.assistant-window .assistant-copy p{color:#686868}
+.assistant-copy ul,.assistant-copy ol{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;list-style:none;padding:0;margin:28px 0 34px;counter-reset:window-step}
+.assistant-copy li{border-top:1px solid #ffffff30;padding-top:12px;font-size:12px;line-height:1.45;color:#d0d0d0}
+.assistant-window .assistant-copy li{border-color:#c9c9c9;color:#555;counter-increment:window-step}
+.assistant-window .assistant-copy li:before{content:"0" counter(window-step);display:block;color:var(--accent);font-size:10px;margin-bottom:6px}
+.button-dark{border-color:#333;color:#333}
+.button-dark:hover{background:#252729;border-color:#252729;color:#fff}
+.repair-graphic{position:relative;margin:35px 42px 0;background:#202224;border:1px solid #ffffff17;overflow:hidden}
+.repair-graphic:before{content:"";position:absolute;inset:0;background-image:linear-gradient(#ffffff08 1px,transparent 1px),linear-gradient(90deg,#ffffff08 1px,transparent 1px);background-size:32px 32px}
+.repair-graphic i{position:absolute;height:3px;background:#e7e7e7;transform-origin:left center}
+.repair-graphic i:nth-child(1){width:48%;left:10%;top:65%;transform:rotate(-33deg)}
+.repair-graphic i:nth-child(2){width:48%;left:50%;top:38%;transform:rotate(33deg)}
+.repair-graphic i:nth-child(3){width:74%;left:13%;top:77%;background:var(--accent)}
+.repair-graphic span{position:absolute;right:12%;top:18%;width:56px;height:56px;border:1px solid var(--accent);border-radius:50%;display:grid;place-items:center;color:var(--accent);font:700 28px/1 "Montserrat Meyer",sans-serif}
+.repair-graphic span:after{content:"Schadenspunkt";position:absolute;right:68px;top:21px;width:100px;color:#aaa;font:500 9px/1.3 "Helvetica Neue",sans-serif;letter-spacing:.12em;text-transform:uppercase}
+.window-graphic{position:relative;margin:35px 42px 0;display:grid;grid-template-columns:1fr 1fr;gap:35px;align-items:center;border:1px solid #d3d3d3;padding:28px;background:#e9e9e9}
+.window-frame{height:195px;border:8px solid #34383a;position:relative;transform:perspective(500px) rotateY(-5deg)}
+.window-frame:before{content:"";position:absolute;inset:8px;background:linear-gradient(145deg,#c6d4d8,#f7f7f7 52%,#abbcc1)}
+.window-frame i{position:absolute;z-index:1;background:#34383a}
+.window-frame i:first-child{width:4px;top:0;bottom:0;left:50%}
+.window-frame i:last-child{height:4px;left:0;right:0;top:50%}
+.typeplate{display:grid;grid-template-columns:auto 1fr;gap:5px 12px;padding:18px;background:#fff;border-left:3px solid var(--accent);box-shadow:0 15px 35px #00000012}
+.typeplate small{font-size:8px;letter-spacing:.13em;color:#888}
+.typeplate strong{font:700 16px/1.1 "Montserrat Meyer",sans-serif;letter-spacing:.05em}
+.typeplate-guide{grid-column:1/-1;border-left:3px solid var(--accent);background:#ffffff0b;padding:18px 20px;display:grid;gap:5px}
+.typeplate-guide span{color:var(--accent);font-size:11px;letter-spacing:.14em;text-transform:uppercase}
+.typeplate-guide strong{font-size:17px;line-height:1.45;text-transform:none;letter-spacing:0;color:#fff}
+.typeplate-guide small{font-size:14px;line-height:1.5;color:#aaa;text-transform:none;letter-spacing:0}
+.mobile-actions{display:none}
+
+@media(min-width:901px) and (max-width:1180px){
+  .site-header{gap:20px}
+  .site-header nav{gap:16px}
+  .header-cta{padding-left:18px}
+}
+
+@media(max-width:900px){
+  .direct-service-head{grid-template-columns:1fr;gap:30px}
+  .assistant-grid{grid-template-columns:1fr}
+  .assistant-card{min-height:680px}
+}
+
+@media(max-width:640px){
+  .direct-service{padding:90px 20px 110px}
+  .direct-service-head{margin-bottom:45px}
+  .direct-service-head h2{font-size:12vw}
+  .direct-service-head p{font-size:18px}
+  .assistant-card{min-height:0;grid-template-rows:auto 210px auto}
+  .assistant-card-top{height:60px;padding:0 20px;font-size:11px}
+  .repair-graphic,.window-graphic{margin:22px 20px 0}
+  .window-graphic{grid-template-columns:.9fr 1.1fr;gap:14px;padding:16px}
+  .window-frame{height:150px;border-width:6px}
+  .typeplate{padding:12px;gap:3px 8px}
+  .typeplate strong{font-size:12px}
+  .assistant-copy{padding:28px 20px 36px}
+  .assistant-copy h3{font-size:32px}
+  .assistant-copy p{font-size:17px}
+  .assistant-copy ul,.assistant-copy ol{grid-template-columns:1fr;gap:8px;margin:22px 0 28px}
+  .assistant-copy li{padding:9px 0 0}
+  .assistant-window .assistant-copy li:before{display:inline;margin-right:10px}
+  .assistant-copy .button{width:100%}
+  .typeplate-guide{padding:15px}
+  .form-grid .typeplate-guide{grid-column:auto}
+  .mobile-actions{position:fixed;z-index:30;left:10px;right:10px;bottom:10px;height:56px;display:grid;grid-template-columns:.9fr 1.1fr;background:#222;box-shadow:0 12px 32px #0007;transition:opacity .35s ease,transform .45s var(--ease)}
+  .mobile-actions a{display:flex;align-items:center;justify-content:center;padding:0 12px;text-transform:uppercase;letter-spacing:.08em;font-size:11px;font-weight:700}
+  .mobile-repair{color:var(--accent);border:1px solid var(--accent)}
+  .mobile-project{background:var(--accent);color:#162329}
+  .mobile-project b{font-size:18px;margin-left:9px}
+  body.sticky-cta-managed .mobile-actions{opacity:0;transform:translateY(calc(100% + 26px));pointer-events:none}
+  body.sticky-cta-managed.sticky-cta-visible .mobile-actions{opacity:1;transform:translateY(0);pointer-events:auto}
+  body.menu-open .mobile-actions{opacity:0!important;pointer-events:none!important}
+}
+
+@media(prefers-reduced-motion:reduce){body.sticky-cta-managed .mobile-actions{transition:none}}

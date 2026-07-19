@@ -28,7 +28,7 @@ document.addEventListener('keydown', event => {
 
 /* Die mobile Anfrageleiste erscheint erst nach dem Startscreen. So konkurriert
    sie im Hero nicht mit dem dortigen Hauptbutton. */
-const stickyCta = document.querySelector('.sticky-cta');
+const stickyCta = document.querySelector('.mobile-actions');
 const heroCover = document.querySelector('.hero-cover');
 if (stickyCta && heroCover && 'IntersectionObserver' in window) {
   document.body.classList.add('sticky-cta-managed');
@@ -411,7 +411,7 @@ serviceTabs.forEach((tab, index) => tab.addEventListener('keydown', event => {
 }));
 document.querySelectorAll('[data-service-target]').forEach(link => link.addEventListener('click', () => activateService(link.dataset.serviceTarget)));
 
-document.querySelectorAll('.intro-copy, .principles article, .trust-panel, .concepts-heading, .concept-selector, .concept-workbench, .potential-check, .section-head, .service-panel, .check-grid a, .timeline li, .partners-heading, .partner-node, .partner-future, .faq > div, .accordion details').forEach(item => item.classList.add('reveal'));
+document.querySelectorAll('.intro-copy, .principles article, .trust-panel, .concepts-heading, .concept-selector, .concept-workbench, .potential-check, .section-head, .service-panel, .check-grid a, .direct-service-head, .assistant-card, .timeline li, .partners-heading, .partner-node, .partner-future, .faq > div, .accordion details').forEach(item => item.classList.add('reveal'));
 const observer = new IntersectionObserver(entries => entries.forEach(entry => {
   if (entry.isIntersecting) { entry.target.classList.add('in'); observer.unobserve(entry.target); }
 }), { threshold: .12, rootMargin: '0px 0px -40px' });
@@ -442,15 +442,27 @@ const projectFields = {
     <label>Ist eine Leckage sichtbar?<select name="leak"><option>Nein</option><option>Ja</option><option>Unklar</option></select></label>
     <label>Nutzung der Fläche<input name="use" placeholder="z. B. Garage, Wohnhaus, Terrasse" /></label>`,
   fenster: `
-    <label>Vorhaben<select name="window_project" required><option value="">Bitte wählen</option><option>Neuer Einbau</option><option>Austausch</option><option>Beratung</option></select></label>
-    <label>Anzahl<input type="number" name="quantity" min="1" placeholder="z. B. 2" /></label>
-    <label>Hersteller<input name="manufacturer" placeholder="z. B. Velux oder unbekannt" /></label>
-    <label>Elektrische Bedienung?<select name="electric"><option>Noch offen</option><option>Ja</option><option>Nein</option></select></label>
-    <label>Sonnenschutz gewünscht?<select name="sun_protection"><option>Noch offen</option><option>Ja</option><option>Nein</option></select></label>`,
+    <label>Vorhaben<select name="window_project" required><option value="">Bitte wählen</option><option>Austausch eines vorhandenen Fensters</option><option>Reparatur / Ersatzteil</option><option>Sonnenschutz / Zubehör</option><option>Neuer Einbau</option><option>Beratung</option></select></label>
+    <label>Hersteller<select name="manufacturer"><option>VELUX</option><option>Roto</option><option>Braas / Dörken</option><option>Anderer Hersteller</option><option>Unbekannt</option></select></label>
+    <div class="typeplate-guide wide" role="note"><span>Bei vorhandenem Fenster: Typenschild</span><strong>Fenster öffnen und hinter der oberen Griffleiste rechts oder links nachsehen.</strong><small>Am besten fotografieren Sie das komplette Schild. Alternativ übertragen Sie die vier Angaben unten. Bei einem Neueinbau lassen Sie diese Felder einfach frei.</small></div>
+    <label>Fenstertyp<input name="window_type" autocomplete="off" placeholder="z. B. GGL oder GGU" /></label>
+    <label>Größe<input name="window_size" autocomplete="off" placeholder="z. B. MK08" /></label>
+    <label>Ausführungskennziffer<input name="window_variant" autocomplete="off" placeholder="z. B. 3066" /></label>
+    <label>Serien- / Produktionscode<input name="serial_number" autocomplete="off" placeholder="z. B. 77 BC 01 N" /></label>
+    <label>Anzahl<input type="number" name="quantity" min="1" value="1" /></label>
+    <label>Raumnutzung<select name="room_use"><option>Noch offen</option><option>Wohn- / Schlafzimmer</option><option>Bad</option><option>Küche</option><option>Flur / Treppenhaus</option><option>Unbeheizter Dachraum</option></select></label>
+    <label>Rahmenmaterial<select name="frame_material"><option>Noch offen</option><option>Pflegeleichte Kunststoffoberfläche</option><option>Klar lackiertes Holz</option><option>Weiß lackiertes Holz</option></select></label>
+    <label>Bedienung<select name="electric"><option>Noch offen</option><option>Manuell</option><option>Solar</option><option>Elektrisch</option></select></label>
+    <label>Wichtigste Anforderung<select name="window_priority"><option>Noch offen</option><option>Wärmeschutz</option><option>Hitzeschutz</option><option>Schallschutz</option><option>Besonders viel Tageslicht</option></select></label>
+    <label>Sonnenschutz gewünscht?<select name="sun_protection"><option>Noch offen</option><option>Ja, innen</option><option>Ja, außen / Hitzeschutz</option><option>Nein</option></select></label>`,
   service: `
     <label>Art des Schadens<select name="damage_type" required><option value="">Bitte wählen</option><option>Undichtigkeit</option><option>Sturmschaden</option><option>Lose oder gebrochene Bauteile</option><option>Wartung / Inspektion</option><option>Anderes Anliegen</option></select></label>
     <label>Dringlichkeit<select name="urgency" required><option value="">Bitte wählen</option><option>Akut – Wasser tritt ein</option><option>Zeitnah prüfen</option><option>Planbare Wartung</option></select></label>
-    <label>Versicherungsschaden?<select name="insurance"><option>Unklar</option><option>Ja</option><option>Nein</option></select></label>`,
+    <label>Dachart<select name="roof_type"><option>Unbekannt</option><option>Steildach</option><option>Flachdach</option></select></label>
+    <label>Gebäudehöhe<select name="building_height"><option>Unbekannt</option><option>Bis 5 m / etwa 1 Geschoss</option><option>5–8 m / etwa 2 Geschosse</option><option>Über 8 m</option></select></label>
+    <label>Dachzugang<select name="roof_access"><option>Unbekannt</option><option>Leiter von außen möglich</option><option>Ausstieg von innen</option><option>Gerüst / Arbeitsbühne erforderlich</option></select></label>
+    <label>Versicherungsschaden?<select name="insurance"><option>Unklar</option><option>Ja</option><option>Nein</option></select></label>
+    <label class="wide">Was ist sichtbar?<textarea name="damage_notes" rows="3" placeholder="Wo tritt Feuchtigkeit auf? Welche Bauteile sind betroffen? Seit wann besteht das Problem?"></textarea></label>`,
   fassade: `
     <label>Vorhaben<select name="facade_project" required><option value="">Bitte wählen</option><option>Neue Bekleidung</option><option>Energetische Sanierung</option><option>Reparatur</option><option>Beratung</option></select></label>
     <label>Gewünschtes Material<input name="facade_material" placeholder="z. B. Zink, Schiefer oder noch offen" /></label>
@@ -467,7 +479,13 @@ function selectedProjectKey() {
   return inquiryForm?.querySelector('input[name="type"]:checked')?.dataset.key || 'steildach';
 }
 function renderProjectFields() {
-  if (dynamicFields) dynamicFields.innerHTML = projectFields[selectedProjectKey()];
+  const key = selectedProjectKey();
+  if (dynamicFields) dynamicFields.innerHTML = projectFields[key];
+  inquiryForm?.setAttribute('data-project', key);
+  const uploadTitle = inquiryForm?.querySelector('.upload-field b');
+  const uploadHint = inquiryForm?.querySelector('.upload-field small');
+  if (uploadTitle) uploadTitle.textContent = key === 'fenster' ? 'Typenschild und Fenster fotografieren' : key === 'service' ? 'Schaden fotografieren' : 'Fotos hinzufügen';
+  if (uploadHint) uploadHint.textContent = key === 'fenster' ? 'Bitte Typenschild sowie Innen- und Außenansicht · maximal 5 Bilder' : key === 'service' ? 'Übersicht und Detailaufnahmen · maximal 5 Bilder' : 'JPG, PNG oder WebP · maximal 5 Bilder · je 5 MB';
 }
 function showFormStep(step, moveFocus = false) {
   let activeStep;
@@ -547,7 +565,8 @@ const requestedInput = inquiryForm?.querySelector(`input[data-key="${requestedSe
 if (requestedInput) requestedInput.checked = true;
 document.querySelectorAll('[data-preset]').forEach(link => link.addEventListener('click', () => {
   const input = inquiryForm?.querySelector(`input[data-key="${link.dataset.preset}"]`);
-  if (input) { input.checked = true; renderProjectFields(); showFormStep(1); }
+  const directStep = Number(link.dataset.directStep || 1);
+  if (input) { input.checked = true; renderProjectFields(); showFormStep(Math.min(3, Math.max(1, directStep))); }
 }));
 inquiryForm?.querySelectorAll('.next-step').forEach(button => button.addEventListener('click', () => {
   const current = Number(inquiryForm.dataset.currentStep || 1);

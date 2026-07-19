@@ -229,7 +229,11 @@ $dynamicLabels = [
     'insulation' => 'Dämmung vorhanden', 'leak' => 'Undichtigkeit / Feuchtigkeit', 'material' => 'Aktuelles Material',
     'standing_water' => 'Stehendes Wasser', 'use' => 'Nutzung der Fläche', 'window_project' => 'Fenster-Vorhaben',
     'quantity' => 'Anzahl', 'manufacturer' => 'Hersteller', 'electric' => 'Elektrische Bedienung',
+    'window_type' => 'Fenstertyp vom Typenschild', 'window_size' => 'Fenstergröße vom Typenschild',
+    'window_variant' => 'Ausführungskennziffer', 'serial_number' => 'Serien- / Produktionscode',
+    'room_use' => 'Raumnutzung', 'frame_material' => 'Rahmenmaterial', 'window_priority' => 'Wichtigste Fensteranforderung',
     'sun_protection' => 'Sonnenschutz', 'damage_type' => 'Art des Schadens', 'urgency' => 'Dringlichkeit',
+    'building_height' => 'Gebäudehöhe', 'roof_access' => 'Dachzugang', 'damage_notes' => 'Sichtbarer Schaden / Hinweise',
     'insurance' => 'Versicherungsschaden', 'facade_project' => 'Fassaden-Vorhaben', 'facade_material' => 'Fassadenmaterial',
     'damage' => 'Sichtbare Schäden', 'terrace_type' => 'Flächentyp', 'surface' => 'Aktueller Belag',
 ];
