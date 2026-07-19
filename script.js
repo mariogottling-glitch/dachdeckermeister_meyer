@@ -84,6 +84,7 @@ function initCinematicHero() {
   const flatRail = hero.querySelector('.flat-exploded .build-rail');
   const facadeRail = hero.querySelector('.facade-layers .build-rail');
   const systemSteps = [...hero.querySelectorAll('.system-chain span')];
+  const scrollLabel = hero.querySelector('.cinematic-scroll span');
   let activeScene = -1;
 
   function setActiveScene(index) {
@@ -95,6 +96,7 @@ function initCinematicHero() {
       scene.setAttribute('aria-hidden', String(i !== index));
     });
     progressItems.forEach((item, i) => item.classList.toggle('active', i === index));
+    if (scrollLabel) scrollLabel.textContent = index === 5 ? 'Tour abgeschlossen' : 'Scrollen, um das Gebäude zu erkunden';
   }
 
   gsap.set(scenes.slice(1), { autoAlpha: 0, y: 28 });
@@ -149,30 +151,31 @@ function initCinematicHero() {
   timeline.fromTo(scenes[2], { autoAlpha: 0, y: 24 }, { autoAlpha: 1, y: 0, duration: .26 }, 2.04);
   timeline.to(flatMeta, { autoAlpha: 1, y: 0, stagger: .04, duration: .16 }, 2.06);
   timeline.to(flatRail, { scaleY: 1, duration: .32, ease: 'power1.out' }, 2.06);
-  timeline.to(flatBuildOrder, { autoAlpha: 1, y: 0, stagger: .055, duration: .18 }, 2.08);
+  timeline.to(flatBuildOrder, { autoAlpha: 1, y: 0, stagger: .035, duration: .13 }, 2.08);
   timeline.to(flatLayers, { autoAlpha: 0, y: -8, stagger: .015, duration: .16 }, 2.43);
   timeline.to(flatMeta, { autoAlpha: 0, y: -5, duration: .12 }, 2.43);
   timeline.to(flatRail, { scaleY: 0, duration: .14, transformOrigin: 'top center' }, 2.43);
 
   timeline.to(scenes[2], { autoAlpha: 0, y: -20, duration: .22 }, 2.48);
-  transitionFrame(3, 4, 2.59);
+  transitionFrame(3, 4, 2.59, -1);
   timeline.fromTo(scenes[3], { autoAlpha: 0, y: 24 }, { autoAlpha: 1, y: 0, duration: .26 }, 3.04);
   timeline.to(facadeMeta, { autoAlpha: 1, y: 0, stagger: .04, duration: .16 }, 3.06);
   timeline.to(facadeRail, { scaleY: 1, duration: .32, ease: 'power1.out' }, 3.06);
-  timeline.to(facadeBuildOrder, { autoAlpha: 1, x: 0, stagger: .055, duration: .18 }, 3.08);
+  timeline.to(facadeBuildOrder, { autoAlpha: 1, x: 0, stagger: .035, duration: .13 }, 3.08);
   timeline.to(facadeLayers, { autoAlpha: 0, x: 10, stagger: .015, duration: .16 }, 3.43);
   timeline.to(facadeMeta, { autoAlpha: 0, y: -5, duration: .12 }, 3.43);
   timeline.to(facadeRail, { scaleY: 0, duration: .14, transformOrigin: 'top center' }, 3.43);
 
   timeline.to(scenes[3], { autoAlpha: 0, y: -20, duration: .22 }, 3.48);
-  transitionFrame(4, 5, 3.59);
+  transitionFrame(4, 5, 3.59, -1);
   timeline.fromTo(scenes[4], { autoAlpha: 0, y: 24 }, { autoAlpha: 1, y: 0, duration: .26 }, 4.04);
-  timeline.to(systemSteps, { autoAlpha: 1, y: 0, stagger: .045, duration: .18 }, 4.10);
+  timeline.to(systemSteps, { autoAlpha: 1, y: 0, stagger: .035, duration: .12 }, 4.08);
 
   timeline.to(scenes[4], { autoAlpha: 0, y: -20, duration: .22 }, 4.48);
   transitionFrame(5, 0, 4.59, 0);
   timeline.fromTo(scenes[5], { autoAlpha: 0, y: 24 }, { autoAlpha: 1, y: 0, duration: .3 }, 5.04);
-  timeline.to(markers, { autoAlpha: .82, duration: .35 }, 5.08);
+  timeline.to(markers, { autoAlpha: 1, duration: .35 }, 5.08);
+  timeline.to({ hold: 0 }, { hold: 1, duration: .65, ease: 'none' }, 5.43);
 }
 
 initHeroBridge();
