@@ -331,3 +331,7 @@ body{font-size:18px}.site-header nav,.header-cta{font-size:13px}.eyebrow,.sectio
   .layer.active{padding-top:9px;padding-bottom:9px}
   .layer-readout p{font-size:12px}
 }
+
+/* Kräftige Markenheadline auf dem Startscreen – analog zu den übrigen Hauptüberschriften. */
+.hero-cover .hero-grid h1{font-family:"Montserrat Meyer",Montserrat,Arial,sans-serif;font-size:clamp(68px,8.4vw,136px);font-weight:850;line-height:.82;letter-spacing:-.045em;text-transform:uppercase;white-space:nowrap}
+@media(max-width:640px){.hero-cover .hero-grid h1{font-size:clamp(44px,12.4vw,58px);line-height:.86;letter-spacing:-.035em}}
