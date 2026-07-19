@@ -14,10 +14,10 @@
   <title>Dachdeckermeister Meyer — Dächer mit System</title>
   <link rel="preload" href="assets/hero-cinematic.webp" as="image" fetchpriority="high" />
   <link rel="preload" href="assets/hero-scenes/roof-pv.webp" as="image" />
-  <link rel="stylesheet" href="styles.css?v=20260719-15" />
+  <link rel="stylesheet" href="styles.css?v=20260719-16" />
   <script src="vendor/gsap.min.js" defer></script>
   <script src="vendor/ScrollTrigger.min.js" defer></script>
-  <script src="script.js?v=20260719-15" defer></script>
+  <script src="script.js?v=20260719-16" defer></script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"RoofingContractor","name":"Dachdeckermeister Meyer","description":"Meisterbetrieb für Dachsanierung, Steildach, Flachdach, Dachfenster, Reparatur und Wartung.","areaServed":{"@type":"City","name":"Köln"},"founder":{"@type":"Person","name":"Pierre Meyer"}}</script>
 </head>
 <body>
@@ -213,8 +213,58 @@
       </div>
     </section>
 
+    <section class="concepts section-pad" id="sanierungskonzepte" aria-labelledby="concepts-title" data-concept="komfort">
+      <div class="concepts-heading">
+        <div><div class="section-kicker">03 / Sanierungskonzepte</div><h2 id="concepts-title">Drei Wege.<br />Passend zu Ihrem Haus.</h2></div>
+        <p>Ein Dachaufbau ist keine Produktstufe von der Stange. Wir stellen sinnvolle Ausführungen gegenüber und entwickeln daraus die Lösung, die zu Substanz, Komfortwunsch und langfristigem Ziel passt.</p>
+      </div>
+
+      <div class="concept-selector" role="tablist" aria-label="Sanierungskonzepte vergleichen">
+        <button id="concept-tab-effizienz" role="tab" aria-selected="false" aria-controls="concept-panel" tabindex="-1" data-concept-select="effizienz"><span>01</span><strong>Effizienz</strong><small>Solide energetische Erneuerung</small><b>U-Ziel ≤ 0,24</b></button>
+        <button id="concept-tab-komfort" role="tab" aria-selected="true" aria-controls="concept-panel" tabindex="0" data-concept-select="komfort"><span>02 · Empfehlung</span><strong>Komfort</strong><small>Wärme-, Hitze- und Schallschutz</small><b>U-Ziel ≤ 0,18</b></button>
+        <button id="concept-tab-zukunft" role="tab" aria-selected="false" aria-controls="concept-panel" tabindex="-1" data-concept-select="zukunft"><span>03</span><strong>Zukunft</strong><small>Maximale Reserve und Werterhalt</small><b>U-Ziel ≤ 0,14</b></button>
+      </div>
+
+      <div class="concept-workbench">
+        <div class="concept-visual" role="img" aria-label="Technischer Schichtenaufbau des Komfort-Konzepts">
+          <div class="concept-grid" aria-hidden="true"></div>
+          <div class="roof-sample" aria-hidden="true">
+            <div class="sample-layer layer-cover"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+            <div class="sample-layer layer-battens"><i></i><i></i><i></i><i></i></div>
+            <div class="sample-layer layer-top-insulation"><i></i><i></i><i></i><i></i><i></i></div>
+            <div class="sample-layer layer-membrane"></div>
+            <div class="sample-layer layer-between-insulation"><i></i><i></i><i></i><i></i><i></i></div>
+            <div class="sample-layer layer-structure"><i></i><i></i><i></i><i></i></div>
+          </div>
+          <div class="concept-dimensions" aria-hidden="true"><span>AUFBAU / SCHEMATISCH</span><span>INNEN → AUSSEN</span></div>
+          <ol class="concept-layer-key"><li><b>01</b>Tragwerk</li><li><b>02</b>Zwischensparren</li><li><b>03</b>Luftdichtheit</li><li><b>04</b>Aufdachdämmung</li><li><b>05</b>Eindeckung</li></ol>
+        </div>
+
+        <article class="concept-panel" id="concept-panel" role="tabpanel" aria-labelledby="concept-tab-komfort" tabindex="0">
+          <div class="mini-label" id="concept-label">02 / Ausgewogene Systemlösung</div>
+          <h3 id="concept-title">Mehr Komfort.<br />Weniger Verlust.</h3>
+          <p id="concept-copy">Eine kombinierte Dämmstrategie verbessert den winterlichen Wärmeschutz und schafft zusätzliche Reserven gegen sommerliche Hitze und Außengeräusche.</p>
+          <ul id="concept-features"><li>Luftdichtheitsebene sauber angeschlossen</li><li>Zwischen- und Aufsparrendämmung kombiniert</li><li>Guter Hitze- und Schallschutz</li><li>Für bewohnte Dachgeschosse empfohlen</li></ul>
+          <div class="concept-scores" aria-label="Bewertung des gewählten Konzepts">
+            <div><span>Wärmeschutz</span><i><b data-score="warmth"></b></i></div>
+            <div><span>Hitzeschutz</span><i><b data-score="heat"></b></i></div>
+            <div><span>Schallschutz</span><i><b data-score="sound"></b></i></div>
+            <div><span>Zukunftsreserve</span><i><b data-score="future"></b></i></div>
+          </div>
+          <p class="concept-note">Der konkrete Aufbau und der erreichbare U-Wert werden nach Bestandsaufnahme bauphysikalisch geplant.</p>
+        </article>
+      </div>
+
+      <div class="potential-check" aria-labelledby="potential-title">
+        <div class="potential-copy"><div class="mini-label">Potenzial-Check</div><h3 id="potential-title">Was kann bessere Dämmung bewirken?</h3><p>Vergleichen Sie den angenommenen U-Wert Ihres heutigen Daches mit dem Planungsziel des gewählten Konzepts.</p></div>
+        <label class="u-slider" for="existing-u"><span>Angenommener U-Wert Bestand</span><output id="existing-u-output" for="existing-u">1,40 W/m²K</output><input id="existing-u" type="range" min="0.4" max="2.4" step="0.1" value="1.4" /><small>bereits gedämmt <i></i> ungedämmt / älter</small></label>
+        <div class="potential-result" aria-live="polite"><div class="potential-ring"><output id="potential-value">87<small>%</small></output></div><div><span>Weniger Transmissionswärmeverlust</span><strong id="target-u">Planungsziel: U ≤ 0,18 W/m²K</strong><small>Rechnerischer Vergleich nur für das Dachbauteil – keine Prognose der gesamten Heizkosten.</small></div></div>
+        <a class="button button-accent" href="#anfrage" data-preset="steildach">Konzept besprechen <span>↗</span></a>
+      </div>
+    </section>
+
     <section class="services section-pad" id="leistungen">
-      <div class="section-head"><div><div class="section-kicker">03 / Leistungen</div><h2>Sieben Kompetenzen.<br />Ein Qualitätsanspruch.</h2></div><p>Von der kompletten Gebäudehülle bis zur gezielten Instandhaltung: Wir denken jedes Projekt im Zusammenhang.</p></div>
+      <div class="section-head"><div><div class="section-kicker">04 / Leistungen</div><h2>Sieben Kompetenzen.<br />Ein Qualitätsanspruch.</h2></div><p>Von der kompletten Gebäudehülle bis zur gezielten Instandhaltung: Wir denken jedes Projekt im Zusammenhang.</p></div>
       <div class="service-tabs" role="tablist" aria-label="Leistungsbereiche">
         <button id="service-tab-steildach" role="tab" aria-selected="true" aria-controls="service-panel" tabindex="0" data-service="steildach"><span>01</span>Steildach</button>
         <button id="service-tab-flachdach" role="tab" aria-selected="false" aria-controls="service-panel" tabindex="-1" data-service="flachdach"><span>02</span>Flachdach</button>
@@ -231,7 +281,7 @@
     </section>
 
     <section class="roof-check section-pad" aria-labelledby="roof-check-title">
-      <div class="section-head"><div><div class="section-kicker">04 / Dach-Check</div><h2 id="roof-check-title">Was braucht<br />Ihr Dach?</h2></div><p>Wählen Sie die Situation, die Ihrem Anliegen am nächsten kommt. Wir führen Sie direkt zur passenden Anfrage.</p></div>
+      <div class="section-head"><div><div class="section-kicker">05 / Dach-Check</div><h2 id="roof-check-title">Was braucht<br />Ihr Dach?</h2></div><p>Wählen Sie die Situation, die Ihrem Anliegen am nächsten kommt. Wir führen Sie direkt zur passenden Anfrage.</p></div>
       <div class="check-grid">
         <a href="#anfrage" data-preset="service"><span>01</span><h3>Feuchtigkeit oder sichtbarer Schaden?</h3><p>Undichtigkeiten, lose Bauteile oder Spuren nach einem Sturm sollten zeitnah geprüft werden.</p><b>Schaden melden ↗</b></a>
         <a href="#anfrage" data-preset="steildach"><span>02</span><h3>Hohe Heizkosten oder veralteter Aufbau?</h3><p>Eine Dachsanierung kann Schutz, Wohnkomfort und Energieeffizienz gemeinsam verbessern.</p><b>Sanierung anfragen ↗</b></a>
@@ -242,12 +292,12 @@
 
     <section class="project" id="projekte">
       <div class="project-media"><img src="assets/project-sanierung.webp" alt="Visualisiertes Planungsbeispiel einer energetischen Dachsanierung mit neuen Dachziegeln und integrierten Dachfenstern" loading="lazy" width="1909" height="824" /></div>
-      <div class="project-overlay"><div class="section-kicker light">05 / Planungsbeispiel</div><div><span>Energetische Dachsanierung<br />Vom Bestand zur Lösung</span><h2>Bestand bewahren.<br />Zukunft einbauen.</h2><p>Eine gute Sanierung betrachtet Tragwerk, Dämmung, Entwässerung, Anschlüsse und Eindeckung gemeinsam — abgestimmt auf Gebäude, Nutzung und Budget.</p><a class="button button-light" href="#anfrage" data-preset="steildach">Sanierung besprechen <span>↗</span></a></div></div>
+      <div class="project-overlay"><div class="section-kicker light">06 / Planungsbeispiel</div><div><span>Energetische Dachsanierung<br />Vom Bestand zur Lösung</span><h2>Bestand bewahren.<br />Zukunft einbauen.</h2><p>Eine gute Sanierung betrachtet Tragwerk, Dämmung, Entwässerung, Anschlüsse und Eindeckung gemeinsam — abgestimmt auf Gebäude, Nutzung und Budget.</p><a class="button button-light" href="#anfrage" data-preset="steildach">Sanierung besprechen <span>↗</span></a></div></div>
       <div class="project-facts"><div><small>01</small><strong>Analysieren</strong></div><div><small>02</small><strong>Planen</strong></div><div><small>03</small><strong>Umsetzen</strong></div></div>
     </section>
 
     <section class="process section-pad">
-      <div class="section-head"><div><div class="section-kicker">06 / Ablauf</div><h2>Planbar. Transparent.<br />Persönlich.</h2></div><p>Ein fester Ansprechpartner führt Sie durch alle sechs Phasen — von der Anfrage bis zur dokumentierten Übergabe.</p></div>
+      <div class="section-head"><div><div class="section-kicker">07 / Ablauf</div><h2>Planbar. Transparent.<br />Persönlich.</h2></div><p>Ein fester Ansprechpartner führt Sie durch alle sechs Phasen — von der Anfrage bis zur dokumentierten Übergabe.</p></div>
       <ol class="timeline">
         <li><b>01</b><div><h3>Erstgespräch</h3><p>Wir klären Ziel, Zustand und Rahmen Ihres Vorhabens.</p></div><span>30–45 Min.</span></li>
         <li><b>02</b><div><h3>Analyse vor Ort</h3><p>Aufmaß, Substanzprüfung und technische Bestandsaufnahme.</p></div><span>1 Termin</span></li>
@@ -261,7 +311,7 @@
     <section class="partners" id="partner" aria-labelledby="partners-title">
       <div class="partners-heading">
         <div>
-          <div class="section-kicker light">07 / Partnernetzwerk</div>
+          <div class="section-kicker light">08 / Partnernetzwerk</div>
           <h2 id="partners-title">Ausgewählte Partner.<br /><em>Ein gemeinsamer Anspruch.</em></h2>
         </div>
         <p>Gute Gebäudehüllen entstehen aus verlässlichem Handwerk und Materialien, die langfristig überzeugen. Deshalb arbeiten wir mit spezialisierten Partnern und bewährten Herstellern.</p>
@@ -293,7 +343,7 @@
     </section>
 
     <section class="faq section-pad">
-      <div><div class="section-kicker">08 / Wissen</div><h2>Gute Fragen.<br />Klare Antworten.</h2><p>Was Eigentümer vor einer Dachsanierung wissen möchten.</p></div>
+      <div><div class="section-kicker">09 / Wissen</div><h2>Gute Fragen.<br />Klare Antworten.</h2><p>Was Eigentümer vor einer Dachsanierung wissen möchten.</p></div>
       <div class="accordion">
         <details open><summary>Wann ist eine Dachsanierung wirklich notwendig?<span></span></summary><p>Wenn Eindeckung, Abdichtung oder Anschlüsse ihre Funktion verlieren, die Dämmung nicht mehr zeitgemäß ist oder wiederholt Feuchtigkeit auftritt. Wir prüfen zuerst, welche Maßnahmen tatsächlich erforderlich sind.</p></details>
         <details><summary>Was kostet ein neues Dach?<span></span></summary><p>Das hängt von Fläche, Aufbau, Material, Details und Zugänglichkeit ab. Nach der Vor-Ort-Analyse erhalten Sie ein transparent gegliedertes Angebot mit sinnvollen Varianten.</p></details>
@@ -305,10 +355,11 @@
     </section>
 
     <section class="contact" id="anfrage">
-      <div class="contact-intro"><div class="section-kicker light">09 / Projektstart</div><h2>Was können wir<br />für Sie lösen?</h2><p>In drei kurzen Schritten erfassen wir die wichtigsten Projektdaten. So kann Pierre Meyer direkt mit einer fundierten ersten Einschätzung reagieren.</p><div class="contact-person"><span>PM</span><div><strong>Pierre Meyer</strong><small>Dachdeckermeister & Ansprechpartner</small></div></div></div>
+      <div class="contact-intro"><div class="section-kicker light">10 / Projektstart</div><h2>Was können wir<br />für Sie lösen?</h2><p>In drei kurzen Schritten erfassen wir die wichtigsten Projektdaten. So kann Pierre Meyer direkt mit einer fundierten ersten Einschätzung reagieren.</p><div class="contact-person"><span>PM</span><div><strong>Pierre Meyer</strong><small>Dachdeckermeister & Ansprechpartner</small></div></div></div>
       <form id="inquiry-form" action="send-inquiry.php" method="post" enctype="multipart/form-data" novalidate>
         <label class="form-honeypot" aria-hidden="true">Website<input name="website" tabindex="-1" autocomplete="off" /></label>
         <input type="hidden" name="form_started" value="" />
+        <input type="hidden" name="preferred_concept" value="Komfort" />
         <div class="wizard-progress" role="list" aria-label="Formularfortschritt"><span class="active" role="listitem" aria-current="step"><b>1</b>Anliegen</span><span role="listitem"><b>2</b>Projektdaten</span><span role="listitem"><b>3</b>Kontakt</span></div>
         <fieldset class="form-step active" data-step="1"><legend>Worum geht es?</legend><div class="choice-grid"><label><input type="radio" name="type" value="Steildach" data-key="steildach" checked /><span>Steildach</span></label><label><input type="radio" name="type" value="Flachdach" data-key="flachdach" /><span>Flachdach</span></label><label><input type="radio" name="type" value="Dachfenster" data-key="fenster" /><span>Dachfenster</span></label><label><input type="radio" name="type" value="Fassade" data-key="fassade" /><span>Fassade</span></label><label><input type="radio" name="type" value="Terrasse oder Balkon" data-key="terrasse" /><span>Terrasse / Balkon</span></label><label><input type="radio" name="type" value="Reparatur oder Wartung" data-key="service" /><span>Reparatur / Wartung</span></label></div><div class="wizard-actions"><span></span><button class="button button-accent next-step" type="button">Weiter <span>→</span></button></div></fieldset>
         <fieldset class="form-step" data-step="2"><legend>Details zu Ihrem Projekt</legend><div class="form-grid dynamic-fields" aria-live="polite"></div><label class="upload-field"><input type="file" name="photos[]" accept="image/jpeg,image/png,image/webp" multiple /><span><b>Fotos hinzufügen</b><small>JPG, PNG oder WebP · maximal 5 Bilder · je 5 MB</small></span></label><div class="wizard-actions"><button class="text-button prev-step" type="button">← Zurück</button><button class="button button-accent next-step" type="button">Weiter <span>→</span></button></div></fieldset>

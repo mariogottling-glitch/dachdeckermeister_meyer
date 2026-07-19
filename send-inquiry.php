@@ -224,6 +224,7 @@ if (!in_array($type, $allowedTypes, true) || textLength($name) < 2 || textLength
 }
 
 $dynamicLabels = [
+    'preferred_concept' => 'Gewünschtes Sanierungskonzept',
     'roof_type' => 'Dachtyp', 'construction_year' => 'Baujahr', 'area' => 'Geschätzte Fläche',
     'insulation' => 'Dämmung vorhanden', 'leak' => 'Undichtigkeit / Feuchtigkeit', 'material' => 'Aktuelles Material',
     'standing_water' => 'Stehendes Wasser', 'use' => 'Nutzung der Fläche', 'window_project' => 'Fenster-Vorhaben',
