@@ -277,3 +277,4 @@ body{font-size:18px}.site-header nav,.header-cta{font-size:13px}.eyebrow,.sectio
 @media(max-width:640px){.cinematic-hero .hero-scene{left:16px;right:16px;width:auto}.cinematic-hero .hero-scene h2,.cinematic-hero .scene-final h2{font-size:clamp(21px,6.85vw,32px);line-height:1.08;letter-spacing:0;white-space:nowrap}.cinematic-hero .scene-final h2 em{white-space:nowrap}}
 
 .form-foot small a{color:var(--accent);text-decoration:underline;text-underline-offset:3px}
+.form-honeypot{position:absolute!important;left:-10000px!important;width:1px!important;height:1px!important;overflow:hidden!important}.button[disabled]{cursor:wait;opacity:.65}.form-status.is-success{color:#7de0e7}.form-error:not(:empty){color:#ffb6b6}.upload-field.has-error>span{border-color:#ff8f8f;background:#ff8f8f0d}

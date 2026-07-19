@@ -269,6 +269,12 @@ const formSteps = [...document.querySelectorAll('.form-step')];
 const progressSteps = [...document.querySelectorAll('.wizard-progress span')];
 const dynamicFields = document.querySelector('.dynamic-fields');
 const formError = document.querySelector('#form-error');
+const photoInput = inquiryForm?.querySelector('input[type="file"]');
+const formStartedInput = inquiryForm?.querySelector('input[name="form_started"]');
+const maxPhotoCount = 5;
+const maxPhotoSize = 5 * 1024 * 1024;
+const maxPhotoTotal = 15 * 1024 * 1024;
+const allowedPhotoTypes = ['image/jpeg', 'image/png', 'image/webp'];
 const projectFields = {
   steildach: `
     <label>Dachtyp<select name="roof_type" required><option value="">Bitte wählen</option><option>Satteldach</option><option>Walmdach</option><option>Anderer Dachtyp</option><option>Unbekannt</option></select></label>
@@ -330,6 +336,7 @@ function showFormStep(step, moveFocus = false) {
 }
 function clearFormError() {
   if (formError) formError.textContent = '';
+  photoInput?.closest('.upload-field')?.classList.remove('has-error');
 }
 function markFieldValid(field) {
   field.removeAttribute('aria-invalid');
@@ -355,9 +362,30 @@ function stepIsValid(step) {
   return true;
 }
 
+function photosAreValid() {
+  const files = [...(photoInput?.files || [])];
+  const uploadField = photoInput?.closest('.upload-field');
+  const fail = message => {
+    uploadField?.classList.add('has-error');
+    if (formError) formError.textContent = message;
+    photoInput?.focus();
+    return false;
+  };
+  uploadField?.classList.remove('has-error');
+  if (files.length > maxPhotoCount) return fail(`Bitte wählen Sie höchstens ${maxPhotoCount} Fotos aus.`);
+  if (files.some(file => file.type && !allowedPhotoTypes.includes(file.type))) return fail('Bitte verwenden Sie nur JPG-, PNG- oder WebP-Bilder.');
+  if (files.some(file => file.size > maxPhotoSize)) return fail('Ein Foto ist größer als 5 MB. Bitte verkleinern Sie die Datei.');
+  if (files.reduce((sum, file) => sum + file.size, 0) > maxPhotoTotal) return fail('Die ausgewählten Fotos sind zusammen größer als 15 MB.');
+  return true;
+}
+
 inquiryForm?.addEventListener('input', event => {
   if (event.target.matches('input, select, textarea')) markFieldValid(event.target);
   if (!inquiryForm.querySelector('[aria-invalid="true"]')) clearFormError();
+});
+photoInput?.addEventListener('change', () => {
+  clearFormError();
+  photosAreValid();
 });
 
 inquiryForm?.querySelectorAll('input[name="type"]').forEach(input => input.addEventListener('change', renderProjectFields));
@@ -371,6 +399,7 @@ document.querySelectorAll('[data-preset]').forEach(link => link.addEventListener
 inquiryForm?.querySelectorAll('.next-step').forEach(button => button.addEventListener('click', () => {
   const current = Number(inquiryForm.dataset.currentStep || 1);
   if (!stepIsValid(current)) return;
+  if (current === 2 && !photosAreValid()) return;
   if (current === 1) renderProjectFields();
   showFormStep(Math.min(3, current + 1), true);
 }));
@@ -380,13 +409,39 @@ inquiryForm?.querySelectorAll('.prev-step').forEach(button => button.addEventLis
 }));
 renderProjectFields();
 showFormStep(1);
+if (formStartedInput) formStartedInput.value = String(Math.floor(Date.now() / 1000));
 
-inquiryForm?.addEventListener('submit', event => {
+inquiryForm?.addEventListener('submit', async event => {
   event.preventDefault();
-  if (!stepIsValid(3)) return;
-  const status = event.currentTarget.querySelector('.form-status');
-  const rawName = String(new FormData(event.currentTarget).get('name') || '').trim();
-  const name = rawName.split(' ')[0];
-  status.textContent = `Danke${name ? `, ${name}` : ''}. Ihre Projektdaten sind vollständig vorbereitet – Pierre Meyer meldet sich persönlich.`;
-  event.currentTarget.querySelector('button[type="submit"]').disabled = true;
+  const form = event.currentTarget;
+  const status = form.querySelector('.form-status');
+  const submitButton = form.querySelector('button[type="submit"]');
+  if (!stepIsValid(3) || !photosAreValid() || !submitButton) return;
+
+  const originalButton = submitButton.innerHTML;
+  clearFormError();
+  status.textContent = '';
+  status.classList.remove('is-success');
+  submitButton.disabled = true;
+  submitButton.textContent = 'Wird gesendet …';
+
+  try {
+    const response = await fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { Accept: 'application/json' }
+    });
+    const payload = await response.json().catch(() => ({}));
+    if (!response.ok || !payload.ok) throw new Error(payload.message || 'Die Anfrage konnte nicht gesendet werden.');
+    status.textContent = payload.message || 'Vielen Dank. Ihre Anfrage ist bei uns eingegangen.';
+    status.classList.add('is-success');
+    submitButton.textContent = 'Anfrage gesendet ✓';
+  } catch (error) {
+    if (formError) {
+      formError.textContent = `${error.message} Bitte versuchen Sie es erneut oder rufen Sie uns unter +49 176 43487351 an.`;
+      formError.focus();
+    }
+    submitButton.disabled = false;
+    submitButton.innerHTML = originalButton;
+  }
 });

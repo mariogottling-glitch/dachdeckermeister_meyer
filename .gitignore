@@ -9,3 +9,5 @@ Desktop.ini
 .concept-source/
 tmp/
 
+# Lokale Zugangsdaten für den Formularversand
+form-config.php
