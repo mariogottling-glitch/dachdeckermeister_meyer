@@ -5,23 +5,38 @@ menuButton?.addEventListener('click', () => {
   const open = menuButton.getAttribute('aria-expanded') === 'true';
   menuButton.setAttribute('aria-expanded', String(!open));
   nav.classList.toggle('open', !open);
+  document.body.classList.toggle('menu-open', !open);
   const menuLabel = menuButton.querySelector('.sr-only');
   if (menuLabel) menuLabel.textContent = open ? 'Menü öffnen' : 'Menü schließen';
 });
 nav?.addEventListener('click', event => {
   if (event.target.matches('a')) {
     nav.classList.remove('open');
+    document.body.classList.remove('menu-open');
     menuButton.setAttribute('aria-expanded', 'false');
   }
 });
 document.addEventListener('keydown', event => {
   if (event.key !== 'Escape' || menuButton?.getAttribute('aria-expanded') !== 'true') return;
   nav?.classList.remove('open');
+  document.body.classList.remove('menu-open');
   menuButton.setAttribute('aria-expanded', 'false');
   const menuLabel = menuButton.querySelector('.sr-only');
   if (menuLabel) menuLabel.textContent = 'Menü öffnen';
   menuButton.focus();
 });
+
+/* Die mobile Anfrageleiste erscheint erst nach dem Startscreen. So konkurriert
+   sie im Hero nicht mit dem dortigen Hauptbutton. */
+const stickyCta = document.querySelector('.sticky-cta');
+const heroCover = document.querySelector('.hero-cover');
+if (stickyCta && heroCover && 'IntersectionObserver' in window) {
+  document.body.classList.add('sticky-cta-managed');
+  const stickyCtaObserver = new IntersectionObserver(([entry]) => {
+    document.body.classList.toggle('sticky-cta-visible', !entry.isIntersecting);
+  }, { threshold: 0.12 });
+  stickyCtaObserver.observe(heroCover);
+}
 
 /* Interne Hauptnavigation: Die angeheftete Tour wird als geschlossener Block
    übersprungen. Erst ab der ersten Inhaltssektion läuft der weiche Seitenweg. */

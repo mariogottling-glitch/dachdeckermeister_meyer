@@ -332,6 +332,69 @@ body{font-size:18px}.site-header nav,.header-cta{font-size:13px}.eyebrow,.sectio
   .layer-readout p{font-size:12px}
 }
 
-/* Kräftige Markenheadline auf dem Startscreen – analog zu den übrigen Hauptüberschriften. */
-.hero-cover .hero-grid h1{font-family:"Montserrat Meyer",Montserrat,Arial,sans-serif;font-size:clamp(68px,8.4vw,136px);font-weight:850;line-height:.82;letter-spacing:-.045em;text-transform:uppercase;white-space:nowrap}
-@media(max-width:640px){.hero-cover .hero-grid h1{font-size:clamp(44px,12.4vw,58px);line-height:.86;letter-spacing:-.035em}}
+/* Presentation polish: stronger hero hierarchy, calmer proof points and clearer copy. */
+.hero-cover .hero-grid h1{
+  font-family:"Montserrat Meyer",Montserrat,Arial,sans-serif;
+  font-size:clamp(68px,8.4vw,136px);
+  font-weight:850;
+  line-height:.84;
+  letter-spacing:-.042em;
+  text-transform:uppercase;
+  white-space:nowrap;
+}
+.hero-cover .hero-grid{grid-template-columns:minmax(0,1fr) minmax(430px,.62fr)}
+.hero-cover .hero-stats{gap:clamp(22px,2.4vw,42px)}
+.hero-cover .hero-stats div{min-width:0}
+.hero-cover .hero-stats span{display:block;max-width:150px;line-height:1.55;text-wrap:balance}
+.intro-copy>div p{color:#555;font-weight:400}
+.intro-copy>div p:last-child{color:#666}
+
+@media(max-width:900px){
+  .hero-cover .hero-grid{grid-template-columns:1fr}
+}
+
+@media(max-width:640px){
+  .hero-cover .hero-grid h1{
+    font-size:clamp(44px,12.4vw,58px);
+    line-height:.9;
+    letter-spacing:-.03em;
+  }
+  .hero-cover .hero-stats{gap:14px}
+  .hero-cover .hero-stats span{font-size:9px;line-height:1.45}
+
+  .site-header nav{
+    position:fixed;
+    inset:70px 0 0;
+    z-index:19;
+    padding:34px 24px 110px;
+    gap:0;
+    background:rgba(28,29,30,.985);
+    border-top:1px solid rgba(255,255,255,.12);
+    backdrop-filter:blur(14px);
+    overflow-y:auto;
+  }
+  .site-header nav a{
+    padding:18px 0;
+    border-bottom:1px solid rgba(255,255,255,.12);
+    font-size:15px;
+    letter-spacing:.12em;
+  }
+  body.menu-open{overflow:hidden}
+
+  body.sticky-cta-managed .sticky-cta{
+    opacity:0;
+    transform:translateY(calc(100% + 26px));
+    pointer-events:none;
+    transition:opacity .35s ease,transform .45s var(--ease);
+  }
+  body.sticky-cta-managed.sticky-cta-visible .sticky-cta{
+    opacity:1;
+    transform:translateY(0);
+    pointer-events:auto;
+  }
+  body.menu-open .sticky-cta{opacity:0!important;pointer-events:none!important}
+}
+
+@media(prefers-reduced-motion:reduce){
+  body.sticky-cta-managed .sticky-cta{transition:none}
+}
