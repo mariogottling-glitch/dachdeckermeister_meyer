@@ -25,17 +25,15 @@ document.addEventListener('keydown', event => {
 
 function initHeroBridge() {
   const cover = document.querySelector('.hero-cover');
-  const transitionImage = cover?.querySelector('.hero-cover-transition');
   const coverStage = cover?.querySelector('.hero-cover-stage');
-  const baseImage = cover?.querySelector('img:not(.hero-cover-transition)');
+  const baseImage = coverStage?.querySelector('img');
   const shade = cover?.querySelector('.hero-shade');
   const coverVeil = cover?.querySelector('.hero-cover-veil');
   const coverContent = cover?.querySelectorAll('.hero-grid, .cover-scroll');
   const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (!cover || !coverStage || !transitionImage || !coverVeil || reducedMotion || !window.gsap || !window.ScrollTrigger) return;
+  if (!cover || !coverStage || !baseImage || !coverVeil || reducedMotion || !window.gsap || !window.ScrollTrigger) return;
 
   gsap.registerPlugin(ScrollTrigger);
-  gsap.set(transitionImage, { autoAlpha: 0, scale: 1 });
   gsap.set(coverVeil, { autoAlpha: 0 });
 
   const bridge = gsap.timeline({
@@ -51,12 +49,10 @@ function initHeroBridge() {
 
   bridge
     .to(coverContent, { autoAlpha: 0, y: -20, duration: .28 }, 0)
-    .to(coverVeil, { autoAlpha: 1, duration: .28, ease: 'power2.inOut' }, .08)
-    .set(baseImage, { autoAlpha: 0 }, .36)
-    .set(transitionImage, { autoAlpha: 1, scale: 1 }, .36)
-    .to(shade, { opacity: .78, duration: .3 }, .36)
-    .to(coverVeil, { autoAlpha: 0, duration: .36, ease: 'power2.out' }, .38)
-    .to(coverStage, { autoAlpha: 0, duration: .18 }, .82);
+    .to(baseImage, { scale: 1.018, yPercent: -.35, duration: .72, ease: 'power1.inOut' }, 0)
+    .to(shade, { opacity: .84, duration: .46 }, .1)
+    .to(coverVeil, { autoAlpha: .32, duration: .24, ease: 'power2.inOut' }, .34)
+    .to(coverStage, { autoAlpha: 0, duration: .38, ease: 'power2.inOut' }, .58);
 }
 
 function initCinematicHero() {
