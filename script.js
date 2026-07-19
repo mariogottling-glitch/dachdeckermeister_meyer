@@ -23,6 +23,46 @@ document.addEventListener('keydown', event => {
   menuButton.focus();
 });
 
+/* Interne Hauptnavigation: Die angeheftete Tour wird als geschlossener Block
+   übersprungen. Erst ab der ersten Inhaltssektion läuft der weiche Seitenweg. */
+const sectionJumpVeil = document.querySelector('.section-jump-veil');
+const firstSectionAfterTour = document.querySelector('#beratung');
+const tourSection = document.querySelector('#gebaeude-erleben');
+const sectionJumpLinks = document.querySelectorAll('.site-header a[href^="#"]:not(.brand), .tour-skip');
+let sectionJumpTimer;
+
+sectionJumpLinks.forEach(link => link.addEventListener('click', event => {
+  const hash = link.getAttribute('href');
+  const target = hash ? document.querySelector(hash) : null;
+  if (!target || !firstSectionAfterTour || !tourSection) return;
+
+  const firstContentTop = firstSectionAfterTour.getBoundingClientRect().top + scrollY;
+  if (scrollY >= firstContentTop - 4) return;
+
+  event.preventDefault();
+  clearTimeout(sectionJumpTimer);
+  document.body.classList.add('section-jump-active');
+  sectionJumpVeil?.setAttribute('aria-hidden', 'false');
+
+  sectionJumpTimer = setTimeout(() => {
+    const root = document.documentElement;
+    const previousBehavior = root.style.scrollBehavior;
+    root.style.scrollBehavior = 'auto';
+    firstSectionAfterTour.scrollIntoView({ block: 'start', behavior: 'auto' });
+    window.ScrollTrigger?.update();
+    root.style.scrollBehavior = previousBehavior;
+    history.pushState(null, '', hash);
+
+    requestAnimationFrame(() => {
+      document.body.classList.remove('section-jump-active');
+      sectionJumpVeil?.setAttribute('aria-hidden', 'true');
+      if (target !== firstSectionAfterTour) {
+        target.scrollIntoView({ block: 'start', behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+      }
+    });
+  }, 280);
+}));
+
 function initHeroBridge() {
   const cover = document.querySelector('.hero-cover');
   const coverStage = cover?.querySelector('.hero-cover-stage');

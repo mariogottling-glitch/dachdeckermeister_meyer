@@ -1,0 +1,33 @@
+.section-jump-veil{
+  position:fixed;
+  z-index:1000;
+  inset:0;
+  display:grid;
+  place-items:center;
+  pointer-events:none;
+  visibility:hidden;
+  opacity:0;
+  background:#171b1d;
+  transition:opacity .28s ease,visibility 0s linear .28s;
+}
+.section-jump-veil span{
+  width:52px;
+  height:28px;
+  border-right:2px solid var(--accent);
+  border-bottom:2px solid var(--accent);
+  transform:rotate(45deg) skew(-12deg,-12deg);
+  opacity:0;
+  transition:opacity .18s ease,transform .45s var(--ease);
+}
+.section-jump-active .section-jump-veil{
+  visibility:visible;
+  opacity:1;
+  transition:opacity .28s ease;
+}
+.section-jump-active .section-jump-veil span{
+  opacity:.9;
+  transform:rotate(45deg) skew(-12deg,-12deg) translate(4px,4px);
+}
+@media(prefers-reduced-motion:reduce){
+  .section-jump-veil,.section-jump-veil span{transition:none}
+}
