@@ -553,3 +553,59 @@ body{font-size:18px}.site-header nav,.header-cta{font-size:13px}.eyebrow,.sectio
   .scroll-cue.tour-launch{display:flex;right:20px;bottom:14px;font-size:9px}
   .scroll-cue.tour-launch i{height:28px}
 }
+
+/* A visible but secondary entry into the optional tour. */
+.site-header .brand-logo-img{width:90px}
+.hero-tour-link{
+  position:absolute;
+  z-index:4;
+  top:112px;
+  right:var(--pad);
+  width:230px;
+  min-height:66px;
+  padding:12px 16px 11px 18px;
+  display:grid;
+  align-content:center;
+  gap:3px;
+  border:1px solid rgba(255,255,255,.32);
+  border-left:2px solid var(--accent);
+  background:rgba(19,25,27,.34);
+  color:#fff;
+  backdrop-filter:blur(8px);
+  transition:background .25s ease,border-color .25s ease,transform .25s ease;
+}
+.hero-tour-link span{
+  font-size:10px;
+  font-weight:700;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+}
+.hero-tour-link b{
+  color:rgba(255,255,255,.68);
+  font-size:9px;
+  font-weight:500;
+  letter-spacing:.11em;
+  text-transform:uppercase;
+}
+.hero-tour-link i{color:var(--accent);font-style:normal;margin-left:7px}
+.hero-tour-link:hover,.hero-tour-link:focus-visible{
+  background:rgba(19,25,27,.68);
+  border-color:rgba(255,255,255,.6);
+  border-left-color:var(--accent);
+  transform:translateY(-2px);
+  outline:none;
+}
+
+@media(max-width:640px){
+  .site-header .brand-logo-img{width:74px}
+  .hero-tour-link{
+    top:86px;
+    right:20px;
+    width:174px;
+    min-height:52px;
+    padding:8px 12px 8px 14px;
+    background:rgba(19,25,27,.52);
+  }
+  .hero-tour-link span{font-size:9px;letter-spacing:.09em}
+  .hero-tour-link b{font-size:8px}
+}
