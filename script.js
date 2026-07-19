@@ -335,38 +335,23 @@ addEventListener('resize', updateAssembly, { passive: true });
 updateAssembly();
 
 const conceptData = {
-  effizienz: {
-    label: '01 / Fokussierte Erneuerung',
-    title: 'Klar saniert.\nSauber geplant.',
-    copy: 'Eine technisch saubere Erneuerung konzentriert sich auf zuverlässigen Wetterschutz, Luftdichtheit und eine zeitgemäße energetische Qualität.',
-    features: ['Luftdichtheitsebene erneuert', 'Dämmung passend zum Bestand ergänzt', 'Klarer, wirtschaftlicher Systemaufbau', 'Für unbeheizte oder einfach genutzte Dachräume'],
-    scores: [72, 58, 52, 55],
-    targetU: 0.24,
-    visualLabel: 'Technischer Schichtenaufbau des Effizienz-Konzepts'
+  basis: {
+    name: 'Basisdämmung',
+    targetU: 0.24
   },
-  komfort: {
-    label: '02 / Ausgewogene Systemlösung',
-    title: 'Mehr Komfort.\nWeniger Verlust.',
-    copy: 'Eine kombinierte Dämmstrategie verbessert den winterlichen Wärmeschutz und schafft zusätzliche Reserven gegen sommerliche Hitze und Außengeräusche.',
-    features: ['Luftdichtheitsebene sauber angeschlossen', 'Zwischen- und Aufsparrendämmung kombiniert', 'Guter Hitze- und Schallschutz', 'Für bewohnte Dachgeschosse empfohlen'],
-    scores: [86, 84, 80, 78],
-    targetU: 0.18,
-    visualLabel: 'Technischer Schichtenaufbau des Komfort-Konzepts'
+  premium: {
+    name: 'Premiumdämmung',
+    targetU: 0.18
   },
-  zukunft: {
-    label: '03 / Maximale Zukunftsreserve',
-    title: 'Mehr Reserve.\nWeiter gedacht.',
-    copy: 'Ein leistungsstarker Aufbau verbindet hohe Dämmreserven mit langlebigen Details und einer Planung, die spätere Anforderungen früh mitdenkt.',
-    features: ['Erweiterter Aufdach-Dämmaufbau', 'Sehr guter sommerlicher Hitzeschutz', 'Materialwahl mit Fokus auf Dauerhaftigkeit', 'Photovoltaik und künftige Nutzung mitgedacht'],
-    scores: [96, 94, 88, 98],
-    targetU: 0.14,
-    visualLabel: 'Technischer Schichtenaufbau des Zukunft-Konzepts'
+  exklusiv: {
+    name: 'Exklusivdämmung',
+    targetU: 0.14
   }
 };
 const conceptsSection = document.querySelector('.concepts');
 const conceptTabs = [...document.querySelectorAll('[data-concept-select]')];
 const existingUSlider = document.querySelector('#existing-u');
-let activeConcept = 'komfort';
+let activeConcept = 'premium';
 
 function updatePotential() {
   const data = conceptData[activeConcept];
@@ -379,7 +364,7 @@ function updatePotential() {
   const potentialRing = document.querySelector('.potential-ring');
   if (existingOutput) existingOutput.textContent = `${existingU.toFixed(2).replace('.', ',')} W/m²K`;
   if (potentialValue) potentialValue.innerHTML = `${potential}<small>%</small>`;
-  if (targetOutput) targetOutput.textContent = `Planungsziel: U ≤ ${data.targetU.toFixed(2).replace('.', ',')} W/m²K`;
+  if (targetOutput) targetOutput.textContent = `${data.name} · U-Ziel ≤ ${data.targetU.toFixed(2).replace('.', ',')} W/m²K`;
   potentialRing?.style.setProperty('--potential', `${potential}%`);
 }
 
@@ -390,22 +375,16 @@ function activateConcept(key, moveFocus = false) {
   conceptsSection.dataset.concept = key;
   conceptTabs.forEach(tab => {
     const selected = tab.dataset.conceptSelect === key;
-    tab.setAttribute('aria-selected', String(selected));
+    tab.setAttribute('aria-checked', String(selected));
     tab.tabIndex = selected ? 0 : -1;
+    tab.textContent = selected ? 'Ausgewählt' : 'Für Vergleich wählen';
     if (selected && moveFocus) tab.focus();
   });
-  const activeTab = conceptTabs.find(tab => tab.dataset.conceptSelect === key);
+  document.querySelectorAll('[data-concept-card]').forEach(card => {
+    card.classList.toggle('is-selected', card.dataset.conceptCard === key);
+  });
   const preferredConcept = document.querySelector('input[name="preferred_concept"]');
-  if (preferredConcept) preferredConcept.value = key.charAt(0).toUpperCase() + key.slice(1);
-  const panel = document.querySelector('#concept-panel');
-  if (panel && activeTab) panel.setAttribute('aria-labelledby', activeTab.id);
-  const visual = document.querySelector('.concept-visual');
-  if (visual) visual.setAttribute('aria-label', data.visualLabel);
-  document.querySelector('#concept-label').textContent = data.label;
-  document.querySelector('#concept-title').innerHTML = data.title.replace('\n', '<br />');
-  document.querySelector('#concept-copy').textContent = data.copy;
-  document.querySelector('#concept-features').innerHTML = data.features.map(feature => `<li>${feature}</li>`).join('');
-  document.querySelectorAll('.concept-scores b').forEach((bar, index) => bar.style.setProperty('--score', `${data.scores[index]}%`));
+  if (preferredConcept) preferredConcept.value = data.name;
   updatePotential();
 }
 
@@ -475,7 +454,7 @@ serviceTabs.forEach((tab, index) => tab.addEventListener('keydown', event => {
 }));
 document.querySelectorAll('[data-service-target]').forEach(link => link.addEventListener('click', () => activateService(link.dataset.serviceTarget)));
 
-document.querySelectorAll('.intro-copy, .principles article, .trust-panel, .concepts-heading, .concept-selector, .concept-workbench, .potential-check, .section-head, .service-panel, .check-grid a, .direct-service-head, .assistant-card, .timeline li, .partners-heading, .partner-node, .partner-future, .faq > div, .accordion details').forEach(item => item.classList.add('reveal'));
+document.querySelectorAll('.intro-copy, .principles article, .trust-panel, .concepts-heading, .concept-compare-grid, .potential-check, .section-head, .service-panel, .check-grid a, .direct-service-head, .assistant-card, .timeline li, .partners-heading, .partner-node, .partner-future, .faq > div, .accordion details').forEach(item => item.classList.add('reveal'));
 const observer = new IntersectionObserver(entries => entries.forEach(entry => {
   if (entry.isIntersecting) { entry.target.classList.add('in'); observer.unobserve(entry.target); }
 }), { threshold: .12, rootMargin: '0px 0px -40px' });

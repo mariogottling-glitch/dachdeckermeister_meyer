@@ -25,11 +25,11 @@
   <link rel="manifest" href="site.webmanifest" />
   <link rel="preload" href="assets/hero-cinematic.webp" as="image" fetchpriority="high" />
   <link rel="preload" href="assets/hero-scenes/roof-pv.webp" as="image" />
-  <link rel="stylesheet" href="styles.css?v=20260719-24" />
+  <link rel="stylesheet" href="styles.css?v=20260719-25" />
   <link rel="stylesheet" href="navigation.css?v=20260719-1" />
   <script src="vendor/gsap.min.js" defer></script>
   <script src="vendor/ScrollTrigger.min.js" defer></script>
-  <script src="script.js?v=20260719-28" defer></script>
+  <script src="script.js?v=20260719-29" defer></script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"RoofingContractor","@id":"https://www.dachdeckermeister-meyer.de/#business","name":"Dachdeckermeister Meyer","url":"https://www.dachdeckermeister-meyer.de/","logo":"https://www.dachdeckermeister-meyer.de/assets/meyer-logo-final.png","image":"https://www.dachdeckermeister-meyer.de/assets/hero-cinematic.webp","description":"Dachdeckermeisterbetrieb für Dachsanierung, Steildach, Flachdach, Dachfenster, Fassade, Reparatur und Wartung.","telephone":"+49 176 43487351","email":"info@dachdeckermeister-meyer.de","address":{"@type":"PostalAddress","streetAddress":"Weißer Straße 32","postalCode":"50996","addressLocality":"Köln","addressCountry":"DE"},"areaServed":{"@type":"City","name":"Köln"},"founder":{"@type":"Person","name":"Pierre Meyer"},"hasOfferCatalog":{"@type":"OfferCatalog","name":"Dachdeckerleistungen","itemListElement":[{"@type":"Offer","itemOffered":{"@type":"Service","name":"Steildach und Dachsanierung"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Flachdach und Abdichtung"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Dachfenster"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Fassadenbekleidung und Dämmung"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Dachservice und Wartung"}}]}}</script>
 </head>
 <body>
@@ -171,7 +171,7 @@
       <form id="inquiry-form" action="send-inquiry.php" method="post" enctype="multipart/form-data" novalidate>
         <label class="form-honeypot" aria-hidden="true">Website<input name="website" tabindex="-1" autocomplete="off" /></label>
         <input type="hidden" name="form_started" value="" />
-        <input type="hidden" name="preferred_concept" value="Komfort" />
+        <input type="hidden" name="preferred_concept" value="Premiumdämmung" />
         <div class="assistant-switch" aria-label="Direkt-Assistent auswählen"><button type="button" data-assistant="service" aria-pressed="false"><b>01</b><span><strong>Reparatur & Wartung</strong><small>Schaden strukturiert melden</small></span></button><button type="button" data-assistant="fenster" aria-pressed="false"><b>02</b><span><strong>Dachfenster</strong><small>Typenschild und Fenster erfassen</small></span></button></div>
         <button class="assistant-other" type="button" data-assistant="all">Anderes Projekt oder weitere Leistung <span>→</span></button>
         <div class="wizard-progress" role="list" aria-label="Formularfortschritt"><span class="active" role="listitem" aria-current="step"><b>1</b>Anliegen</span><span role="listitem"><b>2</b><em data-progress-detail>Projektdaten</em></span><span role="listitem"><b>3</b>Kontakt</span></div>
@@ -245,52 +245,59 @@
       </div>
     </section>
 
-    <section class="concepts section-pad" id="sanierungskonzepte" aria-labelledby="concepts-title" data-concept="komfort">
+    <section class="concepts section-pad" id="sanierungskonzepte" aria-labelledby="concepts-title" data-concept="premium">
       <div class="concepts-heading">
-        <div><div class="section-kicker">03 / Sanierungskonzepte</div><h2 id="concepts-title">Drei Wege.<br />Passend zu Ihrem Haus.</h2></div>
-        <p>Ein Dachaufbau ist keine Produktstufe von der Stange. Wir stellen sinnvolle Ausführungen gegenüber und entwickeln daraus die Lösung, die zu Substanz, Komfortwunsch und langfristigem Ziel passt.</p>
+        <div><div class="section-kicker">03 / Dämmkonzepte</div><h2 id="concepts-title">Drei Arten zu dämmen.<br />Klar unterschieden.</h2></div>
+        <p>Basis-, Premium- und Exklusivdämmung verfolgen dasselbe Ziel – ein dauerhaft geschütztes Dach. Der Unterschied liegt darin, wo gedämmt wird, wie viele Ebenen zusammenwirken und welche Reserven der Aufbau bietet.</p>
       </div>
 
-      <div class="concept-selector" role="tablist" aria-label="Sanierungskonzepte vergleichen">
-        <button id="concept-tab-effizienz" role="tab" aria-selected="false" aria-controls="concept-panel" tabindex="-1" data-concept-select="effizienz"><span>01</span><strong>Effizienz</strong><small>Solide energetische Erneuerung</small><b>U-Ziel ≤ 0,24</b></button>
-        <button id="concept-tab-komfort" role="tab" aria-selected="true" aria-controls="concept-panel" tabindex="0" data-concept-select="komfort"><span>02 · Empfehlung</span><strong>Komfort</strong><small>Wärme-, Hitze- und Schallschutz</small><b>U-Ziel ≤ 0,18</b></button>
-        <button id="concept-tab-zukunft" role="tab" aria-selected="false" aria-controls="concept-panel" tabindex="-1" data-concept-select="zukunft"><span>03</span><strong>Zukunft</strong><small>Maximale Reserve und Werterhalt</small><b>U-Ziel ≤ 0,14</b></button>
-      </div>
+      <div class="concept-orientation"><span>Aufbau jeweils von innen nach außen</span><i></i><b>Mehr Dämmleistung und Reserve</b></div>
 
-      <div class="concept-workbench">
-        <div class="concept-visual" role="img" aria-label="Technischer Schichtenaufbau des Komfort-Konzepts">
-          <div class="concept-grid" aria-hidden="true"></div>
-          <div class="roof-sample" aria-hidden="true">
-            <div class="sample-layer layer-cover"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
-            <div class="sample-layer layer-battens"><i></i><i></i><i></i><i></i></div>
-            <div class="sample-layer layer-top-insulation"><i></i><i></i><i></i><i></i><i></i></div>
-            <div class="sample-layer layer-membrane"></div>
-            <div class="sample-layer layer-between-insulation"><i></i><i></i><i></i><i></i><i></i></div>
-            <div class="sample-layer layer-structure"><i></i><i></i><i></i><i></i></div>
+      <div class="concept-compare-grid" role="radiogroup" aria-label="Drei Dämmarten vergleichen">
+        <article class="insulation-card" data-concept-card="basis">
+          <header><span>01</span><div><p>Der kompakte Einstieg</p><h3>Basisdämmung</h3></div></header>
+          <figure><img src="assets/insulation-concepts/basisdaemmung.webp" alt="Schematischer Dachaufbau der Basisdämmung mit gedämmten Sparren, Luftdichtheit, Lattung und Eindeckung" width="1448" height="1086" loading="lazy" /></figure>
+          <div class="insulation-card-body">
+            <p class="concept-purpose"><b>Prinzip</b>Eine Dämmebene im Sparrenbereich sorgt für einen soliden energetischen Grundschutz bei kompakter Aufbauhöhe.</p>
+            <h4>Beispielhafter Aufbau</h4>
+            <ol><li><span>01</span>Innenbekleidung und Dampfbremse</li><li><span>02</span>Dämmung zwischen den Sparren</li><li><span>03</span>Unterdeck- und Schutzebene</li><li><span>04</span>Konter- und Dachlattung</li><li><span>05</span>Dacheindeckung</li></ol>
+            <div class="concept-rating" aria-label="Leistungsprofil Basisdämmung"><div><span>Wärmeschutz</span><i><b style="--score:68%"></b></i></div><div><span>Hitzeschutz</span><i><b style="--score:52%"></b></i></div><div><span>Schallschutz</span><i><b style="--score:48%"></b></i></div></div>
           </div>
-          <div class="concept-dimensions" aria-hidden="true"><span>AUFBAU / SCHEMATISCH</span><span>INNEN → AUSSEN</span></div>
-          <ol class="concept-layer-key"><li><b>01</b>Tragwerk</li><li><b>02</b>Zwischensparren</li><li><b>03</b>Luftdichtheit</li><li><b>04</b>Aufdachdämmung</li><li><b>05</b>Eindeckung</li></ol>
-        </div>
+          <footer><div><small>Orientierungswert</small><strong>U-Ziel bis ≤ 0,24</strong></div><button id="concept-choice-basis" type="button" role="radio" aria-checked="false" tabindex="-1" data-concept-select="basis">Für Vergleich wählen</button></footer>
+        </article>
 
-        <article class="concept-panel" id="concept-panel" role="tabpanel" aria-labelledby="concept-tab-komfort" tabindex="0">
-          <div class="mini-label" id="concept-label">02 / Ausgewogene Systemlösung</div>
-          <h3 id="concept-title">Mehr Komfort.<br />Weniger Verlust.</h3>
-          <p id="concept-copy">Eine kombinierte Dämmstrategie verbessert den winterlichen Wärmeschutz und schafft zusätzliche Reserven gegen sommerliche Hitze und Außengeräusche.</p>
-          <ul id="concept-features"><li>Luftdichtheitsebene sauber angeschlossen</li><li>Zwischen- und Aufsparrendämmung kombiniert</li><li>Guter Hitze- und Schallschutz</li><li>Für bewohnte Dachgeschosse empfohlen</li></ul>
-          <div class="concept-scores" aria-label="Bewertung des gewählten Konzepts">
-            <div><span>Wärmeschutz</span><i><b data-score="warmth"></b></i></div>
-            <div><span>Hitzeschutz</span><i><b data-score="heat"></b></i></div>
-            <div><span>Schallschutz</span><i><b data-score="sound"></b></i></div>
-            <div><span>Zukunftsreserve</span><i><b data-score="future"></b></i></div>
+        <article class="insulation-card is-selected is-recommended" data-concept-card="premium">
+          <div class="concept-badge">Empfehlung</div>
+          <header><span>02</span><div><p>Der ausgewogene Aufbau</p><h3>Premiumdämmung</h3></div></header>
+          <figure><img src="assets/insulation-concepts/premiumdaemmung.webp" alt="Schematischer Dachaufbau der Premiumdämmung mit kombinierter Zwischen- und Aufdachdämmung" width="1448" height="1086" loading="lazy" /></figure>
+          <div class="insulation-card-body">
+            <p class="concept-purpose"><b>Prinzip</b>Zwei aufeinander abgestimmte Dämmebenen reduzieren Wärmebrücken und verbessern Wärme-, Hitze- und Schallschutz.</p>
+            <h4>Beispielhafter Aufbau</h4>
+            <ol><li><span>01</span>Innenbekleidung und Luftdichtheit</li><li><span>02</span>Dämmung zwischen den Sparren</li><li><span>03</span>Ergänzende Aufdachdämmung</li><li><span>04</span>Konter- und Dachlattung</li><li><span>05</span>Dacheindeckung</li></ol>
+            <div class="concept-rating" aria-label="Leistungsprofil Premiumdämmung"><div><span>Wärmeschutz</span><i><b style="--score:86%"></b></i></div><div><span>Hitzeschutz</span><i><b style="--score:82%"></b></i></div><div><span>Schallschutz</span><i><b style="--score:78%"></b></i></div></div>
           </div>
-          <p class="concept-note">Der konkrete Aufbau und der erreichbare U-Wert werden nach Bestandsaufnahme bauphysikalisch geplant.</p>
+          <footer><div><small>Orientierungswert</small><strong>U-Ziel bis ≤ 0,18</strong></div><button id="concept-choice-premium" type="button" role="radio" aria-checked="true" tabindex="0" data-concept-select="premium">Ausgewählt</button></footer>
+        </article>
+
+        <article class="insulation-card" data-concept-card="exklusiv">
+          <header><span>03</span><div><p>Die maximale Reserve</p><h3>Exklusivdämmung</h3></div></header>
+          <figure><img src="assets/insulation-concepts/exklusivdaemmung.webp" alt="Schematischer Dachaufbau der Exklusivdämmung mit besonders starker Zwischen- und Aufdachdämmung" width="1448" height="1086" loading="lazy" /></figure>
+          <div class="insulation-card-body">
+            <p class="concept-purpose"><b>Prinzip</b>Ein besonders leistungsstarker Aufbau nutzt zusätzliche Dämmstärke für hohe Effizienz, Komfort und langfristige Reserven.</p>
+            <h4>Beispielhafter Aufbau</h4>
+            <ol><li><span>01</span>Innenbekleidung und Luftdichtheit</li><li><span>02</span>Starke Dämmung zwischen den Sparren</li><li><span>03</span>Leistungsstarke Aufdachdämmung</li><li><span>04</span>Robuste Schutzebene und Lattung</li><li><span>05</span>Dacheindeckung</li></ol>
+            <div class="concept-rating" aria-label="Leistungsprofil Exklusivdämmung"><div><span>Wärmeschutz</span><i><b style="--score:98%"></b></i></div><div><span>Hitzeschutz</span><i><b style="--score:95%"></b></i></div><div><span>Schallschutz</span><i><b style="--score:90%"></b></i></div></div>
+          </div>
+          <footer><div><small>Orientierungswert</small><strong>U-Ziel bis ≤ 0,14</strong></div><button id="concept-choice-exklusiv" type="button" role="radio" aria-checked="false" tabindex="-1" data-concept-select="exklusiv">Für Vergleich wählen</button></footer>
         </article>
       </div>
 
+      <p class="concept-disclaimer">Die Darstellungen zeigen Konstruktionsprinzipien, keine fertigen Standardpakete. Dämmstoff, Schichtdicken, Anschlüsse und erreichbarer U-Wert werden nach der Bestandsaufnahme individuell bauphysikalisch geplant.</p>
+
       <div class="potential-check" aria-labelledby="potential-title">
-        <div class="potential-copy"><div class="mini-label">Potenzial-Check</div><h3 id="potential-title">Was kann bessere Dämmung bewirken?</h3><p>Vergleichen Sie den angenommenen U-Wert Ihres heutigen Daches mit dem Planungsziel des gewählten Konzepts.</p></div>
+        <div class="potential-copy"><div class="mini-label">Potenzial-Check</div><h3 id="potential-title">Was kann die gewählte Dämmung bewirken?</h3><p>Wählen Sie oben eine Dämmart und vergleichen Sie deren Planungsziel mit dem angenommenen U-Wert Ihres heutigen Daches.</p></div>
         <label class="u-slider" for="existing-u"><span>Angenommener U-Wert Bestand</span><output id="existing-u-output" for="existing-u">1,40 W/m²K</output><input id="existing-u" type="range" min="0.4" max="2.4" step="0.1" value="1.4" /><small>bereits gedämmt <i></i> ungedämmt / älter</small></label>
-        <div class="potential-result" aria-live="polite"><div class="potential-ring"><output id="potential-value">87<small>%</small></output></div><div><span>Weniger Transmissionswärmeverlust</span><strong id="target-u">Planungsziel: U ≤ 0,18 W/m²K</strong><small>Rechnerischer Vergleich nur für das Dachbauteil – keine Prognose der gesamten Heizkosten.</small></div></div>
+        <div class="potential-result" aria-live="polite"><div class="potential-ring"><output id="potential-value">87<small>%</small></output></div><div><span>Weniger Transmissionswärmeverlust</span><strong id="target-u">Premiumdämmung · U-Ziel ≤ 0,18 W/m²K</strong><small>Rechnerischer Vergleich nur für das Dachbauteil – keine Prognose der gesamten Heizkosten.</small></div></div>
         <a class="button button-accent" href="#anfrage" data-preset="steildach">Konzept besprechen <span>↗</span></a>
       </div>
     </section>
