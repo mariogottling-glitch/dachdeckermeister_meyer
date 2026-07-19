@@ -276,3 +276,5 @@ body{font-size:18px}.site-header nav,.header-cta{font-size:13px}.eyebrow,.sectio
 .cinematic-hero .scene-final h2{font-size:clamp(44px,4.8vw,72px)}
 @media(max-width:900px){.cinematic-hero .hero-scene{width:min(720px,72vw)}.cinematic-hero .scene-final{width:auto}.cinematic-hero .hero-scene h2,.cinematic-hero .scene-final h2{font-size:clamp(34px,5.9vw,52px)}}
 @media(max-width:640px){.cinematic-hero .hero-scene{left:16px;right:16px;width:auto}.cinematic-hero .hero-scene h2,.cinematic-hero .scene-final h2{font-size:clamp(21px,6.85vw,32px);line-height:1.08;letter-spacing:0;white-space:nowrap}.cinematic-hero .scene-final h2 em{white-space:nowrap}}
+
+.form-foot small a{color:var(--accent);text-decoration:underline;text-underline-offset:3px}
