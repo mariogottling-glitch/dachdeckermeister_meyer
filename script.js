@@ -43,7 +43,7 @@ if (stickyCta && heroCover && 'IntersectionObserver' in window) {
 const sectionJumpVeil = document.querySelector('.section-jump-veil');
 const firstSectionAfterTour = document.querySelector('#beratung');
 const tourSection = document.querySelector('#gebaeude-erleben');
-const sectionJumpLinks = document.querySelectorAll('.site-header a[href^="#"]:not(.brand), .tour-skip');
+const sectionJumpLinks = document.querySelectorAll('.site-header a[href^="#"]:not(.brand), [data-direct-step]');
 let sectionJumpTimer;
 
 sectionJumpLinks.forEach(link => link.addEventListener('click', event => {
@@ -63,7 +63,8 @@ sectionJumpLinks.forEach(link => link.addEventListener('click', event => {
     const root = document.documentElement;
     const previousBehavior = root.style.scrollBehavior;
     root.style.scrollBehavior = 'auto';
-    firstSectionAfterTour.scrollIntoView({ block: 'start', behavior: 'auto' });
+    const isDirectJump = link.hasAttribute('data-direct-step');
+    (isDirectJump ? target : firstSectionAfterTour).scrollIntoView({ block: 'start', behavior: 'auto' });
     window.ScrollTrigger?.update();
     root.style.scrollBehavior = previousBehavior;
     history.pushState(null, '', hash);
@@ -71,7 +72,7 @@ sectionJumpLinks.forEach(link => link.addEventListener('click', event => {
     requestAnimationFrame(() => {
       document.body.classList.remove('section-jump-active');
       sectionJumpVeil?.setAttribute('aria-hidden', 'true');
-      if (target !== firstSectionAfterTour) {
+      if (!isDirectJump && target !== firstSectionAfterTour) {
         target.scrollIntoView({ block: 'start', behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
       }
     });
@@ -229,10 +230,44 @@ function initCinematicHero() {
   timeline.fromTo(scenes[5], { autoAlpha: 0, y: 24 }, { autoAlpha: 1, y: 0, duration: .3 }, 5.04);
   timeline.to(markers, { autoAlpha: 1, duration: .35 }, 5.08);
   timeline.to({ hold: 0 }, { hold: 1, duration: .65, ease: 'none' }, 5.43);
+  return timeline;
 }
 
-initHeroBridge();
-initCinematicHero();
+const tourLaunch = document.querySelector('[data-tour-launch]');
+const tourExit = document.querySelector('[data-tour-exit]');
+let heroTourStarted = false;
+
+function openCinematicTour(event) {
+  event?.preventDefault();
+  if (!tourSection) return;
+
+  tourSection.hidden = false;
+  tourSection.setAttribute('aria-hidden', 'false');
+  tourSection.classList.add('tour-open');
+  tourLaunch?.setAttribute('aria-expanded', 'true');
+
+  requestAnimationFrame(() => {
+    if (!heroTourStarted) {
+      initCinematicHero();
+      heroTourStarted = true;
+    }
+    window.ScrollTrigger?.refresh();
+    tourSection.scrollIntoView({
+      block: 'start',
+      behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'
+    });
+  });
+}
+
+tourLaunch?.addEventListener('click', openCinematicTour);
+tourExit?.addEventListener('click', event => {
+  event.preventDefault();
+  firstSectionAfterTour?.scrollIntoView({
+    block: 'start',
+    behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'
+  });
+  history.replaceState(null, '', '#beratung');
+});
 
 const layerData = [
   ['Tragwerk', 'Lasten sicher aufnehmen und präzise in das Gebäude ableiten.'],

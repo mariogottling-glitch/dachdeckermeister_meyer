@@ -25,11 +25,11 @@
   <link rel="manifest" href="site.webmanifest" />
   <link rel="preload" href="assets/hero-cinematic.webp" as="image" fetchpriority="high" />
   <link rel="preload" href="assets/hero-scenes/roof-pv.webp" as="image" />
-  <link rel="stylesheet" href="styles.css?v=20260719-20" />
+  <link rel="stylesheet" href="styles.css?v=20260719-21" />
   <link rel="stylesheet" href="navigation.css?v=20260719-1" />
   <script src="vendor/gsap.min.js" defer></script>
   <script src="vendor/ScrollTrigger.min.js" defer></script>
-  <script src="script.js?v=20260719-22" defer></script>
+  <script src="script.js?v=20260719-23" defer></script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"RoofingContractor","@id":"https://www.dachdeckermeister-meyer.de/#business","name":"Dachdeckermeister Meyer","url":"https://www.dachdeckermeister-meyer.de/","logo":"https://www.dachdeckermeister-meyer.de/assets/meyer-logo-final.png","image":"https://www.dachdeckermeister-meyer.de/assets/hero-cinematic.webp","description":"Dachdeckermeisterbetrieb für Dachsanierung, Steildach, Flachdach, Dachfenster, Fassade, Reparatur und Wartung.","telephone":"+49 176 43487351","email":"info@dachdeckermeister-meyer.de","address":{"@type":"PostalAddress","streetAddress":"Weißer Straße 32","postalCode":"50996","addressLocality":"Köln","addressCountry":"DE"},"areaServed":{"@type":"City","name":"Köln"},"founder":{"@type":"Person","name":"Pierre Meyer"},"hasOfferCatalog":{"@type":"OfferCatalog","name":"Dachdeckerleistungen","itemListElement":[{"@type":"Offer","itemOffered":{"@type":"Service","name":"Steildach und Dachsanierung"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Flachdach und Abdichtung"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Dachfenster"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Fassadenbekleidung und Dämmung"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Dachservice und Wartung"}}]}}</script>
 </head>
 <body>
@@ -56,18 +56,21 @@
           <div class="eyebrow light"><span></span>Dachhandwerk. Neu gedacht.</div>
           <h1 id="hero-title">DÄCHER<br />MIT <em>SYSTEM.</em></h1>
           <p class="hero-copy">Wir planen, bauen und erhalten Gebäudehüllen, die heute überzeugen — und morgen noch Bestand haben.</p>
-          <a class="button button-light" href="#anfrage">Projekt besprechen <span>↗</span></a>
+          <div class="hero-actions">
+            <a class="button button-light" href="#anfrage">Projekt besprechen <span>↗</span></a>
+            <a class="button button-service" href="#anfrage" data-preset="service" data-direct-step="2">Schaden melden <span>↗</span></a>
+          </div>
           <div class="hero-stats" aria-label="Unser Qualitätsversprechen">
             <div><strong>MEISTER</strong><span>Qualität mit Verantwortung</span></div>
             <div><strong>DIREKT</strong><span>Pierre Meyer berät persönlich</span></div>
             <div><strong>REGIONAL</strong><span>Köln und Umgebung</span></div>
           </div>
         </div>
-        <a class="scroll-cue cover-scroll" href="#gebaeude-erleben"><span>Das Gebäude entdecken</span><i></i></a>
+        <a class="scroll-cue cover-scroll tour-launch" href="#gebaeude-erleben" data-tour-launch aria-controls="gebaeude-erleben" aria-expanded="false"><span>Interaktive Tour starten</span><i></i></a>
       </div>
     </section>
 
-    <section class="cinematic-hero" id="gebaeude-erleben" aria-labelledby="experience-title">
+    <section class="cinematic-hero" id="gebaeude-erleben" aria-labelledby="experience-title" hidden aria-hidden="true">
       <div class="cinematic-stage">
         <div class="cinematic-media" aria-hidden="true">
           <img class="hero-frame" data-frame="0" src="assets/hero-cinematic.webp" alt="" width="1672" height="941" fetchpriority="high" />
@@ -79,7 +82,7 @@
           <div class="cinematic-grade"></div>
         </div>
         <div class="frame-transition-veil" aria-hidden="true"></div>
-        <a class="tour-skip" href="#beratung" aria-label="Scroll-Tour überspringen und direkt zum nächsten Abschnitt gehen">Tour überspringen <span>↓</span></a>
+        <a class="tour-skip" href="#beratung" data-tour-exit aria-label="Gebäudetour beenden und direkt zum nächsten Abschnitt gehen">Tour beenden <span>↓</span></a>
         <a class="tour-inquiry" href="#anfrage">Projekt anfragen <span>↗</span></a>
 
         <div class="service-markers overview-markers" aria-label="Leistungen am Gebäude">

@@ -500,3 +500,56 @@ body{font-size:18px}.site-header nav,.header-cta{font-size:13px}.eyebrow,.sectio
 }
 
 @media(prefers-reduced-motion:reduce){body.sticky-cta-managed .mobile-actions{transition:none}}
+
+/* Optional building tour: the regular page starts directly after the hero. */
+.hero-cover{
+  height:max(100svh,680px);
+  min-height:680px;
+  overflow:hidden;
+}
+.hero-cover-stage{
+  position:relative;
+  top:auto;
+  height:max(100svh,680px);
+}
+.cinematic-hero{
+  margin-top:0;
+}
+.cinematic-hero[hidden]{display:none!important}
+.hero-actions{
+  grid-column:1;
+  display:flex;
+  align-items:center;
+  align-self:end;
+  gap:10px;
+  flex-wrap:wrap;
+}
+.hero-actions .button{grid-column:auto;margin:0}
+.hero-actions .button-service{
+  border-color:var(--accent);
+  background:var(--accent);
+  color:#162329;
+}
+.hero-actions .button-service span{color:inherit}
+.tour-launch{
+  padding:9px 0 9px 14px;
+  border-left:1px solid var(--accent);
+  color:#fff;
+  font-weight:650;
+  transition:color .25s ease,background .25s ease;
+}
+.tour-launch:hover,.tour-launch:focus-visible{color:var(--accent);outline:none}
+
+@media(min-width:641px){
+  .hero-actions{grid-row:4}
+}
+
+@media(max-width:640px){
+  .hero-cover{height:max(100svh,680px);min-height:680px}
+  .hero-cover-stage{height:max(100svh,680px);min-height:680px}
+  .hero-actions{width:100%;gap:7px;flex-wrap:nowrap}
+  .hero-actions .button{width:auto;min-width:0;flex:1;padding:13px 11px;font-size:9px;letter-spacing:.07em}
+  .hero-actions .button span{margin-left:7px}
+  .scroll-cue.tour-launch{display:flex;right:20px;bottom:14px;font-size:9px}
+  .scroll-cue.tour-launch i{height:28px}
+}
