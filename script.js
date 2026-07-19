@@ -179,7 +179,9 @@ function initCinematicHero() {
       scrub: matchMedia('(max-width: 640px)').matches ? .82 : 1.15,
       anticipatePin: 1,
       invalidateOnRefresh: true,
-      onUpdate: self => setActiveScene(Math.min(5, Math.floor(self.progress * 5.5)))
+      /* Sechs gleich getaktete Szenen: Bildgradierung, Fortschritt und Text
+         wechseln dadurch am selben Scrollpunkt. */
+      onUpdate: self => setActiveScene(Math.min(5, Math.floor(self.progress * 6)))
     }
   });
 
