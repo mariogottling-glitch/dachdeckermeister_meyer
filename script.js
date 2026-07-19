@@ -186,7 +186,11 @@ const layerData = [
 const layerButtons = [...document.querySelectorAll('.layer')];
 const roofLayers = [...document.querySelectorAll('.roof-layer')];
 function setLayer(index) {
-  layerButtons.forEach((button, i) => button.classList.toggle('active', i === index));
+  layerButtons.forEach((button, i) => {
+    const selected = i === index;
+    button.classList.toggle('active', selected);
+    button.setAttribute('aria-pressed', String(selected));
+  });
   roofLayers.forEach((layer, i) => {
     layer.classList.toggle('active', i === index);
     layer.classList.toggle('complete', i < index);
@@ -198,13 +202,16 @@ layerButtons.forEach((button, index) => button.addEventListener('click', () => s
 
 const assembly = document.querySelector('.assembly');
 function updateAssembly() {
-  if (!assembly || innerWidth <= 640) return;
+  if (!assembly) return;
   const rect = assembly.getBoundingClientRect();
   const travel = assembly.offsetHeight - innerHeight;
+  if (travel <= 0) return;
   const progress = Math.min(1, Math.max(0, -rect.top / travel));
   setLayer(Math.min(3, Math.floor(progress * 4)));
 }
 addEventListener('scroll', updateAssembly, { passive: true });
+addEventListener('resize', updateAssembly, { passive: true });
+updateAssembly();
 
 const conceptData = {
   effizienz: {
