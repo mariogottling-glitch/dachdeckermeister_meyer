@@ -151,7 +151,8 @@ function initCinematicHero() {
     if (scrollLabel) scrollLabel.textContent = index === 5 ? 'Tour abgeschlossen' : 'Scrollen, um das Gebäude zu erkunden';
   }
 
-  gsap.set(scenes.slice(1), { autoAlpha: 0, y: 28 });
+  gsap.set(scenes, { autoAlpha: 0, y: 28 });
+  gsap.set(scenes[0], { autoAlpha: 1, y: 0 });
   gsap.set(frames, { autoAlpha: 0, scale: 1.025 });
   gsap.set(frames[1], { autoAlpha: 1, scale: 1 });
   gsap.set(markers, { autoAlpha: 0 });
@@ -182,7 +183,8 @@ function initCinematicHero() {
       invalidateOnRefresh: true,
       /* Sechs gleich getaktete Szenen: Bildgradierung, Fortschritt und Text
          wechseln dadurch am selben Scrollpunkt. */
-      onUpdate: self => setActiveScene(Math.min(5, Math.floor(self.progress * 6)))
+      onUpdate: self => setActiveScene(Math.min(5, Math.floor(self.progress * 6))),
+      onLeave: () => closeCinematicTour()
     }
   });
 
@@ -236,6 +238,8 @@ function initCinematicHero() {
 const tourLaunch = document.querySelector('[data-tour-launch]');
 const tourExit = document.querySelector('[data-tour-exit]');
 let heroTourStarted = false;
+let heroTourTimeline = null;
+let tourClosing = false;
 
 function openCinematicTour(event) {
   event?.preventDefault();
@@ -248,7 +252,7 @@ function openCinematicTour(event) {
 
   requestAnimationFrame(() => {
     if (!heroTourStarted) {
-      initCinematicHero();
+      heroTourTimeline = initCinematicHero();
       heroTourStarted = true;
     }
     window.ScrollTrigger?.refresh();
@@ -259,15 +263,40 @@ function openCinematicTour(event) {
   });
 }
 
+function closeCinematicTour(event) {
+  event?.preventDefault();
+  if (!tourSection || tourSection.hidden || tourClosing) return;
+  tourClosing = true;
+  document.body.classList.add('section-jump-active');
+  sectionJumpVeil?.setAttribute('aria-hidden', 'false');
+
+  setTimeout(() => {
+    heroTourTimeline?.scrollTrigger?.kill(true);
+    heroTourTimeline?.kill();
+    heroTourTimeline = null;
+    heroTourStarted = false;
+    tourSection.classList.remove('tour-open', 'is-static');
+    tourSection.hidden = true;
+    tourSection.setAttribute('aria-hidden', 'true');
+    tourLaunch?.setAttribute('aria-expanded', 'false');
+    window.ScrollTrigger?.refresh();
+    const root = document.documentElement;
+    const previousBehavior = root.style.scrollBehavior;
+    root.style.scrollBehavior = 'auto';
+    firstSectionAfterTour?.scrollIntoView({ block: 'start', behavior: 'auto' });
+    root.style.scrollBehavior = previousBehavior;
+    history.replaceState(null, '', '#beratung');
+
+    requestAnimationFrame(() => {
+      document.body.classList.remove('section-jump-active');
+      sectionJumpVeil?.setAttribute('aria-hidden', 'true');
+      tourClosing = false;
+    });
+  }, 220);
+}
+
 tourLaunch?.addEventListener('click', openCinematicTour);
-tourExit?.addEventListener('click', event => {
-  event.preventDefault();
-  firstSectionAfterTour?.scrollIntoView({
-    block: 'start',
-    behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'
-  });
-  history.replaceState(null, '', '#beratung');
-});
+tourExit?.addEventListener('click', closeCinematicTour);
 
 const layerData = [
   ['Tragwerk', 'Lasten sicher aufnehmen und präzise in das Gebäude ableiten.'],
