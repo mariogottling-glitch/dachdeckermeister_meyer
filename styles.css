@@ -609,3 +609,52 @@ body{font-size:18px}.site-header nav,.header-cta{font-size:13px}.eyebrow,.sectio
   .hero-tour-link span{font-size:9px;letter-spacing:.09em}
   .hero-tour-link b{font-size:8px}
 }
+
+/* Compact priority form: same information, shorter path through the section. */
+.contact-priority{
+  padding:clamp(58px,5.4vw,86px) var(--pad);
+  grid-template-columns:.72fr 1.28fr;
+  gap:clamp(48px,6vw,96px);
+  align-items:start;
+}
+.contact-priority .section-kicker{margin-bottom:32px}
+.contact-priority h2{
+  font-size:clamp(44px,4.5vw,70px);
+  line-height:1.02;
+  margin-bottom:20px;
+}
+.contact-priority .contact-intro>p{
+  max-width:500px;
+  font-size:clamp(17px,1.08vw,20px);
+  line-height:1.58;
+}
+.contact-priority .contact-person{margin-top:34px}
+.contact-priority form{align-self:start}
+.contact-priority .wizard-progress{margin-bottom:27px}
+.contact-priority .wizard-progress span{padding-bottom:10px}
+.contact-priority fieldset{margin-bottom:22px}
+.contact-priority legend{margin-bottom:10px}
+.contact-priority .form-grid{gap:15px 24px}
+.contact-priority .form-grid input,
+.contact-priority .form-grid textarea,
+.contact-priority .form-grid select{padding:9px 0}
+.contact-priority .dynamic-fields{min-height:94px}
+.contact-priority .upload-field{margin-top:16px}
+.contact-priority .upload-field>span{min-height:72px;padding:13px 20px}
+.contact-priority .wizard-actions{margin-top:20px}
+.contact-priority .wizard-actions .button,
+.contact-priority .form-foot .button{padding-top:13px;padding-bottom:13px}
+.contact-priority .form-foot{margin-top:20px}
+
+@media(max-width:900px){
+  .contact-priority{grid-template-columns:1fr;gap:46px}
+}
+
+@media(max-width:640px){
+  .contact-priority{padding:58px 20px 68px;gap:38px}
+  .contact-priority .section-kicker{margin-bottom:24px}
+  .contact-priority h2{font-size:clamp(39px,11vw,52px)}
+  .contact-priority .contact-person{margin-top:26px}
+  .contact-priority .wizard-progress{margin-bottom:24px}
+  .contact-priority .upload-field>span{min-height:78px;padding:14px 16px}
+}
