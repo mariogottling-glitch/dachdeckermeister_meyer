@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /send-inquiry.php
+
+Sitemap: https://www.dachdeckermeister-meyer.de/sitemap.xml

@@ -1,0 +1,13 @@
+{
+  "name": "Dachdeckermeister Meyer",
+  "short_name": "Meyer",
+  "lang": "de-DE",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#171b1d",
+  "icons": [
+    { "src": "/assets/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" },
+    { "src": "/assets/icon-512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}
