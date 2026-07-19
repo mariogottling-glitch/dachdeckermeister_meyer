@@ -95,9 +95,9 @@ function initHeroBridge() {
     defaults: { ease: 'none' },
     scrollTrigger: {
       trigger: cover,
-      start: '20% top',
-      end: '40% top',
-      scrub: 1.05,
+      start: '16% top',
+      end: '34% top',
+      scrub: .72,
       invalidateOnRefresh: true
     }
   });
@@ -169,14 +169,14 @@ function initCinematicHero() {
       start: 'top top',
       end: () => {
         const viewportFactor = matchMedia('(max-width: 640px)').matches
-          ? 3.25
+          ? 2.75
           : matchMedia('(max-width: 900px)').matches
-            ? 4.5
-            : 6;
+            ? 3.5
+            : 4.5;
         return `+=${innerHeight * viewportFactor}`;
       },
       pin: true,
-      scrub: matchMedia('(max-width: 640px)').matches ? .82 : 1.15,
+      scrub: matchMedia('(max-width: 640px)').matches ? .55 : .78,
       anticipatePin: 1,
       invalidateOnRefresh: true,
       /* Sechs gleich getaktete Szenen: Bildgradierung, Fortschritt und Text

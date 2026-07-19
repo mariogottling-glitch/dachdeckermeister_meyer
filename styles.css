@@ -94,13 +94,13 @@ body{font-size:18px}.site-header nav,.header-cta{font-size:13px}.eyebrow,.sectio
 @media(min-width:641px) and (max-width:1100px){.scene-flat,.scene-facade{width:44vw}.flat-exploded,.facade-layers{top:17vh;width:42vw}.flat-exploded{right:3vw}.facade-layers{left:3vw}}
 
 /* Scroll bridge: the complete cover dissolves once into the first tour close-up. */
-.hero-cover{height:calc(max(100svh,680px) + 60svh);min-height:0;overflow:visible;z-index:2}
+.hero-cover{height:calc(max(100svh,680px) + 45svh);min-height:0;overflow:visible;z-index:2}
 .hero-cover-stage{position:sticky;top:0;height:100svh;min-height:680px;overflow:hidden;background:#171b1d;color:#fff;will-change:opacity}
 .hero-cover-stage>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 52%;will-change:transform,opacity;transform-origin:center center}
 .hero-cover .hero-shade{z-index:1;will-change:opacity}
 .hero-cover .hero-grid,.hero-cover .cover-scroll{will-change:transform,opacity}
 .cinematic-hero{z-index:1;margin-top:min(-100svh,-680px)}
-@media(max-width:640px){.hero-cover{height:calc(max(100svh,680px) + 55svh)}.hero-cover-stage{min-height:680px}.hero-cover-stage>img{object-position:58% center}.cinematic-hero{margin-top:min(-100svh,-680px)}}
+@media(max-width:640px){.hero-cover{height:calc(max(100svh,680px) + 40svh)}.hero-cover-stage{min-height:680px}.hero-cover-stage>img{object-position:58% center}.cinematic-hero{margin-top:min(-100svh,-680px)}}
 @media(prefers-reduced-motion:reduce){.hero-cover{height:100svh}.hero-cover-stage{position:relative}.cinematic-hero{margin-top:0}}
 
 /* Building-envelope system chain: every animated step names a real component. */
@@ -298,8 +298,12 @@ body{font-size:18px}.site-header nav,.header-cta{font-size:13px}.eyebrow,.sectio
 .layer.active span{font-size:25px;font-weight:700;letter-spacing:.01em}
 .layer.active small{font-size:15px;font-weight:400;color:#d0d0d0}
 
+/* Tighter scroll pacing: content responds sooner without losing its calm motion. */
+.reveal{transform:translateY(28px);transition-duration:.62s}
+@media(min-width:641px){.assembly{height:220vh}}
+
 @media(max-width:640px){
-  .assembly{height:320svh}
+  .assembly{height:260svh}
   .assembly-sticky{position:sticky;top:0;height:100svh;display:grid;grid-template-columns:1fr;grid-template-rows:auto minmax(0,1fr);overflow:hidden}
   .assembly-copy{padding:30px 20px 8px}
   .assembly-copy .section-kicker{margin-bottom:12px}
