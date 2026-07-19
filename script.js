@@ -41,7 +41,7 @@ if (stickyCta && heroCover && 'IntersectionObserver' in window) {
 /* Interne Hauptnavigation: Die angeheftete Tour wird als geschlossener Block
    übersprungen. Erst ab der ersten Inhaltssektion läuft der weiche Seitenweg. */
 const sectionJumpVeil = document.querySelector('.section-jump-veil');
-const firstSectionAfterTour = document.querySelector('#beratung');
+const firstSectionAfterTour = document.querySelector('#anfrage');
 const tourSection = document.querySelector('#gebaeude-erleben');
 const sectionJumpLinks = document.querySelectorAll('.site-header a[href^="#"]:not(.brand), [data-direct-step]');
 let sectionJumpTimer;
@@ -285,7 +285,7 @@ function closeCinematicTour(event) {
     root.style.scrollBehavior = 'auto';
     firstSectionAfterTour?.scrollIntoView({ block: 'start', behavior: 'auto' });
     root.style.scrollBehavior = previousBehavior;
-    history.replaceState(null, '', '#beratung');
+    history.replaceState(null, '', '#anfrage');
 
     requestAnimationFrame(() => {
       document.body.classList.remove('section-jump-active');
