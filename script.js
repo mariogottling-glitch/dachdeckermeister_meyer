@@ -486,6 +486,13 @@ const formSteps = [...document.querySelectorAll('.form-step')];
 const progressSteps = [...document.querySelectorAll('.wizard-progress span')];
 const dynamicFields = document.querySelector('.dynamic-fields');
 const formError = document.querySelector('#form-error');
+const assistantModeButtons = [...document.querySelectorAll('[data-assistant="service"], [data-assistant="fenster"]')];
+const assistantOtherButton = document.querySelector('[data-assistant="all"]');
+const assistantKicker = document.querySelector('[data-assistant-kicker]');
+const assistantHeading = document.querySelector('[data-assistant-heading]');
+const assistantCopy = document.querySelector('[data-assistant-copy]');
+const detailLegend = document.querySelector('[data-detail-legend]');
+const progressDetail = document.querySelector('[data-progress-detail]');
 const photoInput = inquiryForm?.querySelector('input[type="file"]');
 const formStartedInput = inquiryForm?.querySelector('input[name="form_started"]');
 const maxPhotoCount = 5;
@@ -569,6 +576,48 @@ function showFormStep(step, moveFocus = false) {
   inquiryForm?.setAttribute('data-current-step', String(step));
   if (moveFocus) requestAnimationFrame(() => activeStep?.focus());
 }
+function syncAssistantPresentation(key) {
+  const content = {
+    service: {
+      kicker: 'Reparatur-Assistent',
+      heading: 'Schaden melden.<br />Zeit sparen.',
+      copy: 'Beschreiben Sie Schadensart, Dringlichkeit und Zugang und ergänzen Sie aussagekräftige Fotos. So kann Pierre Meyer den nächsten Schritt gezielt vorbereiten.',
+      detail: 'Schadendaten',
+      legend: 'Details zu Ihrem Schaden'
+    },
+    fenster: {
+      kicker: 'Dachfenster-Assistent',
+      heading: 'Fenster erfassen.<br />Passend lösen.',
+      copy: 'Fotografieren Sie das Typenschild und erfassen Sie die vorhandene Fenstersituation. Damit lassen sich Austausch, Reparatur oder Zubehör präzise zuordnen.',
+      detail: 'Fensterdaten',
+      legend: 'Details zu Ihrem Dachfenster'
+    },
+    all: {
+      kicker: 'Direkt-Service / Reparatur & Dachfenster',
+      heading: 'Was können wir<br />für Sie lösen?',
+      copy: 'Wählen Sie den passenden Assistenten. Reparaturschäden und vorhandene Dachfenster werden mit jeweils eigenen, gezielten Fragen erfasst.',
+      detail: 'Projektdaten',
+      legend: 'Details zu Ihrem Projekt'
+    }
+  }[key] || null;
+  if (!content) return;
+
+  assistantModeButtons.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.assistant === key)));
+  assistantOtherButton?.classList.toggle('active', key === 'all');
+  if (assistantKicker) assistantKicker.textContent = content.kicker;
+  if (assistantHeading) assistantHeading.innerHTML = content.heading;
+  if (assistantCopy) assistantCopy.textContent = content.copy;
+  if (detailLegend) detailLegend.textContent = content.legend;
+  if (progressDetail) progressDetail.textContent = content.detail;
+}
+function openAssistant(key, moveFocus = false) {
+  const input = inquiryForm?.querySelector(`input[data-key="${key}"]`);
+  if (!input) return;
+  input.checked = true;
+  renderProjectFields();
+  syncAssistantPresentation(key);
+  showFormStep(2, moveFocus);
+}
 function clearFormError() {
   if (formError) formError.textContent = '';
   photoInput?.closest('.upload-field')?.classList.remove('has-error');
@@ -623,14 +672,26 @@ photoInput?.addEventListener('change', () => {
   photosAreValid();
 });
 
-inquiryForm?.querySelectorAll('input[name="type"]').forEach(input => input.addEventListener('change', renderProjectFields));
+inquiryForm?.querySelectorAll('input[name="type"]').forEach(input => input.addEventListener('change', () => {
+  renderProjectFields();
+  syncAssistantPresentation(input.dataset.key);
+}));
+assistantModeButtons.forEach(button => button.addEventListener('click', () => openAssistant(button.dataset.assistant, true)));
+assistantOtherButton?.addEventListener('click', () => {
+  syncAssistantPresentation('all');
+  showFormStep(1, true);
+});
+document.querySelectorAll('[data-form-all]').forEach(link => link.addEventListener('click', () => {
+  syncAssistantPresentation('all');
+  showFormStep(1);
+}));
 const requestedService = new URLSearchParams(location.search).get('leistung');
 const requestedInput = inquiryForm?.querySelector(`input[data-key="${requestedService}"]`);
 if (requestedInput) requestedInput.checked = true;
 document.querySelectorAll('[data-preset]').forEach(link => link.addEventListener('click', () => {
   const input = inquiryForm?.querySelector(`input[data-key="${link.dataset.preset}"]`);
   const directStep = Number(link.dataset.directStep || 1);
-  if (input) { input.checked = true; renderProjectFields(); showFormStep(Math.min(3, Math.max(1, directStep))); }
+  if (input) { input.checked = true; renderProjectFields(); syncAssistantPresentation(input.dataset.key); showFormStep(Math.min(3, Math.max(1, directStep))); }
 }));
 inquiryForm?.querySelectorAll('.next-step').forEach(button => button.addEventListener('click', () => {
   const current = Number(inquiryForm.dataset.currentStep || 1);
@@ -644,7 +705,9 @@ inquiryForm?.querySelectorAll('.prev-step').forEach(button => button.addEventLis
   showFormStep(Math.max(1, current - 1), true);
 }));
 renderProjectFields();
-showFormStep(1);
+if (requestedInput && ['service', 'fenster'].includes(requestedService)) openAssistant(requestedService);
+else if (requestedInput) { syncAssistantPresentation('all'); showFormStep(1); }
+else openAssistant('service');
 if (formStartedInput) formStartedInput.value = String(Math.floor(Date.now() / 1000));
 
 inquiryForm?.addEventListener('submit', async event => {

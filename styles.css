@@ -658,3 +658,62 @@ body{font-size:18px}.site-header nav,.header-cta{font-size:13px}.eyebrow,.sectio
   .contact-priority .wizard-progress{margin-bottom:24px}
   .contact-priority .upload-field>span{min-height:78px;padding:14px 16px}
 }
+
+/* Two clearly separated direct assistants inside the priority form. */
+.assistant-switch{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:8px;
+  margin-bottom:8px;
+}
+.assistant-switch button{
+  min-height:68px;
+  padding:11px 14px;
+  display:grid;
+  grid-template-columns:28px 1fr;
+  gap:10px;
+  align-items:center;
+  border:1px solid rgba(255,255,255,.2);
+  background:rgba(255,255,255,.025);
+  color:#fff;
+  text-align:left;
+  cursor:pointer;
+  transition:background .25s ease,border-color .25s ease;
+}
+.assistant-switch button>b{color:var(--accent);font-size:10px;font-weight:600;letter-spacing:.12em}
+.assistant-switch button span{display:grid;gap:2px}
+.assistant-switch button strong{font-size:12px;line-height:1.25;letter-spacing:.05em;text-transform:uppercase}
+.assistant-switch button small{color:#999;font-size:10px;line-height:1.35}
+.assistant-switch button[aria-pressed="true"]{
+  border-color:var(--accent);
+  background:rgba(18,184,214,.1);
+  box-shadow:inset 3px 0 0 var(--accent);
+}
+.assistant-switch button:hover,.assistant-switch button:focus-visible{border-color:var(--accent);outline:none}
+.assistant-other{
+  width:100%;
+  margin:0 0 18px;
+  padding:7px 0;
+  display:flex;
+  justify-content:flex-end;
+  gap:10px;
+  border:0;
+  background:transparent;
+  color:#aaa;
+  font-size:10px;
+  letter-spacing:.09em;
+  text-transform:uppercase;
+  cursor:pointer;
+}
+.assistant-other span{color:var(--accent)}
+.assistant-other:hover,.assistant-other:focus-visible,.assistant-other.active{color:#fff;outline:none}
+.wizard-progress em{font-style:normal}
+.contact-priority .assistant-switch+.assistant-other+.wizard-progress{margin-bottom:22px}
+
+@media(max-width:640px){
+  .assistant-switch{gap:6px}
+  .assistant-switch button{min-height:72px;padding:10px;grid-template-columns:22px 1fr;gap:6px}
+  .assistant-switch button strong{font-size:10px}
+  .assistant-switch button small{font-size:9px}
+  .assistant-other{justify-content:flex-start;margin-bottom:14px}
+}

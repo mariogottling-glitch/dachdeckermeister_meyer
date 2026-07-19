@@ -25,11 +25,11 @@
   <link rel="manifest" href="site.webmanifest" />
   <link rel="preload" href="assets/hero-cinematic.webp" as="image" fetchpriority="high" />
   <link rel="preload" href="assets/hero-scenes/roof-pv.webp" as="image" />
-  <link rel="stylesheet" href="styles.css?v=20260719-23" />
+  <link rel="stylesheet" href="styles.css?v=20260719-24" />
   <link rel="stylesheet" href="navigation.css?v=20260719-1" />
   <script src="vendor/gsap.min.js" defer></script>
   <script src="vendor/ScrollTrigger.min.js" defer></script>
-  <script src="script.js?v=20260719-26" defer></script>
+  <script src="script.js?v=20260719-28" defer></script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"RoofingContractor","@id":"https://www.dachdeckermeister-meyer.de/#business","name":"Dachdeckermeister Meyer","url":"https://www.dachdeckermeister-meyer.de/","logo":"https://www.dachdeckermeister-meyer.de/assets/meyer-logo-final.png","image":"https://www.dachdeckermeister-meyer.de/assets/hero-cinematic.webp","description":"Dachdeckermeisterbetrieb für Dachsanierung, Steildach, Flachdach, Dachfenster, Fassade, Reparatur und Wartung.","telephone":"+49 176 43487351","email":"info@dachdeckermeister-meyer.de","address":{"@type":"PostalAddress","streetAddress":"Weißer Straße 32","postalCode":"50996","addressLocality":"Köln","addressCountry":"DE"},"areaServed":{"@type":"City","name":"Köln"},"founder":{"@type":"Person","name":"Pierre Meyer"},"hasOfferCatalog":{"@type":"OfferCatalog","name":"Dachdeckerleistungen","itemListElement":[{"@type":"Offer","itemOffered":{"@type":"Service","name":"Steildach und Dachsanierung"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Flachdach und Abdichtung"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Dachfenster"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Fassadenbekleidung und Dämmung"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Dachservice und Wartung"}}]}}</script>
 </head>
 <body>
@@ -43,7 +43,7 @@
     <nav id="main-nav" aria-label="Hauptnavigation">
       <a href="leistungen/index.html">Leistungen</a><a href="#system">Unser System</a><a href="#projekte">Projekte</a><a href="#beratung">Beratung</a><a href="jobs/index.html">Karriere</a><a class="nav-urgent" href="#anfrage" data-preset="service" data-direct-step="2">Schaden melden</a>
     </nav>
-    <a class="header-cta" href="#anfrage">Projekt anfragen <span>↗</span></a>
+    <a class="header-cta" href="#anfrage" data-form-all>Projekt anfragen <span>↗</span></a>
   </header>
 
   <main id="main">
@@ -167,14 +167,16 @@
     </section>
 
     <section class="contact contact-priority" id="anfrage">
-      <div class="contact-intro"><div class="section-kicker light">Direkt-Service / Reparatur & Projekt</div><h2>Was können wir<br />für Sie lösen?</h2><p>Schildern Sie Schaden oder Vorhaben in drei kurzen Schritten und fügen Sie bei Bedarf Fotos hinzu. So kann Pierre Meyer die Situation vor dem ersten Rückruf fundiert einschätzen und gezielt reagieren.</p><div class="contact-person"><span>PM</span><div><strong>Pierre Meyer</strong><small>Dachdeckermeister & Ansprechpartner</small></div></div></div>
+      <div class="contact-intro"><div class="section-kicker light" data-assistant-kicker>Direkt-Service / Reparatur & Dachfenster</div><h2 data-assistant-heading>Was können wir<br />für Sie lösen?</h2><p data-assistant-copy>Wählen Sie den passenden Assistenten. Reparaturschäden und vorhandene Dachfenster werden mit jeweils eigenen, gezielten Fragen erfasst.</p><div class="contact-person"><span>PM</span><div><strong>Pierre Meyer</strong><small>Dachdeckermeister & Ansprechpartner</small></div></div></div>
       <form id="inquiry-form" action="send-inquiry.php" method="post" enctype="multipart/form-data" novalidate>
         <label class="form-honeypot" aria-hidden="true">Website<input name="website" tabindex="-1" autocomplete="off" /></label>
         <input type="hidden" name="form_started" value="" />
         <input type="hidden" name="preferred_concept" value="Komfort" />
-        <div class="wizard-progress" role="list" aria-label="Formularfortschritt"><span class="active" role="listitem" aria-current="step"><b>1</b>Anliegen</span><span role="listitem"><b>2</b>Projektdaten</span><span role="listitem"><b>3</b>Kontakt</span></div>
+        <div class="assistant-switch" aria-label="Direkt-Assistent auswählen"><button type="button" data-assistant="service" aria-pressed="false"><b>01</b><span><strong>Reparatur & Wartung</strong><small>Schaden strukturiert melden</small></span></button><button type="button" data-assistant="fenster" aria-pressed="false"><b>02</b><span><strong>Dachfenster</strong><small>Typenschild und Fenster erfassen</small></span></button></div>
+        <button class="assistant-other" type="button" data-assistant="all">Anderes Projekt oder weitere Leistung <span>→</span></button>
+        <div class="wizard-progress" role="list" aria-label="Formularfortschritt"><span class="active" role="listitem" aria-current="step"><b>1</b>Anliegen</span><span role="listitem"><b>2</b><em data-progress-detail>Projektdaten</em></span><span role="listitem"><b>3</b>Kontakt</span></div>
         <fieldset class="form-step active" data-step="1"><legend>Worum geht es?</legend><div class="choice-grid"><label><input type="radio" name="type" value="Steildach" data-key="steildach" checked /><span>Steildach</span></label><label><input type="radio" name="type" value="Flachdach" data-key="flachdach" /><span>Flachdach</span></label><label><input type="radio" name="type" value="Dachfenster" data-key="fenster" /><span>Dachfenster</span></label><label><input type="radio" name="type" value="Fassade" data-key="fassade" /><span>Fassade</span></label><label><input type="radio" name="type" value="Terrasse oder Balkon" data-key="terrasse" /><span>Terrasse / Balkon</span></label><label><input type="radio" name="type" value="Reparatur oder Wartung" data-key="service" /><span>Reparatur / Wartung</span></label></div><div class="wizard-actions"><span></span><button class="button button-accent next-step" type="button">Weiter <span>→</span></button></div></fieldset>
-        <fieldset class="form-step" data-step="2"><legend>Details zu Ihrem Projekt</legend><div class="form-grid dynamic-fields" aria-live="polite"></div><label class="upload-field"><input type="file" name="photos[]" accept="image/jpeg,image/png,image/webp" multiple /><span><b>Fotos hinzufügen</b><small>JPG, PNG oder WebP · maximal 5 Bilder · je 5 MB</small></span></label><div class="wizard-actions"><button class="text-button prev-step" type="button">← Zurück</button><button class="button button-accent next-step" type="button">Weiter <span>→</span></button></div></fieldset>
+        <fieldset class="form-step" data-step="2"><legend data-detail-legend>Details zu Ihrem Projekt</legend><div class="form-grid dynamic-fields" aria-live="polite"></div><label class="upload-field"><input type="file" name="photos[]" accept="image/jpeg,image/png,image/webp" multiple /><span><b>Fotos hinzufügen</b><small>JPG, PNG oder WebP · maximal 5 Bilder · je 5 MB</small></span></label><div class="wizard-actions"><button class="text-button prev-step" type="button">← Zurück</button><button class="button button-accent next-step" type="button">Weiter <span>→</span></button></div></fieldset>
         <fieldset class="form-step" data-step="3"><legend>Wie erreichen wir Sie?</legend><div class="form-grid"><label>Ihr Name<input name="name" autocomplete="name" required placeholder="Vor- und Nachname" /></label><label>Telefon<input type="tel" name="phone" autocomplete="tel" required placeholder="Für eine persönliche Rückmeldung" /></label><label>E-Mail<input type="email" name="email" autocomplete="email" required placeholder="name@beispiel.de" /></label><label>Projektadresse<input name="address" autocomplete="street-address" required placeholder="Straße, PLZ und Ort" /></label><label>Gewünschter Zeitraum<input name="timing" placeholder="z. B. innerhalb der nächsten 3 Monate" /></label><label class="wide">Zusätzliche Hinweise<textarea name="message" rows="3" placeholder="Was sollten wir noch wissen?"></textarea></label></div><div class="form-foot"><button class="text-button prev-step" type="button">← Zurück</button><small>Informationen zur Verarbeitung Ihrer Angaben finden Sie im <a href="datenschutz.html">Datenschutz</a>.</small><button class="button button-accent" type="submit">Anfrage senden <span>↗</span></button></div></fieldset>
         <p class="form-error" id="form-error" role="alert" tabindex="-1"></p>
         <p class="form-status" role="status" aria-live="polite"></p>
@@ -320,42 +322,6 @@
       </div>
     </section>
 
-    <section class="direct-service" id="direkt-service" aria-labelledby="direct-service-title">
-      <div class="direct-service-head">
-        <div class="section-kicker light">Direkt-Service</div>
-        <h2 id="direct-service-title">Schneller zur<br />richtigen Lösung.</h2>
-        <p>Ein akuter Schaden braucht andere Angaben als ein Dachfenster. Zwei kurze Assistenten bringen die wichtigsten Informationen direkt zu Pierre Meyer.</p>
-      </div>
-      <div class="assistant-grid">
-        <article class="assistant-card assistant-repair">
-          <div class="assistant-card-top"><span>01</span><b>Reparatur & Wartung</b></div>
-          <div class="repair-graphic" aria-hidden="true"><i></i><i></i><i></i><span>!</span></div>
-          <div class="assistant-copy">
-            <span class="mini-label">Schaden strukturiert melden</span>
-            <h3>Was ist passiert?</h3>
-            <p>Schadensart, Dringlichkeit, Dachzugang und Fotos in wenigen Schritten übermitteln.</p>
-            <ul><li>Akute Undichtigkeit</li><li>Sturm- oder Bauteilschaden</li><li>Wartung und Kontrolle</li></ul>
-            <a class="button button-accent" href="#anfrage" data-preset="service" data-direct-step="2">Schaden melden <span>↗</span></a>
-          </div>
-        </article>
-
-        <article class="assistant-card assistant-window">
-          <div class="assistant-card-top"><span>02</span><b>Dachfenster-Assistent</b></div>
-          <div class="window-graphic" aria-hidden="true">
-            <div class="window-frame"><i></i><i></i></div>
-            <div class="typeplate"><small>TYPE</small><strong>GGL</strong><small>SIZE</small><strong>MK08</strong><small>VARIANT</small><strong>3066</strong><small>CODE</small><strong>77—</strong></div>
-          </div>
-          <div class="assistant-copy">
-            <span class="mini-label">Typenschild zuerst</span>
-            <h3>Welches Fenster ist verbaut?</h3>
-            <p>Ein Foto des Typenschilds reicht oft für eine präzise erste Zuordnung von Austausch, Reparatur oder Zubehör.</p>
-            <ol><li>Fenster öffnen</li><li>Hinter der Griffleiste nachsehen</li><li>Typenschild fotografieren</li></ol>
-            <a class="button button-dark" href="#anfrage" data-preset="fenster" data-direct-step="2">Fenster erfassen <span>↗</span></a>
-          </div>
-        </article>
-      </div>
-    </section>
-
     <section class="project" id="projekte">
       <div class="project-media"><img src="assets/project-sanierung.webp" alt="Visualisiertes Planungsbeispiel einer energetischen Dachsanierung mit neuen Dachziegeln und integrierten Dachfenstern" loading="lazy" width="1909" height="824" /></div>
       <div class="project-overlay"><div class="section-kicker light">06 / Planungsbeispiel</div><div><span>Energetische Dachsanierung<br />Vom Bestand zur Lösung</span><h2>Bestand bewahren.<br />Zukunft einbauen.</h2><p>Eine gute Sanierung betrachtet Tragwerk, Dämmung, Entwässerung, Anschlüsse und Eindeckung gemeinsam — abgestimmt auf Gebäude, Nutzung und Budget.</p><a class="button button-light" href="#anfrage" data-preset="steildach">Sanierung besprechen <span>↗</span></a></div></div>
@@ -422,7 +388,7 @@
 
   </main>
 
-  <footer><a class="brand footer-brand" href="#top" aria-label="Dachdeckermeister Meyer Startseite"><img class="brand-logo-img" src="assets/meyer-logo-final.png" alt="Dachdeckermeister Meyer" width="1311" height="1104" /></a><p>Dächer, die bleiben.</p><div><a href="leistungen/index.html">Leistungen</a><a href="#projekte">Projekte</a><a href="jobs/index.html">Karriere</a><a href="#anfrage">Kontakt</a><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a></div><small>© 2026 Dachdeckermeister Meyer</small></footer>
-  <div class="mobile-actions" aria-label="Schnellzugriff"><a class="mobile-repair" href="#anfrage" data-preset="service" data-direct-step="2">Schaden melden</a><a class="mobile-project" href="#anfrage">Projekt anfragen <b>↗</b></a></div>
+  <footer><a class="brand footer-brand" href="#top" aria-label="Dachdeckermeister Meyer Startseite"><img class="brand-logo-img" src="assets/meyer-logo-final.png" alt="Dachdeckermeister Meyer" width="1311" height="1104" /></a><p>Dächer, die bleiben.</p><div><a href="leistungen/index.html">Leistungen</a><a href="#projekte">Projekte</a><a href="jobs/index.html">Karriere</a><a href="#anfrage" data-form-all>Kontakt</a><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a></div><small>© 2026 Dachdeckermeister Meyer</small></footer>
+  <div class="mobile-actions" aria-label="Schnellzugriff"><a class="mobile-repair" href="#anfrage" data-preset="service" data-direct-step="2">Schaden melden</a><a class="mobile-project" href="#anfrage" data-form-all>Projekt anfragen <b>↗</b></a></div>
 </body>
 </html>
