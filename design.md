@@ -224,6 +224,15 @@ Das Layout arbeitet mit großen ruhigen Flächen, klaren Achsen und präzisen Tr
 - GEG-Anforderungen und mögliche Förderung werden sachlich eingeordnet und auf offizielle Quellen verlinkt
 - mobil wird dieselbe Reihenfolge als horizontal einrastende Galerie mit sichtbarem Anschnitt der nächsten Karte angeboten
 
+### Flachdach-Landingpage
+
+- die Flachdachseite beginnt mit einem vollflächigen Architekturmotiv und erklärt Abdichtung, Entwässerung und Nutzung als gemeinsames System
+- Gründach, Photovoltaik und Dachterrasse werden als Nutzungsoptionen mit jeweils klaren Voraussetzungen, Planungszielen und kritischen Details erklärt
+- Nutzungsoptionen sind Orientierung und keine pauschalen Nutzen-, Wertsteigerungs- oder Einsparversprechen
+- Dachaufbauten werden nach ihrer technischen Funktion erklärt; Bezeichnungen wie „günstig“, „mittel“ und „hochwertig“ sind nicht zulässig
+- relevante Kartentexte bleiben mindestens `17–18 px` groß und die Auswahl führt vorausgefüllt in den zentralen Online-Assistenten
+- keine pauschalen Dämmstärken, U-Werte, Förderampeln oder automatischen Förderzusagen; gesetzliche und fördertechnische Anforderungen werden projektbezogen eingeordnet
+
 ### Formulare
 
 - Reparatur und Dachfenster sind getrennte, klar benannte Assistenten
