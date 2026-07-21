@@ -218,6 +218,7 @@ $phone = field('phone', 40);
 $email = field('email', 254);
 $address = field('address', 250);
 $timing = field('timing', 200);
+$contactPreference = field('contact_preference', 40);
 $message = field('message', 5000);
 if (!in_array($type, $allowedTypes, true) || textLength($name) < 2 || textLength($phone) < 5 || !filter_var($email, FILTER_VALIDATE_EMAIL) || textLength($address) < 3) {
     respond(422, false, 'Bitte prüfen Sie die Pflichtfelder und Ihre E-Mail-Adresse.');
@@ -301,6 +302,7 @@ $adminBody = "Neue Projektanfrage über die Website\n\n"
     . "ANLIEGEN\nLeistungsbereich: {$type}\n" . ($details ? implode("\n", $details) . "\n" : '')
     . "Fotos: " . count($attachments) . "\n\n"
     . "KONTAKT\nName: {$name}\nTelefon: {$phone}\nE-Mail: {$email}\nProjektadresse: {$address}\n"
+    . "Bevorzugte Rückmeldung: " . ($contactPreference !== '' ? $contactPreference : 'Telefon oder E-Mail') . "\n"
     . "Gewünschter Zeitraum: " . ($timing !== '' ? $timing : 'nicht angegeben') . "\n\n"
     . "HINWEISE\n" . ($message !== '' ? $message : 'keine zusätzlichen Hinweise') . "\n";
 

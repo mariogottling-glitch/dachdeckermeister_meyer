@@ -484,6 +484,9 @@ const assistantCopy = document.querySelector('[data-assistant-copy]');
 const detailLegend = document.querySelector('[data-detail-legend]');
 const progressDetail = document.querySelector('[data-progress-detail]');
 const photoInput = inquiryForm?.querySelector('input[type="file"]');
+const uploadList = inquiryForm?.querySelector('.upload-list');
+const inquirySummary = inquiryForm?.querySelector('[data-inquiry-summary]');
+const summaryEditButton = inquiryForm?.querySelector('[data-summary-edit]');
 const formStartedInput = inquiryForm?.querySelector('input[name="form_started"]');
 const maxPhotoCount = 5;
 const maxPhotoSize = 5 * 1024 * 1024;
@@ -523,6 +526,7 @@ const projectFields = {
     <label>Gebäudehöhe<select name="building_height"><option>Unbekannt</option><option>Bis 5 m / etwa 1 Geschoss</option><option>5–8 m / etwa 2 Geschosse</option><option>Über 8 m</option></select></label>
     <label>Dachzugang<select name="roof_access"><option>Unbekannt</option><option>Leiter von außen möglich</option><option>Ausstieg von innen</option><option>Gerüst / Arbeitsbühne erforderlich</option></select></label>
     <label>Versicherungsschaden?<select name="insurance"><option>Unklar</option><option>Ja</option><option>Nein</option></select></label>
+    <div class="urgent-intake-note wide" data-urgent-note hidden role="note"><strong>Wasser tritt aktiv ein?</strong><span>Bitte sichern Sie den Gefahrenbereich und steigen Sie nicht selbst aufs Dach. Senden Sie die Angaben ab und rufen Sie bei unmittelbarem Handlungsbedarf zusätzlich an.</span><a href="tel:+4917643487351">0176 43487351 anrufen</a></div>
     <label class="wide">Was ist sichtbar?<textarea name="damage_notes" rows="3" placeholder="Wo tritt Feuchtigkeit auf? Welche Bauteile sind betroffen? Seit wann besteht das Problem?"></textarea></label>`,
   fassade: `
     <label>Vorhaben <span class="required-marker"><span aria-hidden="true">*</span><span class="sr-only"> Pflichtfeld</span></span><select name="facade_project" required><option value="">Bitte wählen</option><option>Neue Bekleidung</option><option>Energetische Sanierung</option><option>Reparatur</option><option>Beratung</option></select></label>
@@ -547,6 +551,7 @@ function renderProjectFields() {
   const uploadHint = inquiryForm?.querySelector('.upload-field small');
   if (uploadTitle) uploadTitle.textContent = key === 'fenster' ? 'Typenschild und Fenster fotografieren' : key === 'service' ? 'Schaden fotografieren' : 'Fotos hinzufügen';
   if (uploadHint) uploadHint.textContent = key === 'fenster' ? 'Bitte Typenschild sowie Innen- und Außenansicht · maximal 5 Bilder' : key === 'service' ? 'Übersicht und Detailaufnahmen · maximal 5 Bilder' : 'JPG, PNG oder WebP · maximal 5 Bilder · je 5 MB';
+  updateUrgentNote();
 }
 function showFormStep(step, moveFocus = false) {
   let activeStep;
@@ -567,6 +572,7 @@ function showFormStep(step, moveFocus = false) {
     else item.removeAttribute('aria-current');
   });
   inquiryForm?.setAttribute('data-current-step', String(step));
+  if (step === 3) updateInquirySummary();
   if (moveFocus) requestAnimationFrame(() => {
     activeStep?.focus({ preventScroll: true });
     inquiryForm?.scrollIntoView({
@@ -686,17 +692,83 @@ function photosAreValid() {
   return true;
 }
 
+function updateUrgentNote() {
+  const urgency = dynamicFields?.querySelector('[name="urgency"]');
+  const note = dynamicFields?.querySelector('[data-urgent-note]');
+  if (note) note.hidden = urgency?.value !== 'Akut – Wasser tritt ein';
+}
+
+function formatFileSize(bytes) {
+  if (bytes < 1024 * 1024) return `${Math.max(1, Math.round(bytes / 1024))} KB`;
+  return `${(bytes / (1024 * 1024)).toFixed(1).replace('.', ',')} MB`;
+}
+
+function renderUploadFeedback() {
+  const files = [...(photoInput?.files || [])];
+  const uploadSummary = inquiryForm?.querySelector('.upload-summary');
+  if (uploadSummary) uploadSummary.textContent = files.length ? `${files.length} ${files.length === 1 ? 'Foto ausgewählt' : 'Fotos ausgewählt'}` : '';
+  if (!uploadList) return;
+  uploadList.replaceChildren(...files.map((file, index) => {
+    const row = document.createElement('div');
+    const details = document.createElement('span');
+    const name = document.createElement('strong');
+    const size = document.createElement('small');
+    const remove = document.createElement('button');
+    name.textContent = file.name;
+    size.textContent = formatFileSize(file.size);
+    details.append(name, size);
+    remove.type = 'button';
+    remove.textContent = 'Entfernen';
+    remove.setAttribute('aria-label', `${file.name} entfernen`);
+    remove.addEventListener('click', () => {
+      const transfer = new DataTransfer();
+      files.forEach((item, itemIndex) => { if (itemIndex !== index) transfer.items.add(item); });
+      photoInput.files = transfer.files;
+      photoInput.dispatchEvent(new Event('change', { bubbles: true }));
+      photoInput.focus();
+    });
+    row.append(details, remove);
+    return row;
+  }));
+}
+
+function updateInquirySummary() {
+  if (!inquirySummary) return;
+  const entries = [];
+  const selectedType = inquiryForm?.querySelector('input[name="type"]:checked');
+  if (selectedType) entries.push(['Anliegen', selectedType.value]);
+  const skipValues = new Set(['', 'Unbekannt', 'Unklar', 'Noch offen', 'Nein']);
+  dynamicFields?.querySelectorAll('input, select, textarea').forEach(field => {
+    const value = String(field.value || '').trim();
+    if (skipValues.has(value)) return;
+    const label = field.closest('label');
+    const labelText = [...(label?.childNodes || [])].find(node => node.nodeType === Node.TEXT_NODE)?.textContent.trim();
+    if (labelText) entries.push([labelText, value]);
+  });
+  const photoCount = photoInput?.files?.length || 0;
+  entries.push(['Fotos', photoCount ? `${photoCount} ausgewählt` : 'keine ausgewählt']);
+  inquirySummary.replaceChildren(...entries.slice(0, 7).flatMap(([term, value]) => {
+    const dt = document.createElement('dt');
+    const dd = document.createElement('dd');
+    dt.textContent = term;
+    dd.textContent = value;
+    return [dt, dd];
+  }));
+}
+
 inquiryForm?.addEventListener('input', event => {
   if (event.target.matches('input, select, textarea') && event.target.checkValidity()) markFieldValid(event.target);
   if (!inquiryForm.querySelector('[aria-invalid="true"]')) clearFormError();
 });
+inquiryForm?.addEventListener('change', event => {
+  if (event.target.matches('[name="urgency"]')) updateUrgentNote();
+});
 photoInput?.addEventListener('change', () => {
   clearFormError();
-  const files = [...photoInput.files];
-  const uploadSummary = inquiryForm?.querySelector('.upload-summary');
-  if (uploadSummary) uploadSummary.textContent = files.length ? `${files.length} ${files.length === 1 ? 'Foto ausgewählt' : 'Fotos ausgewählt'}` : '';
+  renderUploadFeedback();
   photosAreValid();
 });
+summaryEditButton?.addEventListener('click', () => showFormStep(2, true));
 
 inquiryForm?.querySelectorAll('input[name="type"]').forEach(input => input.addEventListener('change', () => {
   renderProjectFields();
@@ -736,6 +808,40 @@ else if (requestedInput) { syncAssistantPresentation('all'); showFormStep(1); }
 else openAssistant('service');
 if (formStartedInput) formStartedInput.value = String(Math.floor(Date.now() / 1000));
 
+function showSubmissionSuccess(message) {
+  const status = inquiryForm?.querySelector('.form-status');
+  if (!inquiryForm || !status) return;
+  const heading = document.createElement('strong');
+  const copy = document.createElement('p');
+  const next = document.createElement('p');
+  const phone = document.createElement('a');
+  const restart = document.createElement('button');
+  heading.textContent = 'Ihre Anfrage ist eingegangen';
+  copy.textContent = message || 'Vielen Dank. Ihre Angaben wurden sicher übermittelt.';
+  next.textContent = 'Wir prüfen die Informationen persönlich und melden uns zur Abstimmung. Bei einem akuten Schaden erreichen Sie uns zusätzlich telefonisch.';
+  phone.href = 'tel:+4917643487351';
+  phone.textContent = '0176 43487351 anrufen';
+  restart.type = 'button';
+  restart.className = 'text-button';
+  restart.textContent = 'Neue Anfrage erfassen';
+  restart.addEventListener('click', () => {
+    inquiryForm.reset();
+    inquiryForm.classList.remove('is-submitted');
+    status.classList.remove('is-success');
+    status.replaceChildren();
+    if (formStartedInput) formStartedInput.value = String(Math.floor(Date.now() / 1000));
+    renderUploadFeedback();
+    renderProjectFields();
+    syncAssistantPresentation('all');
+    showFormStep(1, true);
+  });
+  status.replaceChildren(heading, copy, next, phone, restart);
+  status.classList.add('is-success');
+  inquiryForm.classList.add('is-submitted');
+  status.focus({ preventScroll: true });
+  requestAnimationFrame(() => status.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'center' }));
+}
+
 inquiryForm?.addEventListener('submit', async event => {
   event.preventDefault();
   const form = event.currentTarget;
@@ -758,9 +864,7 @@ inquiryForm?.addEventListener('submit', async event => {
     });
     const payload = await response.json().catch(() => ({}));
     if (!response.ok || !payload.ok) throw new Error(payload.message || 'Die Anfrage konnte nicht gesendet werden.');
-    status.textContent = payload.message || 'Vielen Dank. Ihre Anfrage ist bei uns eingegangen.';
-    status.classList.add('is-success');
-    submitButton.textContent = 'Anfrage gesendet ✓';
+    showSubmissionSuccess(payload.message);
   } catch (error) {
     if (formError) {
       formError.textContent = `${error.message} Bitte versuchen Sie es erneut oder rufen Sie uns unter +49 176 43487351 an.`;
