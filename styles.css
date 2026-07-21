@@ -1015,3 +1015,56 @@ legend>small{display:block;margin-top:6px;color:#aaa;font-size:12px;line-height:
   .wizard-progress em{display:block;overflow-wrap:anywhere}
   legend>small,.field-error,.upload-summary{font-size:14px}
 }
+
+/* Whole-page usability pass: the architectural type stays refined without
+   asking visitors to decipher functional text or secondary explanations. */
+.site-header nav,.header-cta{font-size:15px}
+.site-header nav a,.header-cta{display:flex;align-items:center;min-height:44px}
+.button{min-height:50px;font-size:14px;line-height:1.3}
+.hero-copy{font-size:clamp(18px,1.5vw,22px);line-height:1.55}
+.hero-cover .hero-stats span{font-size:16px;font-weight:500;letter-spacing:.075em}
+.section-kicker,.mini-label,.eyebrow{font-size:16px}
+.service-content a{font-size:15px;line-height:1.4}
+.contact-direct small{font-size:14px;font-weight:500}
+.contact-direct strong{font-size:17px}
+legend,.choice-grid span{font-size:14px;line-height:1.4}
+.form-grid label,.form-foot small,.wizard-progress span,.wizard-progress b,
+.upload-field small,.assistant-other,.text-button{font-size:16px}
+.form-grid input,.form-grid textarea,.form-grid select{font-size:18px}
+.check-grid p{font-size:17px;line-height:1.65}
+.concept-rating span{font-size:15px}
+.partner-node p span,.partner-meta b,.partner-meta span{font-size:16px}
+.partner-meta,.partner-node>p span{color:#bdbdbd}
+.partner-constellation:after{color:#aaa;font-size:12px}
+.partner-future{color:#b3b3b3}
+.partner-future p{font-size:14px;line-height:1.55}
+footer>div,footer>small{font-size:16px}
+footer>div a{display:flex;align-items:center;min-height:44px}
+
+@media(max-width:640px){
+  body{font-size:16px}
+  .header-cta{display:none}
+  .mobile-actions{opacity:0;transform:translateY(calc(100% + 26px));pointer-events:none}
+  body.sticky-cta-visible .mobile-actions{opacity:1;transform:translateY(0);pointer-events:auto}
+  .hero-copy{font-size:18px;line-height:1.62;max-width:335px}
+  .hero-actions .button{min-height:48px;padding:14px 10px;font-size:13px;letter-spacing:.055em}
+  .hero-cover .hero-stats{
+    display:grid;
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:0;
+  }
+  .hero-cover .hero-stats div{padding:0 9px;min-width:0}
+  .hero-cover .hero-stats div:first-child{padding-left:0}
+  .hero-cover .hero-stats div+div{border-left:1px solid rgba(255,255,255,.28)}
+  .hero-cover .hero-stats strong{font-size:18px}
+  .hero-cover .hero-stats span{font-size:13px;line-height:1.45;letter-spacing:.035em;overflow-wrap:normal}
+  .contact-priority .contact-intro>p{font-size:18px;line-height:1.65}
+  .contact-direct small{font-size:14px}
+  .contact-direct strong{font-size:17px}
+  legend,.choice-grid span{font-size:15px}
+  .form-grid label,.form-foot small,.wizard-progress span,.wizard-progress b,
+  .upload-field small,.assistant-other,.text-button{font-size:15px}
+  .check-grid p,.timeline p{font-size:17px;line-height:1.65}
+  .partner-node p span,.partner-meta b,.partner-meta span,
+  footer>div,footer>small{font-size:16px}
+}

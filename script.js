@@ -34,6 +34,11 @@ const inquirySection = document.querySelector('#anfrage');
 if (stickyCta && heroCover && inquirySection && 'IntersectionObserver' in window) {
   document.body.classList.add('sticky-cta-managed');
   const visibleCtaSections = new Set();
+  const stickyCtaBlockers = [
+    heroCover,
+    inquirySection,
+    ...document.querySelectorAll('.assembly, .concepts, .services, .roof-check, .faq')
+  ];
   const stickyCtaObserver = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (entry.isIntersecting) visibleCtaSections.add(entry.target);
@@ -41,8 +46,7 @@ if (stickyCta && heroCover && inquirySection && 'IntersectionObserver' in window
     });
     document.body.classList.toggle('sticky-cta-visible', visibleCtaSections.size === 0);
   }, { threshold: 0.12 });
-  stickyCtaObserver.observe(heroCover);
-  stickyCtaObserver.observe(inquirySection);
+  stickyCtaBlockers.forEach(section => stickyCtaObserver.observe(section));
 }
 
 /* Interne Hauptnavigation: Die angeheftete Tour wird als geschlossener Block
