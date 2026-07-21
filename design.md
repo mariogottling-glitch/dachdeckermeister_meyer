@@ -189,6 +189,10 @@ Das Layout arbeitet mit großen ruhigen Flächen, klaren Achsen und präzisen Tr
 - Navigation kurz und eindeutig
 - wichtigste Direktaktion darf Türkis verwenden
 - Mobilnavigation mit großen berührbaren Zielen
+- dieselbe Kopfzeile gilt ausnahmslos auf Startseite, Karriere, Team, Leistungs- und Rechtstextseiten
+- Desktop: `82 px` Höhe, `90 px` Logobreite und die Menüpunkte „Leistungen“, „Unser System“, „Karriere“ plus „Kontakt“
+- Mobil bis `900 px`: `70 px` Höhe, `74 px` Logobreite und ein vollständig per Tastatur bedienbares Klappmenü
+- beim Abwärtsscrollen darf die Kopfzeile dezent ausblenden; beim Hochscrollen erscheint sie auf jeder Seite nach demselben Verhalten
 
 ### Buttons und Links
 

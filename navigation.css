@@ -31,3 +31,167 @@
 @media(prefers-reduced-motion:reduce){
   .section-jump-veil,.section-jump-veil span{transition:none}
 }
+
+/* Shared site header: one source of truth for every page type. */
+.site-header{
+  --nav-accent:#00b0bb;
+  position:fixed;
+  z-index:100;
+  top:0;
+  left:0;
+  width:100%;
+  height:82px;
+  padding:0 clamp(24px,5.5vw,88px);
+  display:flex;
+  align-items:center;
+  gap:28px;
+  color:#fff;
+  background:rgba(20,24,26,.18);
+  border-bottom:1px solid rgba(255,255,255,.16);
+  transform:translate3d(0,0,0);
+  transition:transform .38s cubic-bezier(.22,.61,.36,1),background-color .28s ease,border-color .28s ease,box-shadow .28s ease,backdrop-filter .28s ease;
+  will-change:transform;
+}
+.site-header .brand{
+  width:90px;
+  min-width:90px;
+  height:64px;
+  display:flex;
+  align-items:center;
+  justify-content:flex-start;
+}
+.site-header .brand img,
+.site-header .brand-logo-img{
+  display:block;
+  width:90px;
+  height:auto;
+  max-height:64px;
+  object-fit:contain;
+}
+.site-header nav{
+  margin-left:auto;
+  display:flex;
+  align-items:center;
+  gap:28px;
+}
+.site-header nav a,
+.site-header>.header-cta{
+  min-height:44px;
+  display:inline-flex;
+  align-items:center;
+  color:inherit;
+  font-size:15px;
+  font-weight:600;
+  line-height:1;
+  letter-spacing:.04em;
+  text-decoration:none;
+  text-transform:uppercase;
+  white-space:nowrap;
+}
+.site-header nav a{
+  border-bottom:1px solid transparent;
+}
+.site-header nav a:hover,
+.site-header nav a:focus-visible,
+.site-header nav a[aria-current="page"]{
+  color:var(--nav-accent);
+  border-bottom-color:var(--nav-accent);
+}
+.site-header>.header-cta{
+  margin-left:0;
+  padding-left:28px;
+  border-left:1px solid rgba(255,255,255,.24);
+  gap:12px;
+}
+.site-header>.header-cta span{color:var(--nav-accent)}
+.site-header.is-scrolled{
+  background:rgba(20,24,26,.88);
+  border-bottom-color:rgba(255,255,255,.1);
+  box-shadow:0 14px 38px rgba(0,0,0,.14);
+  -webkit-backdrop-filter:blur(18px) saturate(125%);
+  backdrop-filter:blur(18px) saturate(125%);
+}
+.site-header.is-hidden{transform:translate3d(0,calc(-100% - 2px),0)}
+.site-header.is-visible,
+body.menu-open .site-header{transform:translate3d(0,0,0)}
+body.menu-open .site-header{
+  background:rgba(20,24,26,.96);
+  -webkit-backdrop-filter:blur(18px) saturate(125%);
+  backdrop-filter:blur(18px) saturate(125%);
+}
+.menu-toggle{
+  display:none;
+  width:44px;
+  height:44px;
+  padding:0;
+  border:0;
+  background:transparent;
+  color:inherit;
+}
+.menu-toggle>i,
+.menu-toggle>span:not(.sr-only):not(.skip-link){
+  display:block;
+  width:22px;
+  height:1px;
+  margin:6px auto;
+  background:currentColor;
+  transition:transform .22s ease,opacity .22s ease;
+}
+body.menu-open .menu-toggle>i:first-child,
+body.menu-open .menu-toggle>span:not(.sr-only):not(.skip-link):first-child{transform:translateY(3.5px) rotate(45deg)}
+body.menu-open .menu-toggle>i:nth-child(2),
+body.menu-open .menu-toggle>span:not(.sr-only):not(.skip-link):nth-child(2){transform:translateY(-3.5px) rotate(-45deg)}
+
+@media(max-width:900px){
+  .site-header{
+    height:70px;
+    padding:0 20px;
+    gap:14px;
+  }
+  .site-header .brand{
+    width:74px;
+    min-width:74px;
+    height:56px;
+  }
+  .site-header .brand img,
+  .site-header .brand-logo-img{width:74px;max-height:56px}
+  .site-header .menu-toggle{display:block;margin-left:auto;order:2}
+  .site-header>.header-cta{display:none}
+  .site-header nav{
+    position:absolute;
+    top:70px;
+    left:0;
+    width:100%;
+    max-height:0;
+    overflow:hidden;
+    margin:0;
+    padding:0 20px;
+    display:flex;
+    flex-direction:column;
+    align-items:stretch;
+    gap:0;
+    background:rgba(20,24,26,.97);
+    border-bottom:1px solid transparent;
+    opacity:0;
+    visibility:hidden;
+    transition:max-height .3s ease,opacity .2s ease,visibility 0s linear .3s,padding .3s ease;
+  }
+  .site-header nav.open{
+    max-height:280px;
+    padding-top:10px;
+    padding-bottom:16px;
+    border-bottom-color:rgba(255,255,255,.12);
+    opacity:1;
+    visibility:visible;
+    transition:max-height .3s ease,opacity .2s ease,padding .3s ease;
+  }
+  .site-header nav a{
+    width:100%;
+    min-height:52px;
+    border-bottom:1px solid rgba(255,255,255,.1);
+  }
+}
+
+@media(prefers-reduced-motion:reduce){
+  .site-header,.site-header nav,.menu-toggle>i,.menu-toggle>span{transition:none}
+}

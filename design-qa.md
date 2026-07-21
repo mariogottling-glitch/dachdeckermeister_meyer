@@ -73,6 +73,16 @@ Der fokussierte Vergleich ist in `qa/inquiry-assistant-qa/comparison-before-afte
 
 final result: passed
 
+## Einheitliche Kopfzeile – 21.07.2026
+
+- **P1 – Seitenwechsel ohne Navigationssprung:** Karriere, Team, alle sieben Leistungsseiten sowie Impressum und Datenschutz verwenden nun dieselben Header-Abmessungen, Menüpunkte und dieselbe Kontaktaktion wie die Startseite.
+- **Desktop bestanden:** Bei 1440 px wurden auf Startseite, Karriere, Team, Photovoltaik, Steildach und Impressum jeweils `82 px` Headerhöhe, `90 px` Logobreite und `15 px` Navigation gemessen; horizontaler Überlauf: `0 px`.
+- **Tablet/Mobil bestanden:** Bei 768 px und 390 px beträgt die Kopfzeile `70 px`, das Logo `74 px`. Das Menü öffnet und schließt korrekt, setzt `aria-expanded`, reagiert auf Escape und erzeugt keinen horizontalen Seitenüberlauf.
+- **Scrollverhalten bestanden:** Die Kopfzeile blendet beim Herunterscrollen aus und beim Hochscrollen wieder ein – jetzt auch auf Unterseiten.
+- **Konsole bestanden:** Keine Fehler oder Warnungen auf den geprüften Karriere-, Leistungs- und Rechtstextseiten.
+
+final result: passed
+
 ---
 
 # Design QA – Leistungs-Schnellzugriff

@@ -1,12 +1,3 @@
-const menuButton = document.querySelector('.menu-toggle');
-const menu = document.querySelector('#career-nav');
-
-menuButton?.addEventListener('click', () => {
-  const isOpen = menuButton.getAttribute('aria-expanded') === 'true';
-  menuButton.setAttribute('aria-expanded', String(!isOpen));
-  menu?.classList.toggle('open', !isOpen);
-});
-
 const progressLine = document.querySelector('.roof-progress');
 const careerPath = document.querySelector('.career-path');
 
