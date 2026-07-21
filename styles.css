@@ -230,7 +230,8 @@ body{font-size:18px}.site-header nav,.header-cta{font-size:13px}.eyebrow,.sectio
 .service-tabs button:focus-visible{z-index:2;background:#e9f8f9;color:#172126}
 .service-panel:focus-visible{outline-offset:-5px}
 .accordion summary:focus-visible{border-radius:2px}
-.form-step:focus-visible{outline:0;box-shadow:inset 3px 0 0 var(--accent)}
+.form-step:focus-visible{outline:0;box-shadow:none}
+.form-step:focus-visible>legend{box-shadow:inset 3px 0 0 var(--accent);padding-left:10px}
 .hero-stats span{color:rgba(255,255,255,.92);text-shadow:0 1px 8px rgba(0,0,0,.72)}
 .tour-skip{color:rgba(255,255,255,.88)}
 .wizard-progress span{color:#b9b9b9}
@@ -614,7 +615,8 @@ body{font-size:18px}.site-header nav,.header-cta{font-size:13px}.eyebrow,.sectio
 .contact-priority{
   padding:clamp(58px,5.4vw,86px) var(--pad);
   grid-template-columns:.72fr 1.28fr;
-  gap:clamp(48px,6vw,96px);
+  column-gap:clamp(48px,6vw,96px);
+  row-gap:34px;
   align-items:start;
 }
 .contact-priority .section-kicker{margin-bottom:32px}
@@ -629,10 +631,14 @@ body{font-size:18px}.site-header nav,.header-cta{font-size:13px}.eyebrow,.sectio
   line-height:1.58;
 }
 .contact-priority .contact-person{margin-top:34px}
+.contact-priority .contact-intro{grid-column:1;grid-row:1}
+.contact-priority form{grid-column:2;grid-row:1 / span 2;scroll-margin-top:24px}
 .contact-direct{
+  grid-column:1;
+  grid-row:2;
   display:grid;
   gap:0;
-  margin-top:34px;
+  margin-top:0;
   border-top:1px solid rgba(255,255,255,.18);
 }
 .contact-direct>a,.contact-direct>div{
@@ -678,6 +684,9 @@ body{font-size:18px}.site-header nav,.header-cta{font-size:13px}.eyebrow,.sectio
 
 @media(max-width:900px){
   .contact-priority{grid-template-columns:1fr;gap:46px}
+  .contact-priority .contact-intro{grid-column:1;grid-row:1}
+  .contact-priority form{grid-column:1;grid-row:2}
+  .contact-priority .contact-direct{grid-column:1;grid-row:3}
 }
 
 @media(max-width:640px){
@@ -685,7 +694,7 @@ body{font-size:18px}.site-header nav,.header-cta{font-size:13px}.eyebrow,.sectio
   .contact-priority .section-kicker{margin-bottom:24px}
   .contact-priority h2{font-size:clamp(39px,11vw,52px)}
   .contact-priority .contact-person{margin-top:26px}
-  .contact-direct{margin-top:26px}
+  .contact-direct{margin-top:0}
   .contact-direct>a,.contact-direct>div{padding:12px 0}
   .contact-direct small{font-size:11px}
   .contact-direct strong{font-size:16px}
@@ -985,4 +994,24 @@ footer>div,footer>small{
   .partner-meta b,.partner-meta span,
   .check-grid span,.check-grid b{font-size:15px}
   .service-visual>span{font-size:210px}
+}
+
+/* Form audit: unambiguous steps, inline recovery and obstruction-free mobile use. */
+html,body{overflow-x:clip}
+.wizard-progress span.complete{color:#d6d6d6}
+.wizard-progress span.complete:after{right:10px}
+.wizard-progress span.complete b{border-color:var(--accent);color:var(--accent);font-size:0}
+.wizard-progress span.complete b:after{content:"✓";font-size:13px}
+.required-marker{color:var(--accent);font-weight:700}
+legend>small{display:block;margin-top:6px;color:#aaa;font-size:12px;line-height:1.45;letter-spacing:0;text-transform:none}
+.field-error{display:block;margin-top:7px;color:#ffb6b6;font-size:13px;line-height:1.45;letter-spacing:0;text-transform:none}
+.upload-summary{display:block;min-height:0;margin-top:8px;color:var(--accent);font-size:13px;line-height:1.45}
+.upload-summary:empty{display:none}
+
+@media(max-width:640px){
+  .wizard-progress{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+  .wizard-progress span,.wizard-progress b,.wizard-progress em{font-size:11px;line-height:1.35;letter-spacing:.035em}
+  .wizard-progress span{min-width:0;padding-right:3px}
+  .wizard-progress em{display:block;overflow-wrap:anywhere}
+  legend>small,.field-error,.upload-summary{font-size:14px}
 }

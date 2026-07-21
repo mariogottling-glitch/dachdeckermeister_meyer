@@ -30,12 +30,19 @@ document.addEventListener('keydown', event => {
    sie im Hero nicht mit dem dortigen Hauptbutton. */
 const stickyCta = document.querySelector('.mobile-actions');
 const heroCover = document.querySelector('.hero-cover');
-if (stickyCta && heroCover && 'IntersectionObserver' in window) {
+const inquirySection = document.querySelector('#anfrage');
+if (stickyCta && heroCover && inquirySection && 'IntersectionObserver' in window) {
   document.body.classList.add('sticky-cta-managed');
-  const stickyCtaObserver = new IntersectionObserver(([entry]) => {
-    document.body.classList.toggle('sticky-cta-visible', !entry.isIntersecting);
+  const visibleCtaSections = new Set();
+  const stickyCtaObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) visibleCtaSections.add(entry.target);
+      else visibleCtaSections.delete(entry.target);
+    });
+    document.body.classList.toggle('sticky-cta-visible', visibleCtaSections.size === 0);
   }, { threshold: 0.12 });
   stickyCtaObserver.observe(heroCover);
+  stickyCtaObserver.observe(inquirySection);
 }
 
 /* Interne Hauptnavigation: Die angeheftete Tour wird als geschlossener Block
@@ -480,7 +487,7 @@ const maxPhotoTotal = 15 * 1024 * 1024;
 const allowedPhotoTypes = ['image/jpeg', 'image/png', 'image/webp'];
 const projectFields = {
   steildach: `
-    <label>Dachtyp<select name="roof_type" required><option value="">Bitte wählen</option><option>Satteldach</option><option>Walmdach</option><option>Anderer Dachtyp</option><option>Unbekannt</option></select></label>
+    <label>Dachtyp <span class="required-marker"><span aria-hidden="true">*</span><span class="sr-only"> Pflichtfeld</span></span><select name="roof_type" required><option value="">Bitte wählen</option><option>Satteldach</option><option>Walmdach</option><option>Anderer Dachtyp</option><option>Unbekannt</option></select></label>
     <label>Baujahr<input name="construction_year" inputmode="numeric" placeholder="z. B. 1985 oder unbekannt" /></label>
     <label>Geschätzte Dachfläche<input name="area" placeholder="z. B. 180 m²" /></label>
     <label>Dämmung vorhanden?<select name="insulation"><option>Unbekannt</option><option>Ja</option><option>Nein</option></select></label>
@@ -492,7 +499,7 @@ const projectFields = {
     <label>Ist eine Leckage sichtbar?<select name="leak"><option>Nein</option><option>Ja</option><option>Unklar</option></select></label>
     <label>Nutzung der Fläche<input name="use" placeholder="z. B. Garage, Wohnhaus, Terrasse" /></label>`,
   fenster: `
-    <label>Vorhaben<select name="window_project" required><option value="">Bitte wählen</option><option>Austausch eines vorhandenen Fensters</option><option>Reparatur / Ersatzteil</option><option>Sonnenschutz / Zubehör</option><option>Neuer Einbau</option><option>Beratung</option></select></label>
+    <label>Vorhaben <span class="required-marker"><span aria-hidden="true">*</span><span class="sr-only"> Pflichtfeld</span></span><select name="window_project" required><option value="">Bitte wählen</option><option>Austausch eines vorhandenen Fensters</option><option>Reparatur / Ersatzteil</option><option>Sonnenschutz / Zubehör</option><option>Neuer Einbau</option><option>Beratung</option></select></label>
     <label>Hersteller<select name="manufacturer"><option>VELUX</option><option>Roto</option><option>Braas / Dörken</option><option>Anderer Hersteller</option><option>Unbekannt</option></select></label>
     <div class="typeplate-guide wide" role="note"><span>Bei vorhandenem Fenster: Typenschild</span><strong>Fenster öffnen und hinter der oberen Griffleiste rechts oder links nachsehen.</strong><small>Am besten fotografieren Sie das komplette Schild. Alternativ übertragen Sie die vier Angaben unten. Bei einem Neueinbau lassen Sie diese Felder einfach frei.</small></div>
     <label>Fenstertyp<input name="window_type" autocomplete="off" placeholder="z. B. GGL oder GGU" /></label>
@@ -506,20 +513,20 @@ const projectFields = {
     <label>Wichtigste Anforderung<select name="window_priority"><option>Noch offen</option><option>Wärmeschutz</option><option>Hitzeschutz</option><option>Schallschutz</option><option>Besonders viel Tageslicht</option></select></label>
     <label>Sonnenschutz gewünscht?<select name="sun_protection"><option>Noch offen</option><option>Ja, innen</option><option>Ja, außen / Hitzeschutz</option><option>Nein</option></select></label>`,
   service: `
-    <label>Art des Schadens<select name="damage_type" required><option value="">Bitte wählen</option><option>Undichtigkeit</option><option>Sturmschaden</option><option>Lose oder gebrochene Bauteile</option><option>Wartung / Inspektion</option><option>Anderes Anliegen</option></select></label>
-    <label>Dringlichkeit<select name="urgency" required><option value="">Bitte wählen</option><option>Akut – Wasser tritt ein</option><option>Zeitnah prüfen</option><option>Planbare Wartung</option></select></label>
+    <label>Art des Schadens <span class="required-marker"><span aria-hidden="true">*</span><span class="sr-only"> Pflichtfeld</span></span><select name="damage_type" required><option value="">Bitte wählen</option><option>Undichtigkeit</option><option>Sturmschaden</option><option>Lose oder gebrochene Bauteile</option><option>Wartung / Inspektion</option><option>Anderes Anliegen</option></select></label>
+    <label>Dringlichkeit <span class="required-marker"><span aria-hidden="true">*</span><span class="sr-only"> Pflichtfeld</span></span><select name="urgency" required><option value="">Bitte wählen</option><option>Akut – Wasser tritt ein</option><option>Zeitnah prüfen</option><option>Planbare Wartung</option></select></label>
     <label>Dachart<select name="roof_type"><option>Unbekannt</option><option>Steildach</option><option>Flachdach</option></select></label>
     <label>Gebäudehöhe<select name="building_height"><option>Unbekannt</option><option>Bis 5 m / etwa 1 Geschoss</option><option>5–8 m / etwa 2 Geschosse</option><option>Über 8 m</option></select></label>
     <label>Dachzugang<select name="roof_access"><option>Unbekannt</option><option>Leiter von außen möglich</option><option>Ausstieg von innen</option><option>Gerüst / Arbeitsbühne erforderlich</option></select></label>
     <label>Versicherungsschaden?<select name="insurance"><option>Unklar</option><option>Ja</option><option>Nein</option></select></label>
     <label class="wide">Was ist sichtbar?<textarea name="damage_notes" rows="3" placeholder="Wo tritt Feuchtigkeit auf? Welche Bauteile sind betroffen? Seit wann besteht das Problem?"></textarea></label>`,
   fassade: `
-    <label>Vorhaben<select name="facade_project" required><option value="">Bitte wählen</option><option>Neue Bekleidung</option><option>Energetische Sanierung</option><option>Reparatur</option><option>Beratung</option></select></label>
+    <label>Vorhaben <span class="required-marker"><span aria-hidden="true">*</span><span class="sr-only"> Pflichtfeld</span></span><select name="facade_project" required><option value="">Bitte wählen</option><option>Neue Bekleidung</option><option>Energetische Sanierung</option><option>Reparatur</option><option>Beratung</option></select></label>
     <label>Gewünschtes Material<input name="facade_material" placeholder="z. B. Zink, Schiefer oder noch offen" /></label>
     <label>Geschätzte Fläche<input name="area" placeholder="z. B. 120 m²" /></label>
     <label>Sichtbare Schäden?<select name="damage"><option>Nein</option><option>Ja</option><option>Unklar</option></select></label>`,
   terrasse: `
-    <label>Fläche<select name="terrace_type" required><option value="">Bitte wählen</option><option>Balkon</option><option>Terrasse</option><option>Carport / genutzte Dachfläche</option></select></label>
+    <label>Fläche <span class="required-marker"><span aria-hidden="true">*</span><span class="sr-only"> Pflichtfeld</span></span><select name="terrace_type" required><option value="">Bitte wählen</option><option>Balkon</option><option>Terrasse</option><option>Carport / genutzte Dachfläche</option></select></label>
     <label>Aktueller Belag<input name="surface" placeholder="z. B. Stein, Holz oder unbekannt" /></label>
     <label>Geschätzte Fläche<input name="area" placeholder="z. B. 25 m²" /></label>
     <label>Feuchtigkeit sichtbar?<select name="leak"><option>Nein</option><option>Ja</option><option>Unklar</option></select></label>`
@@ -539,6 +546,8 @@ function renderProjectFields() {
 }
 function showFormStep(step, moveFocus = false) {
   let activeStep;
+  clearFormError();
+  inquiryForm?.querySelectorAll('[aria-invalid="true"]').forEach(markFieldValid);
   formSteps.forEach(item => {
     const active = Number(item.dataset.step) === step;
     item.classList.toggle('active', active);
@@ -547,13 +556,20 @@ function showFormStep(step, moveFocus = false) {
     if (active) activeStep = item;
   });
   progressSteps.forEach((item, index) => {
-    const active = index < step;
+    const active = index === step - 1;
     item.classList.toggle('active', active);
+    item.classList.toggle('complete', index < step - 1);
     if (index === step - 1) item.setAttribute('aria-current', 'step');
     else item.removeAttribute('aria-current');
   });
   inquiryForm?.setAttribute('data-current-step', String(step));
-  if (moveFocus) requestAnimationFrame(() => activeStep?.focus());
+  if (moveFocus) requestAnimationFrame(() => {
+    activeStep?.focus({ preventScroll: true });
+    inquiryForm?.scrollIntoView({
+      behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth',
+      block: 'start'
+    });
+  });
 }
 function syncAssistantPresentation(key) {
   const content = {
@@ -603,8 +619,33 @@ function clearFormError() {
 }
 function markFieldValid(field) {
   field.removeAttribute('aria-invalid');
-  if (field.getAttribute('aria-describedby') === 'form-error') field.removeAttribute('aria-describedby');
+  const fieldErrorId = field.dataset.errorId;
+  if (fieldErrorId) document.getElementById(fieldErrorId)?.remove();
+  delete field.dataset.errorId;
+  field.removeAttribute('aria-describedby');
   field.closest('label')?.classList.remove('has-error');
+}
+function showFieldError(field, message) {
+  const label = field.closest('label');
+  const safeName = (field.name || field.id || 'field').replace(/[^a-z0-9]+/gi, '-').replace(/^-|-$/g, '');
+  const fieldErrorId = `field-error-${safeName}`;
+  document.getElementById(fieldErrorId)?.remove();
+  const fieldError = document.createElement('span');
+  fieldError.className = 'field-error';
+  fieldError.id = fieldErrorId;
+  fieldError.textContent = message;
+  label?.append(fieldError);
+  field.dataset.errorId = fieldErrorId;
+  field.setAttribute('aria-invalid', 'true');
+  field.setAttribute('aria-describedby', fieldErrorId);
+  label?.classList.add('has-error');
+}
+function focusInvalidField(field) {
+  field.focus({ preventScroll: true });
+  requestAnimationFrame(() => (field.closest('label') || field).scrollIntoView({
+    behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth',
+    block: 'center'
+  }));
 }
 function stepIsValid(step) {
   const fields = formSteps[step - 1]?.querySelectorAll('input, select, textarea') || [];
@@ -614,11 +655,9 @@ function stepIsValid(step) {
     if (!field.checkValidity()) {
       const label = field.closest('label');
       const labelText = [...(label?.childNodes || [])].find(node => node.nodeType === Node.TEXT_NODE)?.textContent.trim() || 'Pflichtfeld';
-      field.setAttribute('aria-invalid', 'true');
-      field.setAttribute('aria-describedby', 'form-error');
-      label?.classList.add('has-error');
-      if (formError) formError.textContent = `Bitte prüfen Sie das Feld „${labelText}“ und ergänzen Sie eine gültige Angabe.`;
-      field.focus();
+      const message = `Bitte ergänzen Sie „${labelText}“ mit einer gültigen Angabe.`;
+      showFieldError(field, message);
+      focusInvalidField(field);
       return false;
     }
   }
@@ -630,11 +669,12 @@ function photosAreValid() {
   const uploadField = photoInput?.closest('.upload-field');
   const fail = message => {
     uploadField?.classList.add('has-error');
-    if (formError) formError.textContent = message;
-    photoInput?.focus();
+    if (photoInput) showFieldError(photoInput, message);
+    if (photoInput) focusInvalidField(photoInput);
     return false;
   };
   uploadField?.classList.remove('has-error');
+  if (photoInput) markFieldValid(photoInput);
   if (files.length > maxPhotoCount) return fail(`Bitte wählen Sie höchstens ${maxPhotoCount} Fotos aus.`);
   if (files.some(file => file.type && !allowedPhotoTypes.includes(file.type))) return fail('Bitte verwenden Sie nur JPG-, PNG- oder WebP-Bilder.');
   if (files.some(file => file.size > maxPhotoSize)) return fail('Ein Foto ist größer als 5 MB. Bitte verkleinern Sie die Datei.');
@@ -643,11 +683,14 @@ function photosAreValid() {
 }
 
 inquiryForm?.addEventListener('input', event => {
-  if (event.target.matches('input, select, textarea')) markFieldValid(event.target);
+  if (event.target.matches('input, select, textarea') && event.target.checkValidity()) markFieldValid(event.target);
   if (!inquiryForm.querySelector('[aria-invalid="true"]')) clearFormError();
 });
 photoInput?.addEventListener('change', () => {
   clearFormError();
+  const files = [...photoInput.files];
+  const uploadSummary = inquiryForm?.querySelector('.upload-summary');
+  if (uploadSummary) uploadSummary.textContent = files.length ? `${files.length} ${files.length === 1 ? 'Foto ausgewählt' : 'Fotos ausgewählt'}` : '';
   photosAreValid();
 });
 
