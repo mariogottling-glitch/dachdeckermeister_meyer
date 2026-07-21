@@ -1161,3 +1161,65 @@ footer>div a{display:flex;align-items:center;min-height:44px}
 }
 .concept-rating span{min-width:0;white-space:nowrap}
 .concept-rating i{min-width:0}
+
+/* The site footer is one calm horizontal rail at every breakpoint. Target the
+   direct body child so the comparison-card footers keep their own layout. */
+body>footer{
+  min-height:112px;
+  padding:22px var(--pad);
+  display:grid;
+  grid-template-columns:auto auto minmax(0,1fr) auto;
+  gap:clamp(18px,2.2vw,38px);
+  align-items:center;
+}
+body>footer .footer-brand .brand-logo-img{width:78px}
+body>footer>p{
+  margin:0;
+  text-align:left;
+  white-space:nowrap;
+  font-size:clamp(20px,1.8vw,28px);
+  line-height:1;
+}
+body>footer>div{
+  min-width:0;
+  display:flex;
+  flex-wrap:nowrap;
+  justify-content:center;
+  align-items:center;
+  gap:clamp(14px,1.35vw,24px);
+  white-space:nowrap;
+  font-size:14px;
+  line-height:1;
+}
+body>footer>small{
+  text-align:right;
+  white-space:nowrap;
+  font-size:14px;
+  line-height:1.2;
+}
+
+@media(max-width:1280px){
+  body>footer{grid-template-columns:auto minmax(0,1fr) auto;gap:20px}
+  body>footer>p{display:none}
+  body>footer>div{justify-content:space-between;gap:14px}
+  body>footer>small{font-size:13px}
+  body>footer .footer-brand .brand-logo-img{width:70px}
+}
+
+@media(max-width:900px){
+  body>footer>div>a:nth-child(4),body>footer>div>a:nth-child(5){display:none}
+  body>footer>small span{display:none}
+}
+
+@media(max-width:640px){
+  body>footer{
+    min-height:0;
+    padding:20px 12px 95px;
+    grid-template-columns:auto minmax(0,1fr) auto;
+    gap:10px;
+  }
+  body>footer .footer-brand .brand-logo-img{width:50px}
+  body>footer>div{justify-content:center;gap:12px;font-size:13px}
+  body>footer>div>a:nth-child(-n+5){display:none}
+  body>footer>small{font-size:13px}
+}
