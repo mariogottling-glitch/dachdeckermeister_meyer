@@ -168,10 +168,10 @@ body{font-size:18px}.site-header nav,.header-cta{font-size:13px}.eyebrow,.sectio
 .service-markers .service-marker.marker-left{padding:7px 82px 7px 12px;transform:translateX(-100%);background:linear-gradient(90deg,rgba(17,22,24,.9) 0 calc(100% - 72px),transparent calc(100% - 72px))}
 .service-markers .service-marker.marker-left:before{left:auto;right:0;background:linear-gradient(90deg,rgba(20,36,40,.82),var(--accent))}
 .service-markers .service-marker.marker-left:after{left:auto;right:-3px}
-.service-tabs{grid-template-columns:repeat(7,minmax(155px,1fr));overflow-x:auto;scroll-snap-type:x proximity;scrollbar-width:thin;scrollbar-color:var(--accent) transparent}
+.service-tabs{grid-template-columns:repeat(6,minmax(155px,1fr));overflow-x:auto;scroll-snap-type:x proximity;scrollbar-width:thin;scrollbar-color:var(--accent) transparent}
 .service-tabs button{min-width:155px;scroll-snap-align:start;white-space:nowrap}
 @media(max-width:900px){.overview-markers .service-marker,.overview-markers .service-marker.marker-left{position:static;transform:none;min-height:38px;padding:9px 12px;background:rgba(15,20,22,.84);border:1px solid rgba(255,255,255,.16);filter:drop-shadow(0 6px 14px rgba(0,0,0,.16));white-space:normal}.overview-markers .service-marker:before,.overview-markers .service-marker:after{display:none}}
-@media(max-width:640px){.overview-markers .service-marker,.overview-markers .service-marker.marker-left{min-height:34px;padding:7px 9px;font-size:9px;letter-spacing:.09em}.service-tabs{grid-template-columns:repeat(7,minmax(145px,1fr));margin-left:-20px;margin-right:-20px;padding-left:20px}.service-tabs button{min-width:145px}}
+@media(max-width:640px){.overview-markers .service-marker,.overview-markers .service-marker.marker-left{min-height:34px;padding:7px 9px;font-size:9px;letter-spacing:.09em}.service-tabs{grid-template-columns:repeat(6,minmax(145px,1fr));margin-left:-20px;margin-right:-20px;padding-left:20px}.service-tabs button{min-width:145px}}
 @media(max-width:640px){body{font-size:16px}.eyebrow,.section-kicker{font-size:11px}.hero-stats span{font-size:9px}.service-tabs button{font-size:14px}.service-tabs span{font-size:10px}.accordion summary{font-size:17px}.choice-grid span{font-size:11px}}
 
 /* Scroll-tour clarity: every scene names its focus and every frame change behaves like one camera move. */

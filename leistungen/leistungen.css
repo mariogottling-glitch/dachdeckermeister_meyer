@@ -13,3 +13,16 @@
 .service-hero h1,.overview-hero h1{line-height:1;letter-spacing:-.012em}
 .display,.image-caption h2,.cta h2,.service-card h2{line-height:1.04;letter-spacing:-.01em}
 @media(max-width:760px){.service-hero h1,.overview-hero h1,.display,.image-caption h2,.cta h2,.service-card h2{line-height:1.06;letter-spacing:0}}
+
+/* The services hub now uses one architectural hero for the complete building
+   envelope, with a controlled copy-safe gradient across all viewports. */
+.overview-hero-media{position:absolute;inset:0}
+.overview-hero-media img{height:100%;object-fit:cover;object-position:center}
+.overview-hero:before{z-index:1}
+.overview-hero:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#171b1df7 0%,#171b1ddf 34%,#171b1d78 57%,#171b1d15 82%),linear-gradient(0deg,#171b1dc9 0%,transparent 56%)}
+.overview-hero p{color:#ffffffc4}
+
+@media(max-width:760px){
+  .overview-hero-media img{object-position:62% center}
+  .overview-hero:after{background:linear-gradient(90deg,#171b1df5 0%,#171b1dc9 66%,#171b1d70),linear-gradient(0deg,#171b1df2 0%,transparent 72%)}
+}
