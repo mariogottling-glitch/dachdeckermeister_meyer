@@ -26,3 +26,7 @@
   .overview-hero-media img{object-position:62% center}
   .overview-hero:after{background:linear-gradient(90deg,#171b1df5 0%,#171b1dc9 66%,#171b1d70),linear-gradient(0deg,#171b1df2 0%,transparent 72%)}
 }
+
+/* Every services header occupies at least the full visible viewport. Content
+   may grow on short screens, but no page falls back to a shorter hero. */
+.service-hero,.service-hero-inner,.overview-hero,.overview-hero-inner{min-height:100svh}
