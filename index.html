@@ -25,11 +25,11 @@
   <link rel="manifest" href="site.webmanifest" />
   <link rel="preload" href="assets/hero-cinematic.webp" as="image" fetchpriority="high" />
   <link rel="preload" href="assets/hero-scenes/roof-pv.webp" as="image" />
-  <link rel="stylesheet" href="styles.css?v=20260721-47" />
+  <link rel="stylesheet" href="styles.css?v=20260721-48" />
   <link rel="stylesheet" href="navigation.css?v=20260719-1" />
   <script src="vendor/gsap.min.js" defer></script>
   <script src="vendor/ScrollTrigger.min.js" defer></script>
-  <script src="script.js?v=20260721-37" defer></script>
+  <script src="script.js?v=20260721-38" defer></script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"RoofingContractor","@id":"https://www.dachdeckermeister-meyer.de/#business","name":"Dachdeckermeister Meyer","legalName":"Dachdeckermeister Pierre Meyer","url":"https://www.dachdeckermeister-meyer.de/","logo":"https://www.dachdeckermeister-meyer.de/assets/meyer-logo-final.png","image":"https://www.dachdeckermeister-meyer.de/assets/hero-cinematic.webp","description":"Dachdeckermeisterbetrieb in Köln für Dachsanierung, Dachreparatur, Steildach, Flachdach, Dachfenster, Fassadenbekleidung, Abdichtung und Wartung.","telephone":"+49 176 43487351","email":"info@dachdeckermeister-meyer.de","address":{"@type":"PostalAddress","streetAddress":"Weißer Straße 32","postalCode":"50996","addressLocality":"Köln","addressRegion":"Nordrhein-Westfalen","addressCountry":"DE"},"areaServed":{"@type":"City","name":"Köln"},"founder":{"@type":"Person","name":"Pierre Meyer"},"hasOfferCatalog":{"@type":"OfferCatalog","name":"Dachdeckerleistungen in Köln","itemListElement":[{"@type":"Offer","itemOffered":{"@type":"Service","name":"Steildach und Dachsanierung","url":"https://www.dachdeckermeister-meyer.de/leistungen/steildach.html"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Flachdachsanierung und Dachabdichtung","url":"https://www.dachdeckermeister-meyer.de/leistungen/flachdach.html"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Dachfenster einbauen und austauschen","url":"https://www.dachdeckermeister-meyer.de/leistungen/dachfenster.html"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Fassadenbekleidung und Dämmung","url":"https://www.dachdeckermeister-meyer.de/leistungen/fassaden.html"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Terrassen- und Balkonabdichtung","url":"https://www.dachdeckermeister-meyer.de/leistungen/terrassen-balkone.html"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Dachreparatur, Sturmschadenhilfe und Wartung","url":"https://www.dachdeckermeister-meyer.de/leistungen/service-wartung.html"}}]}}</script>
 </head>
 <body>
@@ -166,9 +166,15 @@
       </div>
     </section>
 
-    <section class="contact contact-priority" id="anfrage">
-      <div class="contact-intro"><div class="section-kicker light" data-assistant-kicker>Direkt-Service / Reparatur & Dachfenster</div><h2 data-assistant-heading>Was können wir<br />für Sie lösen?</h2><p data-assistant-copy>Wählen Sie den passenden Assistenten. Reparaturschäden und vorhandene Dachfenster werden mit jeweils eigenen, gezielten Fragen erfasst.</p><div class="contact-person"><span>M</span><div><strong>Team Meyer</strong><small>Fachberatung & Projektbetreuung</small></div></div></div>
+    <section class="contact contact-priority" id="anfrage" data-collapsible-form aria-labelledby="inquiry-title">
+      <div class="contact-intro"><div class="section-kicker light" data-assistant-kicker>Direkt-Service / Reparatur & Dachfenster</div><h2 id="inquiry-title" data-assistant-heading>Was können wir<br />für Sie lösen?</h2><p data-assistant-copy>Wählen Sie den passenden Assistenten. Reparaturschäden und vorhandene Dachfenster werden mit jeweils eigenen, gezielten Fragen erfasst.</p><div class="contact-person"><span>M</span><div><strong>Team Meyer</strong><small>Fachberatung & Projektbetreuung</small></div></div></div>
+      <div class="inquiry-launch" data-inquiry-launch>
+        <div><span>Online-Assistent</span><strong>Ihr Anliegen strukturiert erfassen.</strong><p>Nur die Fragen, die für Ihr Projekt wirklich wichtig sind. Fotos können Sie direkt ergänzen.</p></div>
+        <ul aria-label="Vorteile der Online-Anfrage"><li>3 klare Schritte</li><li>Zwischendurch korrigierbar</li><li>Persönlich geprüft</li></ul>
+        <button class="inquiry-expand" type="button" data-inquiry-expand aria-expanded="false" aria-controls="inquiry-form"><span>Anfrage starten</span><b aria-hidden="true">↓</b></button>
+      </div>
       <form id="inquiry-form" action="send-inquiry.php" method="post" enctype="multipart/form-data" novalidate>
+        <button class="inquiry-collapse" type="button" data-inquiry-collapse aria-controls="inquiry-form">Formular schließen <span aria-hidden="true">↑</span></button>
         <label class="form-honeypot" aria-hidden="true">Website<input name="website" tabindex="-1" autocomplete="off" /></label>
         <input type="hidden" name="form_started" value="" />
         <input type="hidden" name="preferred_concept" value="Premiumdämmung" />

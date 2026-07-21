@@ -1368,3 +1368,64 @@ body.menu-open .site-header{
   .hero-cover #hero-title{max-width:100%;font-size:clamp(50px,14vw,60px);line-height:.94;letter-spacing:-.025em}
   #hero-title .seo-city{display:block}
 }
+
+/* Progressive disclosure keeps the powerful inquiry assistant available
+   without presenting the complete form before a visitor asks for it. */
+.inquiry-launch{display:none}
+.contact-priority.is-collapsible:not(.is-expanded){padding-top:clamp(48px,4.8vw,72px);padding-bottom:clamp(48px,4.8vw,72px)}
+.contact-priority.is-collapsible .inquiry-launch{
+  grid-column:2;
+  grid-row:1;
+  align-self:center;
+  display:grid;
+  grid-template-columns:1fr auto;
+  gap:28px 36px;
+  padding:clamp(28px,3vw,46px);
+  border-top:1px solid rgba(255,255,255,.22);
+  border-bottom:1px solid rgba(255,255,255,.22);
+  background:rgba(255,255,255,.025);
+}
+.contact-priority.is-expanded .inquiry-launch{display:none}
+.contact-priority.is-collapsible:not(.is-expanded) .contact-person{display:none}
+.contact-priority.is-collapsible:not(.is-expanded) .contact-direct{
+  grid-column:1 / -1;
+  grid-row:2;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:clamp(24px,4vw,64px);
+  border-top:0;
+}
+.contact-priority.is-collapsible:not(.is-expanded) .contact-direct>a,
+.contact-priority.is-collapsible:not(.is-expanded) .contact-direct>div{padding:12px 0}
+.inquiry-launch>div>span{display:block;margin-bottom:12px;color:var(--accent);font-size:14px;font-weight:600;letter-spacing:.14em;text-transform:uppercase}
+.inquiry-launch strong{display:block;color:#fff;font-family:"Montserrat Meyer",Montserrat,Arial,sans-serif;font-size:clamp(25px,2.4vw,38px);font-weight:650;line-height:1.12;letter-spacing:-.025em}
+.inquiry-launch p{max-width:570px;margin:16px 0 0;color:#bdbdbd;font-size:17px;line-height:1.65}
+.inquiry-launch ul{grid-column:1;display:flex;flex-wrap:wrap;gap:10px 22px;margin:0;padding:0;list-style:none;color:#c8c8c8;font-size:14px}
+.inquiry-launch li:before{content:"✓";margin-right:8px;color:var(--accent)}
+.inquiry-expand{grid-column:2;grid-row:1 / span 2;align-self:stretch;min-width:190px;padding:20px;display:flex;align-items:flex-end;justify-content:space-between;gap:30px;border:1px solid var(--accent);background:transparent;color:#fff;font-size:14px;font-weight:650;letter-spacing:.1em;text-align:left;text-transform:uppercase;cursor:pointer;transition:background .25s ease,color .25s ease}
+.inquiry-expand b{color:var(--accent);font-size:23px;font-weight:400}
+.inquiry-expand:hover,.inquiry-expand:focus-visible{background:var(--accent);color:#142226;outline:0}
+.inquiry-expand:hover b,.inquiry-expand:focus-visible b{color:inherit}
+.inquiry-collapse{width:100%;min-height:44px;margin:0 0 18px;padding:0 0 10px;display:none;justify-content:flex-end;gap:10px;border:0;border-bottom:1px solid rgba(255,255,255,.18);background:transparent;color:#bdbdbd;font-size:13px;letter-spacing:.08em;text-transform:uppercase;cursor:pointer}
+.contact-priority.is-collapsible.is-expanded .inquiry-collapse{display:flex}
+.inquiry-collapse span{color:var(--accent)}
+.inquiry-collapse:hover,.inquiry-collapse:focus-visible{color:#fff;outline:0;border-bottom-color:var(--accent)}
+.contact-priority.is-expanded form{animation:inquiryExpand .5s var(--ease)}
+@keyframes inquiryExpand{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+
+@media(max-width:900px){
+  .contact-priority.is-collapsible .inquiry-launch{grid-column:1;grid-row:2}
+  .contact-priority.is-collapsible:not(.is-expanded) .contact-direct{grid-column:1;grid-row:3}
+}
+
+@media(max-width:640px){
+  .contact-priority.is-collapsible:not(.is-expanded){gap:24px;padding-top:44px;padding-bottom:48px}
+  .contact-priority.is-collapsible:not(.is-expanded) .contact-intro>p{display:none}
+  .contact-priority.is-collapsible .inquiry-launch{grid-template-columns:1fr;gap:20px;padding:23px 20px}
+  .contact-priority.is-collapsible:not(.is-expanded) .contact-direct{grid-template-columns:1fr;gap:0}
+  .contact-priority.is-collapsible:not(.is-expanded) .contact-direct>div{display:none}
+  .contact-priority.is-collapsible:not(.is-expanded) .inquiry-launch ul{display:none}
+  .inquiry-launch ul{grid-column:1}
+  .inquiry-expand{grid-column:1;grid-row:auto;min-width:0;min-height:58px;align-items:center;padding:16px 18px}
+}
+
+@media(prefers-reduced-motion:reduce){.contact-priority.is-expanded form{animation:none}}

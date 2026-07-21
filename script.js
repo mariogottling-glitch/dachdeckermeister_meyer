@@ -523,10 +523,26 @@ const uploadList = inquiryForm?.querySelector('.upload-list');
 const inquirySummary = inquiryForm?.querySelector('[data-inquiry-summary]');
 const summaryEditButton = inquiryForm?.querySelector('[data-summary-edit]');
 const formStartedInput = inquiryForm?.querySelector('input[name="form_started"]');
+const inquiryExpandButton = document.querySelector('[data-inquiry-expand]');
+const inquiryCollapseButton = document.querySelector('[data-inquiry-collapse]');
 const maxPhotoCount = 5;
 const maxPhotoSize = 5 * 1024 * 1024;
 const maxPhotoTotal = 15 * 1024 * 1024;
 const allowedPhotoTypes = ['image/jpeg', 'image/png', 'image/webp'];
+
+function setInquiryExpanded(expanded, { focus = false } = {}) {
+  if (!inquirySection || !inquiryForm) return;
+  inquirySection.classList.add('is-collapsible');
+  inquirySection.classList.toggle('is-expanded', expanded);
+  inquiryExpandButton?.setAttribute('aria-expanded', String(expanded));
+  inquiryForm.hidden = !expanded;
+  inquiryForm.setAttribute('aria-hidden', String(!expanded));
+  if (expanded) inquiryForm.removeAttribute('inert');
+  else inquiryForm.setAttribute('inert', '');
+  if (focus) requestAnimationFrame(() => {
+    (expanded ? inquiryForm.querySelector('.assistant-switch button') : inquiryExpandButton)?.focus({ preventScroll: true });
+  });
+}
 const projectFields = {
   steildach: `
     <label>Dachtyp <span class="required-marker"><span aria-hidden="true">*</span><span class="sr-only"> Pflichtfeld</span></span><select name="roof_type" required><option value="">Bitte wählen</option><option>Satteldach</option><option>Walmdach</option><option>Anderer Dachtyp</option><option>Unbekannt</option></select></label>
@@ -814,7 +830,15 @@ assistantOtherButton?.addEventListener('click', () => {
   syncAssistantPresentation('all');
   showFormStep(1, true);
 });
+inquiryExpandButton?.addEventListener('click', () => {
+  syncAssistantPresentation('all');
+  showFormStep(1);
+  setInquiryExpanded(true, { focus: true });
+});
+inquiryCollapseButton?.addEventListener('click', () => setInquiryExpanded(false, { focus: true }));
+document.querySelectorAll('a[href="#anfrage"]').forEach(link => link.addEventListener('click', () => setInquiryExpanded(true)));
 document.querySelectorAll('[data-form-all]').forEach(link => link.addEventListener('click', () => {
+  setInquiryExpanded(true);
   syncAssistantPresentation('all');
   showFormStep(1);
 }));
@@ -822,6 +846,7 @@ const requestedService = new URLSearchParams(location.search).get('leistung');
 const requestedInput = inquiryForm?.querySelector(`input[data-key="${requestedService}"]`);
 if (requestedInput) requestedInput.checked = true;
 document.querySelectorAll('[data-preset]').forEach(link => link.addEventListener('click', () => {
+  setInquiryExpanded(true);
   const input = inquiryForm?.querySelector(`input[data-key="${link.dataset.preset}"]`);
   const directStep = Number(link.dataset.directStep || 1);
   if (input) { input.checked = true; renderProjectFields(); syncAssistantPresentation(input.dataset.key); showFormStep(Math.min(3, Math.max(1, directStep))); }
@@ -840,7 +865,11 @@ inquiryForm?.querySelectorAll('.prev-step').forEach(button => button.addEventLis
 renderProjectFields();
 if (requestedInput && ['service', 'fenster'].includes(requestedService)) openAssistant(requestedService);
 else if (requestedInput) { syncAssistantPresentation('all'); showFormStep(1); }
-else openAssistant('service');
+else { syncAssistantPresentation('all'); showFormStep(1); }
+setInquiryExpanded(location.hash === '#anfrage' || Boolean(requestedService));
+addEventListener('hashchange', () => {
+  if (location.hash === '#anfrage') setInquiryExpanded(true);
+});
 if (formStartedInput) formStartedInput.value = String(Math.floor(Date.now() / 1000));
 
 function showSubmissionSuccess(message) {
