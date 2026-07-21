@@ -212,6 +212,15 @@ Das Layout arbeitet mit großen ruhigen Flächen, klaren Achsen und präzisen Tr
 - ausgewählte Karte zusätzlich durch Rahmen, Position und Typografie kennzeichnen
 - der Leistungs-Schnellzugriff zeigt ausschließlich Leistungen: Steildach, Flachdach und Terrassen, Photovoltaik, Reparaturen und Wartung sowie Dachflächenfenster
 - diese fünf Leistungskarten stehen am Desktop in genau einer gemeinsamen Reihe
+
+### Steildach-Landingpage
+
+- die Steildachseite beginnt mit einem bedienbaren Vorher-/Nachher-Vergleich desselben Gebäudes
+- Bestand und sanierter Zustand müssen eindeutig beschriftet und per Tastatur vergleichbar sein
+- Sanierungswege werden als „Eindeckung erhalten“, „Energetisch sanieren“ und „Komplett erneuern“ erklärt
+- die drei Wege sind Orientierung, keine starren Preis-, Qualitäts- oder Förderpakete
+- keine pauschalen U-Werte, Förderzusagen oder Haltbarkeitsversprechen ohne konkrete Bestands- und Fachplanung
+- GEG-Anforderungen und mögliche Förderung werden sachlich eingeordnet und auf offizielle Quellen verlinkt
 - mobil wird dieselbe Reihenfolge als horizontal einrastende Galerie mit sichtbarem Anschnitt der nächsten Karte angeboten
 
 ### Formulare

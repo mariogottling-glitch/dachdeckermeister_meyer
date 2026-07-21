@@ -73,6 +73,59 @@ Der fokussierte Vergleich ist in `qa/inquiry-assistant-qa/comparison-before-afte
 
 final result: passed
 
+## Steildach-Landingpage nach Kundenvorlage – 21.07.2026
+
+**Source visual truth**
+
+- `qa/steildach-page-qa/source-reference.png`
+
+**Implementation evidence**
+
+- `qa/steildach-page-qa/implementation-desktop-hero.png`
+- `qa/steildach-page-qa/implementation-desktop-cards.png`
+- `qa/steildach-page-qa/implementation-mobile-hero.png`
+- Gemeinsamer Vollvergleich: `qa/steildach-page-qa/comparison-source-final.png`
+
+**Viewport und Zustand**
+
+- Desktop: 1440 × 900 px, Hero im Ausgangszustand und Sanierungswege nach Sprunglink
+- Mobil: 390 × 844 px, Hero im Ausgangszustand
+- Vorher-/Nachher-Regler bei 54 %, erste Orientierungskarte ausgewählt
+
+**Findings**
+
+- Keine offenen P0/P1/P2-Befunde.
+- Die Referenz kombiniert Hero und Karten in einem kürzeren Bildschirm. Die Umsetzung nutzt bewusst den für Meyer festgelegten vollhohen Hero und zeigt die drei Wege direkt darunter; Vergleichslogik, Dreiteilung, dunkle Materialität und türkise Auswahlführung bleiben erhalten.
+- Die in der Referenz gezeigten pauschalen U-Werte, Förderampeln und Qualitätsstufen wurden nicht übernommen. Sie wären ohne konkrete Konstruktion, Bestandsprüfung und Förderplanung missverständlich.
+
+**Fidelity-Oberflächen**
+
+- Typografie: Montserrat Meyer für prägnante Überschriften, gut lesbare Fließtexte und keine abgeschnittenen Wörter auf 390 px.
+- Abstände: Vollhoher Hero, klare Trennung zur Orientierung, bündige Dreierspalte am Desktop und einspaltige Karten mobil.
+- Farben: bestehendes Anthrazit, Weiß und Meyer-Türkis ohne neue Fremdfarben.
+- Bilder: zwei pixelgleich ausgerichtete, scharfe Dachansichten desselben Hauses; glaubwürdiger Bestand und sanierter Zustand.
+- Copy: sachliche Sanierungswege, keine pauschalen Preis-, Förder- oder Haltbarkeitsversprechen; offizielle GEG- und BAFA-Quellen verlinkt.
+
+**Primäre Interaktionen**
+
+- Range-Regler aktualisiert den Bildvergleich und besitzt eine zugängliche Beschriftung.
+- Alle drei Orientierungskarten setzen Auswahlzustand, `aria-pressed`, Zusammenfassung und Anfrage-Link korrekt.
+- Mobile Navigation, Sprunglink, externe Fachquellen und Anfrage-CTA geprüft.
+- Browserkonsole: keine Fehler oder Warnungen.
+- Horizontaler Überlauf: 0 px bei 1440 px und 390 px.
+
+**Vergleichsverlauf**
+
+- Pass 1: Visueller Aufbau übertragen; Bestandsbild erzeugt und drei fachlich belastbare Sanierungswege formuliert.
+- Pass 2: Falsch positionierte Bestandsbeschriftung korrigiert, Orientierungstitel verdichtet und mobilen Menütext visuell verborgen.
+- Pass 3: Mobilen Überlauf in der Faktensektion entfernt; Desktop- und Mobilansichten sowie Interaktionen erneut geprüft.
+
+**Follow-up Polish**
+
+- P3: Sobald reale Vorher-/Nachher-Fotos eines ausgeführten Meyer-Projekts vorliegen, sollten die derzeit eigens erzeugten, aber glaubwürdigen Vergleichsbilder ersetzt werden.
+
+final result: passed
+
 ## Einheitliche Kopfzeile – 21.07.2026
 
 - **P1 – Seitenwechsel ohne Navigationssprung:** Karriere, Team, alle sieben Leistungsseiten sowie Impressum und Datenschutz verwenden nun dieselben Header-Abmessungen, Menüpunkte und dieselbe Kontaktaktion wie die Startseite.
