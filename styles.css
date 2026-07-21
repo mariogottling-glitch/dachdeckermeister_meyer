@@ -599,7 +599,7 @@ body{font-size:18px}.site-header nav,.header-cta{font-size:13px}.eyebrow,.sectio
 @media(max-width:640px){
   .site-header .brand-logo-img{width:74px}
   .hero-tour-link{
-    top:86px;
+    top:154px;
     right:20px;
     width:174px;
     min-height:52px;
@@ -629,6 +629,36 @@ body{font-size:18px}.site-header nav,.header-cta{font-size:13px}.eyebrow,.sectio
   line-height:1.58;
 }
 .contact-priority .contact-person{margin-top:34px}
+.contact-direct{
+  display:grid;
+  gap:0;
+  margin-top:34px;
+  border-top:1px solid rgba(255,255,255,.18);
+}
+.contact-direct>a,.contact-direct>div{
+  min-width:0;
+  padding:14px 0;
+  border-bottom:1px solid rgba(255,255,255,.18);
+}
+.contact-direct small,.contact-direct strong{display:block}
+.contact-direct small{
+  color:#aaa;
+  font-size:12px;
+  line-height:1.4;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+}
+.contact-direct strong{
+  margin-top:3px;
+  color:#fff;
+  font-size:15px;
+  font-weight:500;
+  line-height:1.45;
+  overflow-wrap:anywhere;
+}
+.contact-direct>a{transition:color .2s ease,border-color .2s ease}
+.contact-direct>a:hover,.contact-direct>a:focus-visible{color:var(--accent);border-bottom-color:var(--accent);outline:none}
+.contact-direct>a:hover strong,.contact-direct>a:focus-visible strong{color:var(--accent)}
 .contact-priority form{align-self:start}
 .contact-priority .wizard-progress{margin-bottom:27px}
 .contact-priority .wizard-progress span{padding-bottom:10px}
@@ -655,6 +685,10 @@ body{font-size:18px}.site-header nav,.header-cta{font-size:13px}.eyebrow,.sectio
   .contact-priority .section-kicker{margin-bottom:24px}
   .contact-priority h2{font-size:clamp(39px,11vw,52px)}
   .contact-priority .contact-person{margin-top:26px}
+  .contact-direct{margin-top:26px}
+  .contact-direct>a,.contact-direct>div{padding:12px 0}
+  .contact-direct small{font-size:11px}
+  .contact-direct strong{font-size:16px}
   .contact-priority .wizard-progress{margin-bottom:24px}
   .contact-priority .upload-field>span{min-height:78px;padding:14px 16px}
 }
