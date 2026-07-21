@@ -30,3 +30,11 @@
 /* Every services header occupies at least the full visible viewport. Content
    may grow on short screens, but no page falls back to a shorter hero. */
 .service-hero,.service-hero-inner,.overview-hero,.overview-hero-inner{min-height:100svh}
+
+/* Photovoltaics remains a specialization within the six service areas, but
+   receives a direct detail path from the Steildach page. */
+.scope-link{display:inline-flex;align-items:center;gap:10px;margin-top:20px;color:var(--ink);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;border-bottom:1px solid var(--accent);padding-bottom:4px}
+.scope-link b{color:var(--accent);font-size:14px}
+.scope-link:hover,.scope-link:focus{color:var(--accent)}
+.pv-page .service-hero-media img{object-position:center}
+@media(max-width:760px){.pv-page .service-hero-media img{object-position:58% center}}
