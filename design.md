@@ -251,15 +251,16 @@ Die bevorzugte Reihenfolge lautet:
 
 1. Hero mit H1 „Dächer mit System.“
 2. priorisierter Direkt-Service für Reparatur und Dachfenster
-3. Beratung und Markenversprechen
+3. visueller Schnellzugriff auf Leistungen, Partner, Team und Karriere
 4. interaktiver Dachaufbau
 5. Vergleich der drei Dämmkonzepte
-6. Leistungsübersicht
-7. Dach-Check beziehungsweise Bedarfseinstieg
-8. transparenter Ablauf
-9. Partner
-10. FAQ
-11. Footer und Kontaktwege
+6. Dach-Check beziehungsweise Bedarfseinstieg
+7. transparenter Ablauf
+8. Partner
+9. FAQ
+10. Footer und Kontaktwege
+
+Eine separate Beratungssektion und ein eigener Navigationspunkt „Beratung“ sind nicht vorgesehen. Beratung bleibt als Haltung in Formularen, Projektablauf und Teamkommunikation sichtbar.
 
 Die Projektsektion bleibt vorerst entfernt.
 
@@ -379,4 +380,3 @@ Vor jedem Push prüfen:
 - Bleiben Formularzustände und Fehlermeldungen verständlich?
 - Wurden Desktop und Mobil visuell im Browser geprüft?
 - Gibt es keine Fehler oder Warnungen in der Browserkonsole?
-
