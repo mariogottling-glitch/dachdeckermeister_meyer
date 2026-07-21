@@ -1353,3 +1353,18 @@ body.menu-open .site-header{
 @media(prefers-reduced-motion:reduce){
   .site-header{transition:none;will-change:auto}
 }
+
+/* The primary visible title now carries the local search intent while keeping
+   the established "mit System" brand language. */
+.hero-cover #hero-title{max-width:min(1120px,86vw);font-size:clamp(60px,7vw,108px);line-height:.92;letter-spacing:-.045em}
+#hero-title>span,#hero-title>em{display:block}
+#hero-title b{font:inherit}
+
+@media(min-width:641px) and (max-width:900px){
+  .hero-cover .hero-grid #hero-title{font-size:clamp(58px,8.4vw,72px);line-height:.94}
+}
+
+@media(max-width:640px){
+  .hero-cover #hero-title{max-width:100%;font-size:clamp(50px,14vw,60px);line-height:.94;letter-spacing:-.025em}
+  #hero-title .seo-city{display:block}
+}

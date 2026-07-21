@@ -249,7 +249,7 @@ Das Layout arbeitet mit großen ruhigen Flächen, klaren Achsen und präzisen Tr
 
 Die bevorzugte Reihenfolge lautet:
 
-1. Hero mit H1 „Dächer mit System.“
+1. Hero mit lokaler H1 „Dachdecker Köln. Mit System.“; der Markenclaim „Dächer mit System.“ bleibt die inhaltliche Leitidee
 2. priorisierter Direkt-Service für Reparatur und Dachfenster
 3. visueller Schnellzugriff auf Leistungen, Partner, Team und Karriere
 4. interaktiver Dachaufbau
