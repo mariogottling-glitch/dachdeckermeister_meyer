@@ -25,7 +25,7 @@
   <link rel="manifest" href="site.webmanifest" />
   <link rel="preload" href="assets/hero-cinematic.webp" as="image" fetchpriority="high" />
   <link rel="preload" href="assets/hero-scenes/roof-pv.webp" as="image" />
-  <link rel="stylesheet" href="styles.css?v=20260721-48" />
+  <link rel="stylesheet" href="styles.css?v=20260721-49" />
   <link rel="stylesheet" href="navigation.css?v=20260719-1" />
   <script src="vendor/gsap.min.js" defer></script>
   <script src="vendor/ScrollTrigger.min.js" defer></script>
@@ -169,9 +169,9 @@
     <section class="contact contact-priority" id="anfrage" data-collapsible-form aria-labelledby="inquiry-title">
       <div class="contact-intro"><div class="section-kicker light" data-assistant-kicker>Direkt-Service / Reparatur & Dachfenster</div><h2 id="inquiry-title" data-assistant-heading>Was können wir<br />für Sie lösen?</h2><p data-assistant-copy>Wählen Sie den passenden Assistenten. Reparaturschäden und vorhandene Dachfenster werden mit jeweils eigenen, gezielten Fragen erfasst.</p><div class="contact-person"><span>M</span><div><strong>Team Meyer</strong><small>Fachberatung & Projektbetreuung</small></div></div></div>
       <div class="inquiry-launch" data-inquiry-launch>
-        <div><span>Online-Assistent</span><strong>Ihr Anliegen strukturiert erfassen.</strong><p>Nur die Fragen, die für Ihr Projekt wirklich wichtig sind. Fotos können Sie direkt ergänzen.</p></div>
-        <ul aria-label="Vorteile der Online-Anfrage"><li>3 klare Schritte</li><li>Zwischendurch korrigierbar</li><li>Persönlich geprüft</li></ul>
-        <button class="inquiry-expand" type="button" data-inquiry-expand aria-expanded="false" aria-controls="inquiry-form"><span>Anfrage starten</span><b aria-hidden="true">↓</b></button>
+        <div class="inquiry-launch-copy"><div class="inquiry-launch-label"><span>Digitaler Projekt-Assistent</span><small>In etwa 3 Minuten</small></div><strong>Ihr Anliegen. Gezielt vorbereitet.</strong><p>Beantworten Sie wenige passende Fragen und ergänzen Sie bei Bedarf Fotos. Das Team Meyer erhält alle Angaben für eine schnelle, konkrete Rückmeldung.</p></div>
+        <ol class="inquiry-launch-steps" aria-label="Ablauf des Projekt-Assistenten"><li><b>01</b><span>Anliegen wählen</span></li><li><b>02</b><span>Details + Fotos</span></li><li><b>03</b><span>Rückmeldung erhalten</span></li></ol>
+        <button class="inquiry-expand" type="button" data-inquiry-expand aria-expanded="false" aria-controls="inquiry-form"><span><strong>Projekt-Assistent öffnen</strong><small>Schaden, Dachfenster oder Projekt erfassen</small></span></button>
       </div>
       <form id="inquiry-form" action="send-inquiry.php" method="post" enctype="multipart/form-data" novalidate>
         <button class="inquiry-collapse" type="button" data-inquiry-collapse aria-controls="inquiry-form">Formular schließen <span aria-hidden="true">↑</span></button>

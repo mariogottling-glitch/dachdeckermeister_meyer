@@ -29,3 +29,46 @@
 ## Ergebnis
 
 passed
+
+---
+
+# Design QA – Einstieg zum Projekt-Assistenten
+
+## Prüfgrundlage
+
+- Visuelle Ausgangslage: `C:\Users\Mario\AppData\Local\Temp\codex-clipboard-ffc158c8-8953-467b-883f-780e1db8ada6.png`
+- Browser-Implementierung: `qa/inquiry-assistant-qa/implementation-final-desktop.png`
+- Direkter Vorher-Nachher-Vergleich: `qa/inquiry-assistant-qa/comparison-before-after.png`
+- Viewports: 1440 × 900 px, 768 × 1024 px und 390 × 844 px
+- Zustand: Assistent geschlossen; Öffnen-Interaktion zusätzlich getestet
+
+## Findings
+
+- **P1 – Funktionsbezeichnung behoben:** „Online-Assistent“ war in der Ausgangslage zu klein und wirkte wie eine technische Metainformation. Die neue Bezeichnung „Digitaler Projekt-Assistent“ steht kontrastreich in einem akzentuierten Funktionslabel.
+- **P1 – Handlungsaufforderung behoben:** Die schmale Rahmenfläche machte „Anfrage starten“ schwer lesbar. Die neue türkisfarbene Primäraktion „Projekt-Assistent öffnen“ erreicht 15 px Schriftgröße, mindestens 74 px Höhe und beschreibt zusätzlich den möglichen Inhalt.
+- **P2 – Nutzenkommunikation behoben:** Die Ausgangslage erklärte nicht, was nach dem Klick geschieht. Ein kurzer Nutzenabsatz und die Schritte 01–03 erklären Auswahl, Angaben/Fotos und Rückmeldung vor dem Öffnen.
+- **P2 – Visuelle Hierarchie behoben:** Titel, Erklärung, Ablauf und Aktion besitzen jetzt klar getrennte Ebenen. Die Gestaltung bleibt gemäß `design.md` geradlinig, architektonisch und nutzt Türkis ausschließlich als Akzent.
+- **Responsivität bestanden:** Dokument- und Scrollbreite stimmen an allen drei Viewports überein. Die Karte misst 372 px Höhe auf Desktop, 380 px auf Tablet und 463 px auf Mobil; es gibt keinen horizontalen Überlauf.
+- **Interaktion und Barrierefreiheit bestanden:** Öffnen setzt `aria-expanded`, zeigt den Assistenten und verschiebt den Tastaturfokus zur ersten Auswahl. Der Fokuszustand der Primäraktion ist sichtbar; bei fehlendem JavaScript bleibt das vollständige Formular verfügbar.
+- **Konsole bestanden:** Bei der Browserprüfung wurden keine Fehler oder Warnungen ausgegeben.
+
+## Fidelity-Oberflächen
+
+- **Typografie:** Relevante Labels und Aktionen liegen bei mindestens 14 px; Funktionslabel und CTA bei 15 px. Montserrat Meyer kennzeichnet Titel und Aktion, die Leseschrift bleibt für Erläuterungen erhalten.
+- **Abstände und Rhythmus:** Die frühere leere rechte Rahmenfläche wurde durch eine kompakte Aktionsfläche ersetzt. Dünne Linien, gerade Ecken und gemeinsame Achsen entsprechen dem bestehenden System.
+- **Farben:** Anthrazit, Weiß, Grau und Meyer-Türkis entsprechen den bestehenden Tokens; der Primärbutton verwendet den vorgesehenen Türkis-Hintergrund mit dunkler Schrift.
+- **Bild- und Assetqualität:** Die Komponente benötigt keine Bild- oder Illustrationsassets. Es wurden keine Platzhalter oder dekorativen Ersatzgrafiken ergänzt.
+- **Copy:** Funktionsname, Zeitbedarf, Ablauf und Ergebnis sind vor dem Öffnen verständlich; die Aktion verwendet das eindeutige Verb „öffnen“.
+
+## Vergleichsverlauf
+
+- Pass 1: Ausgangslage geprüft; unscheinbare Funktionsbezeichnung und kontrastarme, hohe Rahmenaktion als P1 erfasst.
+- Pass 2: Funktionslabel, Nutzenbeschreibung, Dreischritt und kontrastreiche Primäraktion umgesetzt.
+- Pass 3: Auf Mobil war der Ablauf zunächst vertikal zu hoch. Die drei kurzen Schritte wurden nebeneinander angeordnet; Kartenhöhe sank von 536 px auf 463 px.
+- Pass 4: Desktop, Tablet, Mobil, Öffnen/Fokus, horizontale Breite und Browserkonsole erneut geprüft. Keine P0/P1/P2-Befunde offen.
+
+## Focused evidence
+
+Der fokussierte Vergleich ist in `qa/inquiry-assistant-qa/comparison-before-after.png` zusammengeführt. Er zeigt links die Ausgangslage und rechts die überarbeitete Funktionshierarchie. Die vollständige Browseransicht ist in `qa/inquiry-assistant-qa/implementation-final-desktop.png` dokumentiert.
+
+final result: passed
