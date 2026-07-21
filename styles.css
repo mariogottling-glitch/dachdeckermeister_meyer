@@ -1198,6 +1198,18 @@ body>footer>small{
   line-height:1.2;
 }
 
+.intro-copy>div p a{
+  text-decoration:underline;
+  text-decoration-color:#00b0bb80;
+  text-decoration-thickness:1px;
+  text-underline-offset:.18em;
+  transition:color .2s,text-decoration-color .2s;
+}
+.intro-copy>div p a:hover,.intro-copy>div p a:focus-visible{
+  color:#008d96;
+  text-decoration-color:currentColor;
+}
+
 @media(max-width:1280px){
   body>footer{grid-template-columns:auto minmax(0,1fr) auto;gap:20px}
   body>footer>p{display:none}
