@@ -1290,3 +1290,28 @@ body>footer>small{
   .upload-list>div{padding:10px 12px}
   .upload-list strong{max-width:210px}
 }
+
+/* Calm scroll-aware navigation: transparent over the hero, readable over
+   content, and available again as soon as visitors reverse direction. */
+.site-header{
+  position:fixed;
+  transform:translate3d(0,0,0);
+  transition:transform .38s var(--ease),background-color .28s ease,border-color .28s ease,box-shadow .28s ease,backdrop-filter .28s ease;
+  will-change:transform;
+}
+.site-header.is-scrolled{
+  background:rgba(20,24,26,.88);
+  border-bottom-color:rgba(255,255,255,.12);
+  box-shadow:0 12px 34px rgba(0,0,0,.16);
+  -webkit-backdrop-filter:blur(18px) saturate(125%);
+  backdrop-filter:blur(18px) saturate(125%);
+}
+.site-header.is-hidden{transform:translate3d(0,calc(-100% - 2px),0)}
+.site-header.is-visible,body.menu-open .site-header{transform:translate3d(0,0,0)}
+body.menu-open .site-header{
+  background:rgba(20,24,26,.96);
+  border-bottom-color:rgba(255,255,255,.12);
+}
+@media(prefers-reduced-motion:reduce){
+  .site-header{transition:none;will-change:auto}
+}

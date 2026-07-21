@@ -1,11 +1,47 @@
 const menuButton = document.querySelector('.menu-toggle');
 const nav = document.querySelector('#main-nav');
+const siteHeader = document.querySelector('.site-header');
+const reducedHeaderMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+let previousHeaderScroll = Math.max(0, scrollY);
+let headerFramePending = false;
+
+function updateFloatingHeader(forceVisible = false) {
+  if (!siteHeader) return;
+  const currentScroll = Math.max(0, scrollY);
+  const scrollDelta = currentScroll - previousHeaderScroll;
+  const atPageTop = currentScroll <= 24;
+  const menuIsOpen = document.body.classList.contains('menu-open');
+
+  siteHeader.classList.toggle('is-scrolled', !atPageTop);
+
+  if (atPageTop) {
+    siteHeader.classList.remove('is-hidden', 'is-visible');
+  } else if (reducedHeaderMotion || menuIsOpen || forceVisible || scrollDelta < -5) {
+    siteHeader.classList.remove('is-hidden');
+    siteHeader.classList.add('is-visible');
+  } else if (scrollDelta > 8) {
+    siteHeader.classList.remove('is-visible');
+    siteHeader.classList.add('is-hidden');
+  }
+
+  previousHeaderScroll = currentScroll;
+  headerFramePending = false;
+}
+
+addEventListener('scroll', () => {
+  if (headerFramePending) return;
+  headerFramePending = true;
+  requestAnimationFrame(() => updateFloatingHeader());
+}, { passive: true });
+
+updateFloatingHeader(true);
 
 menuButton?.addEventListener('click', () => {
   const open = menuButton.getAttribute('aria-expanded') === 'true';
   menuButton.setAttribute('aria-expanded', String(!open));
   nav.classList.toggle('open', !open);
   document.body.classList.toggle('menu-open', !open);
+  updateFloatingHeader(!open);
   const menuLabel = menuButton.querySelector('.sr-only');
   if (menuLabel) menuLabel.textContent = open ? 'Menü öffnen' : 'Menü schließen';
 });
