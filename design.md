@@ -206,6 +206,9 @@ Das Layout arbeitet mit großen ruhigen Flächen, klaren Achsen und präzisen Tr
 - dünne Rahmen oder Trennlinien
 - Bild, Titel, Nutzen und Aktion als zusammenhängende Einheit
 - ausgewählte Karte zusätzlich durch Rahmen, Position und Typografie kennzeichnen
+- der Leistungs-Schnellzugriff zeigt ausschließlich Leistungen: Steildach, Flachdach und Terrassen, Photovoltaik, Reparaturen und Wartung sowie Dachflächenfenster
+- diese fünf Leistungskarten stehen am Desktop in genau einer gemeinsamen Reihe
+- mobil wird dieselbe Reihenfolge als horizontal einrastende Galerie mit sichtbarem Anschnitt der nächsten Karte angeboten
 
 ### Formulare
 
@@ -251,7 +254,7 @@ Die bevorzugte Reihenfolge lautet:
 
 1. Hero mit lokaler H1 „Dachdecker Köln. Mit System.“; der Markenclaim „Dächer mit System.“ bleibt die inhaltliche Leitidee
 2. priorisierter Direkt-Service für Reparatur und Dachfenster
-3. visueller Schnellzugriff auf Leistungen, Partner, Team und Karriere
+3. visueller Schnellzugriff auf die fünf priorisierten Leistungen; Partner, Team und Karriere sind dort nicht enthalten
 4. interaktiver Dachaufbau
 5. Vergleich der drei Dämmkonzepte
 6. Dach-Check beziehungsweise Bedarfseinstieg

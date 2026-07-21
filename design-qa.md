@@ -72,3 +72,47 @@ passed
 Der fokussierte Vergleich ist in `qa/inquiry-assistant-qa/comparison-before-after.png` zusammengeführt. Er zeigt links die Ausgangslage und rechts die überarbeitete Funktionshierarchie. Die vollständige Browseransicht ist in `qa/inquiry-assistant-qa/implementation-final-desktop.png` dokumentiert.
 
 final result: passed
+
+---
+
+# Design QA – Leistungs-Schnellzugriff
+
+## Prüfgrundlage
+
+- Visuelle Referenz: `C:\Users\Mario\AppData\Local\Temp\codex-clipboard-af3d6903-5b00-489e-a797-cf07eb4ed167.png`
+- Browser-Implementierung Desktop: `qa/services-directory-qa/implementation-desktop.png`
+- Browser-Implementierung Mobil: `qa/services-directory-qa/implementation-mobile.png`
+- Gemeinsame Vergleichsevidenz: `qa/services-directory-qa/comparison-source-final.png`
+- Viewports: 1440 × 1200 px und 390 × 844 px
+- Zustand: Homepage direkt am Anker `#leistungen`; Rücksprung von einer Leistungsseite zusätzlich getestet
+
+## Findings
+
+- **P1 – Vermischte Zielarten behoben:** Die Referenz mischte Leistungen mit Partnerbetrieben, Team und Karriere. Die neue Fassung enthält ausschließlich fünf Leistungsziele und unterstützt damit die gewünschte schnellere Auswahl.
+- **P1 – Zusätzliche Übersichtsseite aus dem Nutzerweg entfernt:** Alle Navigations-, Footer- und Breadcrumb-Links „Leistungen“ führen nun zur Homepage-Sektion `#leistungen`. Der alte Pfad `/leistungen/` leitet bestehende externe Aufrufe dorthin weiter und ist aus der Sitemap entfernt.
+- **P2 – Desktop-Raster behoben:** Alle fünf Karten stehen bei Desktopbreite in einer einzigen Reihe. Gemessen wurden fünf gleich breite Spalten zu jeweils rund 252 px bei 1440 px Viewport.
+- **P2 – Mobile Bedienung behoben:** Bei 390 px wird die Reihe zur horizontalen Scroll-Snap-Galerie. Die erste Karte ist 320 × 390 px groß; der Anschnitt der nächsten Karte und ein kurzer Hinweis kommunizieren die Wischrichtung.
+- **Responsivität bestanden:** Die mobile Galerie besitzt 1659 px eigenen Scrollinhalt, während Dokument- und Seitenbreite beide 375 px betragen. Es entsteht kein horizontaler Seitenüberlauf.
+- **Interaktion bestanden:** Alle fünf Karten bleiben vollständige Links. Der Navigationslink einer Leistungsseite führt nach dem Seitenaufbau korrekt zu `/index.html#leistungen`.
+- **Konsole bestanden:** Bei Desktop-, Mobil- und seitenübergreifender Linkprüfung wurden keine Fehler oder Warnungen ausgegeben.
+
+## Fidelity-Oberflächen
+
+- **Typografie:** Kartentitel verwenden Montserrat Meyer mit stabiler weißer Hierarchie; mobile Titel wurden bewusst auf 23–29 px angehoben. Metadaten bleiben mindestens 13 px groß.
+- **Abstände und Rhythmus:** Desktop nutzt fünf bündige, nur durch feine Linien getrennte Spalten. Mobil bleiben Kartenhöhe, Anschnitt, Wischhinweis und nachfolgende Sektion klar getrennt.
+- **Farben:** Anthrazit und Weiß dominieren; Meyer-Türkis bleibt Akzent für Nummerierung, Pfeile, Fokuslinie und Scrollindikator.
+- **Bild- und Assetqualität:** Die bereits vorhandenen, leistungsspezifischen Projektbilder werden ohne Platzhalter wiederverwendet und mit `object-fit: cover` passend beschnitten.
+- **Copy:** Partnerbetriebe, Team und Karriere wurden entfernt. Die verbleibenden fünf Titel entsprechen den priorisierten Kundenzielen.
+
+## Vergleichsverlauf
+
+- Pass 1: Referenz geöffnet; gemischte Acht-Kachel-Struktur und zweireihige Desktop-Darstellung als P1/P2 erfasst.
+- Pass 2: Drei nicht leistungsbezogene Karten entfernt, Raster auf fünf Spalten umgestellt und alle Übersichtslinks auf `#leistungen` geführt.
+- Pass 3: Mobile Zweispaltenansicht durch eine Scroll-Snap-Galerie ersetzt; Kartentexte und Wischhinweis vergrößert.
+- Pass 4: Desktop, Mobil, Seitenbreite, Kartenzahl, Linkziel von einer Unterseite, Weiterleitung des alten Übersichtspfads und Browserkonsole erneut geprüft. Keine P0/P1/P2-Befunde offen.
+
+## Focused evidence
+
+`qa/services-directory-qa/comparison-source-final.png` zeigt Referenz und finale Desktopumsetzung in einer gemeinsamen Vergleichsansicht. Die mobile Galerie ist separat vollständig in `qa/services-directory-qa/implementation-mobile.png` dokumentiert.
+
+final result: passed
