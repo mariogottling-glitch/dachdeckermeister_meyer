@@ -9,16 +9,18 @@ img{display:block;max-width:100%;height:auto}
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 .skip-link{position:fixed;z-index:100;left:16px;top:16px;padding:10px 14px;background:var(--accent);color:var(--dark);transform:translateY(-180%)}
 .skip-link:focus{transform:none}
-.site-header{height:82px;padding:0 var(--pad);position:absolute;z-index:20;inset:0 0 auto;display:flex;align-items:center;gap:36px;color:#fff;border-bottom:1px solid #ffffff35}
-.brand{width:82px;flex:0 0 82px}
-.brand img{width:82px;height:58px;object-fit:contain}
+.site-header{height:82px;padding:0 var(--pad);position:absolute;z-index:20;inset:0 0 auto;display:flex;align-items:center;gap:38px;color:#fff;border-bottom:1px solid #ffffff35}
+.brand{width:90px;flex:0 0 90px}
+.brand img{width:90px;height:auto;object-fit:contain}
 .site-header nav{display:flex;gap:28px;margin-left:auto;align-items:center}
-.site-header nav a,.header-cta{font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;transition:color .25s}
+.site-header nav a,.header-cta{display:flex;align-items:center;min-height:44px;font-size:15px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;transition:color .25s}
 .site-header nav a:hover,.site-header nav a:focus,.site-header nav a[aria-current="page"],.header-cta:hover,.header-cta:focus{color:var(--accent)}
-.header-cta{padding-left:30px;border-left:1px solid #ffffff3b}
+.header-cta{padding-left:34px;border-left:1px solid #ffffff3b}
 .header-cta span,.button span,.text-link span,.inline-link span,.entry-cards a span{color:var(--accent);margin-left:14px}
 .menu-toggle{display:none;margin-left:auto;padding:8px;border:0;background:transparent;color:#fff}
 .menu-toggle i{display:block;width:27px;height:1px;background:currentColor;margin:6px}
+.nav-urgent{color:var(--accent);position:relative}
+.nav-urgent:before{content:"";position:absolute;left:0;right:0;bottom:-10px;height:1px;background:var(--accent)}
 .career-hero{min-height:100svh;position:relative;overflow:hidden;background:var(--dark);color:#fff}
 .career-hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center}
 .hero-shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(14,18,20,.91) 0%,rgba(14,18,20,.65) 32%,rgba(14,18,20,.12) 69%),linear-gradient(0deg,rgba(10,13,14,.74),transparent 48%)}
@@ -113,6 +115,22 @@ footer small{display:block;color:#ffffff5f;font-size:10px;margin-top:14px}
 @media(max-width:760px){body{font-size:16px}.site-header{height:70px}.brand{width:68px;flex-basis:68px}.brand img{width:68px;height:48px}.site-header nav{top:70px}.career-hero>img{object-position:61% center}.hero-shade{background:linear-gradient(90deg,rgba(14,18,20,.91),rgba(14,18,20,.35)),linear-gradient(0deg,rgba(10,13,14,.84),transparent 60%)}.hero-inner{padding:120px 22px 225px}.kicker{margin-bottom:auto}.career-hero h1{font-size:clamp(58px,19vw,92px)}.hero-inner>p{font-size:18px;margin:26px 0}.hero-actions{align-items:flex-start;flex-direction:column;gap:22px}.button{min-width:0;width:100%}.hero-facts{left:22px;right:22px;bottom:55px;min-width:0}.hero-facts div{padding-right:10px}.hero-facts b{font-size:10px}.hero-facts span{font-size:8px}.scroll-cue{display:none}.section{padding:90px 22px}.section-kicker{margin-bottom:35px}.intro-grid,.section-head{grid-template-columns:1fr;gap:45px}.intro h2,.section-head h2,.career-path h2,.entry h2,.contact h2{font-size:clamp(45px,13vw,68px)}.intro-grid .lead{font-size:20px}.craft-spectrum{grid-template-columns:1fr 1fr;margin-top:65px}.craft-spectrum article:nth-child(3){border-left:1px solid var(--line)}.craft-spectrum article{min-height:185px;padding:25px 20px}.path-copy{padding:90px 22px 55px}.roof-path{min-height:620px}.roof-path svg{inset:4% 0;width:100%}.roof-path li{width:135px;padding-left:10px}.roof-path li strong{font-size:13px}.roof-path li span{font-size:10px}.benefit-grid{grid-template-columns:1fr;margin-top:55px}.benefit-grid article{min-height:230px;padding:30px 25px}.benefit-grid h3{margin-top:38px}.entry{padding:90px 22px}.entry-cards article{grid-template-columns:65px 1fr;gap:20px}.entry-cards p{grid-column:2}.entry-cards a{grid-column:2;margin-top:5px}.process-list{margin-top:55px}.process-list li{grid-template-columns:42px 1fr;gap:16px}.process-list p{grid-column:2}.process-list>li>span{display:none}.contact{padding:90px 22px;grid-template-columns:1fr;gap:55px}.contact-card{grid-template-columns:75px 1fr 20px;gap:12px}footer{grid-template-columns:1fr;padding:45px 22px 90px}footer nav{justify-content:flex-start}}
 @media(max-width:430px){.hero-facts span{display:none}.hero-facts{bottom:35px}.hero-inner{padding-bottom:155px}.craft-spectrum{grid-template-columns:1fr}.craft-spectrum article,.craft-spectrum article:nth-child(3){border-left:1px solid var(--line)}.roof-path{min-height:580px}.roof-path li{width:118px}.roof-path li:nth-child(2){--x:22%!important}.roof-path li:nth-child(3){--x:48%!important}.roof-path li:nth-child(4){--x:64%!important}.contact-card{grid-template-columns:1fr 22px}.contact-card small{grid-column:1/3}.contact-card strong{font-size:17px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveal{opacity:1;transform:none;transition:none}.roof-progress{stroke-dasharray:none!important;stroke-dashoffset:0!important}}
+
+/* The global header must not change when visitors enter the career area. */
+@media(min-width:901px) and (max-width:1080px){
+  .site-header nav{display:flex;position:static;background:transparent;padding:0;flex-direction:row;align-items:center}
+  .menu-toggle{display:none}
+  .header-cta{display:flex}
+}
+@media(min-width:901px) and (max-width:1180px){
+  .site-header{gap:20px}
+  .site-header nav{gap:16px}
+  .header-cta{padding-left:18px}
+}
+@media(max-width:760px){
+  .brand{width:74px;flex-basis:74px}
+  .brand img{width:74px;height:auto}
+}
 
 /* Montserrat needs more vertical room for umlauts and a calmer, modern rhythm. */
 .career-hero h1,.intro h2,.career-path h2,.section-head h2,.entry h2,.contact h2{line-height:1.02;letter-spacing:-.012em}
