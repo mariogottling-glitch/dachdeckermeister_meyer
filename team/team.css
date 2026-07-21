@@ -1,0 +1,11 @@
+.team-page .entry > *,
+.team-page .entry-cards,
+.team-page .entry-cards article,
+.team-page .entry-cards p{min-width:0}
+
+.team-page .entry-cards article{grid-template-columns:minmax(95px,120px) minmax(150px,.75fr) minmax(0,1.1fr)}
+
+@media(max-width:760px){
+  .team-page .career-hero h1{font-size:clamp(46px,13vw,58px)}
+  .team-page .entry-cards article{grid-template-columns:65px minmax(0,1fr)}
+}
