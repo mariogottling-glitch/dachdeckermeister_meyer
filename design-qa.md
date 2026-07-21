@@ -119,6 +119,7 @@ final result: passed
 - Pass 1: Visueller Aufbau übertragen; Bestandsbild erzeugt und drei fachlich belastbare Sanierungswege formuliert.
 - Pass 2: Falsch positionierte Bestandsbeschriftung korrigiert, Orientierungstitel verdichtet und mobilen Menütext visuell verborgen.
 - Pass 3: Mobilen Überlauf in der Faktensektion entfernt; Desktop- und Mobilansichten sowie Interaktionen erneut geprüft.
+- Pass 4: Nach Kundenfeedback die entscheidenden Kartentexte von 13–16 px auf 18 px angehoben. Die drei Varianten zusätzlich über „Eingriff“, „Sinnvoll, wenn“, „Das wird gemacht“ und „Das bleibt“ eindeutig voneinander abgegrenzt; Desktop bei 2048 px sowie Mobil bei 390 px ohne Überlauf nachgeprüft.
 
 **Follow-up Polish**
 

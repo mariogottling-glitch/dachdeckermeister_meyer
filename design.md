@@ -219,6 +219,7 @@ Das Layout arbeitet mit großen ruhigen Flächen, klaren Achsen und präzisen Tr
 - Bestand und sanierter Zustand müssen eindeutig beschriftet und per Tastatur vergleichbar sein
 - Sanierungswege werden als „Eindeckung erhalten“, „Energetisch sanieren“ und „Komplett erneuern“ erklärt
 - die drei Wege sind Orientierung, keine starren Preis-, Qualitäts- oder Förderpakete
+- jede Variante benennt sichtbar Eingriffstiefe, Eignung, konkrete Arbeiten und erhaltene Bauteile; entscheidende Kartentexte bleiben mindestens `18 px` groß
 - keine pauschalen U-Werte, Förderzusagen oder Haltbarkeitsversprechen ohne konkrete Bestands- und Fachplanung
 - GEG-Anforderungen und mögliche Förderung werden sachlich eingeordnet und auf offizielle Quellen verlinkt
 - mobil wird dieselbe Reihenfolge als horizontal einrastende Galerie mit sichtbarem Anschnitt der nächsten Karte angeboten
