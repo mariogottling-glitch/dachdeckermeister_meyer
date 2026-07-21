@@ -1152,3 +1152,12 @@ footer>div a{display:flex;align-items:center;min-height:44px}
   .layer-readout strong{font-size:26px}
   .layer-readout p{font-size:16px;line-height:1.5}
 }
+
+/* Rating labels need a device-independent text column. The former 94px track
+   let wider tablet font rendering spill into the protection bars. */
+.concept-rating>div{
+  grid-template-columns:140px minmax(0,1fr);
+  gap:18px;
+}
+.concept-rating span{min-width:0;white-space:nowrap}
+.concept-rating i{min-width:0}
