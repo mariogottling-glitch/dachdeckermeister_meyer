@@ -1068,3 +1068,66 @@ footer>div a{display:flex;align-items:center;min-height:44px}
   .partner-node p span,.partner-meta b,.partner-meta span,
   footer>div,footer>small{font-size:16px}
 }
+
+/* Stable text arrows: force monochrome presentation on platforms that otherwise
+   replace diagonal arrows with colored emoji tiles. */
+.icon-arrow{
+  font-family:"Helvetica Neue",Arial,sans-serif;
+  font-variant-emoji:text;
+  font-style:normal;
+  line-height:1;
+}
+
+/* Keep the horizontally scrollable service navigation without native tracks or
+   platform-specific arrow buttons competing with the interface. */
+.service-tabs{-ms-overflow-style:none;scrollbar-width:none}
+.service-tabs::-webkit-scrollbar{display:none;width:0;height:0}
+
+/* Tablet is its own composition. The general 641px+ grid previously overruled
+   the <=900px layout and placed the primary action on top of the proof points. */
+@media(min-width:641px) and (max-width:900px){
+  .site-header .header-cta{display:none}
+  .hero-cover,.hero-cover-stage{min-height:760px;height:max(100svh,760px)}
+  .hero-cover .hero-grid{
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+    justify-content:flex-end;
+    min-height:100%;
+    padding:104px var(--pad) 54px;
+  }
+  .hero-cover .eyebrow{margin-bottom:auto}
+  .hero-cover .hero-grid h1{
+    width:100%;
+    margin:28px 0 24px;
+    font-size:clamp(60px,11.3vw,92px);
+    line-height:.88;
+    white-space:normal;
+  }
+  .hero-cover .hero-copy{max-width:620px;margin:0 0 22px;font-size:18px;line-height:1.55}
+  .hero-cover .hero-actions{width:auto;margin:0 0 34px;align-self:flex-start}
+  .hero-cover .hero-actions .button{min-width:240px}
+  .hero-cover .hero-stats{
+    width:100%;
+    max-width:none;
+    margin:0;
+    padding-top:16px;
+    gap:18px;
+    align-self:stretch;
+  }
+  .hero-cover .hero-stats strong{font-size:20px}
+  .hero-cover .hero-stats span{max-width:190px;font-size:13px;line-height:1.4}
+}
+
+/* The compact two-column comparison card needs a full-width heading on tablet;
+   otherwise long option names collide with the description column. */
+@media(min-width:701px) and (max-width:900px){
+  .insulation-card{
+    grid-template-columns:minmax(250px,.82fr) 1fr;
+    grid-template-rows:auto 1fr auto;
+  }
+  .insulation-card header{grid-column:1/-1;grid-row:1;min-height:0;padding:24px 26px 20px}
+  .insulation-card figure{grid-column:1;grid-row:2/4}
+  .insulation-card-body{grid-column:2;grid-row:2}
+  .insulation-card footer{grid-column:2;grid-row:3}
+}

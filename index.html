@@ -25,7 +25,7 @@
   <link rel="manifest" href="site.webmanifest" />
   <link rel="preload" href="assets/hero-cinematic.webp" as="image" fetchpriority="high" />
   <link rel="preload" href="assets/hero-scenes/roof-pv.webp" as="image" />
-  <link rel="stylesheet" href="styles.css?v=20260721-36" />
+  <link rel="stylesheet" href="styles.css?v=20260721-37" />
   <link rel="stylesheet" href="navigation.css?v=20260719-1" />
   <script src="vendor/gsap.min.js" defer></script>
   <script src="vendor/ScrollTrigger.min.js" defer></script>
@@ -43,7 +43,7 @@
     <nav id="main-nav" aria-label="Hauptnavigation">
       <a href="leistungen/index.html">Leistungen</a><a href="#system">Unser System</a><a href="#beratung">Beratung</a><a href="jobs/index.html">Karriere</a><a class="nav-urgent" href="#anfrage" data-preset="service" data-direct-step="2">Schaden melden</a>
     </nav>
-    <a class="header-cta" href="#anfrage" data-form-all>Projekt anfragen <span>↗</span></a>
+    <a class="header-cta" href="#anfrage" data-form-all>Projekt anfragen <span class="icon-arrow" aria-hidden="true">&#8599;&#65038;</span></a>
   </header>
 
   <main id="main">
@@ -57,7 +57,7 @@
           <h1 id="hero-title">DÄCHER<br />MIT <em>SYSTEM.</em></h1>
           <p class="hero-copy">Wir planen, bauen und erhalten Gebäudehüllen, die heute überzeugen — und morgen noch Bestand haben.</p>
           <div class="hero-actions">
-            <a class="button button-service" href="#anfrage" data-preset="service" data-direct-step="2">Schaden melden <span>↗</span></a>
+            <a class="button button-service" href="#anfrage" data-preset="service" data-direct-step="2">Schaden melden <span class="icon-arrow" aria-hidden="true">&#8599;&#65038;</span></a>
           </div>
           <div class="hero-stats" aria-label="Unser Qualitätsversprechen">
             <div><strong>MEISTER</strong><span>Qualität mit Verantwortung</span></div>
@@ -65,7 +65,7 @@
             <div><strong>REGIONAL</strong><span>Köln und Umgebung</span></div>
           </div>
         </div>
-        <a class="hero-tour-link" href="#gebaeude-erleben" data-tour-launch aria-controls="gebaeude-erleben" aria-expanded="false"><span>Interaktive Gebäudetour</span><b>Tour starten <i>↘</i></b></a>
+        <a class="hero-tour-link" href="#gebaeude-erleben" data-tour-launch aria-controls="gebaeude-erleben" aria-expanded="false"><span>Interaktive Gebäudetour</span><b>Tour starten <i class="icon-arrow" aria-hidden="true">&#8600;&#65038;</i></b></a>
       </div>
     </section>
 
@@ -82,7 +82,7 @@
         </div>
         <div class="frame-transition-veil" aria-hidden="true"></div>
         <a class="tour-skip" href="#beratung" data-tour-exit aria-label="Gebäudetour beenden und direkt zum nächsten Abschnitt gehen">Tour beenden <span>↓</span></a>
-        <a class="tour-inquiry" href="#anfrage">Projekt anfragen <span>↗</span></a>
+        <a class="tour-inquiry" href="#anfrage">Projekt anfragen <span class="icon-arrow" aria-hidden="true">&#8599;&#65038;</span></a>
 
         <div class="service-markers overview-markers" aria-label="Leistungen am Gebäude">
           <a class="service-marker" href="leistungen/steildach.html" style="--x:70%;--y:39%" aria-label="Mehr über Steildächer erfahren">Steildach</a>
@@ -151,7 +151,7 @@
           <div class="eyebrow light"><span></span>Alles aus einer Hand</div>
           <h2>IHR GEBÄUDE.<br /><em>PERFEKT GESCHÜTZT.</em></h2>
           <p>Vom Dach bis zur Fassade. Ein Ansprechpartner. Ein Qualitätsstandard.</p>
-          <a class="button button-light" href="#anfrage">Projekt anfragen <span>↗</span></a>
+          <a class="button button-light" href="#anfrage">Projekt anfragen <span class="icon-arrow" aria-hidden="true">&#8599;&#65038;</span></a>
         </div>
 
         <div class="cinematic-progress" aria-hidden="true">
@@ -177,7 +177,7 @@
         <div class="wizard-progress" role="list" aria-label="Formularfortschritt"><span class="active" role="listitem" aria-current="step"><b>1</b>Anliegen</span><span role="listitem"><b>2</b><em data-progress-detail>Projektdaten</em></span><span role="listitem"><b>3</b>Kontakt</span></div>
         <fieldset class="form-step active" data-step="1"><legend>Worum geht es?</legend><div class="choice-grid"><label><input type="radio" name="type" value="Steildach" data-key="steildach" checked /><span>Steildach</span></label><label><input type="radio" name="type" value="Flachdach" data-key="flachdach" /><span>Flachdach</span></label><label><input type="radio" name="type" value="Dachfenster" data-key="fenster" /><span>Dachfenster</span></label><label><input type="radio" name="type" value="Fassade" data-key="fassade" /><span>Fassade</span></label><label><input type="radio" name="type" value="Terrasse oder Balkon" data-key="terrasse" /><span>Terrasse / Balkon</span></label><label><input type="radio" name="type" value="Reparatur oder Wartung" data-key="service" /><span>Reparatur / Wartung</span></label></div><div class="wizard-actions"><span></span><button class="button button-accent next-step" type="button">Weiter <span>→</span></button></div></fieldset>
         <fieldset class="form-step" data-step="2"><legend data-detail-legend>Details zu Ihrem Projekt</legend><div class="form-grid dynamic-fields" aria-live="polite"></div><label class="upload-field"><input id="project-photos" type="file" name="photos[]" accept="image/jpeg,image/png,image/webp" multiple /><span><b>Fotos hinzufügen</b><small>JPG, PNG oder WebP · maximal 5 Bilder · je 5 MB</small></span><output class="upload-summary" for="project-photos" aria-live="polite"></output></label><div class="wizard-actions"><button class="text-button prev-step" type="button">← Zurück</button><button class="button button-accent next-step" type="button">Weiter <span>→</span></button></div></fieldset>
-        <fieldset class="form-step" data-step="3"><legend>Wie erreichen wir Sie? <small>Pflichtfelder sind mit einem Sternchen gekennzeichnet.</small></legend><div class="form-grid"><label>Ihr Name <span class="required-marker"><span aria-hidden="true">*</span><span class="sr-only"> Pflichtfeld</span></span><input name="name" autocomplete="name" required placeholder="Vor- und Nachname" /></label><label>Telefon <span class="required-marker"><span aria-hidden="true">*</span><span class="sr-only"> Pflichtfeld</span></span><input type="tel" name="phone" autocomplete="tel" required placeholder="Für eine persönliche Rückmeldung" /></label><label>E-Mail <span class="required-marker"><span aria-hidden="true">*</span><span class="sr-only"> Pflichtfeld</span></span><input type="email" name="email" autocomplete="email" required placeholder="name@beispiel.de" /></label><label>Projektadresse <span class="required-marker"><span aria-hidden="true">*</span><span class="sr-only"> Pflichtfeld</span></span><input name="address" autocomplete="street-address" required placeholder="Straße, PLZ und Ort" /></label><label>Gewünschter Zeitraum<input name="timing" placeholder="z. B. innerhalb der nächsten 3 Monate" /></label><label class="wide">Zusätzliche Hinweise<textarea name="message" rows="3" placeholder="Was sollten wir noch wissen?"></textarea></label></div><div class="form-foot"><button class="text-button prev-step" type="button">← Zurück</button><small>Informationen zur Verarbeitung Ihrer Angaben finden Sie im <a href="datenschutz.html">Datenschutz</a>.</small><button class="button button-accent" type="submit">Anfrage senden <span>↗</span></button></div></fieldset>
+        <fieldset class="form-step" data-step="3"><legend>Wie erreichen wir Sie? <small>Pflichtfelder sind mit einem Sternchen gekennzeichnet.</small></legend><div class="form-grid"><label>Ihr Name <span class="required-marker"><span aria-hidden="true">*</span><span class="sr-only"> Pflichtfeld</span></span><input name="name" autocomplete="name" required placeholder="Vor- und Nachname" /></label><label>Telefon <span class="required-marker"><span aria-hidden="true">*</span><span class="sr-only"> Pflichtfeld</span></span><input type="tel" name="phone" autocomplete="tel" required placeholder="Für eine persönliche Rückmeldung" /></label><label>E-Mail <span class="required-marker"><span aria-hidden="true">*</span><span class="sr-only"> Pflichtfeld</span></span><input type="email" name="email" autocomplete="email" required placeholder="name@beispiel.de" /></label><label>Projektadresse <span class="required-marker"><span aria-hidden="true">*</span><span class="sr-only"> Pflichtfeld</span></span><input name="address" autocomplete="street-address" required placeholder="Straße, PLZ und Ort" /></label><label>Gewünschter Zeitraum<input name="timing" placeholder="z. B. innerhalb der nächsten 3 Monate" /></label><label class="wide">Zusätzliche Hinweise<textarea name="message" rows="3" placeholder="Was sollten wir noch wissen?"></textarea></label></div><div class="form-foot"><button class="text-button prev-step" type="button">← Zurück</button><small>Informationen zur Verarbeitung Ihrer Angaben finden Sie im <a href="datenschutz.html">Datenschutz</a>.</small><button class="button button-accent" type="submit">Anfrage senden <span class="icon-arrow" aria-hidden="true">&#8599;&#65038;</span></button></div></fieldset>
         <p class="form-error" id="form-error" role="alert" tabindex="-1"></p>
         <p class="form-status" role="status" aria-live="polite"></p>
       </form>
@@ -299,7 +299,7 @@
         <div class="potential-copy"><div class="mini-label">Potenzial-Check</div><h3 id="potential-title">Was kann die gewählte Dämmung bewirken?</h3><p>Wählen Sie oben eine Dämmart und vergleichen Sie deren Planungsziel mit dem angenommenen U-Wert Ihres heutigen Daches.</p></div>
         <label class="u-slider" for="existing-u"><span>Angenommener U-Wert Bestand</span><output id="existing-u-output" for="existing-u">1,40 W/m²K</output><input id="existing-u" type="range" min="0.4" max="2.4" step="0.1" value="1.4" /><small>bereits gedämmt <i></i> ungedämmt / älter</small></label>
         <div class="potential-result" aria-live="polite"><div class="potential-ring"><output id="potential-value">87<small>%</small></output></div><div><span>Weniger Transmissionswärmeverlust</span><strong id="target-u">Premiumdämmung · U-Ziel ≤ 0,18 W/m²K</strong><small>Rechnerischer Vergleich nur für das Dachbauteil – keine Prognose der gesamten Heizkosten.</small></div></div>
-        <a class="button button-accent" href="#anfrage" data-preset="steildach">Konzept besprechen <span>↗</span></a>
+        <a class="button button-accent" href="#anfrage" data-preset="steildach">Konzept besprechen <span class="icon-arrow" aria-hidden="true">&#8599;&#65038;</span></a>
       </div>
     </section>
 
@@ -316,17 +316,17 @@
       </div>
       <article class="service-panel" id="service-panel" role="tabpanel" aria-labelledby="service-tab-steildach" tabindex="0">
         <div class="service-visual"><img id="service-image" src="assets/service-steildach.webp" alt="Präzise ausgeführtes anthrazitfarbenes Steildach an einem modernen Wohnhaus" width="1672" height="941" loading="lazy" /><span id="service-index" aria-hidden="true">01</span></div>
-        <div class="service-content"><span class="mini-label" id="service-label">Konstruktion & Eindeckung</span><h3 id="service-title">Steildächer mit klarer Linie.</h3><p id="service-copy">Von der energetischen Sanierung bis zum Neubau: technisch sauber geplant, handwerklich präzise ausgeführt und passend zur Architektur Ihres Hauses.</p><a id="service-link" href="leistungen/steildach.html">Leistung entdecken <span>↗</span></a></div>
+        <div class="service-content"><span class="mini-label" id="service-label">Konstruktion & Eindeckung</span><h3 id="service-title">Steildächer mit klarer Linie.</h3><p id="service-copy">Von der energetischen Sanierung bis zum Neubau: technisch sauber geplant, handwerklich präzise ausgeführt und passend zur Architektur Ihres Hauses.</p><a id="service-link" href="leistungen/steildach.html">Leistung entdecken <span class="icon-arrow" aria-hidden="true">&#8599;&#65038;</span></a></div>
       </article>
     </section>
 
     <section class="roof-check section-pad" aria-labelledby="roof-check-title">
       <div class="section-head"><div><div class="section-kicker">05 / Dach-Check</div><h2 id="roof-check-title">Was braucht<br />Ihr Dach?</h2></div><p>Wählen Sie die Situation, die Ihrem Anliegen am nächsten kommt. Wir führen Sie direkt zur passenden Anfrage.</p></div>
       <div class="check-grid">
-        <a href="#anfrage" data-preset="service"><span>01</span><h3>Feuchtigkeit oder sichtbarer Schaden?</h3><p>Undichtigkeiten, lose Bauteile oder Spuren nach einem Sturm sollten zeitnah geprüft werden.</p><b>Schaden melden ↗</b></a>
-        <a href="#anfrage" data-preset="steildach"><span>02</span><h3>Hohe Heizkosten oder veralteter Aufbau?</h3><p>Eine Dachsanierung kann Schutz, Wohnkomfort und Energieeffizienz gemeinsam verbessern.</p><b>Sanierung anfragen ↗</b></a>
-        <a href="#anfrage" data-preset="flachdach"><span>03</span><h3>Wasser bleibt auf dem Flachdach stehen?</h3><p>Entwässerung und Abdichtung müssen als System geprüft werden, bevor Folgeschäden entstehen.</p><b>Flachdach prüfen lassen ↗</b></a>
-        <a href="#anfrage" data-preset="fenster"><span>04</span><h3>Zu wenig Licht im Dachgeschoss?</h3><p>Gut geplante Dachfenster schaffen Tageslicht, Lüftung und einen spürbar besseren Raumkomfort.</p><b>Tageslicht planen ↗</b></a>
+        <a href="#anfrage" data-preset="service"><span>01</span><h3>Feuchtigkeit oder sichtbarer Schaden?</h3><p>Undichtigkeiten, lose Bauteile oder Spuren nach einem Sturm sollten zeitnah geprüft werden.</p><b>Schaden melden <span class="icon-arrow" aria-hidden="true">&#8599;&#65038;</span></b></a>
+        <a href="#anfrage" data-preset="steildach"><span>02</span><h3>Hohe Heizkosten oder veralteter Aufbau?</h3><p>Eine Dachsanierung kann Schutz, Wohnkomfort und Energieeffizienz gemeinsam verbessern.</p><b>Sanierung anfragen <span class="icon-arrow" aria-hidden="true">&#8599;&#65038;</span></b></a>
+        <a href="#anfrage" data-preset="flachdach"><span>03</span><h3>Wasser bleibt auf dem Flachdach stehen?</h3><p>Entwässerung und Abdichtung müssen als System geprüft werden, bevor Folgeschäden entstehen.</p><b>Flachdach prüfen lassen <span class="icon-arrow" aria-hidden="true">&#8599;&#65038;</span></b></a>
+        <a href="#anfrage" data-preset="fenster"><span>04</span><h3>Zu wenig Licht im Dachgeschoss?</h3><p>Gut geplante Dachfenster schaffen Tageslicht, Lüftung und einen spürbar besseren Raumkomfort.</p><b>Tageslicht planen <span class="icon-arrow" aria-hidden="true">&#8599;&#65038;</span></b></a>
       </div>
     </section>
 
@@ -391,6 +391,6 @@
   </main>
 
   <footer><a class="brand footer-brand" href="#top" aria-label="Dachdeckermeister Meyer Startseite"><img class="brand-logo-img" src="assets/meyer-logo-final.png" alt="Dachdeckermeister Meyer" width="1311" height="1104" /></a><p>Dächer, die bleiben.</p><div><a href="leistungen/index.html">Leistungen</a><a href="jobs/index.html">Karriere</a><a href="#anfrage" data-form-all>Kontakt</a><a href="tel:+4917643487351">Telefon</a><a href="mailto:info@dachdeckermeister-meyer.de">E-Mail</a><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a></div><small>© 2026 Dachdeckermeister Meyer</small></footer>
-  <div class="mobile-actions" aria-label="Schnellzugriff"><a class="mobile-repair" href="#anfrage" data-preset="service" data-direct-step="2">Schaden melden</a><a class="mobile-project" href="#anfrage" data-form-all>Projekt anfragen <b>↗</b></a></div>
+  <div class="mobile-actions" aria-label="Schnellzugriff"><a class="mobile-repair" href="#anfrage" data-preset="service" data-direct-step="2">Schaden melden</a><a class="mobile-project" href="#anfrage" data-form-all>Projekt anfragen <b class="icon-arrow" aria-hidden="true">&#8599;&#65038;</b></a></div>
 </body>
 </html>
