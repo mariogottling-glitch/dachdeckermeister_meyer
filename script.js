@@ -73,7 +73,7 @@ if (stickyCta && heroCover && inquirySection && 'IntersectionObserver' in window
   const stickyCtaBlockers = [
     heroCover,
     inquirySection,
-    ...document.querySelectorAll('.assembly, .concepts, .services, .roof-check, .faq')
+    ...document.querySelectorAll('.quick-access, .assembly, .concepts, .roof-check, .faq')
   ];
   const stickyCtaObserver = new IntersectionObserver(entries => {
     entries.forEach(entry => {
@@ -500,7 +500,7 @@ serviceTabs.forEach((tab, index) => tab.addEventListener('keydown', event => {
 }));
 document.querySelectorAll('[data-service-target]').forEach(link => link.addEventListener('click', () => activateService(link.dataset.serviceTarget)));
 
-document.querySelectorAll('.intro-copy, .principles article, .trust-panel, .concepts-heading, .concept-compare-grid, .potential-check, .section-head, .service-panel, .check-grid a, .direct-service-head, .assistant-card, .timeline li, .partners-heading, .partner-node, .partner-future, .faq > div, .accordion details').forEach(item => item.classList.add('reveal'));
+document.querySelectorAll('.quick-access-head, .quick-card, .intro-copy, .principles article, .trust-panel, .concepts-heading, .concept-compare-grid, .potential-check, .section-head, .check-grid a, .direct-service-head, .assistant-card, .timeline li, .partners-heading, .partner-node, .partner-future, .faq > div, .accordion details').forEach(item => item.classList.add('reveal'));
 const observer = new IntersectionObserver(entries => entries.forEach(entry => {
   if (entry.isIntersecting) { entry.target.classList.add('in'); observer.unobserve(entry.target); }
 }), { threshold: .12, rootMargin: '0px 0px -40px' });
