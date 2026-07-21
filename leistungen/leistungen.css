@@ -18,7 +18,7 @@
    envelope, with a controlled copy-safe gradient across all viewports. */
 .overview-hero-media{position:absolute;inset:0}
 .overview-hero-media img{height:100%;object-fit:cover;object-position:center}
-.overview-hero:before{z-index:1}
+.overview-hero:before{display:none}
 .overview-hero:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#171b1df7 0%,#171b1ddf 34%,#171b1d78 57%,#171b1d15 82%),linear-gradient(0deg,#171b1dc9 0%,transparent 56%)}
 .overview-hero p{color:#ffffffc4}
 
