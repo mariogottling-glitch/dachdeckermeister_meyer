@@ -1101,7 +1101,7 @@ footer>div a{display:flex;align-items:center;min-height:44px}
     width:100%;
     margin:28px 0 24px;
     font-size:clamp(60px,11.3vw,92px);
-    line-height:.88;
+    line-height:.9;
     white-space:normal;
   }
   .hero-cover .hero-copy{max-width:620px;margin:0 0 22px;font-size:18px;line-height:1.55}
@@ -1116,7 +1116,7 @@ footer>div a{display:flex;align-items:center;min-height:44px}
     align-self:stretch;
   }
   .hero-cover .hero-stats strong{font-size:20px}
-  .hero-cover .hero-stats span{max-width:190px;font-size:13px;line-height:1.4}
+  .hero-cover .hero-stats span{max-width:190px;font-size:15px;line-height:1.45}
 }
 
 /* The compact two-column comparison card needs a full-width heading on tablet;
