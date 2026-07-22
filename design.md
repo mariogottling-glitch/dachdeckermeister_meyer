@@ -230,6 +230,8 @@ Das Layout arbeitet mit großen ruhigen Flächen, klaren Achsen und präzisen Tr
 - Gründach, Photovoltaik und Dachterrasse werden als Nutzungsoptionen mit jeweils klaren Voraussetzungen, Planungszielen und kritischen Details erklärt
 - Nutzungsoptionen sind Orientierung und keine pauschalen Nutzen-, Wertsteigerungs- oder Einsparversprechen
 - Dachaufbauten werden nach ihrer technischen Funktion erklärt; Bezeichnungen wie „günstig“, „mittel“ und „hochwertig“ sind nicht zulässig
+- der visuelle Projektziel-Vergleich nutzt die drei Wege „Abdichtung sichern“, „Energetisch sanieren“ und „Nutzung vorbereiten“; jede Karte erhält eine klar als Prinzipdarstellung gekennzeichnete Aufbau-Grafik
+- Nutzungswunsch und Projektziel werden gemeinsam als URL-Voreinstellung an den zentralen Online-Assistenten übergeben und dort sichtbar vorausgefüllt
 - relevante Kartentexte bleiben mindestens `17–18 px` groß und die Auswahl führt vorausgefüllt in den zentralen Online-Assistenten
 - keine pauschalen Dämmstärken, U-Werte, Förderampeln oder automatischen Förderzusagen; gesetzliche und fördertechnische Anforderungen werden projektbezogen eingeordnet
 

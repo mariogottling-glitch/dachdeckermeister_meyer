@@ -543,6 +543,7 @@ function setInquiryExpanded(expanded, { focus = false } = {}) {
     (expanded ? inquiryForm.querySelector('.assistant-switch button') : inquiryExpandButton)?.focus({ preventScroll: true });
   });
 }
+const inquiryRequestParams = new URLSearchParams(location.search);
 const projectFields = {
   steildach: `
     <label>Dachtyp <span class="required-marker"><span aria-hidden="true">*</span><span class="sr-only"> Pflichtfeld</span></span><select name="roof_type" required><option value="">Bitte wählen</option><option>Satteldach</option><option>Walmdach</option><option>Anderer Dachtyp</option><option>Unbekannt</option></select></label>
@@ -551,11 +552,12 @@ const projectFields = {
     <label>Dämmung vorhanden?<select name="insulation"><option>Unbekannt</option><option>Ja</option><option>Nein</option></select></label>
     <label>Ist das Dach undicht?<select name="leak"><option>Nein</option><option>Ja</option><option>Unklar</option></select></label>`,
   flachdach: `
+    <label>Projektziel<select name="flat_roof_goal"><option>Noch offen</option><option>Abdichtung sichern</option><option>Energetisch sanieren</option><option>Nutzung vorbereiten</option></select></label>
     <label>Aktuelles Material<input name="material" placeholder="z. B. Bitumen, Kunststoff oder unbekannt" /></label>
     <label>Geschätzte Fläche<input name="area" placeholder="z. B. 80 m²" /></label>
     <label>Steht Wasser auf dem Dach?<select name="standing_water"><option>Nein</option><option>Ja</option><option>Unklar</option></select></label>
     <label>Ist eine Leckage sichtbar?<select name="leak"><option>Nein</option><option>Ja</option><option>Unklar</option></select></label>
-    <label>Nutzung der Fläche<input name="use" placeholder="z. B. Garage, Wohnhaus, Terrasse" /></label>`,
+    <label>Nutzungswunsch<input name="use" placeholder="z. B. Gründach, Photovoltaik oder Dachterrasse" /></label>`,
   fenster: `
     <label>Vorhaben <span class="required-marker"><span aria-hidden="true">*</span><span class="sr-only"> Pflichtfeld</span></span><select name="window_project" required><option value="">Bitte wählen</option><option>Austausch eines vorhandenen Fensters</option><option>Reparatur / Ersatzteil</option><option>Sonnenschutz / Zubehör</option><option>Neuer Einbau</option><option>Beratung</option></select></label>
     <label>Hersteller<select name="manufacturer"><option>VELUX</option><option>Roto</option><option>Braas / Dörken</option><option>Anderer Hersteller</option><option>Unbekannt</option></select></label>
@@ -597,6 +599,14 @@ function selectedProjectKey() {
 function renderProjectFields() {
   const key = selectedProjectKey();
   if (dynamicFields) dynamicFields.innerHTML = projectFields[key];
+  if (key === 'flachdach' && dynamicFields) {
+    const useMap = { gruendach: 'Gründach', photovoltaik: 'Photovoltaik', terrasse: 'Dachterrasse' };
+    const goalMap = { abdichtung: 'Abdichtung sichern', energie: 'Energetisch sanieren', nutzung: 'Nutzung vorbereiten' };
+    const requestedUse = useMap[inquiryRequestParams.get('nutzung')];
+    const requestedGoal = goalMap[inquiryRequestParams.get('umfang')];
+    if (requestedUse) dynamicFields.querySelector('[name="use"]').value = requestedUse;
+    if (requestedGoal) dynamicFields.querySelector('[name="flat_roof_goal"]').value = requestedGoal;
+  }
   inquiryForm?.setAttribute('data-project', key);
   const uploadTitle = inquiryForm?.querySelector('.upload-field b');
   const uploadHint = inquiryForm?.querySelector('.upload-field small');
@@ -842,7 +852,7 @@ document.querySelectorAll('[data-form-all]').forEach(link => link.addEventListen
   syncAssistantPresentation('all');
   showFormStep(1);
 }));
-const requestedService = new URLSearchParams(location.search).get('leistung');
+const requestedService = inquiryRequestParams.get('leistung');
 const requestedInput = inquiryForm?.querySelector(`input[data-key="${requestedService}"]`);
 if (requestedInput) requestedInput.checked = true;
 document.querySelectorAll('[data-preset]').forEach(link => link.addEventListener('click', () => {
