@@ -25,11 +25,11 @@
   <link rel="manifest" href="site.webmanifest" />
   <link rel="preload" href="assets/hero-cinematic.webp" as="image" fetchpriority="high" />
   <link rel="preload" href="assets/hero-scenes/roof-pv.webp" as="image" />
-  <link rel="stylesheet" href="styles.css?v=20260721-50" />
+  <link rel="stylesheet" href="styles.css?v=20260722-2" />
   <link rel="stylesheet" href="navigation.css?v=20260721-3" />
   <script src="vendor/gsap.min.js" defer></script>
   <script src="vendor/ScrollTrigger.min.js" defer></script>
-  <script src="script.js?v=20260722-1" defer></script>
+  <script src="script.js?v=20260722-2" defer></script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"RoofingContractor","@id":"https://www.dachdeckermeister-meyer.de/#business","name":"Dachdeckermeister Meyer","legalName":"Dachdeckermeister Pierre Meyer","url":"https://www.dachdeckermeister-meyer.de/","logo":"https://www.dachdeckermeister-meyer.de/assets/meyer-logo-final.png","image":"https://www.dachdeckermeister-meyer.de/assets/hero-cinematic.webp","description":"Dachdeckermeisterbetrieb in Köln für Dachsanierung, Dachreparatur, Steildach, Flachdach, Dachfenster, Fassadenbekleidung, Abdichtung und Wartung.","telephone":"+49 176 43487351","email":"info@dachdeckermeister-meyer.de","address":{"@type":"PostalAddress","streetAddress":"Weißer Straße 32","postalCode":"50996","addressLocality":"Köln","addressRegion":"Nordrhein-Westfalen","addressCountry":"DE"},"areaServed":{"@type":"City","name":"Köln"},"founder":{"@type":"Person","name":"Pierre Meyer"},"hasOfferCatalog":{"@type":"OfferCatalog","name":"Dachdeckerleistungen in Köln","itemListElement":[{"@type":"Offer","itemOffered":{"@type":"Service","name":"Steildach und Dachsanierung","url":"https://www.dachdeckermeister-meyer.de/leistungen/steildach.html"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Flachdachsanierung und Dachabdichtung","url":"https://www.dachdeckermeister-meyer.de/leistungen/flachdach.html"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Dachfenster einbauen und austauschen","url":"https://www.dachdeckermeister-meyer.de/leistungen/dachfenster.html"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Fassadenbekleidung und Dämmung","url":"https://www.dachdeckermeister-meyer.de/leistungen/fassaden.html"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Terrassen- und Balkonabdichtung","url":"https://www.dachdeckermeister-meyer.de/leistungen/terrassen-balkone.html"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Dachreparatur, Sturmschadenhilfe und Wartung","url":"https://www.dachdeckermeister-meyer.de/leistungen/service-wartung.html"}}]}}</script>
 </head>
 <body>
@@ -295,43 +295,24 @@
 
       <p class="concept-disclaimer">Die Darstellungen zeigen Konstruktionsprinzipien, keine fertigen Standardpakete. Dämmstoff, Schichtdicken, Anschlüsse und erreichbarer U-Wert werden nach der Bestandsaufnahme individuell bauphysikalisch geplant.</p>
 
-      <div class="potential-check" aria-labelledby="potential-title">
-        <div class="potential-copy"><div class="mini-label">Potenzial-Check</div><h3 id="potential-title">Was kann die gewählte Dämmung bewirken?</h3><p>Wählen Sie oben eine Dämmart und vergleichen Sie deren Planungsziel mit dem angenommenen U-Wert Ihres heutigen Daches.</p></div>
-        <label class="u-slider" for="existing-u"><span>Angenommener U-Wert Bestand</span><output id="existing-u-output" for="existing-u">1,40 W/m²K</output><input id="existing-u" type="range" min="0.4" max="2.4" step="0.1" value="1.4" /><small>bereits gedämmt <i></i> ungedämmt / älter</small></label>
-        <div class="potential-result" aria-live="polite"><div class="potential-ring"><output id="potential-value">87<small>%</small></output></div><div><span>Weniger Transmissionswärmeverlust</span><strong id="target-u">Premiumdämmung · U-Ziel ≤ 0,18 W/m²K</strong><small>Rechnerischer Vergleich nur für das Dachbauteil – keine Prognose der gesamten Heizkosten.</small></div></div>
-        <a class="button button-accent" href="#anfrage" data-preset="steildach">Konzept besprechen <span class="icon-arrow" aria-hidden="true">&#8599;&#65038;</span></a>
-      </div>
-    </section>
-
-    <section class="roof-check section-pad" aria-labelledby="roof-check-title">
-      <div class="section-head"><div><div class="section-kicker">03 / Dach-Check</div><h2 id="roof-check-title">Was braucht<br />Ihr Dach?</h2></div><p>Wählen Sie die Situation, die Ihrem Anliegen am nächsten kommt. Wir führen Sie direkt zur passenden Anfrage.</p></div>
-      <div class="check-grid">
-        <a href="#anfrage" data-preset="service"><span>01</span><h3>Feuchtigkeit oder sichtbarer Schaden?</h3><p>Undichtigkeiten, lose Bauteile oder Spuren nach einem Sturm sollten zeitnah geprüft werden.</p><b>Schaden melden <span class="icon-arrow" aria-hidden="true">&#8599;&#65038;</span></b></a>
-        <a href="#anfrage" data-preset="steildach"><span>02</span><h3>Hohe Heizkosten oder veralteter Aufbau?</h3><p>Eine Dachsanierung kann Schutz, Wohnkomfort und Energieeffizienz gemeinsam verbessern.</p><b>Sanierung anfragen <span class="icon-arrow" aria-hidden="true">&#8599;&#65038;</span></b></a>
-        <a href="#anfrage" data-preset="flachdach"><span>03</span><h3>Wasser bleibt auf dem Flachdach stehen?</h3><p>Entwässerung und Abdichtung müssen als System geprüft werden, bevor Folgeschäden entstehen.</p><b>Flachdach prüfen lassen <span class="icon-arrow" aria-hidden="true">&#8599;&#65038;</span></b></a>
-        <a href="#anfrage" data-preset="fenster"><span>04</span><h3>Zu wenig Licht im Dachgeschoss?</h3><p>Gut geplante Dachfenster schaffen Tageslicht, Lüftung und einen spürbar besseren Raumkomfort.</p><b>Tageslicht planen <span class="icon-arrow" aria-hidden="true">&#8599;&#65038;</span></b></a>
-      </div>
     </section>
 
     <section class="process section-pad">
-      <div class="section-head"><div><div class="section-kicker">04 / Ablauf</div><h2>Planbar. Transparent.<br />Persönlich.</h2></div><p>Ein fester Ansprechpartner führt Sie durch alle sechs Phasen — von der Anfrage bis zur dokumentierten Übergabe.</p></div>
+      <div class="section-head"><div><div class="section-kicker">03 / Ablauf</div><h2>Planbar. Transparent.<br />Persönlich.</h2></div><p>Ein fester Ansprechpartner führt Sie in drei klaren Phasen von der Anfrage bis zur dokumentierten Übergabe.</p></div>
       <ol class="timeline">
-        <li><b>01</b><div><h3>Erstgespräch</h3><p>Wir klären Ziel, Zustand und Rahmen Ihres Vorhabens.</p></div><span>30–45 Min.</span></li>
-        <li><b>02</b><div><h3>Analyse vor Ort</h3><p>Aufmaß, Substanzprüfung und technische Bestandsaufnahme.</p></div><span>1 Termin</span></li>
-        <li><b>03</b><div><h3>Konzept & Angebot</h3><p>Nachvollziehbare Lösung mit Varianten und klaren Kosten.</p></div><span>7–10 Tage</span></li>
-        <li><b>04</b><div><h3>Präzise Umsetzung</h3><p>Koordinierte Ausführung, saubere Baustelle, laufende Updates.</p></div><span>Nach Plan</span></li>
-        <li><b>05</b><div><h3>Qualitätsprüfung</h3><p>Details, Anschlüsse und Funktionen werden systematisch kontrolliert.</p></div><span>Dokumentiert</span></li>
-        <li><b>06</b><div><h3>Übergabe & Service</h3><p>Sie erhalten eine klare Übergabe und wissen, wie Ihr Dach langfristig erhalten bleibt.</p></div><span>Persönlich</span></li>
+        <li><b>01</b><div><h3>Anfrage & Analyse</h3><p>Wir klären Ziel und Rahmen, prüfen den Bestand vor Ort und erfassen die technischen Grundlagen.</p></div><span>Persönlich</span></li>
+        <li><b>02</b><div><h3>Konzept & Umsetzung</h3><p>Sie erhalten eine nachvollziehbare Lösung; anschließend setzen wir sie koordiniert und mit laufenden Updates um.</p></div><span>Nach Plan</span></li>
+        <li><b>03</b><div><h3>Prüfung & Übergabe</h3><p>Details und Funktionen werden kontrolliert, dokumentiert und persönlich an Sie übergeben.</p></div><span>Dokumentiert</span></li>
       </ol>
     </section>
 
     <section class="partners" id="partner" aria-labelledby="partners-title">
       <div class="partners-heading">
         <div>
-          <div class="section-kicker light">05 / Partnernetzwerk</div>
-          <h2 id="partners-title">Ausgewählte Partner.<br /><em>Ein gemeinsamer Anspruch.</em></h2>
+          <div class="section-kicker light">04 / Partnernetzwerk</div>
+          <h2 id="partners-title">Ausgewählte Partner.<br /><em>Gemeinsamer Anspruch.</em></h2>
         </div>
-        <p>Gute Gebäudehüllen entstehen aus verlässlichem Handwerk und Materialien, die langfristig überzeugen. Deshalb arbeiten wir mit spezialisierten Partnern und bewährten Herstellern.</p>
+        <p>Verlässliches Handwerk trifft auf bewährte Materialien und spezialisiertes Know-how.</p>
       </div>
 
       <div class="partner-constellation" aria-label="Unsere Partner">
@@ -353,21 +334,15 @@
           <p><strong>Janssen</strong><span>Erfahrung rund um das Dach</span></p>
         </article>
 
-        <div class="partner-future" aria-label="Weitere Partner folgen">
-          <span>+</span><p>Das Netzwerk<br />wächst weiter.</p>
-        </div>
       </div>
     </section>
 
     <section class="faq section-pad">
-      <div><div class="section-kicker">06 / Wissen</div><h2>Gute Fragen.<br />Klare Antworten.</h2><p>Was Eigentümer vor einer Dachsanierung wissen möchten.</p></div>
+      <div><div class="section-kicker">05 / Wissen</div><h2>Gute Fragen.<br />Klare Antworten.</h2><p>Das Wichtigste vor Ihrer Anfrage.</p></div>
       <div class="accordion">
         <details open><summary>Wann ist eine Dachsanierung wirklich notwendig?<span></span></summary><p>Wenn Eindeckung, Abdichtung oder Anschlüsse ihre Funktion verlieren, die Dämmung nicht mehr zeitgemäß ist oder wiederholt Feuchtigkeit auftritt. Wir prüfen zuerst, welche Maßnahmen tatsächlich erforderlich sind.</p></details>
         <details><summary>Was kostet ein neues Dach?<span></span></summary><p>Das hängt von Fläche, Aufbau, Material, Details und Zugänglichkeit ab. Nach der Vor-Ort-Analyse erhalten Sie ein transparent gegliedertes Angebot mit sinnvollen Varianten.</p></details>
-        <details><summary>Wie lange dauert eine Dachsanierung?<span></span></summary><p>Ein typisches Einfamilienhaus benötigt je nach Umfang etwa zwei bis acht Wochen. Witterung und Sonderdetails werden bereits in der Terminplanung berücksichtigt.</p></details>
-        <details><summary>Welche Fördermöglichkeiten gibt es?<span></span></summary><p>Energetische Maßnahmen können je nach aktueller Förderlage unterstützt werden. Wir zeigen, welche technischen Nachweise für Ihr Vorhaben relevant sind.</p></details>
         <details><summary>Was soll ich bei einem akuten Dachschaden tun?<span></span></summary><p>Sichern Sie den Gefahrenbereich, vermeiden Sie eigene Arbeiten auf dem Dach und dokumentieren Sie sichtbare Schäden mit Fotos. Über „Schaden melden“ können Sie Dringlichkeit und Bilder direkt übermitteln.</p></details>
-        <details><summary>In welchem Gebiet ist Meyer tätig?<span></span></summary><p>Der Schwerpunkt liegt auf Köln und der umliegenden Region. Ob Ihr Projekt im Einsatzgebiet liegt, klären wir direkt mit Ihrer Anfrage.</p></details>
       </div>
     </section>
 

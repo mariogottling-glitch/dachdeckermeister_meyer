@@ -1443,3 +1443,32 @@ body.menu-open .site-header{
 }
 
 @media(prefers-reduced-motion:reduce){.contact-priority.is-expanded form{animation:none}}
+
+/* Homepage editorial trim: keep the essential proof points without long detours. */
+.process.section-pad,.faq.section-pad{padding-top:clamp(78px,7vw,110px);padding-bottom:clamp(78px,7vw,110px)}
+.process .timeline{margin-top:55px}
+.process .timeline li{min-height:0;padding:25px 0}
+.partners{padding:clamp(78px,7vw,108px) var(--pad)}
+.partners-heading{grid-template-columns:1fr .72fr;gap:6vw}
+.partners-heading .section-kicker{margin-bottom:24px}
+.partners-heading h2{font-size:clamp(42px,4.6vw,70px)}
+.partners-heading>p{font-size:18px;line-height:1.6}
+.partner-constellation{grid-template-columns:1.25fr .9fr .9fr;gap:clamp(24px,3vw,48px);min-height:0;margin-top:58px;align-items:end}
+.partner-constellation:before{top:52%;transform:none}
+.partner-constellation:after{display:none}
+.partner-node:nth-of-type(1),.partner-node:nth-of-type(2),.partner-node:nth-of-type(3){margin-top:0}
+.partner-node-wide figure,.partner-node-tall figure,.partner-node-mid figure{height:170px;padding:28px}
+
+@media(max-width:700px){
+  .process.section-pad,.faq.section-pad{padding:72px 20px}
+  .process .timeline{margin-top:40px}
+  .process .timeline li{padding:22px 0}
+  .partners{padding:72px 20px 76px}
+  .partners-heading{gap:22px}
+  .partners-heading h2{font-size:11vw}
+  .partner-constellation{display:flex;gap:16px;min-height:0;margin:40px -20px 0;padding:0 20px 12px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none}
+  .partner-constellation:before{display:none}
+  .partner-node{flex:0 0 72vw;margin:0!important;scroll-snap-align:center}
+  .partner-node-wide figure,.partner-node-tall figure,.partner-node-mid figure{height:130px;padding:22px}
+  .partner-node>p{margin-top:9px}
+}

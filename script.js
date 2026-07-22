@@ -73,7 +73,7 @@ if (stickyCta && heroCover && inquirySection && 'IntersectionObserver' in window
   const stickyCtaBlockers = [
     heroCover,
     inquirySection,
-    ...document.querySelectorAll('.quick-access, .assembly, .concepts, .roof-check, .faq')
+    ...document.querySelectorAll('.quick-access, .assembly, .concepts, .faq')
   ];
   const stickyCtaObserver = new IntersectionObserver(entries => {
     entries.forEach(entry => {
@@ -397,23 +397,7 @@ const conceptData = {
 };
 const conceptsSection = document.querySelector('.concepts');
 const conceptTabs = [...document.querySelectorAll('[data-concept-select]')];
-const existingUSlider = document.querySelector('#existing-u');
 let activeConcept = 'premium';
-
-function updatePotential() {
-  const data = conceptData[activeConcept];
-  if (!data || !existingUSlider) return;
-  const existingU = Number(existingUSlider.value);
-  const potential = Math.max(0, Math.min(95, Math.round((1 - data.targetU / existingU) * 100)));
-  const existingOutput = document.querySelector('#existing-u-output');
-  const potentialValue = document.querySelector('#potential-value');
-  const targetOutput = document.querySelector('#target-u');
-  const potentialRing = document.querySelector('.potential-ring');
-  if (existingOutput) existingOutput.textContent = `${existingU.toFixed(2).replace('.', ',')} W/m²K`;
-  if (potentialValue) potentialValue.innerHTML = `${potential}<small>%</small>`;
-  if (targetOutput) targetOutput.textContent = `${data.name} · U-Ziel ≤ ${data.targetU.toFixed(2).replace('.', ',')} W/m²K`;
-  potentialRing?.style.setProperty('--potential', `${potential}%`);
-}
 
 function activateConcept(key, moveFocus = false) {
   const data = conceptData[key];
@@ -432,7 +416,6 @@ function activateConcept(key, moveFocus = false) {
   });
   const preferredConcept = document.querySelector('input[name="preferred_concept"]');
   if (preferredConcept) preferredConcept.value = data.name;
-  updatePotential();
 }
 
 conceptTabs.forEach(tab => tab.addEventListener('click', () => activateConcept(tab.dataset.conceptSelect)));
@@ -446,7 +429,6 @@ conceptTabs.forEach((tab, index) => tab.addEventListener('keydown', event => {
   event.preventDefault();
   activateConcept(conceptTabs[nextIndex].dataset.conceptSelect, true);
 }));
-existingUSlider?.addEventListener('input', updatePotential);
 activateConcept(activeConcept);
 
 const services = {
@@ -500,7 +482,7 @@ serviceTabs.forEach((tab, index) => tab.addEventListener('keydown', event => {
 }));
 document.querySelectorAll('[data-service-target]').forEach(link => link.addEventListener('click', () => activateService(link.dataset.serviceTarget)));
 
-document.querySelectorAll('.quick-access-head, .quick-card, .intro-copy, .principles article, .trust-panel, .concepts-heading, .concept-compare-grid, .potential-check, .section-head, .check-grid a, .direct-service-head, .assistant-card, .timeline li, .partners-heading, .partner-node, .partner-future, .faq > div, .accordion details').forEach(item => item.classList.add('reveal'));
+document.querySelectorAll('.quick-access-head, .quick-card, .intro-copy, .principles article, .trust-panel, .concepts-heading, .concept-compare-grid, .section-head, .direct-service-head, .assistant-card, .timeline li, .partners-heading, .partner-node, .faq > div, .accordion details').forEach(item => item.classList.add('reveal'));
 const observer = new IntersectionObserver(entries => entries.forEach(entry => {
   if (entry.isIntersecting) { entry.target.classList.add('in'); observer.unobserve(entry.target); }
 }), { threshold: .12, rootMargin: '0px 0px -40px' });

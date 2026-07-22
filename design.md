@@ -281,12 +281,13 @@ Die bevorzugte Reihenfolge lautet:
 2. priorisierter Direkt-Service für Reparatur und Dachfenster
 3. visueller Schnellzugriff auf die fünf priorisierten Leistungen; Partner, Team und Karriere sind dort nicht enthalten
 4. interaktiver Dachaufbau
-5. Vergleich der drei Dämmkonzepte
-6. Dach-Check beziehungsweise Bedarfseinstieg
-7. transparenter Ablauf
-8. Partner
-9. FAQ
-10. Footer und Kontaktwege
+5. Vergleich der drei Dämmkonzepte ohne zusätzlichen Potenzial-Rechner
+6. kompakter Ablauf in drei verständlichen Phasen
+7. kompakte Partnerleiste
+8. FAQ mit den drei wichtigsten Fragen
+9. Footer und Kontaktwege
+
+Die Homepage bleibt ein schneller, vertrauensbildender Überblick und kein vollständiges Dachlexikon. Bedarfseinstiege werden nicht mehrfach wiederholt; vertiefende technische Informationen gehören auf die passenden Leistungsunterseiten.
 
 Eine separate Beratungssektion und ein eigener Navigationspunkt „Beratung“ sind nicht vorgesehen. Beratung bleibt als Haltung in Formularen, Projektablauf und Teamkommunikation sichtbar.
 
