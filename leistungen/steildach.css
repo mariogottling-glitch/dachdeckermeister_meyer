@@ -38,6 +38,11 @@
 .roof-path__level{margin:28px 0 0;padding:14px 16px;display:flex;align-items:center;justify-content:space-between;gap:18px;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.025)}
 .roof-path__level span{color:rgba(255,255,255,.68);font-size:13px;font-weight:750;letter-spacing:.12em;text-transform:uppercase}
 .roof-path__level strong{color:var(--accent);font-family:"Montserrat Meyer",sans-serif;font-size:17px;font-weight:800;line-height:1.2;text-align:right;text-transform:uppercase}
+.roof-path__visual{position:relative;height:clamp(180px,16vw,280px);margin:22px 0 0;overflow:hidden;background:#0c1112}
+.roof-path__visual:after{content:"";position:absolute;inset:0;border:1px solid rgba(255,255,255,.16);box-shadow:inset 0 -70px 80px rgba(8,12,13,.2);pointer-events:none}
+.roof-path__visual img{width:100%;height:100%;object-fit:cover;filter:saturate(.82) contrast(1.04);transition:filter .35s,transform .6s var(--ease)}
+.roof-path:hover .roof-path__visual img,.roof-path:focus-within .roof-path__visual img{filter:saturate(1) contrast(1.02);transform:scale(1.025)}
+.roof-path.is-selected .roof-path__visual:after{border-color:rgba(0,176,187,.55)}
 .roof-path__eyebrow{margin-top:32px;color:rgba(255,255,255,.72);font-size:14px;font-weight:750;letter-spacing:.09em;text-transform:uppercase}
 .roof-path h3{margin:12px 0 26px;font-family:"Montserrat Meyer",Montserrat,Arial,sans-serif;font-size:clamp(34px,3vw,48px);font-weight:750;line-height:1.02;letter-spacing:-.02em;text-transform:uppercase}
 .roof-path__facts{margin:0 0 34px}
@@ -87,6 +92,7 @@
   .roof-paths__head{gap:28px}
   .roof-paths__grid{margin-top:44px}
   .roof-path{padding:30px 24px}
+  .roof-path__visual{height:190px}
   .roof-path__eyebrow{margin-top:32px}
   .roof-choice{gap:22px;padding:25px 24px}
   .roof-choice>a{white-space:normal;text-align:center}
