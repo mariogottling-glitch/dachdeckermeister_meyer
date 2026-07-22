@@ -221,7 +221,9 @@ Das Layout arbeitet mit großen ruhigen Flächen, klaren Achsen und präzisen Tr
 - die drei Wege sind Orientierung, keine starren Preis-, Qualitäts- oder Förderpakete
 - jede Variante benennt sichtbar Eingriffstiefe, Eignung, konkrete Arbeiten und erhaltene Bauteile; entscheidende Kartentexte bleiben mindestens `18 px` groß
 - keine pauschalen U-Werte, Förderzusagen oder Haltbarkeitsversprechen ohne konkrete Bestands- und Fachplanung
-- GEG-Anforderungen und mögliche Förderung werden sachlich eingeordnet und auf offizielle Quellen verlinkt
+- direkt nach der Variantenwahl folgt ein kompaktes Steildach-Formular; die gewählte Variante wird automatisch übernommen
+- Bestandsprüfung, Ablauf, Leistungsumfang und häufige Fragen werden nicht als eigene lange Sektionen wiederholt, sondern nur dort knapp erklärt, wo sie die Anfrage unterstützen
+- GEG-Anforderungen und mögliche Förderung werden im Formular sachlich eingeordnet und auf offizielle Quellen verlinkt
 - mobil wird dieselbe Reihenfolge als horizontal einrastende Galerie mit sichtbarem Anschnitt der nächsten Karte angeboten
 
 ### Flachdach-Landingpage

@@ -26,10 +26,10 @@
   <link rel="preload" href="../assets/service-steildach.webp" as="image" fetchpriority="high" />
   <link rel="preload" href="../assets/service-steildach-before.jpg" as="image" fetchpriority="high" />
   <link rel="stylesheet" href="leistungen.css?v=20260721-3" />
-  <link rel="stylesheet" href="steildach.css?v=20260722-2" />
+  <link rel="stylesheet" href="steildach.css?v=20260722-3" />
   <link rel="stylesheet" href="../navigation.css?v=20260721-3" />
   <script src="../navigation.js?v=20260721-1" defer></script>
-  <script src="steildach.js?v=20260721-1" defer></script>
+  <script src="steildach.js?v=20260722-1" defer></script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","name":"Steildachsanierung und Neueindeckung","serviceType":"Bestandsprüfung, Dachsanierung, Neueindeckung, Dachdämmung und sichere Dachanschlüsse","url":"https://www.dachdeckermeister-meyer.de/leistungen/steildach.html","image":"https://www.dachdeckermeister-meyer.de/assets/service-steildach.webp","provider":{"@type":"RoofingContractor","@id":"https://www.dachdeckermeister-meyer.de/#business","name":"Dachdeckermeister Meyer","telephone":"+49 176 43487351"},"areaServed":{"@type":"City","name":"Köln"}}</script>
 </head>
 <body class="steep-page">
@@ -97,37 +97,52 @@
       </div>
       <div class="roof-choice" aria-live="polite">
         <div><span>Ihre Auswahl</span><strong>Eindeckung erhalten</strong><p>Wir prüfen zuerst, ob eine gezielte Instandsetzung technisch und wirtschaftlich sinnvoll ist.</p></div>
-        <a href="../index.html?leistung=steildach&amp;umfang=erhalt#anfrage">Steildach-Anfrage vorbereiten</a>
+        <a href="#steildach-anfrage">Auswahl übernehmen &amp; anfragen</a>
       </div>
       <p class="roof-paths__note">Keine pauschale Förder- oder Kostenzusage: Förderfähigkeit, energetische Zielwerte und Ausführung hängen vom Gebäude, dem Bestand und den zum Antragszeitpunkt geltenden Bedingungen ab.</p>
     </section>
 
-    <section class="roof-check section" aria-labelledby="check-title">
-      <div class="section-head"><div><div class="kicker">02 / Bestandsaufnahme</div><h2 class="display" id="check-title">Erst prüfen.<br />Dann entscheiden.</h2></div><p class="copy">Ein belastbares Konzept beginnt mit dem vorhandenen Dach. Wir erfassen nicht nur die sichtbare Oberfläche, sondern die Bauteile, die später zusammen funktionieren müssen.</p></div>
-      <div class="roof-check__grid">
-        <article><b>01</b><h3>Tragwerk & Holz</h3><p>Sichtbare Verformungen, Feuchtespuren und zugängliche konstruktive Bereiche werden eingeordnet.</p></article>
-        <article><b>02</b><h3>Eindeckung & Unterdach</h3><p>Ziegel oder Metall, Lattung, Unterdeckung und kritische Übergänge werden gemeinsam betrachtet.</p></article>
-        <article><b>03</b><h3>Dämmung & Luftdichtheit</h3><p>Vorhandener Aufbau, Raumnutzung und technisch erreichbare Verbesserung bestimmen das Konzept.</p></article>
-        <article><b>04</b><h3>Details & Entwässerung</h3><p>Fenster, Kamin, Ortgang, Traufe, Rinnen und mögliche Photovoltaikflächen fließen in die Planung ein.</p></article>
+    <section class="steep-inquiry" id="steildach-anfrage" aria-labelledby="steep-inquiry-title">
+      <div class="steep-inquiry__intro">
+        <span class="section-no">02 / DIREKT ANFRAGEN</span>
+        <h2 id="steep-inquiry-title">Auswahl übernehmen.<br /><em>Dach prüfen lassen.</em></h2>
+        <p>Ihre gewählte Orientierung ist bereits eingetragen. Ergänzen Sie nur die Angaben, die uns eine konkrete erste Rückmeldung erleichtern.</p>
+        <ol aria-label="So geht es nach der Anfrage weiter"><li><b>01</b><span>Angaben und Fotos persönlich prüfen</span></li><li><b>02</b><span>Nächsten sinnvollen Schritt abstimmen</span></li><li><b>03</b><span>Bestand vor Ort fachlich bewerten</span></li></ol>
+        <div class="steep-inquiry__direct"><a href="tel:+4917643487351"><small>Direkt anrufen</small><strong>0176 43487351</strong></a><a href="mailto:info@dachdeckermeister-meyer.de"><small>E-Mail</small><strong>info@dachdeckermeister-meyer.de</strong></a></div>
       </div>
+
+      <form class="steep-form" id="steep-inquiry-form" action="../send-inquiry.php" method="post" enctype="multipart/form-data" novalidate>
+        <label class="steep-honeypot" aria-hidden="true">Website<input name="website" tabindex="-1" autocomplete="off" /></label>
+        <input type="hidden" name="form_started" value="" />
+        <input type="hidden" name="type" value="Steildach" />
+        <input type="hidden" name="preferred_concept" value="Eindeckung erhalten" />
+
+        <div class="steep-form__selection" aria-live="polite"><div><span>Ausgewählter Sanierungsweg</span><strong data-request-selection>Eindeckung erhalten</strong></div><a href="#sanierungswege">Auswahl ändern</a></div>
+
+        <fieldset><legend>Zum Dach <small>Pflichtfelder sind mit * gekennzeichnet.</small></legend><div class="steep-form__grid">
+          <label>Dachform *<select name="roof_type" required><option value="">Bitte wählen</option><option>Satteldach</option><option>Walmdach</option><option>Pultdach</option><option>Andere / unklar</option></select></label>
+          <label>Aktuelle Eindeckung<select name="material"><option value="">Unbekannt / bitte prüfen</option><option>Dachziegel</option><option>Dachsteine</option><option>Metall</option><option>Andere</option></select></label>
+          <label>Sichtbare Feuchtigkeit<select name="leak"><option value="">Unklar / nicht geprüft</option><option>Nein</option><option>Ja</option><option>Nur bei starkem Regen</option></select></label>
+          <label>Gewünschter Zeitraum<input name="timing" placeholder="z. B. in den nächsten 3 Monaten" /></label>
+          <label class="wide">Was ist Ihnen aufgefallen oder wichtig? *<textarea name="message" rows="4" required minlength="10" placeholder="Zum Beispiel beschädigte Ziegel, Feuchtigkeit, Dämmwunsch oder geplante Photovoltaik"></textarea></label>
+        </div></fieldset>
+
+        <label class="steep-upload"><input type="file" name="photos[]" accept="image/jpeg,image/png,image/webp" multiple /><span><strong>Fotos ergänzen</strong><small>Bis zu 5 Bilder · JPG, PNG oder WebP · je maximal 5 MB</small></span><output aria-live="polite"></output></label>
+
+        <fieldset><legend>Ihre Kontaktdaten</legend><div class="steep-form__grid">
+          <label>Name *<input name="name" autocomplete="name" required /></label>
+          <label>Telefon *<input type="tel" name="phone" autocomplete="tel" required minlength="5" /></label>
+          <label>E-Mail *<input type="email" name="email" autocomplete="email" required /></label>
+          <label>Projektadresse *<input name="address" autocomplete="street-address" required placeholder="Straße, PLZ und Ort" /></label>
+          <label>Bevorzugte Rückmeldung<select name="contact_preference"><option>Telefon oder E-Mail</option><option>Telefon</option><option>E-Mail</option></select></label>
+        </div></fieldset>
+
+        <label class="steep-consent"><input type="checkbox" required /><span>Ich habe die <a href="../datenschutz.html">Datenschutzhinweise</a> gelesen und stimme der Verarbeitung meiner Angaben zur Bearbeitung der Anfrage zu.</span></label>
+        <div class="steep-form__foot"><p>Technische Anforderungen und eine mögliche Förderung werden erst nach Bestandsprüfung eingeordnet. <a href="https://www.gesetze-im-internet.de/geg/anlage_7.html" target="_blank" rel="noopener noreferrer">GEG</a> · <a href="https://www.bafa.de/DE/Energie/Effiziente_Gebaeude/effiziente_gebaeude_node.html" target="_blank" rel="noopener noreferrer">BAFA</a></p><button type="submit">Steildach-Anfrage senden <span aria-hidden="true">↗</span></button></div>
+        <p class="steep-form__error" role="alert" tabindex="-1"></p>
+        <div class="steep-form__status" role="status" aria-live="polite" tabindex="-1"></div>
+      </form>
     </section>
-
-    <section class="roof-fact" aria-labelledby="fact-title">
-      <div><span class="section-no">03 / SICHER EINORDNEN</span><h2 id="fact-title">Anforderungen sind<br /><em>kein Pauschalwert.</em></h2></div>
-      <div class="roof-fact__copy"><p>Bei Änderungen an Dachflächen können Vorgaben des Gebäudeenergiegesetzes greifen. Welche Anforderung gilt und ob technische Ausnahmen relevant sind, muss am konkreten Bauteil geprüft werden.</p><p>Für eine mögliche BEG-Förderung von Maßnahmen an der Gebäudehülle ist regelmäßig eine Energieeffizienz-Expertin oder ein Energieeffizienz-Experte einzubinden. Eine Förderung muss deshalb vor der Ausführung sauber vorbereitet werden.</p><div class="roof-fact__links"><a href="https://www.gesetze-im-internet.de/geg/anlage_7.html" target="_blank" rel="noopener noreferrer">GEG Anlage 7</a><a href="https://www.bafa.de/DE/Energie/Effiziente_Gebaeude/effiziente_gebaeude_node.html" target="_blank" rel="noopener noreferrer">BAFA-Förderinformationen</a></div></div>
-    </section>
-
-    <section class="section section-pale" aria-labelledby="scope-title">
-      <div class="section-head"><div><div class="kicker">04 / Leistungsumfang</div><h2 class="display" id="scope-title">Vom Sparren<br />bis zum First.</h2></div><p class="copy">Der konkrete Umfang wird aus dem Bestand entwickelt. Einzelne Bausteine werden nur kombiniert, wenn sie technisch zusammengehören.</p></div>
-      <div class="scope-grid"><article><span>01</span><h3>Instandsetzung</h3><p>Gezielte Reparatur geeigneter Eindeckungen, Anschlüsse und Dachdetails.</p></article><article><span>02</span><h3>Neueindeckung</h3><p>Dachziegel, Dachsteine oder Metall passend zu Konstruktion und Gestaltung.</p></article><article><span>03</span><h3>Dachdämmung</h3><p>Auf-, Zwischen- oder Untersparrenlösungen mit abgestimmtem Feuchteschutz.</p></article><article><span>04</span><h3>Dachfenster</h3><p>Einbau oder Austausch mit passenden Innen- und Außenanschlüssen.</p></article><article><span>05</span><h3>Metall & Entwässerung</h3><p>Rinnen, Fallrohre, Einfassungen sowie Anschlüsse an Traufe, Kamin und Ortgang.</p></article><article><span>06</span><h3>Photovoltaik vorbereiten</h3><p>Dachzustand, Befestigungspunkte und Leitungswege frühzeitig mitdenken.</p><a class="scope-link" href="photovoltaik.html">Photovoltaik entdecken</a></article></div>
-    </section>
-
-    <section class="section" aria-labelledby="process-title"><div class="section-head"><div><div class="kicker">05 / Projektablauf</div><h2 class="display" id="process-title">Vier Schritte.<br />Klar geführt.</h2></div><p class="copy">Von der ersten Einordnung bis zur Übergabe bleibt nachvollziehbar, was geprüft, geplant und ausgeführt wird.</p></div><ol class="process-list"><li><b>01</b><h3>Anfrage einordnen</h3><p>Fotos und Angaben helfen, Dringlichkeit und nächsten sinnvollen Schritt vorzubereiten.</p></li><li><b>02</b><h3>Vor Ort prüfen</h3><p>Zustand, Zugänglichkeit und relevante Dachdetails werden am Gebäude aufgenommen.</p></li><li><b>03</b><h3>Aufbau festlegen</h3><p>Erhalt, energetische Sanierung oder Neuaufbau werden technisch und wirtschaftlich abgewogen.</p></li><li><b>04</b><h3>Ausführen & übergeben</h3><p>Die abgestimmten Arbeiten werden umgesetzt und gemeinsam kontrolliert.</p></li></ol></section>
-
-    <section class="section section-pale faq" aria-labelledby="faq-title"><div><div class="kicker">06 / Häufige Fragen</div><h2 class="display" id="faq-title">Gut zu<br />wissen.</h2></div><div class="accordion"><details><summary>Reicht eine Reparatur oder muss das ganze Dach erneuert werden?</summary><p>Das hängt davon ab, ob Schäden lokal begrenzt sind und die übrigen Schichten weiterhin zuverlässig funktionieren. Eine seriöse Aussage ist erst nach Bestandsprüfung möglich.</p></details><details><summary>Muss bei einer Neueindeckung auch gedämmt werden?</summary><p>Bei Änderungen am Dach können energetische Anforderungen greifen. Welche Vorgaben im Einzelfall gelten und welche Konstruktion technisch möglich ist, wird projektbezogen geprüft.</p></details><details><summary>Ist eine Dachsanierung automatisch förderfähig?</summary><p>Nein. Förderfähigkeit hängt unter anderem von Maßnahme, technischen Mindestanforderungen, Antragstellung und der Einbindung einer Energieeffizienz-Expertin oder eines Energieeffizienz-Experten ab.</p></details><details><summary>Kann Photovoltaik direkt mitgeplant werden?</summary><p>Ja. Dachzustand, Befestigung, Leitungswege und spätere Wartbarkeit sollten möglichst früh gemeinsam betrachtet werden.</p></details></div></section>
-
-    <section class="related"><div class="section"><div class="kicker">Weitere Leistungen</div><h2 class="display">Die ganze<br />Gebäudehülle.</h2><nav class="related-list" aria-label="Leistungsseiten"><a href="steildach.html" aria-current="page"><b>01</b><span>Steildach</span></a><a href="flachdach.html"><b>02</b><span>Flachdach</span></a><a href="fassaden.html"><b>03</b><span>Fassaden</span></a><a href="dachfenster.html"><b>04</b><span>Dachfenster</span></a><a href="terrassen-balkone.html"><b>05</b><span>Terrassen & Balkone</span></a><a href="service-wartung.html"><b>06</b><span>Service & Wartung</span></a></nav></div></section>
-    <section class="cta"><div><div class="kicker">Steildach anfragen</div><h2>Ihr Dach.<em>Passend geplant.</em></h2><p>Beschreiben Sie Zustand, sichtbare Auffälligkeiten und Ihr Ziel. Fotos können direkt im Online-Assistenten ergänzt werden.</p></div><a class="button" href="../index.html?leistung=steildach#anfrage">Steildach-Anfrage starten</a></section>
   </main>
   <footer><div><a class="footer-brand" href="../index.html"><img src="../assets/meyer-logo-final.png" alt="Dachdeckermeister Meyer" /></a><small>© 2026 Dachdeckermeister Meyer · Köln</small></div><nav><a href="../index.html#leistungen">Leistungen</a><a href="../jobs/index.html">Karriere</a><a href="../index.html#anfrage">Kontakt</a><a href="../impressum.html">Impressum</a><a href="../datenschutz.html">Datenschutz</a><a href="../index.html">Startseite</a></nav></footer>
 </body>

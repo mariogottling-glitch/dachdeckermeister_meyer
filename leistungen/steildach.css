@@ -28,8 +28,8 @@
 .roof-paths{padding:clamp(90px,8vw,130px) var(--pad);background:#111719;color:#fff}
 .roof-paths__head{display:grid;grid-template-columns:minmax(0,1fr) minmax(300px,.65fr);gap:8vw;align-items:end}
 .section-no{display:block;margin-bottom:28px;color:var(--accent);font-size:11px;font-weight:750;letter-spacing:.14em;text-transform:uppercase}
-.roof-paths h2,.roof-fact h2{margin:0;font-family:"Montserrat Meyer",Montserrat,Arial,sans-serif;font-size:clamp(40px,4.5vw,66px);font-weight:800;line-height:1;letter-spacing:-.025em;text-transform:uppercase}
-.roof-paths h2 em,.roof-fact h2 em{display:block;color:var(--accent);font-style:normal}
+.roof-paths h2{margin:0;font-family:"Montserrat Meyer",Montserrat,Arial,sans-serif;font-size:clamp(40px,4.5vw,66px);font-weight:800;line-height:1;letter-spacing:-.025em;text-transform:uppercase}
+.roof-paths h2 em{display:block;color:var(--accent);font-style:normal}
 .roof-paths__head>p{max-width:620px;margin:0;color:rgba(255,255,255,.64);font-size:18px}
 .roof-paths__grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;margin-top:65px;background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.2)}
 .roof-path{position:relative;min-height:690px;padding:40px;display:flex;flex-direction:column;background:#151b1d;transition:background .25s,box-shadow .25s}
@@ -59,22 +59,33 @@
 .roof-choice>a:hover,.roof-choice>a:focus-visible{background:var(--accent);color:#111719}
 .roof-paths__note{max-width:980px;margin:28px 0 0;color:rgba(255,255,255,.62);font-size:15px;line-height:1.55}
 
-.roof-check__grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;margin-top:70px;background:var(--line);border:1px solid var(--line)}
-.roof-check__grid article{min-height:270px;padding:32px;background:#fff}
-.roof-check__grid b{color:var(--accent);font-family:"Montserrat Meyer",sans-serif;font-size:12px;letter-spacing:.14em}
-.roof-check__grid h3{margin:65px 0 12px;font-size:21px;font-weight:600}
-.roof-check__grid p{margin:0;color:var(--muted);font-size:15px}
-.roof-fact{padding:clamp(80px,9vw,140px) var(--pad);display:grid;grid-template-columns:1fr .8fr;gap:9vw;background:#202628;color:#fff}
-.roof-fact__copy>p{margin:0 0 24px;color:rgba(255,255,255,.72);font-size:18px}
-.roof-fact__links{display:flex;flex-wrap:wrap;gap:13px;margin-top:35px}
-.roof-fact__links a{min-height:48px;padding:12px 16px;display:inline-flex;align-items:center;border:1px solid rgba(255,255,255,.32);font-size:11px;font-weight:750;letter-spacing:.08em;text-transform:uppercase}
-.roof-fact__links a:hover,.roof-fact__links a:focus-visible{border-color:var(--accent);color:var(--accent)}
+.steep-inquiry{padding:clamp(82px,8vw,125px) var(--pad);display:grid;grid-template-columns:minmax(280px,.68fr) minmax(0,1.32fr);gap:clamp(55px,8vw,130px);background:#202628;color:#fff}
+.steep-inquiry__intro h2{margin:0;font-family:"Montserrat Meyer",Montserrat,Arial,sans-serif;font-size:clamp(42px,4.8vw,72px);font-weight:800;line-height:.98;letter-spacing:-.035em;text-transform:uppercase}
+.steep-inquiry__intro h2 em{display:block;color:var(--accent);font-style:normal}
+.steep-inquiry__intro>p{max-width:570px;margin:28px 0 0;color:rgba(255,255,255,.72);font-size:18px;line-height:1.65}
+.steep-inquiry__intro ol{list-style:none;margin:48px 0 0;padding:0;border-top:1px solid rgba(255,255,255,.18)}
+.steep-inquiry__intro li{display:grid;grid-template-columns:42px 1fr;gap:16px;padding:17px 0;border-bottom:1px solid rgba(255,255,255,.18);font-size:15px}
+.steep-inquiry__intro li b{color:var(--accent);font-size:11px;letter-spacing:.12em}
+.steep-inquiry__direct{display:grid;gap:12px;margin-top:42px}
+.steep-inquiry__direct a{padding:14px 0;border-bottom:1px solid rgba(255,255,255,.2)}
+.steep-inquiry__direct small,.steep-inquiry__direct strong{display:block}.steep-inquiry__direct small{color:#8f9a9d;font-size:11px;letter-spacing:.12em;text-transform:uppercase}.steep-inquiry__direct strong{margin-top:4px;font-size:17px;font-weight:600}
+.steep-form{min-width:0;padding:clamp(28px,3.5vw,52px);border:1px solid rgba(255,255,255,.2);background:#151b1d}
+.steep-honeypot{position:absolute!important;left:-9999px!important;width:1px!important;height:1px!important;overflow:hidden!important}
+.steep-form__selection{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:0 0 25px;border-bottom:1px solid rgba(255,255,255,.2)}
+.steep-form__selection span,.steep-form__selection strong{display:block}.steep-form__selection span{color:#8f9a9d;font-size:11px;letter-spacing:.12em;text-transform:uppercase}.steep-form__selection strong{margin-top:6px;color:var(--accent);font-family:"Montserrat Meyer",sans-serif;font-size:23px;text-transform:uppercase}.steep-form__selection a{padding-bottom:4px;border-bottom:1px solid var(--accent);font-size:11px;font-weight:750;letter-spacing:.08em;text-transform:uppercase}
+.steep-form fieldset{margin:30px 0 0;padding:0;border:0}.steep-form legend{margin-bottom:18px;font-size:13px;font-weight:750;letter-spacing:.1em;text-transform:uppercase}.steep-form legend small{margin-left:8px;color:#8f9a9d;font-size:10px;font-weight:400;letter-spacing:0;text-transform:none}
+.steep-form__grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px 24px}.steep-form__grid label{min-width:0;color:#aeb6b8;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}.steep-form__grid .wide{grid-column:1/-1}
+.steep-form input,.steep-form select,.steep-form textarea{width:100%;margin-top:7px;padding:13px 0;border:0;border-bottom:1px solid rgba(255,255,255,.32);border-radius:0;background:transparent;color:#fff;font-size:17px;line-height:1.45;letter-spacing:0;text-transform:none;outline:none}.steep-form select{background:#151b1d}.steep-form textarea{resize:vertical}.steep-form input:focus,.steep-form select:focus,.steep-form textarea:focus{border-color:var(--accent)}
+.steep-upload{margin-top:28px;display:grid;grid-template-columns:1fr auto;gap:18px;align-items:center;padding:20px 22px;border:1px dashed rgba(255,255,255,.32);cursor:pointer}.steep-upload input{position:absolute;width:1px;height:1px;opacity:0}.steep-upload strong,.steep-upload small{display:block}.steep-upload strong{font-size:14px}.steep-upload small{margin-top:4px;color:#8f9a9d;font-size:12px}.steep-upload output{color:var(--accent);font-size:13px}
+.steep-consent{display:flex;gap:12px;margin-top:28px;color:#aeb6b8;font-size:13px;line-height:1.5}.steep-consent input{flex:0 0 18px;width:18px;height:18px;margin:2px 0 0;accent-color:var(--accent)}.steep-consent a,.steep-form__foot a{text-decoration:underline;text-decoration-color:var(--accent);text-underline-offset:3px}
+.steep-form__foot{display:grid;grid-template-columns:1fr auto;gap:25px;align-items:end;margin-top:30px}.steep-form__foot p{max-width:520px;margin:0;color:#7f898c;font-size:11px;line-height:1.55}.steep-form__foot button{min-height:58px;padding:16px 20px;border:1px solid var(--accent);background:var(--accent);color:#111719;font-size:13px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;cursor:pointer}.steep-form__foot button span{margin-left:22px}.steep-form__foot button:hover,.steep-form__foot button:focus-visible{background:#fff;border-color:#fff}.steep-form__foot button:disabled{opacity:.6;cursor:wait}
+.steep-form__error{min-height:22px;margin:18px 0 0;color:#ffb2ad;font-size:13px}.steep-form__status{display:none}.steep-form.is-submitted>*:not(.steep-form__status){display:none}.steep-form.is-submitted .steep-form__status{min-height:360px;display:flex;flex-direction:column;align-items:flex-start;justify-content:center}.steep-form__status strong{font-family:"Montserrat Meyer",sans-serif;font-size:clamp(30px,3.2vw,48px);text-transform:uppercase}.steep-form__status p{max-width:600px;color:#b7bec0}.steep-form__status a{margin-top:16px;padding:12px 0 5px;border-bottom:2px solid var(--accent);font-size:13px;font-weight:750;text-transform:uppercase}
 
 @media(max-width:1000px){
   .roof-paths__grid{grid-template-columns:1fr}
   .roof-path{min-height:0}
   .roof-path__visual{height:280px}
-  .roof-check__grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .steep-inquiry{grid-template-columns:1fr;gap:48px}
 }
 @media(max-width:760px){
   .roof-compare__shade{background:linear-gradient(90deg,rgba(15,19,20,.86),rgba(15,19,20,.28)),linear-gradient(0deg,rgba(11,14,15,.92) 0%,rgba(11,14,15,.28) 72%)}
@@ -91,17 +102,22 @@
   .roof-paths{padding-left:22px;padding-right:22px}
   .roof-paths__head,.roof-choice,.roof-fact{grid-template-columns:minmax(0,1fr)}
   .roof-paths__head{gap:28px}
-  .roof-paths__grid{margin-top:44px}
-  .roof-path{padding:30px 24px}
+  .roof-paths__grid{display:flex;gap:12px;margin:44px -22px 0 0;padding:0 22px 12px 0;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;background:transparent;border:0}
+  .roof-paths__grid::-webkit-scrollbar{display:none}
+  .roof-path{flex:0 0 calc(100vw - 64px);padding:30px 24px;border:1px solid rgba(255,255,255,.2);scroll-snap-align:start}
   .roof-path__visual{height:190px}
   .roof-path__eyebrow{margin-top:32px}
   .roof-choice{gap:22px;padding:25px 24px}
   .roof-choice>a{white-space:normal;text-align:center}
-  .roof-check__grid{grid-template-columns:1fr}
-  .roof-check__grid article{min-height:220px}
-  .roof-check__grid h3{margin-top:44px}
-  .roof-fact{gap:38px;padding-left:22px;padding-right:22px}
-  .roof-fact>*{min-width:0}
-  .roof-fact h2{font-size:36px;overflow-wrap:anywhere}
+  .steep-inquiry{padding-left:22px;padding-right:22px}
+  .steep-inquiry__intro h2{font-size:clamp(39px,11vw,58px)}
+  .steep-form{padding:28px 22px}
+  .steep-form__selection,.steep-form__foot{grid-template-columns:1fr;align-items:start}
+  .steep-form__selection{display:grid}
+  .steep-form__selection a{width:max-content}
+  .steep-form__grid{grid-template-columns:1fr}
+  .steep-form__grid .wide{grid-column:auto}
+  .steep-upload{grid-template-columns:1fr}
+  .steep-form__foot button{width:100%}
 }
-@media(prefers-reduced-motion:reduce){.roof-path,.roof-path button{transition:none}}
+@media(prefers-reduced-motion:reduce){.roof-path,.roof-path button,.roof-path__visual img{transition:none}.roof-paths__grid{scroll-behavior:auto}}
