@@ -229,12 +229,12 @@ Das Layout arbeitet mit großen ruhigen Flächen, klaren Achsen und präzisen Tr
 ### Flachdach-Landingpage
 
 - die Flachdachseite beginnt mit einem vollflächigen Architekturmotiv und erklärt Abdichtung, Entwässerung und Nutzung als gemeinsames System
-- Gründach, Photovoltaik und Dachterrasse werden als Nutzungsoptionen mit jeweils klaren Voraussetzungen, Planungszielen und kritischen Details erklärt
+- Gründach, Photovoltaik und Dachterrasse werden als kompakte Nutzungsoptionen mit einem klaren Nutzenbild erklärt
 - Nutzungsoptionen sind Orientierung und keine pauschalen Nutzen-, Wertsteigerungs- oder Einsparversprechen
-- Dachaufbauten werden nach ihrer technischen Funktion erklärt; Bezeichnungen wie „günstig“, „mittel“ und „hochwertig“ sind nicht zulässig
-- der visuelle Projektziel-Vergleich nutzt die drei Wege „Abdichtung sichern“, „Energetisch sanieren“ und „Nutzung vorbereiten“; jede Karte erhält eine klar als Prinzipdarstellung gekennzeichnete Aufbau-Grafik
-- Nutzungswunsch und Projektziel werden gemeinsam als URL-Voreinstellung an den zentralen Online-Assistenten übergeben und dort sichtbar vorausgefüllt
-- relevante Kartentexte bleiben mindestens `17–18 px` groß und die Auswahl führt vorausgefüllt in den zentralen Online-Assistenten
+- direkt nach der Nutzungswahl folgt ein kompaktes Flachdach-Formular; die gewählte Nutzung wird automatisch übernommen
+- Abdichtung, energetische Sanierung oder neue Nutzung werden im Formular als einfache Projektziel-Auswahl erfasst, nicht als zweite lange Vergleichssektion
+- Bestandsprüfung, Ablauf, häufige Fragen und verwandte Leistungen werden nicht als eigene lange Sektionen wiederholt
+- relevante Kartentexte bleiben mindestens `17–18 px` groß
 - keine pauschalen Dämmstärken, U-Werte, Förderampeln oder automatischen Förderzusagen; gesetzliche und fördertechnische Anforderungen werden projektbezogen eingeordnet
 
 ### Formulare
