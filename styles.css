@@ -1464,7 +1464,7 @@ body.menu-open .site-header{
   .process .timeline{margin-top:40px}
   .process .timeline li{padding:22px 0}
   .partners{padding:72px 20px 76px}
-  .partners-heading{gap:22px}
+  .partners-heading{grid-template-columns:1fr;gap:22px}
   .partners-heading h2{font-size:11vw}
   .partner-constellation{display:flex;gap:16px;min-height:0;margin:40px -20px 0;padding:0 20px 12px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none}
   .partner-constellation:before{display:none}
