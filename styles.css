@@ -998,6 +998,56 @@ footer>div,footer>small{
 
 /* Form audit: unambiguous steps, inline recovery and obstruction-free mobile use. */
 html,body{overflow-x:clip}
+
+/* Keep the optional building tour visible without competing with the hero message. */
+.hero-tour-link{
+  width:200px;
+  min-height:56px;
+  padding:9px 13px 8px 15px;
+  gap:2px;
+  border-color:rgba(255,255,255,.18);
+  border-left-width:1px;
+  background:rgba(19,25,27,.24);
+  backdrop-filter:blur(5px);
+}
+.hero-tour-link span{
+  font-size:14px;
+  font-weight:650;
+  line-height:1.25;
+  letter-spacing:.075em;
+}
+.hero-tour-link b,
+.hero-tour-link b i{
+  font-size:14px;
+  line-height:1.25;
+  letter-spacing:.07em;
+}
+.hero-tour-link b{color:rgba(255,255,255,.58)}
+.hero-tour-link i{margin-left:5px}
+.hero-tour-link:hover,
+.hero-tour-link:focus-visible{
+  background:rgba(19,25,27,.5);
+  border-color:rgba(255,255,255,.4);
+  border-left-color:var(--accent);
+  transform:translateY(-1px);
+}
+
+@media(max-width:640px){
+  .hero-tour-link{
+    top:148px;
+    width:156px;
+    min-height:48px;
+    padding:7px 10px 7px 12px;
+    background:rgba(19,25,27,.34);
+  }
+  .hero-tour-link span,
+  .hero-tour-link b,
+  .hero-tour-link b i{
+    font-size:14px;
+    line-height:1.2;
+    letter-spacing:.055em;
+  }
+}
 .wizard-progress span.complete{color:#d6d6d6}
 .wizard-progress span.complete:after{right:10px}
 .wizard-progress span.complete b{border-color:var(--accent);color:var(--accent);font-size:0}
