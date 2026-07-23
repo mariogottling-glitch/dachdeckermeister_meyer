@@ -237,6 +237,16 @@ Das Layout arbeitet mit großen ruhigen Flächen, klaren Achsen und präzisen Tr
 - relevante Kartentexte bleiben mindestens `17–18 px` groß
 - keine pauschalen Dämmstärken, U-Werte, Förderampeln oder automatischen Förderzusagen; gesetzliche und fördertechnische Anforderungen werden projektbezogen eingeordnet
 
+### Photovoltaik-Landingpage
+
+- die Photovoltaikseite beginnt mit einem vollflächigen Dachmotiv und grenzt die dachseitige Leistung klar von Elektroanschluss, Wechselrichter, Netzanschluss und Inbetriebnahme ab
+- als schnelle Orientierung werden genau drei Projektsituationen gezeigt: Photovoltaik auf Steildach, Photovoltaik auf Flachdach sowie Dachsanierung mit Photovoltaik
+- die Situationen sind keine Produkt-, Preis- oder Ertragspakete, sondern dienen ausschließlich der ersten technischen Einordnung
+- direkt nach der Situationswahl folgt ein kompaktes Photovoltaik-Formular; die gewählte Situation wird automatisch übernommen
+- abgefragt werden nur Planungsstand, Dachzustand, ungefähres Dachalter beziehungsweise letzte Sanierung, Fläche, vorhandener Elektro-Fachbetrieb, Zeitraum und eine kurze Projektbeschreibung
+- Dachprüfung, Befestigung, Leitungswege, Schnittstellen, Ablauf und häufige Fragen werden nicht in zusätzlichen langen Sektionen wiederholt
+- keine pauschalen Ertrags-, Einspar-, Autarkie-, Förder- oder Wirtschaftlichkeitsversprechen
+
 ### Formulare
 
 - Reparatur und Dachfenster sind getrennte, klar benannte Assistenten

@@ -1,0 +1,41 @@
+.pv-page{background:#111719}
+.pv-hero .flat-hero__image{object-position:center 42%}
+.pv-hero .flat-hero__shade{background:linear-gradient(90deg,rgba(15,19,20,.97) 0%,rgba(15,19,20,.76) 38%,rgba(15,19,20,.17) 72%),linear-gradient(0deg,rgba(11,14,15,.72),transparent 58%)}
+.pv-hero h1{max-width:1180px}
+.pv-situations .flat-use__body{min-height:410px}
+.pv-situations .flat-use h3{font-size:clamp(28px,2.45vw,39px);line-height:1.04}
+.pv-situations .flat-use p{margin-bottom:24px}
+.pv-inquiry .flat-form__foot p{max-width:600px}
+
+.pv-page .section-no,
+.pv-page .flat-use__body>span,
+.pv-page .flat-use button,
+.pv-page .flat-choice span,
+.pv-page .flat-choice>a,
+.pv-page .flat-form__selection span,
+.pv-page .flat-form__selection a,
+.pv-page .flat-inquiry__direct small,
+.pv-page .flat-form legend small,
+.pv-page .flat-form__grid label,
+.pv-page .flat-upload small,
+.pv-page .flat-form__foot p,
+.pv-page .flat-form__error{
+  font-size:14px;
+  line-height:1.45;
+}
+
+@media(max-width:1100px){
+  .pv-situations .flat-use__body{min-height:360px}
+}
+
+@media(max-width:760px){
+  .pv-hero .flat-hero__image{object-position:62% center}
+  .pv-hero h1{font-size:clamp(42px,11.3vw,58px)}
+  .pv-hero .flat-hero__content>p{max-width:92%}
+  .pv-situations .flat-use__body{min-height:380px}
+  .pv-situations .flat-use h3{font-size:29px}
+}
+
+@media(max-width:390px){
+  .pv-hero h1{font-size:10.6vw}
+}

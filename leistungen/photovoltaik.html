@@ -23,87 +23,101 @@
   <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
   <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png" sizes="180x180" />
   <link rel="manifest" href="../site.webmanifest" />
-  <link rel="preload" href="../assets/hero-scenes/roof-pv.webp" as="image" />
+  <link rel="preload" href="../assets/hero-scenes/roof-pv.webp" as="image" fetchpriority="high" />
   <link rel="stylesheet" href="leistungen.css?v=20260721-5" />
-  <script src="leistungen.js?v=20260721-4" defer></script>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","name":"Photovoltaik-Integration auf Steildächern","serviceType":"Dachseitige Photovoltaik-Integration, Befestigung, Leitungswege und sichere Dachanschlüsse","url":"https://www.dachdeckermeister-meyer.de/leistungen/photovoltaik.html","image":"https://www.dachdeckermeister-meyer.de/assets/hero-scenes/roof-pv.webp","provider":{"@type":"RoofingContractor","@id":"https://www.dachdeckermeister-meyer.de/#business","name":"Dachdeckermeister Meyer","telephone":"+49 176 43487351"},"areaServed":{"@type":"City","name":"Köln"}}</script>
-<link rel="stylesheet" href="../navigation.css?v=20260721-3" /><script src="../navigation.js?v=20260721-1" defer></script></head>
-<body class="pv-page">
+  <link rel="stylesheet" href="flachdach.css?v=20260722-3" />
+  <link rel="stylesheet" href="photovoltaik.css?v=20260723-1" />
+  <link rel="stylesheet" href="../navigation.css?v=20260721-3" />
+  <script src="../navigation.js?v=20260721-1" defer></script>
+  <script src="photovoltaik.js?v=20260723-1" defer></script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","name":"Photovoltaik-Integration auf Steil- und Flachdächern","serviceType":"Dachprüfung, dachseitige Photovoltaik-Integration, Befestigung, Leitungswege und sichere Dachanschlüsse","url":"https://www.dachdeckermeister-meyer.de/leistungen/photovoltaik.html","image":"https://www.dachdeckermeister-meyer.de/assets/hero-scenes/roof-pv.webp","provider":{"@type":"RoofingContractor","@id":"https://www.dachdeckermeister-meyer.de/#business","name":"Dachdeckermeister Meyer","telephone":"+49 176 43487351"},"areaServed":{"@type":"City","name":"Köln"}}</script>
+</head>
+<body class="flat-page pv-page">
   <a class="skip-link" href="#main">Zum Inhalt springen</a>
-  <header class="site-header"><a class="brand" href="../index.html" aria-label="Dachdeckermeister Meyer Startseite"><img class="brand-logo-img" src="../assets/meyer-logo-final.png" alt="Dachdeckermeister Meyer" width="1311" height="1104" /></a><button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav" aria-label="Menü öffnen"><span></span><span></span><span class="sr-only">Menü öffnen</span></button><nav id="main-nav" aria-label="Hauptnavigation"><a href="../index.html#leistungen">Leistungen</a><a href="../index.html#system">Unser System</a><a href="../jobs/index.html">Karriere</a></nav><a class="header-cta" href="../index.html#anfrage">Kontakt <span aria-hidden="true">↗︎</span></a></header>
+  <header class="site-header">
+    <a class="brand" href="../index.html" aria-label="Dachdeckermeister Meyer Startseite"><img class="brand-logo-img" src="../assets/meyer-logo-final.png" alt="Dachdeckermeister Meyer" width="1311" height="1104" /></a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav" aria-label="Menü öffnen"><span></span><span></span><span class="sr-only">Menü öffnen</span></button>
+    <nav id="main-nav" aria-label="Hauptnavigation"><a href="../index.html#leistungen">Leistungen</a><a href="../index.html#system">Unser System</a><a href="../jobs/index.html">Karriere</a></nav>
+    <a class="header-cta" href="../index.html#anfrage">Kontakt <span aria-hidden="true">↗︎</span></a>
+  </header>
   <main id="main">
-    <section class="service-hero">
-      <div class="service-hero-media"><img src="../assets/hero-scenes/roof-pv.webp" alt="Modernes Steildach mit integrierten Photovoltaikmodulen" width="1672" height="941" /></div>
-      <div class="service-hero-inner">
+    <section class="flat-hero pv-hero" aria-labelledby="pv-title">
+      <img class="flat-hero__image" src="../assets/hero-scenes/roof-pv.webp" alt="Modernes Steildach mit integrierten Photovoltaikmodulen" width="1672" height="941" fetchpriority="high" />
+      <div class="flat-hero__shade" aria-hidden="true"></div>
+      <div class="flat-hero__content">
         <div class="breadcrumb"><a href="../index.html">Startseite</a><span>/</span><a href="../index.html#leistungen">Leistungen</a><span>/</span>Photovoltaik</div>
-        <div class="kicker">Dach · Befestigung · Leitungswege</div>
-        <h1>Solarstrom.<em>Sauber integriert.</em></h1>
-        <p class="service-hero-copy">Eine Photovoltaikanlage soll Energie liefern, ohne die Gebäudehülle zu gefährden. Deshalb planen wir Dach, Befestigung, Leitungswege und Durchdringungen als ein wartbares, wetterfestes System.</p>
-        <div class="hero-index"><b>PV</b>Spezialleistung</div>
+        <div class="kicker">Dach prüfen · Schnittstellen planen · sicher befestigen</div>
+        <h1 id="pv-title">Photovoltaik.<br /><em>Dachgerecht geplant.</em></h1>
+        <p>Ob Steildach, Flachdach oder anstehende Sanierung: Wir klären die dachseitigen Voraussetzungen und koordinieren Befestigung, Leitungswege und Anschlüsse mit dem Elektro-Fachbetrieb.</p>
+        <a class="flat-hero__cta" href="#pv-situationen">Situation auswählen</a>
       </div>
     </section>
 
-    <section class="section">
-      <div class="editorial-intro">
-        <div><div class="kicker">Die Grundlage</div><h2 class="display">Eine Anlage ist nur<br />so gut wie ihr Dach.</h2></div>
-        <div><p class="lead">Module bleiben Jahrzehnte. Die Dachfläche darunter muss genauso vorausschauend geplant sein.</p><p class="copy">Vor der Montage klären wir Zustand, Restlebensdauer und Tragfähigkeit des Daches. So vermeiden wir unnötigen Rückbau, undichte Schnittstellen und schlecht zugängliche Details.</p></div>
+    <section class="flat-uses pv-situations" id="pv-situationen" aria-labelledby="pv-situations-title">
+      <div class="flat-section-head">
+        <div><span class="section-no">01 / ORIENTIERUNG</span><h2 id="pv-situations-title">Welches Dach soll<br /><em>Solarstrom tragen?</em></h2></div>
+        <p>Wählen Sie die Situation, die Ihrem Projekt am nächsten kommt. Die technische Eignung klären wir nach Prüfung von Dachzustand, Tragwerk, Abdichtung und Anschlüssen.</p>
       </div>
-      <div class="issue-grid">
-        <article><span>01</span><h3>Dachzustand</h3><p>Eindeckung und Unterkonstruktion müssen zur geplanten Nutzungsdauer der Anlage passen.</p></article>
-        <article><span>02</span><h3>Befestigung</h3><p>Lasten werden sicher in die Konstruktion eingeleitet, ohne die Wasserführung zu stören.</p></article>
-        <article><span>03</span><h3>Schnittstellen</h3><p>Kabelwege und Durchführungen brauchen dauerhaft dichte, kontrollierbare Details.</p></article>
+      <div class="flat-uses__grid" role="list" aria-label="Projektsituationen für Photovoltaik">
+        <article class="flat-use is-selected" role="listitem" data-use="steildach">
+          <img src="../assets/hero-scenes/roof-pv.webp" alt="Photovoltaikmodule auf einem modernen Steildach" width="1672" height="941" loading="lazy" />
+          <div class="flat-use__body"><span>01 / STEILDACH</span><h3>PV auf dem Steildach.</h3><p>Eindeckung, Dachhaken, Fenster, Ränder und Leitungswege werden als zusammenhängendes Dachdetail geprüft.</p><button type="button" aria-pressed="true">Steildach auswählen</button></div>
+        </article>
+        <article class="flat-use" role="listitem" data-use="flachdach">
+          <img src="../assets/flachdach-photovoltaik-v1.jpg" alt="Photovoltaikanlage mit Wartungswegen auf einem Flachdach" width="1600" height="1200" loading="lazy" />
+          <div class="flat-use__body"><span>02 / FLACHDACH</span><h3>PV auf dem Flachdach.</h3><p>Abdichtung, Auflast oder Befestigung, Entwässerung und sichere Wartungswege müssen gemeinsam funktionieren.</p><button type="button" aria-pressed="false">Flachdach auswählen</button></div>
+        </article>
+        <article class="flat-use" role="listitem" data-use="sanierung">
+          <img src="../assets/service-steildach.webp" alt="Neu aufgebautes Steildach als Grundlage für eine spätere Photovoltaikanlage" width="1536" height="1024" loading="lazy" />
+          <div class="flat-use__body"><span>03 / KOMBINATION</span><h3>Dachsanierung mit PV.</h3><p>Wenn das Dach ohnehin erneuert wird, lassen sich Dachaufbau, Anschlüsse und spätere Modulmontage früh aufeinander abstimmen.</p><button type="button" aria-pressed="false">Sanierung auswählen</button></div>
+        </article>
       </div>
+      <div class="flat-choice" aria-live="polite"><div><span>Ihre Auswahl</span><strong>Photovoltaik auf Steildach</strong><p>Die Auswahl ist im Anfrageformular bereits eingetragen.</p></div><a href="#pv-anfrage">Auswahl übernehmen</a></div>
     </section>
 
-    <section class="system-band">
-      <article><b>01 / DACH</b><h3>Substanz prüfen.</h3><p>Zustand, Restlebensdauer und konstruktive Voraussetzungen werden bewertet.</p></article>
-      <article><b>02 / PLANUNG</b><h3>Fläche ordnen.</h3><p>Modulbelegung und Befestigung berücksichtigen Dachdetails und Wartungswege.</p></article>
-      <article><b>03 / SCHNITTSTELLEN</b><h3>Gewerke verbinden.</h3><p>Dacharbeiten und Elektrotechnik werden in einer sinnvollen Reihenfolge koordiniert.</p></article>
-    </section>
-
-    <section class="section section-pale" id="leistungen">
-      <div class="section-head">
-        <div><div class="kicker">Dachseitiger Leistungsumfang</div><h2 class="display">Bereit für<br />Solar.</h2></div>
-        <p class="copy">Meyer übernimmt die fachgerechte Integration in die Gebäudehülle. Elektrischer Anschluss, Wechselrichter und Inbetriebnahme erfolgen in Abstimmung mit qualifizierten Elektro-Fachbetrieben.</p>
+    <section class="flat-inquiry pv-inquiry" id="pv-anfrage" aria-labelledby="pv-inquiry-title">
+      <div class="flat-inquiry__intro">
+        <span class="section-no">02 / DIREKT ANFRAGEN</span>
+        <h2 id="pv-inquiry-title">Dach auswählen.<br /><em>PV vorbereiten.</em></h2>
+        <p>Ergänzen Sie nur die Angaben, die uns eine konkrete erste Einordnung der dachseitigen Voraussetzungen ermöglichen.</p>
+        <ol aria-label="So geht es nach der Anfrage weiter"><li><b>01</b><span>Dachzustand und Angaben persönlich prüfen</span></li><li><b>02</b><span>Befestigung und Schnittstellen einordnen</span></li><li><b>03</b><span>Nächste Schritte mit den Fachbetrieben abstimmen</span></li></ol>
+        <div class="flat-inquiry__direct"><a href="tel:+4917643487351"><small>Direkt anrufen</small><strong>0176 43487351</strong></a><a href="mailto:info@dachdeckermeister-meyer.de"><small>E-Mail</small><strong>info@dachdeckermeister-meyer.de</strong></a></div>
       </div>
-      <div class="scope-grid">
-        <article><span>01</span><h3>Dachprüfung</h3><p>Eindeckung, Unterkonstruktion, Anschlüsse und absehbarer Sanierungsbedarf werden geprüft.</p></article>
-        <article><span>02</span><h3>Belegungsabstimmung</h3><p>Modulflächen werden mit Fenstern, Kaminen, Rändern und sicheren Wartungswegen abgestimmt.</p></article>
-        <article><span>03</span><h3>Befestigungssystem</h3><p>Dachhaken, Schienen und Anschlüsse werden passend zu Konstruktion und Eindeckung ausgeführt.</p></article>
-        <article><span>04</span><h3>Leitungswege</h3><p>Kabelführung und Dachdurchführungen werden kurz, geschützt und kontrollierbar geplant.</p></article>
-        <article><span>05</span><h3>Dachdetails</h3><p>Beschädigte Deckelemente und kritische Übergänge werden vor der Montage fachgerecht erneuert.</p></article>
-        <article><span>06</span><h3>Dokumentation</h3><p>Dachseitige Arbeiten und relevante Schnittstellen werden nachvollziehbar übergeben.</p></article>
-      </div>
+
+      <form class="flat-form" id="pv-inquiry-form" action="../send-inquiry.php" method="post" enctype="multipart/form-data" novalidate>
+        <label class="flat-honeypot" aria-hidden="true">Website<input name="website" tabindex="-1" autocomplete="off" /></label>
+        <input type="hidden" name="form_started" value="" />
+        <input type="hidden" name="type" value="Photovoltaik" />
+        <input type="hidden" name="pv_situation" value="Photovoltaik auf Steildach" />
+
+        <div class="flat-form__selection" aria-live="polite"><div><span>Ausgewählte Situation</span><strong data-request-selection>Photovoltaik auf Steildach</strong></div><a href="#pv-situationen">Auswahl ändern</a></div>
+
+        <fieldset><legend>Zum Dach <small>Pflichtfelder sind mit * gekennzeichnet.</small></legend><div class="flat-form__grid">
+          <label>Stand der PV-Planung *<select name="preferred_concept" required><option value="">Bitte wählen</option><option>Erste Orientierung</option><option>Anlage wird bereits geplant</option><option>Angebot eines Solarbetriebs liegt vor</option><option>Bestehende Anlage bei Dacharbeiten</option></select></label>
+          <label>Dachzustand *<select name="roof_condition" required><option value="">Bitte wählen</option><option>Unbekannt / bitte prüfen</option><option>Dach wirkt intakt</option><option>Sanierung ist bereits geplant</option><option>Schäden oder Undichtigkeiten sichtbar</option></select></label>
+          <label>Baujahr oder letzte Sanierung<input name="roof_age" placeholder="z. B. 1998 oder unbekannt" /></label>
+          <label>Geschätzte Dachfläche<input name="area" placeholder="z. B. 120 m² oder unbekannt" /></label>
+          <label>Elektro-Fachbetrieb<select name="electrical_partner"><option>Noch nicht ausgewählt</option><option>Bereits vorhanden</option><option>Solaranbieter plant die Anlage</option></select></label>
+          <label>Gewünschter Zeitraum<input name="timing" placeholder="z. B. in den nächsten 6 Monaten" /></label>
+          <label class="wide">Was ist geplant oder bereits bekannt? *<textarea name="message" rows="4" required minlength="10" placeholder="Zum Beispiel vorhandenes Angebot, geplante Modulfläche, Dachfenster, Sanierungsbedarf oder Zugang zum Dach"></textarea></label>
+        </div></fieldset>
+
+        <label class="flat-upload"><input type="file" name="photos[]" accept="image/jpeg,image/png,image/webp" multiple /><span><strong>Fotos ergänzen</strong><small>Bis zu 5 Bilder · JPG, PNG oder WebP · je maximal 5 MB</small></span><output aria-live="polite"></output></label>
+
+        <fieldset><legend>Ihre Kontaktdaten</legend><div class="flat-form__grid">
+          <label>Name *<input name="name" autocomplete="name" required /></label>
+          <label>Telefon *<input type="tel" name="phone" autocomplete="tel" required minlength="5" /></label>
+          <label>E-Mail *<input type="email" name="email" autocomplete="email" required /></label>
+          <label>Projektadresse *<input name="address" autocomplete="street-address" required placeholder="Straße, PLZ und Ort" /></label>
+          <label>Bevorzugte Rückmeldung<select name="contact_preference"><option>Telefon oder E-Mail</option><option>Telefon</option><option>E-Mail</option></select></label>
+        </div></fieldset>
+
+        <label class="flat-consent"><input type="checkbox" required /><span>Ich habe die <a href="../datenschutz.html">Datenschutzhinweise</a> gelesen und stimme der Verarbeitung meiner Angaben zur Bearbeitung der Anfrage zu.</span></label>
+        <div class="flat-form__foot"><p>Meyer übernimmt die dachseitige Prüfung und Integration. Elektrischer Anschluss, Wechselrichter, Netzanschluss und Inbetriebnahme erfolgen durch einen qualifizierten Elektro-Fachbetrieb.</p><button type="submit">PV-Anfrage senden <span aria-hidden="true">↗</span></button></div>
+        <p class="flat-form__error" role="alert" tabindex="-1"></p>
+        <div class="flat-form__status" role="status" aria-live="polite" tabindex="-1"></div>
+      </form>
     </section>
-
-    <section class="image-break"><img src="../assets/hero-scenes/roof-detail.webp" alt="Photovoltaikmodule, Dachfenster und präzise ausgeführte Dachanschlüsse" width="1672" height="941" loading="lazy" /><div class="image-caption"><div class="kicker">Dach und Technik</div><h2>Gemeinsam geplant.<br />Dauerhaft sicher.</h2></div></section>
-
-    <section class="section">
-      <div class="section-head">
-        <div><div class="kicker">Projektablauf</div><h2 class="display">Vier Schritte.<br />Klare Übergaben.</h2></div>
-        <p class="copy">Wir machen die Schnittstellen früh sichtbar und koordinieren die dachseitige Ausführung mit den beteiligten Fachbetrieben.</p>
-      </div>
-      <ol class="process-list">
-        <li><b>01</b><h3>Dach & Ziele klären</h3><p>Wir erfassen Bestand, Dachgeometrie, Zugänglichkeit und die geplante Anlage.</p></li>
-        <li><b>02</b><h3>Dachseitiges Konzept</h3><p>Befestigung, Leitungswege, Anschlüsse und notwendige Vorarbeiten werden definiert.</p></li>
-        <li><b>03</b><h3>Gewerke koordinieren</h3><p>Dachdecker- und Elektroarbeiten erhalten eine klare Reihenfolge und Zuständigkeit.</p></li>
-        <li><b>04</b><h3>Ausführen & dokumentieren</h3><p>Die Integration wird fachgerecht umgesetzt, kontrolliert und nachvollziehbar übergeben.</p></li>
-      </ol>
-    </section>
-
-    <section class="section section-pale faq">
-      <div><div class="kicker">Häufige Fragen</div><h2 class="display">Gut zu<br />wissen.</h2></div>
-      <div class="accordion">
-        <details><summary>Ist mein vorhandenes Dach für Photovoltaik geeignet?</summary><p>Das hängt unter anderem von Zustand, Restlebensdauer, Tragfähigkeit, Dachform und Verschattung ab. Wir prüfen die dachseitigen Voraussetzungen vor der Montage.</p></details>
-        <details><summary>Sollte Photovoltaik mit einer Dachsanierung kombiniert werden?</summary><p>Wenn das Dach in den kommenden Jahren ohnehin saniert werden muss, ist die gemeinsame Planung meist sinnvoll. Dadurch lassen sich doppelte Montagekosten und ein späterer Anlagenrückbau vermeiden.</p></details>
-        <details><summary>Übernimmt Meyer auch den elektrischen Anschluss?</summary><p>Wir verantworten die dachseitige Integration. Elektrischer Anschluss, Wechselrichter, Netzanschluss und Inbetriebnahme werden mit einem dafür qualifizierten Elektro-Fachbetrieb abgestimmt.</p></details>
-        <details><summary>Kann eine bestehende Anlage bei Dacharbeiten berücksichtigt werden?</summary><p>Ja. Dafür benötigen wir früh Angaben zur Anlage und zum zuständigen Elektro-Fachbetrieb, damit Demontage, Dacharbeiten und Wiederinbetriebnahme koordiniert werden können.</p></details>
-      </div>
-    </section>
-
-    <section class="related"><div class="section"><div class="kicker">Weitere Leistungen</div><h2 class="display">Die ganze<br />Gebäudehülle.</h2><nav class="related-list" aria-label="Leistungsseiten"><a href="steildach.html"><b>01</b><span>Steildach</span></a><a href="flachdach.html"><b>02</b><span>Flachdach</span></a><a href="fassaden.html"><b>03</b><span>Fassaden</span></a><a href="dachfenster.html"><b>04</b><span>Dachfenster</span></a><a href="terrassen-balkone.html"><b>05</b><span>Terrassen & Balkone</span></a><a href="service-wartung.html"><b>06</b><span>Service & Wartung</span></a></nav></div></section>
-
-    <section class="cta"><div><div class="kicker">Photovoltaik anfragen</div><h2>Ihr Dach.<em>Bereit für Solar.</em></h2><p>Nennen Sie uns Dachzustand, Gebäudetyp und – falls schon bekannt – die geplante Anlage. Wir klären die dachseitigen Voraussetzungen und die nächsten Schritte.</p></div><a class="button" href="../index.html?leistung=steildach#anfrage">Projekt anfragen <span>↗</span></a></section>
   </main>
   <footer><div><a class="footer-brand" href="../index.html"><img src="../assets/meyer-logo-final.png" alt="Dachdeckermeister Meyer" /></a><small>© 2026 Dachdeckermeister Meyer · Köln</small></div><nav><a href="../index.html#leistungen">Leistungen</a><a href="../jobs/index.html">Karriere</a><a href="../index.html#anfrage">Kontakt</a><a href="../impressum.html">Impressum</a><a href="../datenschutz.html">Datenschutz</a><a href="../index.html">Startseite</a></nav></footer>
 </body>

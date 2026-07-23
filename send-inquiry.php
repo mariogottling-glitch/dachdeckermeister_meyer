@@ -211,7 +211,7 @@ $started = filter_var($_POST['form_started'] ?? null, FILTER_VALIDATE_INT);
 if ($started === false || $started > time() - 3 || $started < time() - 7200) {
     respond(400, false, 'Bitte laden Sie das Formular neu und versuchen Sie es noch einmal.');
 }
-$allowedTypes = ['Steildach', 'Flachdach', 'Dachfenster', 'Fassade', 'Terrasse oder Balkon', 'Reparatur oder Wartung'];
+$allowedTypes = ['Steildach', 'Flachdach', 'Photovoltaik', 'Dachfenster', 'Fassade', 'Terrasse oder Balkon', 'Reparatur oder Wartung'];
 $type = field('type', 80);
 $name = field('name', 120);
 $phone = field('phone', 40);
@@ -225,10 +225,12 @@ if (!in_array($type, $allowedTypes, true) || textLength($name) < 2 || textLength
 }
 
 $dynamicLabels = [
-    'preferred_concept' => 'Gewünschtes Sanierungskonzept',
+    'preferred_concept' => $type === 'Photovoltaik' ? 'Stand der PV-Planung' : 'Gewünschtes Sanierungskonzept',
     'roof_type' => 'Dachtyp', 'construction_year' => 'Baujahr', 'area' => 'Geschätzte Fläche',
     'insulation' => 'Dämmung vorhanden', 'leak' => 'Undichtigkeit / Feuchtigkeit', 'material' => 'Aktuelles Material',
-    'standing_water' => 'Stehendes Wasser', 'use' => 'Nutzung der Fläche', 'window_project' => 'Fenster-Vorhaben',
+    'standing_water' => 'Stehendes Wasser', 'use' => 'Nutzung der Fläche', 'pv_situation' => 'Photovoltaik-Projektsituation',
+    'roof_condition' => 'Dachzustand', 'roof_age' => 'Baujahr oder letzte Sanierung', 'electrical_partner' => 'Elektro-Fachbetrieb',
+    'window_project' => 'Fenster-Vorhaben',
     'quantity' => 'Anzahl', 'manufacturer' => 'Hersteller', 'electric' => 'Elektrische Bedienung',
     'window_type' => 'Fenstertyp vom Typenschild', 'window_size' => 'Fenstergröße vom Typenschild',
     'window_variant' => 'Ausführungskennziffer', 'serial_number' => 'Serien- / Produktionscode',
@@ -246,7 +248,7 @@ foreach ($dynamicLabels as $key => $label) {
     }
 }
 $requiredByType = [
-    'Steildach' => ['roof_type'], 'Dachfenster' => ['window_project'],
+    'Steildach' => ['roof_type'], 'Photovoltaik' => ['preferred_concept', 'roof_condition'], 'Dachfenster' => ['window_project'],
     'Fassade' => ['facade_project'], 'Terrasse oder Balkon' => ['terrace_type'],
     'Reparatur oder Wartung' => ['damage_type', 'urgency'],
 ];
