@@ -41,9 +41,9 @@
     </a>
     <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav"><span></span><span></span><span class="sr-only">Menü öffnen</span></button>
     <nav id="main-nav" aria-label="Hauptnavigation">
-      <a href="#leistungen">Leistungen</a><a href="#system">Dachaufbau</a><a href="jobs/index.html">Karriere</a>
+      <a href="#leistungen">Leistungen</a><a href="leistungen/service-wartung.html">Reparatur &amp; Wartung</a><a href="#system">Dachaufbau</a><a href="jobs/index.html">Karriere</a><a href="#anfrage" data-form-all>Kontakt</a>
     </nav>
-    <a class="header-cta" href="#anfrage" data-form-all>Kontakt <span class="icon-arrow" aria-hidden="true">&#8599;&#65038;</span></a>
+    <a class="header-cta" href="#anfrage" data-preset="service" data-direct-step="2">Schaden melden <span class="icon-arrow" aria-hidden="true">&#8599;&#65038;</span></a>
   </header>
 
   <main id="main">
@@ -58,6 +58,7 @@
           <p class="hero-copy">Ihr Dachdeckermeister in Köln für Dachsanierung, Reparatur und moderne Gebäudehüllen — klar geplant, präzise gebaut und dauerhaft erhalten.</p>
           <div class="hero-actions">
             <a class="button button-service" href="#anfrage" data-preset="service" data-direct-step="2">Schaden melden <span class="icon-arrow" aria-hidden="true">&#8599;&#65038;</span></a>
+            <a class="hero-emergency" href="tel:+4917643487351"><span>Akuter Wassereintritt?</span><strong>Direkt anrufen: 0176 43487351</strong></a>
           </div>
           <div class="hero-stats" aria-label="Unser Qualitätsversprechen">
             <div><strong>MEISTER</strong><span>Qualität mit Verantwortung</span></div>
@@ -167,7 +168,7 @@
     </section>
 
     <section class="contact contact-priority" id="anfrage" data-collapsible-form aria-labelledby="inquiry-title">
-      <div class="contact-intro"><div class="section-kicker light" data-assistant-kicker>Direkt-Service / Reparatur & Dachfenster</div><h2 id="inquiry-title" data-assistant-heading>Was können wir<br />für Sie lösen?</h2><p data-assistant-copy>Wählen Sie den passenden Assistenten. Reparaturschäden und vorhandene Dachfenster werden mit jeweils eigenen, gezielten Fragen erfasst.</p><div class="contact-person"><span>M</span><div><strong>Team Meyer</strong><small>Fachberatung & Projektbetreuung</small></div></div></div>
+      <div class="contact-intro"><div class="section-kicker light" data-assistant-kicker>Direkt-Service / Reparatur & Dachfenster</div><h2 id="inquiry-title" data-assistant-heading>Was können wir<br />für Sie lösen?</h2><p data-assistant-copy>Wählen Sie den passenden Assistenten. Reparaturschäden und vorhandene Dachfenster werden mit jeweils eigenen, gezielten Fragen erfasst.</p><aside class="emergency-brief"><strong>Akuter Wassereintritt?</strong><span>Gefahrenbereich sichern, das Dach nicht selbst betreten, Schaden fotografieren und anschließend direkt anrufen.</span><a href="tel:+4917643487351">0176 43487351</a></aside><div class="contact-person"><span>M</span><div><strong>Team Meyer</strong><small>Fachberatung & Projektbetreuung</small></div></div></div>
       <div class="inquiry-launch" data-inquiry-launch>
         <div class="inquiry-launch-copy"><div class="inquiry-launch-label"><span>Digitaler Projekt-Assistent</span><small>In etwa 3 Minuten</small></div><strong>Ihr Anliegen. Gezielt vorbereitet.</strong><p>Beantworten Sie wenige passende Fragen und ergänzen Sie bei Bedarf Fotos. Das Team Meyer erhält alle Angaben für eine schnelle, konkrete Rückmeldung.</p></div>
         <ol class="inquiry-launch-steps" aria-label="Ablauf des Projekt-Assistenten"><li><b>01</b><span>Anliegen wählen</span></li><li><b>02</b><span>Details + Fotos</span></li><li><b>03</b><span>Rückmeldung erhalten</span></li></ol>
@@ -181,13 +182,13 @@
         <div class="assistant-switch" aria-label="Direkt-Assistent auswählen"><button type="button" data-assistant="service" aria-pressed="false"><b>01</b><span><strong>Reparatur & Wartung</strong><small>Schaden strukturiert melden</small></span></button><button type="button" data-assistant="fenster" aria-pressed="false"><b>02</b><span><strong>Dachfenster</strong><small>Typenschild und Fenster erfassen</small></span></button></div>
         <button class="assistant-other" type="button" data-assistant="all">Anderes Projekt oder weitere Leistung <span>→</span></button>
         <div class="wizard-progress" role="list" aria-label="Formularfortschritt"><span class="active" role="listitem" aria-current="step"><b>1</b>Anliegen</span><span role="listitem"><b>2</b><em data-progress-detail>Projektdaten</em></span><span role="listitem"><b>3</b>Kontakt</span></div>
-        <fieldset class="form-step active" data-step="1"><legend>Worum geht es?</legend><div class="choice-grid"><label><input type="radio" name="type" value="Steildach" data-key="steildach" checked /><span>Steildach</span></label><label><input type="radio" name="type" value="Flachdach" data-key="flachdach" /><span>Flachdach</span></label><label><input type="radio" name="type" value="Dachfenster" data-key="fenster" /><span>Dachfenster</span></label><label><input type="radio" name="type" value="Fassade" data-key="fassade" /><span>Fassade</span></label><label><input type="radio" name="type" value="Terrasse oder Balkon" data-key="terrasse" /><span>Terrasse / Balkon</span></label><label><input type="radio" name="type" value="Reparatur oder Wartung" data-key="service" /><span>Reparatur / Wartung</span></label></div><div class="wizard-actions"><span></span><button class="button button-accent next-step" type="button">Weiter <span>→</span></button></div></fieldset>
+        <fieldset class="form-step active" data-step="1"><legend>Worum geht es?</legend><div class="choice-grid"><label><input type="radio" name="type" value="Steildach" data-key="steildach" required /><span>Steildach</span></label><label><input type="radio" name="type" value="Flachdach" data-key="flachdach" /><span>Flachdach</span></label><label><input type="radio" name="type" value="Dachfenster" data-key="fenster" /><span>Dachfenster</span></label><label><input type="radio" name="type" value="Fassade" data-key="fassade" /><span>Fassade</span></label><label><input type="radio" name="type" value="Terrasse oder Balkon" data-key="terrasse" /><span>Terrasse / Balkon</span></label><label><input type="radio" name="type" value="Reparatur oder Wartung" data-key="service" /><span>Reparatur / Wartung</span></label></div><div class="wizard-actions"><span></span><button class="button button-accent next-step" type="button">Weiter <span>→</span></button></div></fieldset>
         <fieldset class="form-step" data-step="2"><legend data-detail-legend>Details zu Ihrem Projekt</legend><div class="form-grid dynamic-fields" aria-live="polite"></div><label class="upload-field"><input id="project-photos" type="file" name="photos[]" accept="image/jpeg,image/png,image/webp" multiple /><span><b>Fotos hinzufügen</b><small>JPG, PNG oder WebP · maximal 5 Bilder · je 5 MB</small></span><output class="upload-summary" for="project-photos" aria-live="polite"></output></label><div class="upload-list" aria-label="Ausgewählte Fotos"></div><div class="wizard-actions"><button class="text-button prev-step" type="button">← Zurück</button><button class="button button-accent next-step" type="button">Weiter <span>→</span></button></div></fieldset>
         <fieldset class="form-step" data-step="3"><legend>Wie erreichen wir Sie? <small>Pflichtfelder sind mit einem Sternchen gekennzeichnet.</small></legend><div class="inquiry-summary" aria-labelledby="inquiry-summary-title"><div class="inquiry-summary-head"><strong id="inquiry-summary-title">Ihre Angaben im Überblick</strong><button class="text-button" type="button" data-summary-edit>Bearbeiten</button></div><dl data-inquiry-summary></dl></div><div class="form-grid"><label>Ihr Name <span class="required-marker"><span aria-hidden="true">*</span><span class="sr-only"> Pflichtfeld</span></span><input name="name" autocomplete="name" required placeholder="Vor- und Nachname" /></label><label>Telefon <span class="required-marker"><span aria-hidden="true">*</span><span class="sr-only"> Pflichtfeld</span></span><input type="tel" name="phone" autocomplete="tel" required placeholder="Für eine persönliche Rückmeldung" /></label><label>E-Mail <span class="required-marker"><span aria-hidden="true">*</span><span class="sr-only"> Pflichtfeld</span></span><input type="email" name="email" autocomplete="email" required placeholder="name@beispiel.de" /></label><label>Projektadresse <span class="required-marker"><span aria-hidden="true">*</span><span class="sr-only"> Pflichtfeld</span></span><input name="address" autocomplete="street-address" required placeholder="Straße, PLZ und Ort" /></label><label>Gewünschter Zeitraum<input name="timing" placeholder="z. B. innerhalb der nächsten 3 Monate" /></label><label>Bevorzugte Rückmeldung<select name="contact_preference"><option>Telefon oder E-Mail</option><option>Telefon</option><option>E-Mail</option></select></label><label class="wide">Zusätzliche Hinweise<textarea name="message" rows="3" placeholder="Was sollten wir noch wissen?"></textarea></label></div><div class="form-foot"><button class="text-button prev-step" type="button">← Zurück</button><small>Wir prüfen Ihre Angaben persönlich. Informationen zur Verarbeitung finden Sie im <a href="datenschutz.html">Datenschutz</a>.</small><button class="button button-accent" type="submit">Anfrage senden <span class="icon-arrow" aria-hidden="true">&#8599;&#65038;</span></button></div></fieldset>
         <p class="form-error" id="form-error" role="alert" tabindex="-1"></p>
         <div class="form-status" role="status" aria-live="polite" tabindex="-1"></div>
       </form>
-      <div class="contact-direct" aria-label="Direkter Kontakt"><a href="tel:+4917643487351"><small>Telefon</small><strong>0176 43487351</strong></a><a href="mailto:info@dachdeckermeister-meyer.de"><small>E-Mail</small><strong>info@dachdeckermeister-meyer.de</strong></a><div><small>Einsatzgebiet</small><strong>Köln und Umgebung</strong></div></div>
+      <div class="contact-direct" aria-label="Direkter Kontakt"><a href="tel:+4917643487351"><small>Telefon</small><strong>0176 43487351</strong></a><a href="mailto:info@dachdeckermeister-meyer.de"><small>E-Mail</small><strong>info@dachdeckermeister-meyer.de</strong></a><div><small>Einsatzgebiet</small><strong>Köln und angrenzende Orte nach Abstimmung</strong></div></div>
     </section>
 
     <section class="quick-access" id="leistungen" aria-labelledby="quick-access-title">
@@ -196,8 +197,9 @@
         <a class="quick-card" href="leistungen/steildach.html"><img src="assets/service-steildach.webp" alt="" width="1672" height="941" loading="lazy" /><span>01 / Leistung</span><h3>Steildach</h3><b class="icon-arrow" aria-hidden="true">↗︎</b></a>
         <a class="quick-card" href="leistungen/flachdach.html"><img src="assets/hero-scenes/terrace-balcony-v2.jpg" alt="" width="1672" height="941" loading="lazy" /><span>02 / Leistung</span><h3>Flachdach &amp;<br />Terrassen</h3><b class="icon-arrow" aria-hidden="true">↗︎</b></a>
         <a class="quick-card" href="leistungen/photovoltaik.html"><img src="assets/hero-scenes/roof-pv.webp" alt="" width="1672" height="941" loading="lazy" /><span>03 / Leistung</span><h3>Photovoltaik</h3><b class="icon-arrow" aria-hidden="true">↗︎</b></a>
-        <a class="quick-card" href="leistungen/service-wartung.html"><img src="assets/service-wartung.webp" alt="" width="1672" height="941" loading="lazy" /><span>04 / Direkt-Service</span><h3>Reparaturen &amp;<br />Wartung</h3><b class="icon-arrow" aria-hidden="true">↗︎</b></a>
-        <a class="quick-card" href="leistungen/dachfenster.html"><img src="assets/service-dachfenster.webp" alt="" width="1672" height="941" loading="lazy" /><span>05 / Leistung</span><h3>Dachflächen&shy;fenster</h3><b class="icon-arrow" aria-hidden="true">↗︎</b></a>
+        <a class="quick-card" href="leistungen/dachfenster.html"><img src="assets/service-dachfenster.webp" alt="" width="1672" height="941" loading="lazy" /><span>04 / Leistung</span><h3>Dachflächen&shy;fenster</h3><b class="icon-arrow" aria-hidden="true">↗︎</b></a>
+        <a class="quick-card" href="leistungen/fassaden.html"><img src="assets/hero-scenes/facade.webp" alt="" width="1672" height="941" loading="lazy" /><span>05 / Leistung</span><h3>Fassade &amp;<br />Gebäudehülle</h3><b class="icon-arrow" aria-hidden="true">↗︎</b></a>
+        <a class="quick-card" href="leistungen/service-wartung.html"><img src="assets/service-wartung.webp" alt="" width="1672" height="941" loading="lazy" /><span>06 / Direkt-Service</span><h3>Reparaturen &amp;<br />Wartung</h3><b class="icon-arrow" aria-hidden="true">↗︎</b></a>
       </div>
       <p class="quick-access-hint" aria-hidden="true">Seitlich wischen, um alle Leistungen zu sehen</p>
     </section>
@@ -306,10 +308,19 @@
       </ol>
     </section>
 
+    <section class="customer-proof section-pad" aria-labelledby="proof-title">
+      <div class="customer-proof-head"><div><div class="section-kicker">04 / Nachvollziehbar</div><h2 id="proof-title">Was Sie erhalten.<br />Nicht nur versprochen.</h2></div><p>Qualität zeigt sich nicht in Werbesätzen, sondern in klaren Unterlagen, abgestimmten Entscheidungen und einer prüfbaren Übergabe.</p></div>
+      <div class="customer-proof-grid">
+        <article><span>01</span><h3>Nachvollziehbares Angebot</h3><p>Leistungsumfang, sinnvolle Varianten und projektspezifische Besonderheiten werden verständlich gegliedert.</p><strong>Vor dem Auftrag</strong></article>
+        <article><span>02</span><h3>Abgestimmte Ausführung</h3><p>Zuständigkeiten und nächste Schritte bleiben klar. Änderungen werden nicht beiläufig, sondern gemeinsam entschieden.</p><strong>Während des Projekts</strong></article>
+        <article><span>03</span><h3>Dokumentierte Übergabe</h3><p>Ausgeführte Arbeiten und relevante Details werden kontrolliert und bei der Übergabe nachvollziehbar erläutert.</p><strong>Nach Abschluss</strong></article>
+      </div>
+    </section>
+
     <section class="partners" id="partner" aria-labelledby="partners-title">
       <div class="partners-heading">
         <div>
-          <div class="section-kicker light">04 / Partnernetzwerk</div>
+          <div class="section-kicker light">05 / Partnernetzwerk</div>
           <h2 id="partners-title">Ausgewählte Partner.<br /><em>Gemeinsamer Anspruch.</em></h2>
         </div>
         <p>Verlässliches Handwerk trifft auf bewährte Materialien und spezialisiertes Know-how.</p>
@@ -338,17 +349,20 @@
     </section>
 
     <section class="faq section-pad">
-      <div><div class="section-kicker">05 / Wissen</div><h2>Gute Fragen.<br />Klare Antworten.</h2><p>Das Wichtigste vor Ihrer Anfrage.</p></div>
+      <div><div class="section-kicker">06 / Wissen</div><h2>Gute Fragen.<br />Klare Antworten.</h2><p>Das Wichtigste vor Ihrer Anfrage.</p></div>
       <div class="accordion">
         <details open><summary>Wann ist eine Dachsanierung wirklich notwendig?<span></span></summary><p>Wenn Eindeckung, Abdichtung oder Anschlüsse ihre Funktion verlieren, die Dämmung nicht mehr zeitgemäß ist oder wiederholt Feuchtigkeit auftritt. Wir prüfen zuerst, welche Maßnahmen tatsächlich erforderlich sind.</p></details>
         <details><summary>Was kostet ein neues Dach?<span></span></summary><p>Das hängt von Fläche, Aufbau, Material, Details und Zugänglichkeit ab. Nach der Vor-Ort-Analyse erhalten Sie ein transparent gegliedertes Angebot mit sinnvollen Varianten.</p></details>
         <details><summary>Was soll ich bei einem akuten Dachschaden tun?<span></span></summary><p>Sichern Sie den Gefahrenbereich, vermeiden Sie eigene Arbeiten auf dem Dach und dokumentieren Sie sichtbare Schäden mit Fotos. Über „Schaden melden“ können Sie Dringlichkeit und Bilder direkt übermitteln.</p></details>
+        <details><summary>Was passiert nach meiner Online-Anfrage?<span></span></summary><p>Die übermittelten Angaben und Fotos werden zunächst geprüft. Anschließend erhalten Sie eine Rückmeldung zum sinnvollen nächsten Schritt – zum Beispiel einer telefonischen Klärung, einem Vor-Ort-Termin oder noch benötigten Informationen.</p></details>
+        <details><summary>In welchem Gebiet ist Meyer tätig?<span></span></summary><p>Der Schwerpunkt liegt in Köln. Projekte in angrenzenden Orten werden abhängig von Art, Umfang und Entfernung individuell abgestimmt.</p></details>
+        <details><summary>Wie wird eine ausgeführte Arbeit übergeben?<span></span></summary><p>Relevante Funktionen und Details werden kontrolliert und nachvollziehbar erläutert. Welche Dokumentation zum Projekt gehört, wird passend zum Leistungsumfang festgelegt.</p></details>
       </div>
     </section>
 
   </main>
 
-  <footer><a class="brand footer-brand" href="#top" aria-label="Dachdeckermeister Meyer Startseite"><img class="brand-logo-img" src="assets/meyer-logo-final.png" alt="Dachdeckermeister Meyer" width="1311" height="1104" /></a><p>Dächer, die bleiben.</p><div><a href="#leistungen">Leistungen</a><a href="jobs/index.html">Karriere</a><a href="#anfrage" data-form-all>Kontakt</a><a href="tel:+4917643487351">Telefon</a><a href="mailto:info@dachdeckermeister-meyer.de">E-Mail</a><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a></div><small>© 2026 <span>Dachdeckermeister </span>Meyer</small></footer>
+  <footer><a class="brand footer-brand" href="#top" aria-label="Dachdeckermeister Meyer Startseite"><img class="brand-logo-img" src="assets/meyer-logo-final.png" alt="Dachdeckermeister Meyer" width="1311" height="1104" /></a><p>Dächer, die bleiben.</p><div><a href="#leistungen">Leistungen</a><a href="leistungen/service-wartung.html">Reparatur</a><a href="jobs/index.html">Karriere</a><a href="#anfrage" data-form-all>Kontakt</a><a href="tel:+4917643487351">Telefon</a><a href="mailto:info@dachdeckermeister-meyer.de">E-Mail</a><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a></div><small>© 2026 <span>Dachdeckermeister </span>Meyer</small></footer>
   <div class="mobile-actions" aria-label="Schnellzugriff"><a class="mobile-repair" href="#anfrage" data-preset="service" data-direct-step="2">Schaden melden</a><a class="mobile-project" href="#anfrage" data-form-all>Projekt anfragen <b class="icon-arrow" aria-hidden="true">&#8599;&#65038;</b></a></div>
 </body>
 </html>

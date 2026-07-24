@@ -576,10 +576,15 @@ const projectFields = {
 };
 
 function selectedProjectKey() {
-  return inquiryForm?.querySelector('input[name="type"]:checked')?.dataset.key || 'steildach';
+  return inquiryForm?.querySelector('input[name="type"]:checked')?.dataset.key || '';
 }
 function renderProjectFields() {
   const key = selectedProjectKey();
+  if (!key) {
+    if (dynamicFields) dynamicFields.replaceChildren();
+    inquiryForm?.removeAttribute('data-project');
+    return;
+  }
   if (dynamicFields) dynamicFields.innerHTML = projectFields[key];
   if (key === 'flachdach' && dynamicFields) {
     const useMap = { gruendach: 'Gründach', photovoltaik: 'Photovoltaik', terrasse: 'Dachterrasse' };
