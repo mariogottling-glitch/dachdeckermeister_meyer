@@ -68,3 +68,56 @@
   .maintenance-page .scope-grid article{min-height:0;padding:30px 26px}
   .maintenance-page .scope-grid h3{margin-top:22px}
 }
+
+/* Dachfenster: clear routes and a prominent typeplate guide. */
+.window-page .service-hero-media{left:38%}
+.window-page .service-hero-media img{object-position:center}
+.window-page .breadcrumb,
+.window-page .kicker,
+.window-page .issue-grid span,
+.window-page .system-band b{font-size:14px}
+.window-page .button{font-size:14px;min-height:52px}
+.window-page .system-band p{font-size:17px;line-height:1.6;color:#ffffffba}
+.window-page .window-needs{padding-bottom:clamp(80px,8vw,125px)}
+.window-page .window-paths{margin-top:58px}
+.window-page .window-paths article{min-height:235px}
+.window-identification{display:grid;grid-template-columns:minmax(0,.9fr) minmax(460px,1.1fr);background:var(--dark);color:#fff}
+.window-identification-copy{padding:clamp(80px,8vw,130px) var(--pad)}
+.window-identification-copy .display{max-width:720px}
+.window-identification-copy>p{max-width:650px;margin:30px 0 0;color:#ffffffbd;font-size:18px;line-height:1.65}
+.typeplate-steps{list-style:none;margin:42px 0 34px;padding:0;border-top:1px solid #ffffff25}
+.typeplate-steps li{display:grid;grid-template-columns:52px 1fr;gap:18px;padding:18px 0;border-bottom:1px solid #ffffff25;align-items:start}
+.typeplate-steps b{color:var(--accent);font-family:"Montserrat Meyer",sans-serif;font-size:14px;letter-spacing:.1em}
+.typeplate-steps span{font-size:17px;line-height:1.5}
+.window-identification-visual{position:relative;min-height:650px;padding:clamp(70px,7vw,115px);display:grid;grid-template-columns:minmax(240px,1fr) minmax(190px,.7fr);gap:40px;align-items:center;background:var(--pale);color:var(--graphite);overflow:hidden}
+.window-identification-visual:before{content:"";position:absolute;inset:0;background-image:linear-gradient(#2a2a2a0b 1px,transparent 1px),linear-gradient(90deg,#2a2a2a0b 1px,transparent 1px);background-size:48px 48px}
+.window-schematic{position:relative;z-index:1;aspect-ratio:4/5;border:9px solid var(--graphite);display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;transform:perspective(900px) rotateY(5deg)}
+.window-schematic span{border:2px solid var(--graphite);background:linear-gradient(145deg,#d9e4e7,#fff 52%,#cbd8dc)}
+.window-schematic i{position:absolute;right:-20px;top:18%;padding:10px 14px;background:var(--accent);color:var(--ink);font-style:normal;font-size:14px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;box-shadow:0 12px 30px #0000001a}
+.typeplate-sample{position:relative;z-index:2;display:grid;grid-template-columns:auto 1fr;gap:8px 16px;padding:28px;background:#fff;border-left:4px solid var(--accent);box-shadow:0 20px 45px #00000014}
+.typeplate-sample span{font-size:14px;color:var(--muted);letter-spacing:.1em}
+.typeplate-sample strong{font-family:"Montserrat Meyer",sans-serif;font-size:23px;line-height:1}
+.window-identification-visual>small{position:absolute;z-index:2;left:clamp(70px,7vw,115px);right:clamp(70px,7vw,115px);bottom:42px;color:var(--muted);font-size:14px;line-height:1.5}
+.window-page .window-faq{padding-top:clamp(80px,8vw,125px);padding-bottom:clamp(80px,8vw,125px)}
+.window-page .window-cta{padding-top:clamp(75px,8vw,115px);padding-bottom:clamp(75px,8vw,115px)}
+
+@media(max-width:1000px){
+  .window-identification{grid-template-columns:1fr}
+  .window-identification-visual{min-height:580px}
+}
+
+@media(max-width:760px){
+  .window-page .service-hero-media{left:0}
+  .window-page .service-hero-media img{object-position:58% center}
+  .window-page .window-paths{margin-top:42px}
+  .window-page .window-paths article{min-height:0}
+  .window-identification-copy{padding:78px 24px}
+  .window-identification-visual{min-height:620px;padding:72px 24px 100px;grid-template-columns:minmax(150px,1fr) minmax(125px,.75fr);gap:18px}
+  .window-schematic{border-width:6px}
+  .window-schematic span{border-width:1px}
+  .window-schematic i{right:-10px;padding:8px 10px;font-size:14px}
+  .typeplate-sample{padding:18px;gap:6px 10px}
+  .typeplate-sample span{font-size:14px}
+  .typeplate-sample strong{font-size:18px}
+  .window-identification-visual>small{left:24px;right:24px;bottom:28px}
+}
