@@ -38,3 +38,33 @@
 .scope-link:hover,.scope-link:focus{color:var(--accent)}
 .pv-page .service-hero-media img{object-position:center}
 @media(max-width:760px){.pv-page .service-hero-media img{object-position:58% center}}
+
+/* Repair and maintenance: a shorter path from problem to direct inquiry. */
+.service-hero-actions{display:flex;align-items:center;gap:24px;margin-top:34px}
+.service-hero-actions>span{font-size:15px;line-height:1.5;color:#ffffffc7}
+.button-primary{background:var(--accent);border-color:var(--accent);color:var(--ink)}
+.button-primary span{color:var(--ink)}
+.button-primary:hover,.button-primary:focus{background:#fff;border-color:#fff;color:var(--ink)}
+.maintenance-page .service-hero-media{left:38%}
+.maintenance-page .service-hero-media img{object-position:center}
+.maintenance-page .maintenance-needs{padding-bottom:clamp(80px,8vw,125px)}
+.maintenance-page .scope-grid{margin-top:58px}
+.maintenance-page .scope-grid article{min-height:205px}
+.maintenance-page .breadcrumb,
+.maintenance-page .kicker,
+.maintenance-page .scope-grid span,
+.maintenance-page .system-band b{font-size:14px}
+.maintenance-page .system-band p{font-size:17px;line-height:1.6;color:#ffffffba}
+.maintenance-page .button{font-size:14px;min-height:52px}
+.maintenance-page .maintenance-faq{padding-top:clamp(80px,8vw,125px);padding-bottom:clamp(80px,8vw,125px)}
+.maintenance-page .maintenance-cta{padding-top:clamp(75px,8vw,115px);padding-bottom:clamp(75px,8vw,115px)}
+
+@media(max-width:760px){
+  .service-hero-actions{align-items:flex-start;flex-direction:column;gap:14px;margin-top:28px}
+  .service-hero-actions .button{width:100%;min-width:0}
+  .maintenance-page .service-hero-media{left:0}
+  .maintenance-page .service-hero-media img{object-position:58% center}
+  .maintenance-page .scope-grid{margin-top:42px}
+  .maintenance-page .scope-grid article{min-height:0;padding:30px 26px}
+  .maintenance-page .scope-grid h3{margin-top:22px}
+}
