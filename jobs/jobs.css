@@ -152,3 +152,42 @@ h1,h2,h3,h4,h5,h6,.display{
   font-family:var(--font-display);
   font-synthesis:none;
 }
+
+/* Match the homepage hero: one strong, consistent display voice site-wide. */
+.career-hero h1,
+.intro h2,
+.career-path h2,
+.section-head h2,
+.entry h2,
+.contact h2{
+  font-family:var(--font-display);
+  font-weight:760;
+  line-height:.92;
+  letter-spacing:-.045em;
+}
+.craft-spectrum span,
+.roof-path li strong,
+.benefit-grid h3,
+.entry-cards h3,
+.process-list h3,
+.contact-card strong{
+  font-family:var(--font-display);
+}
+.benefit-grid h3,
+.entry-cards h3,
+.process-list h3{
+  font-weight:650;
+  letter-spacing:-.025em;
+}
+
+@media(max-width:760px){
+  .career-hero h1,
+  .intro h2,
+  .career-path h2,
+  .section-head h2,
+  .entry h2,
+  .contact h2{
+    line-height:.96;
+    letter-spacing:-.032em;
+  }
+}
