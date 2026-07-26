@@ -282,7 +282,8 @@ function initCinematicHero() {
   return timeline;
 }
 
-const tourLaunch = document.querySelector('[data-tour-launch]');
+const tourLaunches = [...document.querySelectorAll('[data-tour-launch]')];
+const tourLaunch = tourLaunches[0];
 const tourExit = document.querySelector('[data-tour-exit]');
 let heroTourStarted = false;
 let heroTourTimeline = null;
@@ -295,7 +296,7 @@ function openCinematicTour(event) {
   tourSection.hidden = false;
   tourSection.setAttribute('aria-hidden', 'false');
   tourSection.classList.add('tour-open');
-  tourLaunch?.setAttribute('aria-expanded', 'true');
+  tourLaunches.forEach(button => button.setAttribute('aria-expanded', 'true'));
 
   requestAnimationFrame(() => {
     if (!heroTourStarted) {
@@ -325,7 +326,7 @@ function closeCinematicTour(event) {
     tourSection.classList.remove('tour-open', 'is-static');
     tourSection.hidden = true;
     tourSection.setAttribute('aria-hidden', 'true');
-    tourLaunch?.setAttribute('aria-expanded', 'false');
+    tourLaunches.forEach(button => button.setAttribute('aria-expanded', 'false'));
     window.ScrollTrigger?.refresh();
     const root = document.documentElement;
     const previousBehavior = root.style.scrollBehavior;
@@ -342,7 +343,9 @@ function closeCinematicTour(event) {
   }, 220);
 }
 
-tourLaunch?.addEventListener('click', openCinematicTour);
+document.addEventListener('click', event => {
+  if (event.target.closest('[data-tour-launch]')) openCinematicTour(event);
+});
 tourExit?.addEventListener('click', closeCinematicTour);
 
 const layerData = [
@@ -353,6 +356,7 @@ const layerData = [
 ];
 const layerButtons = [...document.querySelectorAll('.layer')];
 const roofLayers = [...document.querySelectorAll('.roof-layer')];
+const layerCurrent = document.querySelector('[data-layer-current]');
 function setLayer(index) {
   layerButtons.forEach((button, i) => {
     const selected = i === index;
@@ -365,6 +369,7 @@ function setLayer(index) {
   });
   document.querySelector('#layer-name').textContent = layerData[index][0];
   document.querySelector('#layer-detail').textContent = layerData[index][1];
+  if (layerCurrent) layerCurrent.textContent = String(index + 1);
 }
 layerButtons.forEach((button, index) => button.addEventListener('click', () => setLayer(index)));
 
@@ -380,6 +385,31 @@ function updateAssembly() {
 addEventListener('scroll', updateAssembly, { passive: true });
 addEventListener('resize', updateAssembly, { passive: true });
 updateAssembly();
+
+const quickAccessGrid = document.querySelector('.quick-access-grid');
+const quickAccessCards = [...document.querySelectorAll('.quick-access-grid .quick-card')];
+const quickAccessCurrent = document.querySelector('[data-quick-current]');
+let quickAccessFrame = 0;
+function updateQuickAccessCounter() {
+  quickAccessFrame = 0;
+  if (!quickAccessGrid || !quickAccessCurrent || !quickAccessCards.length) return;
+  const gridLeft = quickAccessGrid.getBoundingClientRect().left;
+  let nearestIndex = 0;
+  let nearestDistance = Infinity;
+  quickAccessCards.forEach((card, index) => {
+    const distance = Math.abs(card.getBoundingClientRect().left - gridLeft);
+    if (distance < nearestDistance) {
+      nearestDistance = distance;
+      nearestIndex = index;
+    }
+  });
+  quickAccessCurrent.textContent = String(nearestIndex + 1).padStart(2, '0');
+}
+quickAccessGrid?.addEventListener('scroll', () => {
+  if (!quickAccessFrame) quickAccessFrame = requestAnimationFrame(updateQuickAccessCounter);
+}, { passive: true });
+addEventListener('resize', updateQuickAccessCounter, { passive: true });
+updateQuickAccessCounter();
 
 const conceptData = {
   basis: {

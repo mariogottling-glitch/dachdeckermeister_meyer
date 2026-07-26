@@ -70,6 +70,17 @@
       </div>
     </section>
 
+    <section class="hero-mobile-rail" aria-label="Qualitätsversprechen und Gebäudetour">
+      <div class="hero-mobile-promises">
+        <div><strong>MEISTER</strong><span>Qualität mit Verantwortung</span></div>
+        <div><strong>DIREKT</strong><span>Klare Zuständigkeiten</span></div>
+        <div><strong>REGIONAL</strong><span>Köln und Umgebung</span></div>
+      </div>
+      <button class="hero-mobile-tour" type="button" data-tour-launch aria-controls="gebaeude-erleben" aria-expanded="false">
+        <span>Interaktive Gebäudetour</span><strong>Tour starten <i aria-hidden="true">↘</i></strong>
+      </button>
+    </section>
+
     <section class="cinematic-hero" id="gebaeude-erleben" aria-labelledby="experience-title" hidden aria-hidden="true">
       <div class="cinematic-stage">
         <div class="cinematic-media" aria-hidden="true">
@@ -201,7 +212,7 @@
         <a class="quick-card" href="leistungen/fassaden.html"><img src="assets/hero-scenes/facade.webp" alt="" width="1672" height="941" loading="lazy" /><span>05 / Leistung</span><h3>Fassade &amp;<br />Gebäudehülle</h3><b class="icon-arrow" aria-hidden="true">↗︎</b></a>
         <a class="quick-card" href="leistungen/service-wartung.html"><img src="assets/service-wartung.webp" alt="" width="1672" height="941" loading="lazy" /><span>06 / Direkt-Service</span><h3>Reparaturen &amp;<br />Wartung</h3><b class="icon-arrow" aria-hidden="true">↗︎</b></a>
       </div>
-      <p class="quick-access-hint" aria-hidden="true">Seitlich wischen, um alle Leistungen zu sehen</p>
+      <div class="quick-access-mobile-meta" aria-hidden="true"><strong><span data-quick-current>01</span> / 06</strong><p>Seitlich wischen</p></div>
     </section>
 
     <section class="assembly" id="system" aria-labelledby="assembly-title">
@@ -210,6 +221,7 @@
           <div class="section-kicker light">01 / Dachaufbau</div>
           <h2 id="assembly-title">Dachaufbau.<br /><em>Schicht für Schicht.</em></h2>
           <p>Ein Dach besteht aus mehreren aufeinander abgestimmten Ebenen. Erkunden Sie, welche Aufgabe jede Schicht übernimmt.</p>
+          <div class="assembly-guide" aria-hidden="true"><span>Scrollen oder wischen – Dach aufbauen</span><strong><b data-layer-current>1</b> / 4</strong></div>
           <div class="layer-list" role="list">
             <button class="layer active" data-layer="0"><b>01</b><span>Tragwerk<small>Die konstruktive Basis</small></span></button>
             <button class="layer" data-layer="1"><b>02</b><span>Dämmung<small>Wärme, Schall und Effizienz</small></span></button>
@@ -255,6 +267,12 @@
       </div>
 
       <div class="concept-orientation"><span>Aufbau jeweils von innen nach außen</span><i></i><b>Mehr Dämmleistung und Reserve</b></div>
+
+      <div class="concept-summary" aria-label="Dämmkonzepte im direkten Vergleich">
+        <article data-concept-summary="basis"><span>01</span><h3>Basis</h3><dl><div><dt>Dämmweise</dt><dd>Zwischen den Sparren</dd></div><div><dt>U-Ziel</dt><dd>bis ≤ 0,24</dd></div><div><dt>Stärke</dt><dd>Kompakter Grundschutz</dd></div></dl></article>
+        <article class="is-recommended" data-concept-summary="premium"><span>02 · Empfehlung</span><h3>Premium</h3><dl><div><dt>Dämmweise</dt><dd>Zwischen + auf dem Dach</dd></div><div><dt>U-Ziel</dt><dd>bis ≤ 0,18</dd></div><div><dt>Stärke</dt><dd>Wärme-, Hitze- und Schallschutz</dd></div></dl></article>
+        <article data-concept-summary="exklusiv"><span>03</span><h3>Exklusiv</h3><dl><div><dt>Dämmweise</dt><dd>Verstärkte Kombination</dd></div><div><dt>U-Ziel</dt><dd>bis ≤ 0,14</dd></div><div><dt>Stärke</dt><dd>Maximale Zukunftsreserve</dd></div></dl></article>
+      </div>
 
       <div class="concept-compare-grid" role="radiogroup" aria-label="Drei Dämmarten vergleichen">
         <article class="insulation-card" data-concept-card="basis">
