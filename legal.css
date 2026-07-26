@@ -1,4 +1,6 @@
-@font-face{font-family:"Montserrat Meyer";src:url("assets/fonts/montserrat-variable.ttf") format("truetype");font-weight:100 900;font-style:normal;font-display:swap}
+@font-face{font-family:"Manrope Meyer";src:url("assets/fonts/manrope-variable.ttf") format("truetype");font-weight:200 800;font-style:normal;font-display:swap}
+@font-face{font-family:"Source Sans 3 Meyer";src:url("assets/fonts/source-sans-3-variable.ttf") format("truetype");font-weight:200 900;font-style:normal;font-display:swap}
+@font-face{font-family:"Montserrat Meyer";src:url("assets/fonts/manrope-variable.ttf") format("truetype");font-weight:200 800;font-style:normal;font-display:swap}
 :root{--accent:#12b8d6;--ink:#171b1d;--graphite:#34393b;--muted:#6f777a;--paper:#fff;--soft:#f2f2f2;--line:#d9ddde;--pad:clamp(22px,5vw,82px)}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--graphite);font-family:"Montserrat Meyer",Montserrat,Arial,sans-serif;font-size:17px;line-height:1.7}a{color:inherit;text-decoration:none}a:focus-visible{outline:2px solid var(--accent);outline-offset:4px}.skip-link{position:fixed;z-index:20;left:16px;top:16px;padding:10px 14px;background:#fff;transform:translateY(-160%)}.skip-link:focus{transform:none}
 .site-header{height:86px;padding:0 var(--pad);display:grid;grid-template-columns:auto 1fr auto;gap:38px;align-items:center;border-bottom:1px solid #ffffff26;position:absolute;z-index:10;left:0;right:0;color:#fff}.brand img{display:block;width:92px;height:58px;object-fit:contain}.site-header nav{justify-self:end;display:flex;gap:28px;font-size:12px;font-weight:650;letter-spacing:.08em;text-transform:uppercase}.site-header nav a:hover{color:var(--accent)}.header-cta{padding-left:26px;border-left:1px solid #ffffff45;font-size:12px;font-weight:750;letter-spacing:.08em;text-transform:uppercase}.header-cta span{color:var(--accent);margin-left:12px}
@@ -7,3 +9,17 @@
 footer{background:#111516;color:#fff;padding:58px var(--pad);display:grid;grid-template-columns:1fr auto;gap:42px;align-items:end}footer .footer-brand img{width:112px;height:74px;object-fit:contain;display:block;margin-bottom:20px}footer small{color:#ffffff80}footer nav{display:flex;gap:22px;flex-wrap:wrap;justify-content:flex-end;font-size:11px;font-weight:650;letter-spacing:.08em;text-transform:uppercase}footer nav a:hover{color:var(--accent)}
 @media(max-width:760px){body{font-size:16px}.site-header{height:74px;grid-template-columns:auto 1fr;padding:0 20px}.brand img{width:76px;height:49px}.site-header nav{display:none}.header-cta{justify-self:end;border-left:0;padding-left:0;font-size:10px}.legal-hero{min-height:430px;padding:135px 20px 62px}h1{font-size:clamp(36px,11vw,50px)}.hero-note{font-size:16px}.legal-layout{display:block;padding:68px 20px}.legal-nav{position:static;margin-bottom:60px}.legal-content>section{padding-bottom:40px;margin-bottom:40px}.data-card{grid-template-columns:1fr;padding:20px}.data-card dd{margin-bottom:9px}footer{padding:46px 20px;grid-template-columns:1fr}footer nav{justify-content:flex-start;gap:18px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+:root{
+  --font-display:"Manrope Meyer",Manrope,Arial,sans-serif;
+  --font-body:"Source Sans 3 Meyer","Segoe UI",Arial,sans-serif;
+}
+body{
+  font-family:var(--font-body);
+  font-weight:450;
+  font-synthesis:none;
+}
+h1,h2,h3,h4,h5,h6{
+  font-family:var(--font-display);
+  font-synthesis:none;
+}

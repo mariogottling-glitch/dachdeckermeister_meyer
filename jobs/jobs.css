@@ -1,4 +1,6 @@
-@font-face{font-family:"Montserrat Meyer";src:url("../assets/fonts/montserrat-variable.ttf") format("truetype");font-style:normal;font-weight:100 900;font-display:swap}
+@font-face{font-family:"Manrope Meyer";src:url("../assets/fonts/manrope-variable.ttf") format("truetype");font-style:normal;font-weight:200 800;font-display:swap}
+@font-face{font-family:"Source Sans 3 Meyer";src:url("../assets/fonts/source-sans-3-variable.ttf") format("truetype");font-style:normal;font-weight:200 900;font-display:swap}
+@font-face{font-family:"Montserrat Meyer";src:url("../assets/fonts/manrope-variable.ttf") format("truetype");font-style:normal;font-weight:200 800;font-display:swap}
 :root{--accent:#12b8d6;--dark:#111516;--dark-2:#1a1f21;--ink:#262a2c;--graphite:#3a3a3a;--muted:#73797c;--pale:#f2f2f2;--line:#d9dcdd;--pad:clamp(22px,5.2vw,90px);--ease:cubic-bezier(.22,1,.36,1)}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;overflow-x:clip}
@@ -136,3 +138,17 @@ footer small{display:block;color:#ffffff5f;font-size:10px;margin-top:14px}
 .career-hero h1,.intro h2,.career-path h2,.section-head h2,.entry h2,.contact h2{line-height:1.02;letter-spacing:-.012em}
 .contact>*{min-width:0}.contact-card strong{overflow-wrap:anywhere;word-break:normal}
 @media(max-width:760px){.career-hero h1,.intro h2,.career-path h2,.section-head h2,.entry h2,.contact h2{line-height:1.06;letter-spacing:0}}
+
+:root{
+  --font-display:"Manrope Meyer",Manrope,Arial,sans-serif;
+  --font-body:"Source Sans 3 Meyer","Segoe UI",Arial,sans-serif;
+}
+body,button,input,textarea,select{
+  font-family:var(--font-body);
+  font-synthesis:none;
+}
+body{font-weight:450}
+h1,h2,h3,h4,h5,h6,.display{
+  font-family:var(--font-display);
+  font-synthesis:none;
+}

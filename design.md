@@ -81,7 +81,7 @@ Die Oberfläche besteht zu etwa 85–90 % aus neutralen Farben und zu 10–15 % 
 
 ### Display-Schrift
 
-**Montserrat Meyer** aus `assets/fonts/montserrat-variable.ttf`.
+**Manrope Meyer** aus `assets/fonts/manrope-variable.ttf`.
 
 Verwendung:
 
@@ -99,7 +99,9 @@ Stil:
 
 ### Leseschrift
 
-`"Helvetica Neue", Helvetica, Arial, sans-serif`
+**Source Sans 3 Meyer** aus `assets/fonts/source-sans-3-variable.ttf`.
+
+Die Hausschrift verwendet keine extrem schmalen oder haarfeinen Schnitte. Manrope wird in der Regel mit Gewicht `550-800` gesetzt. Source Sans 3 verwendet für inhaltliche Texte mindestens Gewicht `400`, bevorzugt `430-500`. Ihre offene Zeichenform und große x-Höhe sichern die Lesbarkeit auf hochauflösenden Monitoren und mobilen Displays.
 
 Verwendung:
 
@@ -397,7 +399,8 @@ Primäre Prüfpunkte:
 - Karriere: `jobs/jobs.css`, `jobs/jobs.js`
 - Rechtliches: `legal.css`
 - Logo: `assets/meyer-logo-final.png`
-- Display-Font: `assets/fonts/montserrat-variable.ttf`
+- Display-Font: `assets/fonts/manrope-variable.ttf`
+- Leseschrift: `assets/fonts/source-sans-3-variable.ttf`
 - Scroll-Tour-Medien: `assets/hero-scenes/`
 - Dämmkonzept-Grafiken: `assets/insulation-concepts/`
 
