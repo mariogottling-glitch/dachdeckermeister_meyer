@@ -1835,3 +1835,127 @@ body.menu-open .site-header{
   .hero-cover .hero-stats strong{font-size:13px}
   .hero-cover .hero-stats span{font-size:10px}
 }
+
+/* The collapsed project assistant is a compact service rail, not a second hero. */
+@media(min-width:901px){
+  .contact-priority.is-collapsible:not(.is-expanded){
+    grid-template-columns:minmax(300px,.62fr) minmax(0,1.38fr);
+    grid-template-rows:auto auto;
+    column-gap:clamp(36px,4vw,68px);
+    row-gap:14px;
+    padding-top:34px;
+    padding-bottom:26px;
+    align-items:center;
+  }
+  .contact-priority.is-collapsible:not(.is-expanded) .section-kicker{margin-bottom:12px}
+  .contact-priority.is-collapsible:not(.is-expanded) h2{
+    max-width:460px;
+    margin-bottom:12px;
+    font-size:clamp(38px,3.45vw,52px);
+    line-height:1;
+  }
+  .contact-priority.is-collapsible:not(.is-expanded) .contact-intro>p{
+    max-width:470px;
+    margin:0;
+    font-size:15px;
+    line-height:1.5;
+  }
+  .contact-priority.is-collapsible:not(.is-expanded) .emergency-brief{display:none}
+  .contact-priority.is-collapsible .inquiry-launch{
+    grid-template-columns:minmax(240px,1fr) minmax(250px,.9fr) minmax(205px,235px);
+    gap:18px 24px;
+    padding:18px 22px;
+    align-items:center;
+  }
+  .contact-priority.is-collapsible:not(.is-expanded) .inquiry-launch-label{margin-bottom:8px}
+  .contact-priority.is-collapsible:not(.is-expanded) .inquiry-launch-label span{
+    padding:5px 8px;
+    font-size:12px;
+  }
+  .contact-priority.is-collapsible:not(.is-expanded) .inquiry-launch-label small{font-size:12px}
+  .contact-priority.is-collapsible:not(.is-expanded) .inquiry-launch-copy>strong{
+    font-size:clamp(22px,1.75vw,28px);
+  }
+  .contact-priority.is-collapsible:not(.is-expanded) .inquiry-launch-copy>p{display:none}
+  .contact-priority.is-collapsible:not(.is-expanded) .inquiry-launch-steps{
+    grid-column:2;
+    grid-row:1;
+    gap:10px;
+  }
+  .contact-priority.is-collapsible:not(.is-expanded) .inquiry-launch-steps li{padding-top:7px}
+  .contact-priority.is-collapsible:not(.is-expanded) .inquiry-launch-steps b{font-size:12px}
+  .contact-priority.is-collapsible:not(.is-expanded) .inquiry-launch-steps span{font-size:12px}
+  .contact-priority.is-collapsible:not(.is-expanded) .inquiry-expand{
+    grid-column:3;
+    grid-row:1;
+    min-height:68px;
+    padding:13px 16px;
+  }
+  .contact-priority.is-collapsible:not(.is-expanded) .inquiry-expand strong{font-size:13px}
+  .contact-priority.is-collapsible:not(.is-expanded) .inquiry-expand small{
+    margin-top:4px;
+    font-size:12px;
+  }
+  .contact-priority.is-collapsible:not(.is-expanded) .contact-direct{
+    margin-top:0;
+    gap:24px;
+    border-top:1px solid rgba(255,255,255,.15);
+  }
+  .contact-priority.is-collapsible:not(.is-expanded) .contact-direct>a,
+  .contact-priority.is-collapsible:not(.is-expanded) .contact-direct>div{
+    padding:8px 0 0;
+    border-bottom:0;
+  }
+  .contact-priority.is-collapsible:not(.is-expanded) .contact-direct small{font-size:10px}
+  .contact-priority.is-collapsible:not(.is-expanded) .contact-direct strong{font-size:13px}
+}
+
+@media(max-width:900px){
+  .contact-priority.is-collapsible:not(.is-expanded) .emergency-brief{display:none}
+  .contact-priority.is-collapsible:not(.is-expanded) .inquiry-launch-copy>p{display:none}
+}
+
+@media(max-width:640px){
+  .contact-priority.is-collapsible:not(.is-expanded){
+    gap:17px;
+    padding:32px 18px 36px;
+  }
+  .contact-priority.is-collapsible:not(.is-expanded) .section-kicker{margin-bottom:11px}
+  .contact-priority.is-collapsible:not(.is-expanded) h2{
+    max-width:330px;
+    margin-bottom:0;
+    font-size:31px;
+    line-height:1.02;
+  }
+  .contact-priority.is-collapsible .inquiry-launch{
+    gap:13px;
+    padding:16px;
+  }
+  .contact-priority.is-collapsible:not(.is-expanded) .inquiry-launch-label{
+    margin-bottom:7px;
+    flex-direction:row;
+    align-items:center;
+  }
+  .contact-priority.is-collapsible:not(.is-expanded) .inquiry-launch-label span{font-size:11px}
+  .contact-priority.is-collapsible:not(.is-expanded) .inquiry-launch-label small{font-size:11px}
+  .contact-priority.is-collapsible:not(.is-expanded) .inquiry-launch-copy>strong{font-size:20px}
+  .contact-priority.is-collapsible:not(.is-expanded) .inquiry-launch-steps{gap:6px}
+  .contact-priority.is-collapsible:not(.is-expanded) .inquiry-launch-steps li{padding-top:5px}
+  .contact-priority.is-collapsible:not(.is-expanded) .inquiry-launch-steps b,
+  .contact-priority.is-collapsible:not(.is-expanded) .inquiry-launch-steps span{font-size:10px}
+  .contact-priority.is-collapsible:not(.is-expanded) .inquiry-expand{
+    min-height:56px;
+    padding:11px 13px;
+  }
+  .contact-priority.is-collapsible:not(.is-expanded) .inquiry-expand strong{font-size:12px}
+  .contact-priority.is-collapsible:not(.is-expanded) .inquiry-expand small{
+    margin-top:2px;
+    font-size:11px;
+  }
+  .contact-priority.is-collapsible:not(.is-expanded) .contact-direct>a{
+    min-height:44px;
+    padding:7px 0;
+  }
+  .contact-priority.is-collapsible:not(.is-expanded) .contact-direct small{font-size:10px}
+  .contact-priority.is-collapsible:not(.is-expanded) .contact-direct strong{font-size:13px}
+}
