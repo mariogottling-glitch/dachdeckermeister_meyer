@@ -89,7 +89,7 @@
   letter-spacing:-.05em;
   text-transform:uppercase;
 }
-.home-hero h1{max-width:1040px;font-size:clamp(64px,7.5vw,116px);line-height:.92}
+.home-hero h1{max-width:1040px;font-size:clamp(64px,7.5vw,116px);line-height:.92;letter-spacing:-.035em}
 .home-hero h1 em,.home-section-head h2 em,.home-faq h2 em{color:var(--home-accent);font-style:normal}
 .home-hero-copy{max-width:650px;margin:30px 0 38px;font-size:clamp(19px,1.55vw,24px);font-weight:450;line-height:1.55}
 .home-button{
@@ -201,7 +201,7 @@
   .home-hero-shade{background:linear-gradient(0deg,rgba(9,13,15,.8) 0%,rgba(9,13,15,.45) 55%,rgba(9,13,15,.2) 100%)}
   .home-hero-content{padding:112px 20px 78px;align-self:flex-end}
   .home-eyebrow,.home-kicker{margin-bottom:22px;font-size:11px}
-  .home-hero h1{font-size:clamp(43px,13vw,56px);line-height:.94;letter-spacing:-.04em}
+  .home-hero h1{font-size:clamp(43px,13vw,56px);line-height:.94;letter-spacing:-.028em}
   .home-hero-copy{max-width:33ch;margin:24px 0 30px;font-size:17px;line-height:1.55}
   .home-button{width:100%;min-width:0;min-height:52px}
   .home-scroll-cue{display:none}
