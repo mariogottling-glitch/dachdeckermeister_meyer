@@ -11,6 +11,7 @@ window.MEYER_HOMEPAGE_DATA = Object.freeze({
     {
       number: "02",
       title: "Flachdach & Terrassen",
+      displayTitle: "Flachdach &amp;<br />Terrassen",
       description: "Abdichtung, Entwässerung und nutzbare Flächen als abgestimmter Aufbau.",
       image: "assets/hero-scenes/terrace-balcony-v2.jpg",
       alt: "Moderne Terrasse mit flächenbündigem Anschluss an ein Gebäude",
