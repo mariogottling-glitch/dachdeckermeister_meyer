@@ -13,7 +13,7 @@
         </figure>
         <div class="home-service-card-copy">
           <span>${service.number} / Leistung</span>
-          <h3>${service.title}</h3>
+          <h3>${service.displayTitle || service.title}</h3>
           <p>${service.description}</p>
           <b aria-hidden="true">↗</b>
         </div>

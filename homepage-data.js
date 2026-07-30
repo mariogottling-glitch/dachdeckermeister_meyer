@@ -27,6 +27,7 @@ window.MEYER_HOMEPAGE_DATA = Object.freeze({
     {
       number: "04",
       title: "Dachflächenfenster",
+      displayTitle: "Dachflächen-<br />fenster",
       description: "Einbau und Erneuerung passend zu Öffnung, Anschluss und gewünschtem Wärmeschutz.",
       image: "assets/service-dachfenster.webp",
       alt: "Modernes Dachflächenfenster in einem dunklen Steildach",
