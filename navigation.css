@@ -119,6 +119,7 @@ body.menu-open .site-header{
   -webkit-backdrop-filter:blur(18px) saturate(125%);
   backdrop-filter:blur(18px) saturate(125%);
 }
+body.menu-open{overflow:hidden}
 .menu-toggle{
   display:none;
   width:44px;
@@ -190,7 +191,8 @@ body.menu-open .menu-toggle>span:not(.sr-only):not(.skip-link):nth-child(2){tran
     transition:max-height .3s ease,opacity .2s ease,visibility 0s linear .3s,padding .3s ease;
   }
   .site-header nav.open{
-    max-height:320px;
+    max-height:calc(100svh - 70px);
+    overflow-y:auto;
     padding-top:10px;
     padding-bottom:16px;
     border-bottom-color:rgba(255,255,255,.12);

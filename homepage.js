@@ -35,6 +35,19 @@
     `).join("");
   }
 
+  const alignHashTarget = () => {
+    const id = decodeURIComponent(location.hash.slice(1));
+    if (!id) return;
+    const target = document.getElementById(id);
+    if (!target) return;
+    requestAnimationFrame(() => requestAnimationFrame(() => {
+      target.scrollIntoView({ block: "start", behavior: "auto" });
+    }));
+  };
+
+  alignHashTarget();
+  addEventListener("hashchange", alignHashTarget);
+
   document.querySelectorAll(".home-accordion details").forEach(item => {
     item.addEventListener("toggle", () => {
       if (!item.open) return;
