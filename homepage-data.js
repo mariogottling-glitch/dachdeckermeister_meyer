@@ -50,9 +50,38 @@ window.MEYER_HOMEPAGE_DATA = Object.freeze({
     }
   ]),
   partners: Object.freeze([
-    { number: "01", name: "Partner folgt", trade: "Regionales Fachhandwerk", location: "Wird nach Freigabe ergänzt" },
-    { number: "02", name: "Partner folgt", trade: "Angrenzendes Gewerk", location: "Wird nach Freigabe ergänzt" },
-    { number: "03", name: "Partner folgt", trade: "Planung & Beratung", location: "Wird nach Freigabe ergänzt" },
-    { number: "04", name: "Partner folgt", trade: "Technische Ausführung", location: "Wird nach Freigabe ergänzt" }
+    {
+      number: "01",
+      name: "Willms Bau",
+      trade: "Bauunternehmen",
+      note: "Website öffnen",
+      logo: "assets/partners/willms-bau.jpg",
+      alt: "Willms Bau GmbH & Co. KG",
+      href: "https://www.willms-gruppe.de/willms-bau/"
+    },
+    {
+      number: "02",
+      name: "Lenz Architektur",
+      trade: "Architektur & Planung",
+      note: "Website öffnen",
+      logo: "assets/partners/lenz-architektur.webp",
+      alt: "Lenz Architektur",
+      href: "https://lenz-architektur.de/"
+    },
+    {
+      number: "03",
+      name: "Elektrotechnik Schrankel",
+      trade: "Elektrotechnik",
+      note: "Website öffnen",
+      logo: "assets/partners/elektrotechnik-schrankel.svg",
+      alt: "Elektrotechnik Schrankel",
+      href: "https://www.elektrotechnik-schrankel.de/"
+    },
+    {
+      number: "04",
+      name: "Weiterer Partner",
+      trade: "Partnernetzwerk",
+      note: "Wird nach Freigabe ergänzt"
+    }
   ])
 });

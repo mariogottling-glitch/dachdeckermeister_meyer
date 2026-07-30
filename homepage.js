@@ -22,17 +22,25 @@
   }
 
   if (partnersRoot) {
-    partnersRoot.innerHTML = data.partners.map(partner => `
-      <article class="home-partner-card" data-placeholder="true">
+    partnersRoot.innerHTML = data.partners.map(partner => {
+      const tag = partner.href ? "a" : "article";
+      const attributes = partner.href
+        ? `href="${partner.href}" target="_blank" rel="noopener noreferrer" aria-label="${partner.name} – Website öffnen"`
+        : `data-placeholder="true"`;
+      const mark = partner.logo
+        ? `<div class="home-partner-logo"><img src="${partner.logo}" alt="${partner.alt}" loading="lazy" decoding="async" /></div>`
+        : `<div class="home-partner-mark" aria-hidden="true">M</div>`;
+      return `
+      <${tag} class="home-partner-card" ${attributes}>
         <span>${partner.number}</span>
-        <div class="home-partner-mark" aria-hidden="true">M</div>
+        ${mark}
         <div>
           <p>${partner.trade}</p>
           <h3>${partner.name}</h3>
-          <small>${partner.location}</small>
+          <small>${partner.note}${partner.href ? " ↗" : ""}</small>
         </div>
-      </article>
-    `).join("");
+      </${tag}>`;
+    }).join("");
   }
 
   const alignHashTarget = () => {
