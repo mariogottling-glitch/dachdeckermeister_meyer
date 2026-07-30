@@ -130,17 +130,18 @@
 
 .home-partners{color:#fff;background:var(--home-dark)}
 .home-section-head-dark>p{color:#bcc4c7}
-.home-partner-grid{max-width:1360px;margin:auto;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.16)}
+.home-partner-grid{max-width:1360px;margin:auto;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:#cbd0d1;border:1px solid #cbd0d1}
 .home-partner-grid:empty{min-height:310px}
-.home-partner-card{min-height:310px;padding:28px;display:flex;flex-direction:column;color:inherit;background:var(--home-card);text-decoration:none;transition:background-color .25s ease}
+.home-partner-card{min-height:310px;padding:28px;display:flex;flex-direction:column;color:var(--home-text);background:#fff;text-decoration:none;transition:background-color .25s ease,transform .25s ease}
+.home-page a.home-partner-card{color:var(--home-text)}
 .home-partner-card>span{color:var(--home-accent);font-size:12px;letter-spacing:.14em}
-.home-partner-mark{width:74px;height:74px;margin:auto;display:grid;place-items:center;color:rgba(255,255,255,.28);font-family:"Montserrat Meyer",Arial,sans-serif;font-size:34px;border:1px solid rgba(255,255,255,.13)}
-.home-partner-logo{width:100%;height:92px;margin:auto;display:flex;align-items:center;justify-content:center;padding:18px;background:#fff}
+.home-partner-mark{width:74px;height:74px;margin:auto;display:grid;place-items:center;color:#98a1a3;font-family:"Montserrat Meyer",Arial,sans-serif;font-size:34px;border:1px solid #d6dadb}
+.home-partner-logo{width:100%;height:92px;margin:auto;display:flex;align-items:center;justify-content:center;padding:6px;background:transparent}
 .home-partner-logo img{width:100%;height:100%;object-fit:contain}
-.home-partner-card p{margin:0 0 8px;color:#aab4b6;font-size:12px;letter-spacing:.1em;text-transform:uppercase}
+.home-partner-card p{margin:0 0 8px;color:#70787b;font-size:12px;letter-spacing:.1em;text-transform:uppercase}
 .home-partner-card h3{margin:0 0 8px;font-family:"Montserrat Meyer",Arial,sans-serif;font-size:22px;text-transform:uppercase}
-.home-partner-card small{color:#8e999c;font-size:13px}
-.home-partner-card[href]:hover,.home-partner-card[href]:focus-visible{background:#293033}
+.home-partner-card small{color:#7a8386;font-size:13px}
+.home-partner-card[href]:hover,.home-partner-card[href]:focus-visible{background:#f2f5f5;transform:translateY(-2px)}
 .home-partner-card[href]:focus-visible{outline:2px solid var(--home-accent);outline-offset:-2px}
 .home-partner-card[href] small{color:var(--home-accent)}
 .home-text-link{max-width:1360px;margin:36px auto 0;display:flex;justify-content:flex-end;gap:14px;color:#fff;font-size:13px;font-weight:700;letter-spacing:.1em;text-decoration:none;text-transform:uppercase}
@@ -217,10 +218,10 @@
   .home-service-card b{right:20px;bottom:20px}
   .home-partner-grid{grid-template-columns:1fr;gap:10px;background:transparent;border:0}
   .home-partner-grid:empty{min-height:790px}
-  .home-partner-card{min-height:190px;display:grid;grid-template-columns:auto 112px minmax(0,1fr);align-items:center;gap:14px;border:1px solid rgba(255,255,255,.14)}
+  .home-partner-card{min-height:190px;display:grid;grid-template-columns:auto 112px minmax(0,1fr);align-items:center;gap:14px;border:1px solid #d5d9da}
   .home-partner-card>span{align-self:start}
   .home-partner-mark{width:62px;height:62px;margin:0;font-size:26px}
-  .home-partner-logo{width:112px;height:68px;margin:0;padding:12px}
+  .home-partner-logo{width:112px;height:68px;margin:0;padding:4px}
   .home-text-link{justify-content:flex-start}
   .home-faq{gap:34px}
   .home-accordion summary{min-height:70px;font-size:16px}
