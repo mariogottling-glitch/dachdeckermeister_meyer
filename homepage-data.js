@@ -44,8 +44,8 @@ window.MEYER_HOMEPAGE_DATA = Object.freeze({
       number: "06",
       title: "Wartungen",
       description: "Dachflächen, Anschlüsse und Entwässerung kontrollieren und langfristig erhalten.",
-      image: "assets/service-steildach-before.jpg",
-      alt: "Bestehendes Steildach vor einer fachlichen Kontrolle",
+      image: "assets/service-wartung-v2.jpg",
+      alt: "Modernes Steildach mit Dachfenster, Zinkrinne und präzise ausgeführten Anschlüssen",
       href: "/leistungen/wartungen/"
     }
   ]),
