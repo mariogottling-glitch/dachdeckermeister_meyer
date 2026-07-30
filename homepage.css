@@ -75,7 +75,7 @@
 .home-hero-content{
   position:relative;
   z-index:1;
-  width:min(1360px,100%);
+  width:min(1536px,100%);
   margin:auto;
   padding:120px clamp(24px,5.5vw,88px) 70px;
 }
@@ -205,7 +205,7 @@
   .home-hero-copy{max-width:33ch;margin:24px 0 30px;font-size:17px;line-height:1.55}
   .home-button{width:100%;min-width:0;min-height:52px}
   .home-scroll-cue{display:none}
-  .home-services,.home-partners,.home-faq{padding:72px 18px}
+  .home-services,.home-partners,.home-faq{padding:72px 20px}
   .home-section-head{margin-bottom:40px}
   .home-section-head h2,.home-faq h2{font-size:clamp(32px,9vw,42px);line-height:1;letter-spacing:-.035em;overflow-wrap:anywhere}
   .home-section-head>p,.home-faq-intro>p:last-child{font-size:16px}
